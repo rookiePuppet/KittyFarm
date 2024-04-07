@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649fc554ab23477d8e848f35bd4cb903, type: 3}
+  m_Name: MapData{Plain}
+  m_EditorClassIdentifier: 
+  mapName: Plain
+  gridOriginCoordinate: {x: -6, y: -21}
+  gridSize: {x: 40, y: 32}
+  propertiesData: {fileID: 11400000, guid: 6fe59df481c643d40b17038710ebde52, type: 2}
+  cropsData: {fileID: 11400000, guid: 8238d3e05afcb1944a192301302b63ad, type: 2}
+  tilesData: {fileID: 11400000, guid: d79d3220b3e890c4ca4b61344a3a7e25, type: 2}

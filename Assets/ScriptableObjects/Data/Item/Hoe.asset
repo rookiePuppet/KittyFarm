@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9c7560f54a5415fb59af045399afb86, type: 3}
+  m_Name: Hoe
+  m_EditorClassIdentifier: 
+  Id: 1000
+  ItemName: hoe
+  Description: hoe
+  IconSprite: {fileID: -405811204, guid: df15b75c04f1a3147a81fbc994509c06, type: 3}
+  Type: 2
+  OperationRange: 1.5

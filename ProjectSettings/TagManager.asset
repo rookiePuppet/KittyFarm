@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Item
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Tilemap
+  - Water
+  - UI
+  - Plantable
+  - Obstacle
+  - NotDroppable
+  - 
+  - 
+  - Map
+  - Crop
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Water
+    uniqueID: 2098833241
+    locked: 0
+  - name: Ground
+    uniqueID: 3601857725
+    locked: 0
+  - name: Dirt
+    uniqueID: 1318398643
+    locked: 0
+  - name: GrassLayerOne
+    uniqueID: 1591313825
+    locked: 0
+  - name: GrassLayerTwo
+    uniqueID: 3339795733
+    locked: 0
+  - name: GroundLayerOne
+    uniqueID: 3365883445
+    locked: 0
+  - name: GroundLayerTwo
+    uniqueID: 2864184291
+    locked: 0
+  - name: Hill
+    uniqueID: 4129881087
+    locked: 0
+  - name: BuildingBack
+    uniqueID: 2033798339
+    locked: 0
+  - name: Furniture
+    uniqueID: 3508129889
+    locked: 0
+  - name: BuildingFront
+    uniqueID: 169194941
+    locked: 0
+  - name: BuildingTop
+    uniqueID: 1669895417
+    locked: 0
+  - name: Indicator
+    uniqueID: 3341251233
+    locked: 0
+  - name: Crop
+    uniqueID: 3081683393
+    locked: 0
+  - name: Instance
+    uniqueID: 1334573103
+    locked: 0
+  - name: Obstacle
+    uniqueID: 2112667305
+    locked: 0
+  - name: Plantable
+    uniqueID: 914340501
+    locked: 0
+  - name: NotDroppable
+    uniqueID: 3902564055
+    locked: 0

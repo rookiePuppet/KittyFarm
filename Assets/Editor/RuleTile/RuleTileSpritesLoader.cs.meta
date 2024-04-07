@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 2f11c81aa12542b4dba0811f0bf8e435
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - spriteListEntryTemplate: {fileID: 9197481963319205126, guid: 799997e2a5f80c64f9f3ba191602ca94, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

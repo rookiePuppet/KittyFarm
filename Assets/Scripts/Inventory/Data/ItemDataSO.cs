@@ -1,0 +1,34 @@
+using UnityEngine;
+
+namespace KittyFarm.InventorySystem
+{
+    [CreateAssetMenu(fileName = "NewItemData", menuName = "Inventory/Item Data")]
+    public class ItemDataSO : ScriptableObject
+    {
+        public int Id;
+        public string ItemName;
+        public string Description;
+        public Sprite IconSprite;
+        public ItemType Type;
+        public float OperationRange;
+
+        protected virtual void OnValidate()
+        {
+            OperationRange = Type switch
+            {
+                ItemType.Seed => 0.5f,
+                ItemType.FarmProduct => 2f,
+                ItemType.Hoe => 1f,
+                _ => OperationRange
+            };
+        }
+    }
+
+    public enum ItemType
+    {
+        Seed,
+        FarmProduct,
+        Hoe,
+        None
+    }
+}

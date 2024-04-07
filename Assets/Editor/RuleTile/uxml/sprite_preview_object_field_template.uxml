@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 0; flex-direction: row; height: 50px; align-items: stretch; justify-content: flex-start; width: auto; flex-wrap: nowrap;">
+        <uie:ObjectField label="Object Field" name="SpriteField" style="flex-grow: 1; justify-content: flex-start; align-items: stretch; align-self: auto; flex-shrink: 0; flex-direction: row; flex-wrap: wrap;" />
+        <ui:VisualElement name="SpritePreview" style="flex-grow: 0; width: 50px; height: 50px; justify-content: flex-start; align-self: auto; background-image: url(&apos;project://database/Assets/Sprout%20Lands%20-%20Sprites%20-%20premium%20pack/Tilesets/ground%20tiles/New%20tiles/Soil_Ground_Tiles.png?fileID=1247860994&amp;guid=e2c805955f9f36e4baec5ae24ae876ba&amp;type=3#Soil_Ground_Tiles_49&apos;);" />
+    </ui:VisualElement>
+</ui:UXML>
