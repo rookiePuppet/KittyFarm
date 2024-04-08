@@ -1,4 +1,7 @@
 using System;
+using System.Threading;
+using System.Threading.Tasks;
+using KittyFarm.CropSystem;
 using KittyFarm.Map;
 using KittyFarm.Time;
 using TMPro;
@@ -13,10 +16,14 @@ namespace KittyFarm.UI
         [SerializeField] private ItemSlotGroup slotGroup;
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private MapPropertiesBoard propertiesBoard;
+        [SerializeField] private CropInfoBoard cropInfoBoard;
 
         public ItemSlot SelectedItem => slotGroup.SelectedSlot;
 
         private GridClickHandler gridClickHandler;
+
+        private CancellationTokenSource propertiesBoardCTS;
+        private CancellationTokenSource cropInfoBoardCTS;
 
         private void Awake()
         {
@@ -26,13 +33,13 @@ namespace KittyFarm.UI
         private void OnEnable()
         {
             TimeManager.Instance.MinutePassed += RefreshTimeBoard;
-            gridClickHandler.TileClicked += RefreshPropertiesBoard;
+            gridClickHandler.TileClicked += ShowPropertiesBoard;
         }
 
         private void OnDisable()
         {
             TimeManager.Instance.MinutePassed -= RefreshTimeBoard;
-            gridClickHandler.TileClicked -= RefreshPropertiesBoard;
+            gridClickHandler.TileClicked -= ShowPropertiesBoard;
         }
 
         private void Start()
@@ -40,8 +47,6 @@ namespace KittyFarm.UI
             RefreshTimeBoard();
 
             exitButton.onClick.AddListener(Application.Quit);
-            
-            propertiesBoard.Hide();
         }
 
         private void RefreshTimeBoard()
@@ -50,10 +55,40 @@ namespace KittyFarm.UI
             timeText.text = $"{currentTime.Hour} : {currentTime.Minute}";
         }
 
-        private void RefreshPropertiesBoard(TilePropertiesInfo info)
+        private async void ShowPropertiesBoard(TilePropertiesInfo info)
         {
-            propertiesBoard.Show();
-            propertiesBoard.Refresh(info);
+            propertiesBoardCTS?.Cancel();
+            propertiesBoardCTS = new CancellationTokenSource();
+
+            try
+            {
+                propertiesBoard.Show();
+                propertiesBoard.Refresh(info);
+
+                await Task.Delay(1500, propertiesBoardCTS.Token);
+                propertiesBoard.Hide();
+            }
+            catch (OperationCanceledException)
+            {
+            }
+        }
+
+        public async void ShowCropInfoBoard(CropInfo cropInfo)
+        {
+            cropInfoBoardCTS?.Cancel();
+            cropInfoBoardCTS = new CancellationTokenSource();
+
+            try
+            {
+                cropInfoBoard.Show();
+                cropInfoBoard.Refresh(cropInfo);
+
+                await Task.Delay(1500, cropInfoBoardCTS.Token);
+                cropInfoBoard.Hide();
+            }
+            catch (OperationCanceledException)
+            {
+            }
         }
     }
 }

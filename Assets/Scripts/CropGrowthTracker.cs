@@ -32,7 +32,8 @@ namespace KittyFarm.CropSystem
         {
             var stageIndex = 0;
 
-            var growthDuration = (TimeManager.Instance.CurrentTime - growthDetails.PlantedTime).Minutes;
+            var growthDuration = (TimeManager.Instance.CurrentTime - growthDetails.PlantedTime).TotalHours;
+            print($"{TimeManager.Instance.CurrentTime}, {growthDetails.PlantedTime}");
             foreach (var stage in growthDetails.Data.Stages)
             {
                 if (growthDuration >= stage.GrowthDuration)
@@ -48,6 +49,11 @@ namespace KittyFarm.CropSystem
         public void AddCrop(Crop crop)
         {
             crops.Add(crop);
+        }
+
+        public void RemoveCrop(Crop crop)
+        {
+            crops.Remove(crop);
         }
     }
 }

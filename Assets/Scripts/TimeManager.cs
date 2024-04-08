@@ -1,5 +1,6 @@
 using System;
 using Framework;
+using UnityEngine;
 
 namespace KittyFarm.Time
 {
@@ -10,15 +11,22 @@ namespace KittyFarm.Time
         public event Action HourPassed;
         public event Action DayPassed;
 
-        public DateTime CurrentTime => DateTime.Now;
+        public DateTime CurrentTime;
 
         private DateTime lastTime;
 
         private void Start()
         {
+            CurrentTime = DateTime.Now;
             lastTime = CurrentTime;
 
             InvokeRepeating(nameof(CheckTime), 0, 1);
+            InvokeRepeating(nameof(PlusOneMinute), 0, 1);
+        }
+
+        public void PlusOneMinute()
+        {
+            CurrentTime += TimeSpan.FromSeconds(1);
         }
 
         private void CheckTime()
@@ -44,6 +52,14 @@ namespace KittyFarm.Time
             }
 
             lastTime = CurrentTime;
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                CurrentTime += TimeSpan.FromHours(1);
+            }
         }
 
         public static TimeSpan GetTimeSpanBetween(DateTime start, DateTime end)

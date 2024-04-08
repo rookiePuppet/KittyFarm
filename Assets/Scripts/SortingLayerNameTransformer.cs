@@ -11,7 +11,7 @@ namespace KittyFarm.Map
             TilemapSortingLayer.Dirt => "耕地",
             TilemapSortingLayer.GrassLayerOne => "草层1",
             TilemapSortingLayer.GrassLayerTwo => "草层2",
-            _ => throw new ArgumentOutOfRangeException(nameof(layer), layer, null)
+            _ => "未知"
         };
     }
 }

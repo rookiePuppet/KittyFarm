@@ -8,12 +8,9 @@ namespace KittyFarm.CropSystem
     {
         public List<CropGrowthDetails> GrowthDetails = new();
 
-        public void SaveCropData()
+        public void RemoveCropData(CropGrowthDetails growthDetails)
         {
-            GrowthDetails.Clear();
-
-            var growthDetails = SearchAllCrop().Select(crop => crop.GrowthDetails);
-            GrowthDetails.AddRange(growthDetails);
+            GrowthDetails.Remove(growthDetails);
         }
 
         public void SaveCropData(CropGrowthDetails growthDetails)

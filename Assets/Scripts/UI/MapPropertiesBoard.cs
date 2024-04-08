@@ -1,32 +1,41 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace KittyFarm.UI
 {
     public class MapPropertiesBoard : UIBase
     {
-        [SerializeField] private TilePropertyEntry typeNameProperty;
+        [SerializeField] private Sprite trueSprite;
+        [SerializeField] private Sprite falseSprite;
+        
         [SerializeField] private TilePropertyEntry tilePlantableProperty;
         [SerializeField] private TilePropertyEntry tileDroppableProperty;
 
+        private RectTransform rectTransform => (RectTransform)transform;
+
+        public override void Show()
+        {
+            var isVisibleBefore = IsVisible;
+            
+            base.Show();
+
+            if (isVisibleBefore) return;
+            
+            var position = rectTransform.anchoredPosition;
+            rectTransform.anchoredPosition = new Vector2(position.x, 0);
+            rectTransform.DOAnchorPosY(position.y, 0.5f);
+        }
+
         public void Refresh(TilePropertiesInfo info)
         {
-            typeNameProperty.SetInfoText(info.TileTypeName);
-            tilePlantableProperty.SetInfoBool(info.IsTilePlantable);
-            tileDroppableProperty.SetInfoBool(info.IsTileDroppable);
+            tilePlantableProperty.SetValueSprite(SpriteFromValue(info.IsTilePlantable));
+            tileDroppableProperty.SetValueSprite(SpriteFromValue(info.IsTileDroppable));
         }
-    }
 
-    public struct TilePropertiesInfo
-    {
-        public string TileTypeName;
-        public bool IsTilePlantable;
-        public bool IsTileDroppable;
-
-        public TilePropertiesInfo(string tileTypeName, bool isTilePlantable, bool isTileDroppable)
+        private Sprite SpriteFromValue(bool value) => value switch
         {
-            TileTypeName = tileTypeName;
-            IsTilePlantable = isTilePlantable;
-            IsTileDroppable = isTileDroppable;
-        }
+            true => trueSprite,
+            false => falseSprite
+        };
     }
 }

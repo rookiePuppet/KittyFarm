@@ -1,10 +1,31 @@
+using System;
+using KittyFarm.Service;
+using KittyFarm.Time;
+using KittyFarm.UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace KittyFarm.CropSystem
 {
-    public class Crop : MonoBehaviour
+    public class Crop : MonoBehaviour, IPointerClickHandler
     {
-        public CropDataSO Data => GrowthDetails.Data;
+        private CropDataSO Data => GrowthDetails.Data;
+        private CropInfo Info
+        {
+            get
+            {
+                var growthTime = TimeManager.Instance.CurrentTime - GrowthDetails.PlantedTime;
+                print($"{growthTime.TotalMinutes}, {Data.TotalMinuteToBeRipe}");
+                var info = new CropInfo
+                {
+                    CropName = Data.CropName,
+                    Stage = GrowthDetails.CurrentStage,
+                    GrowthTime = growthTime,
+                    RipeRate = (float)growthTime.TotalMinutes / Data.TotalMinuteToBeRipe
+                };
+                return info;
+            }
+        }
 
         public CropGrowthDetails GrowthDetails { get; private set; }
         public int CurrentStage
@@ -35,26 +56,17 @@ namespace KittyFarm.CropSystem
             spriteRenderer.sprite = Data.Stages[CurrentStage].Sprite;
         }
 
-        private void Update()
+        public void OnPointerClick(PointerEventData eventData)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                CurrentStage++;
-                if (CurrentStage >= Data.Stages.Length)
-                {
-                    CurrentStage = 0;
-                }
+            UIManager.Instance.GetUI<GameView>().ShowCropInfoBoard(Info);
 
-                UpdateCropVisual();
+            if (GrowthDetails.IsRipe)
+            {
+                var amount = ServiceCenter.Get<ICropService>().HarvestCrop(this);
+                print($"收获了{amount}个{Data.CropName}");
+
+                Destroy(gameObject);
             }
         }
-
-        /*[SerializeField] private CropDataSO data;
-        private void OnDrawGizmos()
-        {
-            if (data == null) return;
-            spriteRenderer ??= GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = data.StageSprites[0];
-        }*/
     }
 }

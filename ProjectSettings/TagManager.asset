@@ -51,6 +51,9 @@ TagManager:
   - name: Dirt
     uniqueID: 1318398643
     locked: 0
+  - name: Dig
+    uniqueID: 880381203
+    locked: 0
   - name: GrassLayerOne
     uniqueID: 1591313825
     locked: 0

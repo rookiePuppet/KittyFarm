@@ -1,4 +1,5 @@
 using System;
+using KittyFarm.Time;
 using UnityEngine;
 
 namespace KittyFarm.CropSystem
@@ -12,7 +13,7 @@ namespace KittyFarm.CropSystem
         public DateTime PlantedTime;
 
         public int MaxStage => Data.Stages.Length - 1;
-        public bool IsRipe => CurrentStage >= MaxStage;
+        public bool IsRipe => (TimeManager.Instance.CurrentTime - PlantedTime).TotalMinutes > Data.TotalMinuteToBeRipe;
 
         public CropGrowthDetails(Vector3Int cellPosition, CropDataSO data, int initialStage = 0)
         {

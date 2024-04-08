@@ -5,6 +5,7 @@ namespace KittyFarm.Map
         Water,
         Ground,
         Dirt,
+        Dig,
         GrassLayerOne,
         GrassLayerTwo,
     }

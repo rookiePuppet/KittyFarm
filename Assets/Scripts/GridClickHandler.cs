@@ -25,7 +25,6 @@ namespace KittyFarm.Map
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            print(eventData.position);
             HandleGridClick(eventData.position);
         }
         
@@ -36,8 +35,6 @@ namespace KittyFarm.Map
             var mapService = ServiceCenter.Get<IMapService>();
             var cellPosition = mapService.WorldToCell(worldPosition);
             var cellCenter = mapService.GetCellCenterWorld(cellPosition);
-
-            print("Click on grid");
 
             if (indicator != null) indicator.ShowAt(cellCenter);
 

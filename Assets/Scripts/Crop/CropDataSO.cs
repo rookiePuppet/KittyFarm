@@ -1,3 +1,4 @@
+using System.Linq;
 using KittyFarm.InventorySystem;
 using UnityEngine;
 
@@ -9,5 +10,7 @@ namespace KittyFarm.CropSystem
         public string CropName;
         public FarmProductDataSO ProductData;
         public CropGrowthStage[] Stages;
+
+        public int TotalMinuteToBeRipe => Stages.Sum((stage) => stage.GrowthDuration * 60);
     }
 }

@@ -28,6 +28,20 @@ namespace KittyFarm.InventorySystem
             return true;
         }
 
+        public bool AddItem(ItemDataSO itemData, int itemAmount)
+        {
+            var index = FindIndexToAddItem(itemData);
+            if (index == -1) return false;
+
+            var inventoryItem = items[index];
+            inventoryItem.itemData = itemData;
+            inventoryItem.count += itemAmount;
+
+            ItemChanged?.Invoke(index, inventoryItem);
+
+            return true;
+        }
+
         public void RemoveItemAll(int index)
         {
             var inventoryItem = items[index];

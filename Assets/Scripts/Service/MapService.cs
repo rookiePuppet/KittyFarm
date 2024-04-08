@@ -11,7 +11,7 @@ namespace KittyFarm.Service
     public class MapService : MonoBehaviour, IMapService
     {
         [SerializeField] private TileBase dugTile;
-        
+
         public MapDataSO MapData { get; private set; }
         public IEnumerable<Tilemap> Tilemaps => tilemapsOrganizer.Tilemaps;
         public IEnumerable<Tuple<Tilemap, TilemapRenderer>> TilemapsWithRenderers =>
@@ -35,6 +35,11 @@ namespace KittyFarm.Service
             }
         }
 
+        public TilePropertiesInfo GetTilePropertiesInfoAt(Vector3Int cellPosition) =>
+            new TilePropertiesInfo(IsPlantableAt(cellPosition), IsNotDroppableAt(cellPosition));
+
+        public bool IsNotDroppableAt(Vector3Int cellPosition) => MapData.PropertiesData.IsNotDroppable(cellPosition);
+
         #region Digging Methods
 
         public bool IsPlantableAt(Vector3Int cellPosition) => MapData.PropertiesData.IsPlantable(cellPosition);
@@ -54,29 +59,9 @@ namespace KittyFarm.Service
             });
         }
 
-        public TilePropertiesInfo GetTilePropertiesInfoAt(Vector3Int cellPosition)
-        {
-            var layer = TilemapSortingLayer.Ground;
-            foreach (var (tilemap, tilemapRenderer) in TilemapsWithRenderers)
-            {
-                var tile = tilemap.GetTile(cellPosition);
-                if (tile != null)
-                {
-                    layer = Enum.Parse<TilemapSortingLayer>(tilemapRenderer.sortingLayerName);
-                    print(tile.name);
-
-                    break;
-                }
-            }
-
-            var typeName = SortingLayerNameTransformer.GetSortingLayerName(layer);
-
-            return new TilePropertiesInfo(typeName, IsPlantableAt(cellPosition), false);
-        }
-
         private void SetDugTileAt(Vector3Int gridCoordinate)
         {
-            var dirt = tilemapsOrganizer.GetTilemap(TilemapSortingLayer.Dirt);
+            var dirt = tilemapsOrganizer.GetTilemap(TilemapSortingLayer.Dig);
             dirt.SetTile(gridCoordinate, dugTile);
         }
 

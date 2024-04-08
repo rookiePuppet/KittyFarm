@@ -1,10 +1,12 @@
 using KittyFarm.CropSystem;
+using KittyFarm.InventorySystem;
 using UnityEngine;
 
 namespace KittyFarm.Service
 {
     public class CropService : MonoBehaviour, ICropService
     {
+        [SerializeField] private PlayerInventorySO playerInventory;
         [SerializeField] private GameObject cropPrefab;
         [SerializeField] private Vector3 cropOnGridCellOffset = new(0.5f, 0.25f);
         
@@ -25,6 +27,23 @@ namespace KittyFarm.Service
             }
         }
 
+        public int HarvestCrop(Crop crop)
+        {
+            var growthDetails = crop.GrowthDetails;
+            
+            // 添加
+            playerInventory.AddItem(growthDetails.Data.ProductData, 1);
+            
+            // 删除地图上该位置作物数据
+            cropsData.RemoveCropData(growthDetails);
+            
+            growthTracker.RemoveCrop(crop);
+            
+            // TODO：随机数量机制
+            // 返回收获数量
+            return 1;
+        }
+
         public void PlantCrop(CropDataSO cropData, Vector3Int cellPosition)
         {
             var crop = SpawnCrop(cellPosition);
@@ -32,8 +51,6 @@ namespace KittyFarm.Service
             crop.Initialize(growthDetails);
             
             cropsData.SaveCropData(growthDetails);
-
-            Debug.Log("Crop Planted: " + growthDetails.PlantedTime);
         }
 
         public bool CheckCropIsRipeAt(Vector3Int cellPosition)
