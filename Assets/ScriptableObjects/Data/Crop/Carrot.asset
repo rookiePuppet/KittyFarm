@@ -1,5 +1,5 @@
 %YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
+%TAG !u! tag:yousandi.cn,2023:
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a065b350575c45449b5f3683a135ca59, type: 3}
   m_Name: Carrot
   m_EditorClassIdentifier: 
+  Id: 1
   CropName: Carrot
   ProductData: {fileID: 11400000, guid: b7aa2261685b98747a3fed805059a461, type: 2}
   Stages:

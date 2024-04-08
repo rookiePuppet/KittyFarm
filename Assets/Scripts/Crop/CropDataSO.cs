@@ -7,10 +7,11 @@ namespace KittyFarm.CropSystem
     [CreateAssetMenu(fileName = "NewCropData", menuName = "Crop/Crop Data")]
     public class CropDataSO : ScriptableObject
     {
+        public int Id;
         public string CropName;
         public FarmProductDataSO ProductData;
         public CropGrowthStage[] Stages;
 
-        public int TotalMinuteToBeRipe => Stages.Sum((stage) => stage.GrowthDuration * 60);
+        public int TotalMinutesToBeRipe => Stages.Sum((stage) => stage.GrowthDuration * 60);
     }
 }

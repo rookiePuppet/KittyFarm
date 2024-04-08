@@ -3,15 +3,18 @@ using System;
 namespace KittyFarm.InventorySystem
 {
     [Serializable]
-
     public class InventoryItem
     {
-        public ItemDataSO itemData;
+        public int itemId;
         public int count;
 
-        public InventoryItem(ItemDataSO itemData, int count)
+        public InventoryItem()
         {
-            this.itemData = itemData;
+        }
+
+        public InventoryItem(int itemId, int count)
+        {
+            this.itemId = itemId;
             this.count = count;
         }
     }

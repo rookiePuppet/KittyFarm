@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using KittyFarm.Service;
 using KittyFarm.Time;
 using UnityEngine;
 using Task = System.Threading.Tasks.Task;
@@ -14,15 +16,17 @@ namespace KittyFarm.CropSystem
             TimeManager.Instance.SecondPassed += OnSecondPassed;
         }
 
+        private void OnDisable()
+        {
+            TimeManager.Instance.SecondPassed += OnSecondPassed;
+        }
+
         private async void OnSecondPassed()
         {
             foreach (var crop in crops)
             {
                 var stageIndex = GetCropCurrentStage(crop.GrowthDetails);
-                if (stageIndex != crop.CurrentStage)
-                {
-                    crop.CurrentStage = stageIndex;
-                }
+                crop.GrowthDetails.CurrentStage = stageIndex;
                 
                 await Task.Yield();
             }
@@ -32,9 +36,12 @@ namespace KittyFarm.CropSystem
         {
             var stageIndex = 0;
 
+            var cropData = ServiceCenter.Get<ICropService>().CropDatabase.GetCropData(growthDetails.DataId);
+
             var growthDuration = (TimeManager.Instance.CurrentTime - growthDetails.PlantedTime).TotalHours;
-            print($"{TimeManager.Instance.CurrentTime}, {growthDetails.PlantedTime}");
-            foreach (var stage in growthDetails.Data.Stages)
+            // print($"{TimeManager.Instance.CurrentTime}, {growthDetails.PlantedTime}");
+
+            foreach (var stage in cropData.Stages)
             {
                 if (growthDuration >= stage.GrowthDuration)
                 {
@@ -43,7 +50,7 @@ namespace KittyFarm.CropSystem
                 }
             }
 
-            return Mathf.Min(stageIndex, growthDetails.Data.Stages.Length - 1);
+            return Mathf.Min(stageIndex, cropData.Stages.Length - 1);
         }
 
         public void AddCrop(Crop crop)

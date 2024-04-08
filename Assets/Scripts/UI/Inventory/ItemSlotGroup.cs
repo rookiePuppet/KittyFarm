@@ -44,9 +44,14 @@ namespace KittyFarm.UI
         private void UpdateAllSlots()
         {
             var index = 0;
-            foreach (var item in inventory.Items)
+            foreach (var item in inventory.AllItems)
             {
                 SetSlotDataAt(index++, item);
+            }
+
+            for (; index < PlayerInventorySO.MaxSize; index++)
+            {
+                SetSlotDataAt(index, new InventoryItem(0, 0));
             }
         }
 
@@ -65,7 +70,7 @@ namespace KittyFarm.UI
         public void EndDragItemSlot(PointerEventData eventData)
         {
             dragImage.gameObject.SetActive(false);
-            
+
             var draggedSlot = eventData.pointerDrag.GetComponent<ItemSlot>();
 
             var raycastHit = Physics2D.Raycast(eventData.position, Vector3.forward, 5f, LayerMask.GetMask("UI"));
@@ -73,17 +78,17 @@ namespace KittyFarm.UI
             {
                 var targetSlot = raycastHit.transform.GetComponent<ItemSlot>();
                 if (targetSlot == draggedSlot) return;
-                
+
                 inventory.SwapTwoItems(draggedSlot.Index, targetSlot.Index);
             }
             else
             {
-                var itemData = draggedSlot.Item.itemData;
+                var itemData = draggedSlot.ItemData;
                 var amount = draggedSlot.Item.count;
-                
-                var position =  Camera.main.ScreenToWorldPoint(eventData.position);
+
+                var position = ServiceCenter.Get<IPointerService>().ScreenToWorldPoint(eventData.position);
                 ServiceCenter.Get<IItemService>().SpawnItemAt(position, itemData, amount);
-                
+
                 inventory.RemoveItemAll(draggedSlot.Index);
 
                 draggedSlot.IsSelected = false;

@@ -9,34 +9,25 @@ namespace KittyFarm.CropSystem
 {
     public class Crop : MonoBehaviour, IPointerClickHandler
     {
-        private CropDataSO Data => GrowthDetails.Data;
+        private CropDataSO Data => ServiceCenter.Get<ICropService>().CropDatabase.GetCropData(GrowthDetails.DataId);
         private CropInfo Info
         {
             get
             {
                 var growthTime = TimeManager.Instance.CurrentTime - GrowthDetails.PlantedTime;
-                print($"{growthTime.TotalMinutes}, {Data.TotalMinuteToBeRipe}");
+                // print($"{growthTime.TotalMinutes}, {Data.TotalMinutesToBeRipe}");
                 var info = new CropInfo
                 {
                     CropName = Data.CropName,
                     Stage = GrowthDetails.CurrentStage,
                     GrowthTime = growthTime,
-                    RipeRate = (float)growthTime.TotalMinutes / Data.TotalMinuteToBeRipe
+                    RipeRate = (float)growthTime.TotalMinutes / Data.TotalMinutesToBeRipe
                 };
                 return info;
             }
         }
 
         public CropGrowthDetails GrowthDetails { get; private set; }
-        public int CurrentStage
-        {
-            get => GrowthDetails.CurrentStage;
-            set
-            {
-                GrowthDetails.CurrentStage = value;
-                UpdateCropVisual();
-            }
-        }
 
         private SpriteRenderer spriteRenderer;
 
@@ -53,16 +44,18 @@ namespace KittyFarm.CropSystem
 
         private void UpdateCropVisual()
         {
-            spriteRenderer.sprite = Data.Stages[CurrentStage].Sprite;
+            spriteRenderer.sprite = Data.Stages[GrowthDetails.CurrentStage].Sprite;
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
             UIManager.Instance.GetUI<GameView>().ShowCropInfoBoard(Info);
 
-            if (GrowthDetails.IsRipe)
+            var cropService = ServiceCenter.Get<ICropService>();
+
+            if (cropService.IsCropRipe(GrowthDetails))
             {
-                var amount = ServiceCenter.Get<ICropService>().HarvestCrop(this);
+                var amount = cropService.HarvestCrop(this);
                 print($"收获了{amount}个{Data.CropName}");
 
                 Destroy(gameObject);

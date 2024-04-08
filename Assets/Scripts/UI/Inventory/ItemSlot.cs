@@ -1,5 +1,6 @@
 using System;
 using KittyFarm.InventorySystem;
+using KittyFarm.Service;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,8 +10,8 @@ namespace KittyFarm.UI
 {
     public class ItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
-        [SerializeField] public Image itemIcon;
-        [SerializeField] public TextMeshProUGUI itemCountText;
+        [SerializeField] private Image itemIcon;
+        [SerializeField] private TextMeshProUGUI itemCountText;
         [SerializeField] private GameObject selectedBackgroundObject;
 
         private ItemSlotGroup Group { get; set; }
@@ -31,10 +32,18 @@ namespace KittyFarm.UI
             set
             {
                 item = value;
-                IsEmpty = item.count == 0 && item.itemData == null;
+                IsEmpty = item.itemId <= 0 || item.count == 0;
+
+                if (!IsEmpty)
+                {
+                    ItemData = ServiceCenter.Get<IItemService>().ItemDatabase.GetItemData(item.itemId);
+                }
+
                 DataChanged?.Invoke();
             }
         }
+
+        public ItemDataSO ItemData { get; private set; }
 
         private event Action DataChanged;
 
@@ -69,7 +78,7 @@ namespace KittyFarm.UI
                 return;
             }
 
-            itemIcon.sprite = item.itemData.IconSprite;
+            itemIcon.sprite = ItemData.IconSprite;
             itemIcon.enabled = true;
             itemCountText.text = item.count.ToString();
         }

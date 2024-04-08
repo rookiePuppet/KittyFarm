@@ -1,4 +1,5 @@
 using DG.Tweening;
+using UnityEditor;
 using UnityEngine;
 
 namespace KittyFarm.UI
@@ -12,6 +13,12 @@ namespace KittyFarm.UI
         [SerializeField] private TilePropertyEntry tileDroppableProperty;
 
         private RectTransform rectTransform => (RectTransform)transform;
+
+        [ContextMenu("Text")]
+        public void Test()
+        {
+            print(AssetDatabase.GetAssetPath(trueSprite));
+        }
 
         public override void Show()
         {

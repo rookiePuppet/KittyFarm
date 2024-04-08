@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using KittyFarm.Data;
 using UnityEngine;
 
 namespace KittyFarm.InventorySystem
@@ -7,12 +8,12 @@ namespace KittyFarm.InventorySystem
     [CreateAssetMenu(fileName = "PlayerInventory", menuName = "Inventory/PlayerInventory")]
     public class PlayerInventorySO : ScriptableObject
     {
-        [field: SerializeField] private List<InventoryItem> items { get; set; } = new(MaxCapacity);
-        public IEnumerable<InventoryItem> Items => items;
+        public const int MaxSize = 9;
+        
+        [SerializeField] private List<InventoryItem> items;
+        public IEnumerable<InventoryItem> AllItems => items;
 
         public event Action<int, InventoryItem> ItemChanged;
-
-        private const int MaxCapacity = 10;
 
         public bool AddItem(Item item)
         {
@@ -20,7 +21,7 @@ namespace KittyFarm.InventorySystem
             if (index == -1) return false;
 
             var inventoryItem = items[index];
-            inventoryItem.itemData = item.ItemData;
+            inventoryItem.itemId = item.ItemData.Id;
             inventoryItem.count += item.Count;
 
             ItemChanged?.Invoke(index, inventoryItem);
@@ -34,7 +35,7 @@ namespace KittyFarm.InventorySystem
             if (index == -1) return false;
 
             var inventoryItem = items[index];
-            inventoryItem.itemData = itemData;
+            inventoryItem.itemId = itemData.Id;
             inventoryItem.count += itemAmount;
 
             ItemChanged?.Invoke(index, inventoryItem);
@@ -46,7 +47,7 @@ namespace KittyFarm.InventorySystem
         {
             var inventoryItem = items[index];
 
-            inventoryItem.itemData = null;
+            inventoryItem.itemId = -1;
             inventoryItem.count = 0;
 
             ItemChanged?.Invoke(index, inventoryItem);
@@ -70,16 +71,26 @@ namespace KittyFarm.InventorySystem
             var index = 0;
             foreach (var item in items)
             {
+                if (item.itemId <= 0) continue;
+
                 // 找到已存在的物品，直接返回它
-                if (item.itemData == itemData) return index;
+                if (item.itemId == itemData.Id) return index;
                 // 记录最小的空位索引
                 if (emptyIndex != -1) continue;
-                if (item.itemData == null || item.count == 0) emptyIndex = index;
+                if (item.itemId <= 0 || item.count == 0) emptyIndex = index;
 
                 index++;
             }
 
             return emptyIndex;
+        }
+
+        public void LoadData(PlayerInventoryData inventoryData)
+        {
+            items = inventoryData.ItemList;
+            
+            if (items.Count != 0) return;
+            for(var index = 0; index < MaxSize; index++) items.Add(new InventoryItem());
         }
     }
 }

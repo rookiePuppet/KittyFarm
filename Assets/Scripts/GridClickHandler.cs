@@ -10,7 +10,7 @@ namespace KittyFarm.Map
     public class GridClickHandler : MonoBehaviour, IPointerClickHandler
     {
         private ItemSlot SelectedItem => UIManager.Instance.GetUI<GameView>().SelectedItem;
-        private ItemDataSO SelectedItemData => SelectedItem.Item.itemData;
+        private ItemDataSO SelectedItemData => SelectedItem.ItemData;
 
         private PlayerController player;
         private GridCellIndicator indicator;

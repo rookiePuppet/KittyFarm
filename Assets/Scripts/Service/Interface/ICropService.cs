@@ -5,6 +5,8 @@ namespace KittyFarm.Service
 {
     public interface ICropService : IService
     {
+        public CropDatabaseSO CropDatabase { get; }
+        public bool IsCropRipe(CropGrowthDetails growthDetails);
         public int HarvestCrop(Crop crop);
         public void PlantCrop(CropDataSO cropData, Vector3Int cellPosition);
         public bool CheckCropExistsAt(Vector3Int cellPosition);

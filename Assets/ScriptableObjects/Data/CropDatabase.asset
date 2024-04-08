@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f362914f7e30465bbad655fd2519ecb3, type: 3}
-  m_Name: Carrot
+  m_Script: {fileID: 11500000, guid: 7f35f504aa114b8a8fdc5f1aecbe9037, type: 3}
+  m_Name: CropDatabase
   m_EditorClassIdentifier: 
-  Id: 2
-  ItemName: "\u80E1\u841D\u535C"
-  Description: 
-  IconSprite: {fileID: 494684525, guid: d3c4d58bacacea44789df3cc5dbb06c3, type: 3}
-  Type: 1
-  OperationRange: 2
+  <CropDataList>k__BackingField:
+  - {fileID: 11400000, guid: 27851aee2e444374a822e15b417c3698, type: 2}
+  - {fileID: 11400000, guid: 4c4c677227921444ebcac3fd98326704, type: 2}

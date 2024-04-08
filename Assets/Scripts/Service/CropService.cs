@@ -1,5 +1,6 @@
 using KittyFarm.CropSystem;
 using KittyFarm.InventorySystem;
+using KittyFarm.Time;
 using UnityEngine;
 
 namespace KittyFarm.Service
@@ -9,6 +10,10 @@ namespace KittyFarm.Service
         [SerializeField] private PlayerInventorySO playerInventory;
         [SerializeField] private GameObject cropPrefab;
         [SerializeField] private Vector3 cropOnGridCellOffset = new(0.5f, 0.25f);
+
+        [SerializeField] private CropDatabaseSO cropDatabase;
+
+        public CropDatabaseSO CropDatabase => cropDatabase;
         
         private CropGrowthTracker growthTracker;
 
@@ -17,7 +22,7 @@ namespace KittyFarm.Service
         public void LoadCropsOnMap(MapCropsDataSO data)
         {
             cropsData = data;
-            
+
             growthTracker = new GameObject("Crops").AddComponent<CropGrowthTracker>();
 
             foreach (var growthDetails in cropsData.GrowthDetails)
@@ -26,19 +31,21 @@ namespace KittyFarm.Service
                 crop.Initialize(growthDetails);
             }
         }
-
+        
         public int HarvestCrop(Crop crop)
         {
             var growthDetails = crop.GrowthDetails;
-            
+
+            var cropData = cropDatabase.GetCropData(growthDetails.DataId);
+
             // 添加
-            playerInventory.AddItem(growthDetails.Data.ProductData, 1);
-            
+            playerInventory.AddItem(cropData.ProductData, 1);
+
             // 删除地图上该位置作物数据
             cropsData.RemoveCropData(growthDetails);
-            
+
             growthTracker.RemoveCrop(crop);
-            
+
             // TODO：随机数量机制
             // 返回收获数量
             return 1;
@@ -47,20 +54,28 @@ namespace KittyFarm.Service
         public void PlantCrop(CropDataSO cropData, Vector3Int cellPosition)
         {
             var crop = SpawnCrop(cellPosition);
-            var growthDetails = new CropGrowthDetails(cellPosition, cropData);
+            var growthDetails = new CropGrowthDetails(cellPosition, cropData.Id);
             crop.Initialize(growthDetails);
-            
+
             cropsData.SaveCropData(growthDetails);
         }
 
         public bool CheckCropIsRipeAt(Vector3Int cellPosition)
         {
-            if (TryGetCropAt(cellPosition, out var crop))
-            {
-                return crop.GrowthDetails.IsRipe;
-            }
+            if (!TryGetCropAt(cellPosition, out var crop)) return false;
 
-            return false;
+            var cropData = cropDatabase.GetCropData(crop.GrowthDetails.DataId);
+            var growthMinutes = (TimeManager.Instance.CurrentTime - crop.GrowthDetails.PlantedTime).TotalMinutes;
+            
+            return growthMinutes > cropData.TotalMinutesToBeRipe;
+        }
+
+        public bool IsCropRipe(CropGrowthDetails growthDetails)
+        {
+            var cropData = cropDatabase.GetCropData(growthDetails.DataId);
+            var growthMinutes = (TimeManager.Instance.CurrentTime - growthDetails.PlantedTime).TotalMinutes;
+            
+            return growthMinutes > cropData.TotalMinutesToBeRipe;
         }
 
         private Crop SpawnCrop(Vector3Int cellPosition)
@@ -70,7 +85,7 @@ namespace KittyFarm.Service
 
             var crop = cropObj.GetComponent<Crop>();
             growthTracker.AddCrop(crop);
-            
+
             return crop;
         }
 
