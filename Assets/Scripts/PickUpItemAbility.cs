@@ -27,6 +27,8 @@ namespace KittyFarm
 
             var item = other.GetComponent<Item>();
             PickUpItem(item);
+            
+            print("捡到" + item.ItemData.ItemName);
         }
     }
 }

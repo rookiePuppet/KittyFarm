@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
   items:
-  - itemId: 1
-    count: 2
+  - itemId: 0
+    count: 0
   - itemId: 0
     count: 0
   - itemId: 0

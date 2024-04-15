@@ -15,13 +15,13 @@ namespace KittyFarm.Data
         private void Start()
         {
             LoadPlayerInventoryData();
-
-            print(Application.persistentDataPath);
+            LoadMapCropsData();
         }
 
         private void OnApplicationQuit()
         {
             SavePlayerInventoryData();
+            SaveMapCropsData();
         }
 
         private void LoadPlayerInventoryData()
@@ -36,6 +36,22 @@ namespace KittyFarm.Data
         {
             var inventoryItems = playerInventory.AllItems.ToList();
             JsonDataManager.Instance.SaveData(new PlayerInventoryData { ItemList = inventoryItems });
+        }
+
+        private void LoadMapCropsData()
+        {
+            var data = JsonDataManager.Instance.LoadData<MapCropsData>() ?? new MapCropsData()
+            {
+                CropDetailsList = new List<CropGrowthDetails>()
+            };
+            
+            mapCropsData.LoadData(data);
+        }
+
+        private void SaveMapCropsData()
+        {
+            var cropsData = mapCropsData.GrowthDetails.ToList();
+            JsonDataManager.Instance.SaveData(new MapCropsData() {CropDetailsList = cropsData});
         }
     }
 }

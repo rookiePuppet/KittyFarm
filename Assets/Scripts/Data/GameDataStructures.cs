@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using KittyFarm.CropSystem;
 using KittyFarm.InventorySystem;
 
 namespace KittyFarm.Data
@@ -8,5 +9,11 @@ namespace KittyFarm.Data
     public class PlayerInventoryData
     {
         public List<InventoryItem> ItemList;
+    }
+
+    [Serializable]
+    public class MapCropsData
+    {
+        public List<CropGrowthDetails> CropDetailsList;
     }
 }

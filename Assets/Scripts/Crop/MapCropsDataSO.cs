@@ -1,27 +1,30 @@
 using System.Collections.Generic;
 using System.Linq;
+using KittyFarm.Data;
 using UnityEngine;
 
 namespace KittyFarm.CropSystem
 {
     public class MapCropsDataSO : ScriptableObject
     {
-        public List<CropGrowthDetails> GrowthDetails = new();
+        [SerializeField] private List<CropGrowthDetails> growthDetails = new();
 
-        public void RemoveCropData(CropGrowthDetails growthDetails)
+        public IEnumerable<CropGrowthDetails> GrowthDetails => growthDetails;
+
+        public void RemoveCropData(CropGrowthDetails details)
         {
-            GrowthDetails.Remove(growthDetails);
+            growthDetails.Remove(details);
         }
 
-        public void SaveCropData(CropGrowthDetails growthDetails)
+        public void SaveCropData(CropGrowthDetails details)
         {
-            GrowthDetails.Add(growthDetails);
+            growthDetails.Add(details);
         }
 
-        private IEnumerable<Crop> SearchAllCrop()
+        public void LoadData(MapCropsData data)
         {
-            var allCrops = FindObjectsOfType<Crop>();
-            return allCrops;
+            growthDetails.Clear();
+            growthDetails.AddRange(data.CropDetailsList);
         }
     }
 }

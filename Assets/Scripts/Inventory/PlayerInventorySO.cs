@@ -18,6 +18,7 @@ namespace KittyFarm.InventorySystem
         public bool AddItem(Item item)
         {
             var index = FindIndexToAddItem(item.ItemData);
+            Debug.Log(index);
             if (index == -1) return false;
 
             var inventoryItem = items[index];
@@ -71,14 +72,17 @@ namespace KittyFarm.InventorySystem
             var index = 0;
             foreach (var item in items)
             {
-                if (item.itemId <= 0) continue;
-
-                // 找到已存在的物品，直接返回它
-                if (item.itemId == itemData.Id) return index;
                 // 记录最小的空位索引
-                if (emptyIndex != -1) continue;
-                if (item.itemId <= 0 || item.count == 0) emptyIndex = index;
-
+                if ((item.itemId <= 0 || item.count == 0) && emptyIndex == -1)
+                {
+                    emptyIndex = index;
+                }
+                // 找到已存在的物品，直接返回它
+                else if (item.itemId == itemData.Id)
+                {
+                    return index;
+                }
+                
                 index++;
             }
 

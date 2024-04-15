@@ -29,6 +29,8 @@ namespace KittyFarm.InventorySystem
             count = amount;
 
             spriteRenderer.sprite = data.IconSprite;
+            
+            print(data.ItemName);
         }
     }
 }
