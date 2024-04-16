@@ -1,15 +1,33 @@
 using System;
+using System.Collections;
 using Framework;
+using UnityEngine.SceneManagement;
 
 namespace KittyFarm
 {
     public class SceneLoader : MonoSingleton<SceneLoader>
     {
-        public event Action<string> MapLoaded;
+        public static event Action<int> MapLoaded;
 
-        public void LoadMapScene(string mapName)
+        private void Start()
         {
-            MapLoaded?.Invoke(mapName);
+            SceneManager.LoadScene("StartScene", LoadSceneMode.Additive);
+        }
+
+        public void LoadMapScene(int mapId)
+        {
+            StartCoroutine(LoadSceneAsync("Plain",
+                () =>
+                {
+                    SceneManager.SetActiveScene(SceneManager.GetSceneByName("Plain")); 
+                    MapLoaded?.Invoke(mapId);
+                }));
+        }
+
+        private IEnumerator LoadSceneAsync(string name, Action onSceneLoaded = null)
+        {
+            yield return SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
+            onSceneLoaded?.Invoke();
         }
     }
 }

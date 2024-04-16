@@ -15,7 +15,7 @@ namespace KittyFarm
 
         public void Use(Vector3 worldPosition, Vector3Int cellPosition)
         {
-            var wasDugAtCell = ServiceCenter.Get<IMapService>().CheckWasDugAt(cellPosition);
+            var wasDugAtCell = ServiceCenter.Get<ITilemapService>().CheckWasDugAt(cellPosition);
             if (!wasDugAtCell) return;
             
             var cropService = ServiceCenter.Get<ICropService>();

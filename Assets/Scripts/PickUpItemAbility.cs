@@ -1,3 +1,4 @@
+using KittyFarm.Data;
 using KittyFarm.InventorySystem;
 using UnityEngine;
 
@@ -5,16 +6,11 @@ namespace KittyFarm
 {
     public class PickUpItemAbility : MonoBehaviour
     {
-        private PlayerInventorySO inventory;
-
-        private void Awake()
-        {
-            inventory = GetComponentInParent<PlayerController>().Inventory;
-        }
+        private PlayerInventorySO Inventory => GameDataCenter.Instance.PlayerInventory;
 
         private void PickUpItem(Item item)
         {
-            var isItemAdded = inventory.AddItem(item);
+            var isItemAdded = Inventory.AddItem(item);
             if (isItemAdded)
             {
                 Destroy(item.gameObject);
@@ -27,8 +23,6 @@ namespace KittyFarm
 
             var item = other.GetComponent<Item>();
             PickUpItem(item);
-            
-            print("捡到" + item.ItemData.ItemName);
         }
     }
 }

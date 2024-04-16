@@ -13,8 +13,7 @@ namespace KittyFarm.UI
         [SerializeField] private Image itemIcon;
         [SerializeField] private TextMeshProUGUI itemCountText;
         [SerializeField] private GameObject selectedBackgroundObject;
-
-        private ItemSlotGroup Group { get; set; }
+        
         public int Index { get; private set; }
         public bool IsEmpty { get; private set; }
         public bool IsSelected
@@ -42,16 +41,13 @@ namespace KittyFarm.UI
                 DataChanged?.Invoke();
             }
         }
-
         public ItemDataSO ItemData { get; private set; }
-
+        
+        private ItemSlotGroup Group { get; set; }
         private event Action DataChanged;
-
         private InventoryItem item;
         private bool isSelected;
-
         private Button slotButton;
-
         private RectTransform rectTransform;
 
         private void Awake()

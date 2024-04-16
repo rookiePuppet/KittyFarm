@@ -1,18 +1,20 @@
+using KittyFarm.Data;
 using KittyFarm.InventorySystem;
 using KittyFarm.Service;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace KittyFarm.UI
 {
     public class ItemSlotGroup : MonoBehaviour
     {
-        [SerializeField] private PlayerInventorySO inventory;
         [SerializeField] private Image dragImage;
-
+        
         public ItemSlot SelectedSlot { get; private set; }
-
+        
+        private PlayerInventorySO Inventory => GameDataCenter.Instance.PlayerInventory;
         private ItemSlot[] slots;
 
         private void Awake()
@@ -22,12 +24,12 @@ namespace KittyFarm.UI
 
         private void OnEnable()
         {
-            inventory.ItemChanged += SetSlotDataAt;
+            Inventory.ItemChanged += SetSlotDataAt;
         }
 
         private void OnDisable()
         {
-            inventory.ItemChanged -= SetSlotDataAt;
+            Inventory.ItemChanged -= SetSlotDataAt;
         }
 
         private void Start()
@@ -44,14 +46,9 @@ namespace KittyFarm.UI
         private void UpdateAllSlots()
         {
             var index = 0;
-            foreach (var item in inventory.AllItems)
+            foreach (var item in Inventory.AllItems)
             {
                 SetSlotDataAt(index++, item);
-            }
-
-            for (; index < PlayerInventorySO.MaxSize; index++)
-            {
-                SetSlotDataAt(index, new InventoryItem(0, 0));
             }
         }
 
@@ -79,7 +76,7 @@ namespace KittyFarm.UI
                 var targetSlot = raycastHit.transform.GetComponent<ItemSlot>();
                 if (targetSlot == draggedSlot) return;
 
-                inventory.SwapTwoItems(draggedSlot.Index, targetSlot.Index);
+                Inventory.SwapTwoItems(draggedSlot.Index, targetSlot.Index);
             }
             else
             {
@@ -89,7 +86,7 @@ namespace KittyFarm.UI
                 var position = ServiceCenter.Get<IPointerService>().ScreenToWorldPoint(eventData.position);
                 ServiceCenter.Get<IItemService>().SpawnItemAt(position, itemData, amount);
 
-                inventory.RemoveItemAll(draggedSlot.Index);
+                Inventory.RemoveItemAll(draggedSlot.Index);
 
                 draggedSlot.IsSelected = false;
             }

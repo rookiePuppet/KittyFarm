@@ -21,14 +21,14 @@ namespace KittyFarm
 
         public void Use(Vector3 worldPosition, Vector3Int cellPosition)
         {
-            var isDiggable = ServiceCenter.Get<IMapService>().IsPlantableAt(cellPosition);
+            var isDiggable = ServiceCenter.Get<ITilemapService>().IsPlantableAt(cellPosition);
             if (!isDiggable) return;
             
-            var gridService = ServiceCenter.Get<IMapService>();
-            var wasDug = gridService.CheckWasDugAt(cellPosition);
+            var tilemapService = ServiceCenter.Get<ITilemapService>();
+            var wasDug = tilemapService.CheckWasDugAt(cellPosition);
             if (wasDug) return;
 
-            animation.PlayUseTool(direction, ToolType.Hoe, () => { gridService.DigAt(cellPosition); });
+            animation.PlayUseTool(direction, ToolType.Hoe, () => { tilemapService.DigAt(cellPosition); });
         }
     }
 }

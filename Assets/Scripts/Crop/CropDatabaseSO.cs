@@ -9,6 +9,6 @@ namespace KittyFarm.CropSystem
     {
         [field: SerializeField] private List<CropDataSO> CropDataList { get; set; }
         
-        public CropDataSO GetCropData(int id) => CropDataList.Find(x => x.Id == id);
+        public CropDataSO GetCropData(int id) => CropDataList.Find(cropData => cropData.Id == id);
     }
 }

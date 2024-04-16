@@ -42,6 +42,18 @@ namespace KittyFarm.CropSystem
             UpdateCropVisual();
         }
 
+        public void UpdateCurrentStage(int newStage)
+        {
+            var lastStage = GrowthDetails.CurrentStage;
+            
+            GrowthDetails.CurrentStage = newStage;
+            
+            if (lastStage != newStage)
+            {
+                UpdateCropVisual();
+            }
+        }
+
         private void UpdateCropVisual()
         {
             spriteRenderer.sprite = Data.Stages[GrowthDetails.CurrentStage].Sprite;

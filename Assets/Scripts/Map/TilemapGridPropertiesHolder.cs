@@ -8,10 +8,10 @@ namespace KittyFarm.Map
     [ExecuteInEditMode]
     public class TilemapGridPropertiesHolder : MonoBehaviour
     {
-        public Dictionary<TilePropertyType, Tilemap> PropertyTilemaps { get; private set; } = new();
-
         [SerializeField] private List<TilemapWithTilePropertyType> content;
-
+        
+        public Dictionary<TilePropertyType, Tilemap> PropertyTilemaps { get; private set; } = new();
+        
         private void OnDisable()
         {
             if (Application.isPlaying) return;

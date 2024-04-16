@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,8 +11,6 @@ namespace KittyFarm.Map
         [SerializeField] private MapDataSO mapData;
         [SerializeField] private TilemapGridPropertiesHolder propertiesHolder;
 
-        private MapPropertiesDataSO PropertiesData => mapData.PropertiesData;
-
         public void GenerateData()
         {
             if (Application.isPlaying) return;
@@ -21,8 +20,7 @@ namespace KittyFarm.Map
                 propertiesHolder.LoadGridProperties();
             }
 
-            PropertiesData.Data =
-                new TileProperties[Enum.GetValues(typeof(TilePropertyType)).Length];
+            var tilePropertiesData = new TileProperties[Enum.GetValues(typeof(TilePropertyType)).Length];
 
             foreach (var (type, tilemap) in propertiesHolder.PropertyTilemaps)
             {
@@ -42,12 +40,16 @@ namespace KittyFarm.Map
                     properties.Add(newProperty);
                 }
 
-                PropertiesData.Data[(int)type] = new TileProperties
+                tilePropertiesData[(int)type] = new TileProperties
                 {
                     PropertyType = type,
                     Properties = properties
                 };
             }
+
+            var propertiesDataField =
+                typeof(MapDataSO).GetField("propertiesData", BindingFlags.NonPublic | BindingFlags.Instance);
+            propertiesDataField?.SetValue(mapData, tilePropertiesData);
 
 #if UNITY_EDITOR
             EditorUtility.SetDirty(mapData);

@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4598454026626064720}
   - component: {fileID: 6827856622901682316}
+  - component: {fileID: 6447019511383417365}
   m_Layer: 5
   m_Name: OnScreenControllerView
   m_TagString: Untagged
@@ -158,3 +159,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8650984721711184932}
   m_CullTransparentMesh: 1
+--- !u!114 &6447019511383417365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650984721711184932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71bc62034c984d53b42dd3989eec18b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

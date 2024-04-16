@@ -1,4 +1,5 @@
 using KittyFarm.CropSystem;
+using KittyFarm.Data;
 using KittyFarm.InventorySystem;
 using KittyFarm.Time;
 using UnityEngine;
@@ -7,22 +8,30 @@ namespace KittyFarm.Service
 {
     public class CropService : MonoBehaviour, ICropService
     {
-        [SerializeField] private PlayerInventorySO playerInventory;
         [SerializeField] private GameObject cropPrefab;
         [SerializeField] private Vector3 cropOnGridCellOffset = new(0.5f, 0.25f);
-
         [SerializeField] private CropDatabaseSO cropDatabase;
 
         public CropDatabaseSO CropDatabase => cropDatabase;
+        private PlayerInventorySO PlayerInventory => GameDataCenter.Instance.PlayerInventory;
+        private MapCropsDataSO cropsData;
         
         private CropGrowthTracker growthTracker;
 
-        private MapCropsDataSO cropsData;
-
-        public void LoadCropsOnMap(MapCropsDataSO data)
+        private void OnEnable()
         {
-            cropsData = data;
+            SceneLoader.MapLoaded += Initialize;
+        }
 
+        private void OnDisable()
+        {
+            SceneLoader.MapLoaded -= Initialize;
+        }
+
+        private void Initialize(int mapId)
+        {
+            cropsData = GameDataCenter.Instance.GetMapCropsData(mapId);
+            
             growthTracker = new GameObject("Crops").AddComponent<CropGrowthTracker>();
 
             foreach (var growthDetails in cropsData.GrowthDetails)
@@ -31,7 +40,7 @@ namespace KittyFarm.Service
                 crop.Initialize(growthDetails);
             }
         }
-        
+
         public int HarvestCrop(Crop crop)
         {
             var growthDetails = crop.GrowthDetails;
@@ -39,10 +48,10 @@ namespace KittyFarm.Service
             var cropData = cropDatabase.GetCropData(growthDetails.DataId);
 
             // 添加
-            playerInventory.AddItem(cropData.ProductData, 1);
+            PlayerInventory.AddItem(cropData.ProductData, 1);
 
             // 删除地图上该位置作物数据
-            cropsData.RemoveCropData(growthDetails);
+            cropsData.RemoveCrop(growthDetails);
 
             growthTracker.RemoveCrop(crop);
 
@@ -57,7 +66,7 @@ namespace KittyFarm.Service
             var growthDetails = new CropGrowthDetails(cellPosition, cropData.Id);
             crop.Initialize(growthDetails);
 
-            cropsData.SaveCropData(growthDetails);
+            cropsData.AddCrop(growthDetails);
         }
 
         public bool CheckCropIsRipeAt(Vector3Int cellPosition)
@@ -66,7 +75,7 @@ namespace KittyFarm.Service
 
             var cropData = cropDatabase.GetCropData(crop.GrowthDetails.DataId);
             var growthMinutes = (TimeManager.Instance.CurrentTime - crop.GrowthDetails.PlantedTime).TotalMinutes;
-            
+
             return growthMinutes > cropData.TotalMinutesToBeRipe;
         }
 
@@ -74,7 +83,7 @@ namespace KittyFarm.Service
         {
             var cropData = cropDatabase.GetCropData(growthDetails.DataId);
             var growthMinutes = (TimeManager.Instance.CurrentTime - growthDetails.PlantedTime).TotalMinutes;
-            
+
             return growthMinutes > cropData.TotalMinutesToBeRipe;
         }
 
@@ -91,14 +100,14 @@ namespace KittyFarm.Service
 
         public bool CheckCropExistsAt(Vector3Int cellPosition)
         {
-            var cellCenter = ServiceCenter.Get<IMapService>().GetCellCenterWorld(cellPosition);
+            var cellCenter = ServiceCenter.Get<ITilemapService>().GetCellCenterWorld(cellPosition);
             var result = Physics2D.OverlapCircle(cellCenter, 0.5f, LayerMask.GetMask("Crop"));
             return result != null;
         }
 
         private bool TryGetCropAt(Vector3Int cellPosition, out Crop crop)
         {
-            var cellCenter = ServiceCenter.Get<IMapService>().GetCellCenterWorld(cellPosition);
+            var cellCenter = ServiceCenter.Get<ITilemapService>().GetCellCenterWorld(cellPosition);
             var overlapResult = Physics2D.OverlapPoint(cellCenter, LayerMask.GetMask("Crop"));
             if (overlapResult == null)
             {

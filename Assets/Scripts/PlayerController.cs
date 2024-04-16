@@ -1,65 +1,65 @@
 using System;
-using KittyFarm;
+using KittyFarm.Data;
 using KittyFarm.InventorySystem;
 using KittyFarm.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+namespace KittyFarm
 {
-    [SerializeField] private InputReader inputReader;
-    [SerializeField] private PlayerInventorySO inventory;
-
-    [SerializeField] private float movementVelocity = 5f;
-
-    public PlayerInventorySO Inventory => inventory;
-
-    public PlayerAnimation Animation { get; private set; }
-
-    private new Rigidbody2D rigidbody;
-
-    private Vector2 MovementInput { get; set; }
-
-    public event Action<Vector2> Moving;
-    public event Action MoveStopped;
-
-    private void Awake()
+    public class PlayerController : MonoBehaviour
     {
-        Animation = GetComponentInChildren<PlayerAnimation>();
-        rigidbody = GetComponent<Rigidbody2D>();
-    }
+        [SerializeField] private InputReader inputReader;
 
-    private void OnEnable()
-    {
-        inputReader.Move += OnMove;
-    }
+        [SerializeField] private float movementVelocity = 5f;
 
-    private void OnDisable()
-    {
-        inputReader.Move -= OnMove;
-    }
-    
-    private void Start()
-    {
-        SceneLoader.Instance.LoadMapScene("Plain");
+        private PlayerInventorySO Inventory => GameDataCenter.Instance.PlayerInventory;
 
-        UIManager.Instance.ShowUI<GameView>();
-    }
+        public PlayerAnimation Animation { get; private set; }
 
-    private void OnMove(InputAction.CallbackContext context)
-    {
-        if (context.performed)
+        private new Rigidbody2D rigidbody;
+
+        private Vector2 MovementInput { get; set; }
+
+        public event Action<Vector2> Moving;
+        public event Action MoveStopped;
+
+        private void Awake()
         {
-            MovementInput = context.ReadValue<Vector2>();
-            rigidbody.velocity = MovementInput * movementVelocity;
-
-            Moving?.Invoke(MovementInput);
+            Animation = GetComponentInChildren<PlayerAnimation>();
+            rigidbody = GetComponent<Rigidbody2D>();
         }
-        else if (context.canceled)
-        {
-            rigidbody.velocity = Vector2.zero;
 
-            MoveStopped?.Invoke();
+        private void OnEnable()
+        {
+            inputReader.Move += OnMove;
+        }
+
+        private void OnDisable()
+        {
+            inputReader.Move -= OnMove;
+        }
+
+        private void Start()
+        {
+            Application.targetFrameRate = 60;
+        }
+
+        private void OnMove(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                MovementInput = context.ReadValue<Vector2>();
+                rigidbody.velocity = MovementInput * movementVelocity;
+
+                Moving?.Invoke(MovementInput);
+            }
+            else if (context.canceled)
+            {
+                rigidbody.velocity = Vector2.zero;
+
+                MoveStopped?.Invoke();
+            }
         }
     }
 }

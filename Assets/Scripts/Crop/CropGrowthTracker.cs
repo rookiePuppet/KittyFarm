@@ -21,14 +21,12 @@ namespace KittyFarm.CropSystem
             TimeManager.Instance.SecondPassed += OnSecondPassed;
         }
 
-        private async void OnSecondPassed()
+        private void OnSecondPassed()
         {
             foreach (var crop in crops)
             {
                 var stageIndex = GetCropCurrentStage(crop.GrowthDetails);
-                crop.GrowthDetails.CurrentStage = stageIndex;
-                
-                await Task.Yield();
+                crop.UpdateCurrentStage(stageIndex);
             }
         }
 

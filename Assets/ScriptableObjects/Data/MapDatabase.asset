@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c181ec857c6e4477811b84b82687845e, type: 3}
-  m_Name: MapCropsData{Plain}
+  m_Script: {fileID: 11500000, guid: 22b2be4faf434a04ace6e413992cdbf3, type: 3}
+  m_Name: MapDatabase
   m_EditorClassIdentifier: 
-  GrowthDetails: []
+  <MapDataList>k__BackingField:
+  - {fileID: 11400000, guid: 4ce39c51ccc3d1446a3f1a4ffcecf013, type: 2}

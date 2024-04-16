@@ -1,6 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
+using KittyFarm.Data;
 using KittyFarm.Map;
 using KittyFarm.UI;
 using UnityEngine;
@@ -8,41 +7,52 @@ using UnityEngine.Tilemaps;
 
 namespace KittyFarm.Service
 {
-    public class MapService : MonoBehaviour, IMapService
+    public class TilemapService : MonoBehaviour, ITilemapService
     {
         [SerializeField] private TileBase dugTile;
 
-        public MapDataSO MapData { get; private set; }
-        public IEnumerable<Tilemap> Tilemaps => tilemapsOrganizer.Tilemaps;
-        public IEnumerable<Tuple<Tilemap, TilemapRenderer>> TilemapsWithRenderers =>
-            tilemapsOrganizer.TilemapsWithRenderers;
-
-        private TilemapsOrganizer tilemapsOrganizer;
+        private MapDataSO propertiesData;
+        private MapTilesDataSO tilesData;
         private Grid currentGrid;
 
-        public void Initialize(string mapName)
+        // public IEnumerable<Tilemap> Tilemaps => tilemapsOrganizer.Tilemaps;
+        // public IEnumerable<Tuple<Tilemap, TilemapRenderer>> TilemapsWithRenderers =>
+        //     tilemapsOrganizer.TilemapsWithRenderers;
+        private TilemapsOrganizer tilemapsOrganizer;
+
+        private void OnEnable()
         {
-            MapData = Resources.Load<MapDataSO>($"MapData/MapData{{{mapName}}}");
+            SceneLoader.MapLoaded += Initialize;
+        }
+
+        private void OnDisable()
+        {
+            SceneLoader.MapLoaded -= Initialize;
+        }
+
+        private void Initialize(int mapId)
+        {
+            propertiesData = GameDataCenter.Instance.GetMapData(mapId);
+            tilesData = GameDataCenter.Instance.GetMapTilesData(mapId);
 
             currentGrid = FindObjectOfType<Grid>();
             tilemapsOrganizer = FindObjectOfType<TilemapsOrganizer>();
-
             tilemapsOrganizer.Initialize(currentGrid.transform);
 
-            foreach (var item in MapData.TilesData.TileDetailsData)
+            foreach (var item in tilesData.AllTilesDetails)
             {
                 SetDugTileAt(item.CellPosition);
             }
         }
 
         public TilePropertiesInfo GetTilePropertiesInfoAt(Vector3Int cellPosition) =>
-            new TilePropertiesInfo(IsPlantableAt(cellPosition), IsNotDroppableAt(cellPosition));
+            new(IsPlantableAt(cellPosition), IsNotDroppableAt(cellPosition));
 
-        public bool IsNotDroppableAt(Vector3Int cellPosition) => MapData.PropertiesData.IsNotDroppable(cellPosition);
+        public bool IsNotDroppableAt(Vector3Int cellPosition) => propertiesData.IsNotDroppableAt(cellPosition);
 
         #region Digging Methods
 
-        public bool IsPlantableAt(Vector3Int cellPosition) => MapData.PropertiesData.IsPlantable(cellPosition);
+        public bool IsPlantableAt(Vector3Int cellPosition) => propertiesData.IsPlantableAt(cellPosition);
 
         public bool CheckWasDugAt(Vector3Int cellPosition) =>
             TryGetTileDetailsOn(cellPosition, out var tileDetails) && tileDetails.IsDug;
@@ -51,11 +61,10 @@ namespace KittyFarm.Service
         {
             SetDugTileAt(cellPosition);
 
-            SaveTileDetails(new TileDetails
+            tilesData.AddTileDetails(new TileDetails
             {
                 CellPosition = cellPosition,
-                IsDug = true,
-                LastDugTime = DateTime.Now
+                IsDug = true
             });
         }
 
@@ -71,7 +80,7 @@ namespace KittyFarm.Service
 
         private bool TryGetTileDetailsOn(Vector3Int gridCoordinate, out TileDetails tileDetails)
         {
-            foreach (var item in MapData.TilesData.TileDetailsData.Where(item => item.CellPosition == gridCoordinate))
+            foreach (var item in tilesData.AllTilesDetails.Where(item => item.CellPosition == gridCoordinate))
             {
                 tileDetails = item;
                 return true;
@@ -79,11 +88,6 @@ namespace KittyFarm.Service
 
             tileDetails = default;
             return false;
-        }
-
-        private void SaveTileDetails(TileDetails tileDetails)
-        {
-            MapData.TilesData.SaveTileDetails(tileDetails);
         }
 
         #endregion

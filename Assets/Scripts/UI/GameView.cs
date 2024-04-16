@@ -2,7 +2,6 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using KittyFarm.CropSystem;
-using KittyFarm.Map;
 using KittyFarm.Time;
 using TMPro;
 using UnityEngine;
@@ -19,34 +18,25 @@ namespace KittyFarm.UI
         [SerializeField] private CropInfoBoard cropInfoBoard;
 
         public ItemSlot SelectedItem => slotGroup.SelectedSlot;
-
-        private GridClickHandler gridClickHandler;
-
+        
         private CancellationTokenSource propertiesBoardCTS;
         private CancellationTokenSource cropInfoBoardCTS;
-
-        private void Awake()
-        {
-            gridClickHandler = FindObjectOfType<GridClickHandler>();
-        }
 
         private void OnEnable()
         {
             TimeManager.Instance.MinutePassed += RefreshTimeBoard;
-            gridClickHandler.TileClicked += ShowPropertiesBoard;
         }
 
         private void OnDisable()
         {
             TimeManager.Instance.MinutePassed -= RefreshTimeBoard;
-            gridClickHandler.TileClicked -= ShowPropertiesBoard;
         }
 
         private void Start()
         {
             RefreshTimeBoard();
 
-            exitButton.onClick.AddListener(Application.Quit);
+            exitButton.onClick.AddListener(GameManager.Instance.ExitGame);
         }
 
         private void RefreshTimeBoard()
@@ -55,7 +45,7 @@ namespace KittyFarm.UI
             timeText.text = $"{currentTime.Hour} : {currentTime.Minute}";
         }
 
-        private async void ShowPropertiesBoard(TilePropertiesInfo info)
+        public async void ShowPropertiesBoard(TilePropertiesInfo info)
         {
             propertiesBoardCTS?.Cancel();
             propertiesBoardCTS = new CancellationTokenSource();

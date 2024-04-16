@@ -15,12 +15,16 @@ namespace KittyFarm.Map
         private PlayerController player;
         private GridCellIndicator indicator;
 
+        private Grid grid;
+
         public event Action<TilePropertiesInfo> TileClicked;
 
         private void Awake()
         {
             player = FindObjectOfType<PlayerController>();
             indicator = FindObjectOfType<GridCellIndicator>();
+
+            grid = GetComponent<Grid>();
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -32,9 +36,8 @@ namespace KittyFarm.Map
         {
             var worldPosition = ServiceCenter.Get<IPointerService>().ScreenToWorldPoint(screenPosition);
 
-            var mapService = ServiceCenter.Get<IMapService>();
-            var cellPosition = mapService.WorldToCell(worldPosition);
-            var cellCenter = mapService.GetCellCenterWorld(cellPosition);
+            var cellPosition = grid.WorldToCell(worldPosition);
+            var cellCenter = grid.GetCellCenterWorld(cellPosition);
 
             if (indicator != null) indicator.ShowAt(cellCenter);
 
@@ -62,8 +65,8 @@ namespace KittyFarm.Map
 
         private void TileCheck(Vector3Int cellPosition)
         {
-            var info = ServiceCenter.Get<IMapService>().GetTilePropertiesInfoAt(cellPosition);
-            TileClicked?.Invoke(info);
+            var info = ServiceCenter.Get<ITilemapService>().GetTilePropertiesInfoAt(cellPosition);
+            UIManager.Instance.GetUI<GameView>().ShowPropertiesBoard(info);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace KittyFarm.CropSystem
             CellPosition = cellPosition;
             DataId = dataId;
             CurrentStage = initialStage;
-            PlantedTimeTicks = DateTime.Now.Ticks;
+            PlantedTimeTicks = (DateTime.Now - TimeSpan.FromMinutes(59)-TimeSpan.FromSeconds(55)).Ticks;
         }
     }
 }

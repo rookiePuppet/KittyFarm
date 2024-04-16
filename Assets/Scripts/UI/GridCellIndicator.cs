@@ -3,7 +3,7 @@ using System.Threading;
 using UnityEngine;
 using Task = System.Threading.Tasks.Task;
 
-namespace KittyFarm
+namespace KittyFarm.UI
 {
     public class GridCellIndicator : MonoBehaviour
     {

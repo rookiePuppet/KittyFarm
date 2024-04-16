@@ -1,30 +1,44 @@
 using System.Collections.Generic;
-using System.Linq;
+using FrameWork;
 using KittyFarm.Data;
-using UnityEngine;
 
 namespace KittyFarm.CropSystem
 {
-    public class MapCropsDataSO : ScriptableObject
+    public class MapCropsDataSO : ScriptableData
     {
-        [SerializeField] private List<CropGrowthDetails> growthDetails = new();
+        public IEnumerable<CropGrowthDetails> GrowthDetails => data.CropDetailsList;
+        public override string DataFileName => "MapCropsData";
+        
+        private MapCropsData data;
 
-        public IEnumerable<CropGrowthDetails> GrowthDetails => growthDetails;
-
-        public void RemoveCropData(CropGrowthDetails details)
+        public void RemoveCrop(CropGrowthDetails details)
         {
-            growthDetails.Remove(details);
+            data.CropDetailsList.Remove(details);
+            SaveData();
         }
 
-        public void SaveCropData(CropGrowthDetails details)
+        public void AddCrop(CropGrowthDetails details)
         {
-            growthDetails.Add(details);
+            data.CropDetailsList.Add(details);
+            SaveData();
         }
 
-        public void LoadData(MapCropsData data)
+        public void LoadData(int mapId)
         {
-            growthDetails.Clear();
-            growthDetails.AddRange(data.CropDetailsList);
+            LoadData(GetDataFileNameFor(mapId));
+            data.mapId = mapId;
         }
+        
+        public override void LoadData(string fileName)
+        {
+            data = JsonDataManager.LoadData<MapCropsData>(fileName);
+        }
+
+        public override void SaveData()
+        {
+            JsonDataManager.SaveData(data, GetDataFileNameFor(data.mapId));
+        }
+
+        private string GetDataFileNameFor(int mapId) => $"{DataFileName}_{mapId}";
     }
 }

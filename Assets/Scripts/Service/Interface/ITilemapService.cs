@@ -7,12 +7,10 @@ using UnityEngine.Tilemaps;
 
 namespace KittyFarm.Service
 {
-    public interface IMapService : IService
+    public interface ITilemapService : IService
     {
-        public MapDataSO MapData { get; }
-        public IEnumerable<Tilemap> Tilemaps { get; }
-        public IEnumerable<Tuple<Tilemap, TilemapRenderer>> TilemapsWithRenderers { get; }
-        public void Initialize(string mapName);
+        // public IEnumerable<Tilemap> Tilemaps { get; }
+        // public IEnumerable<Tuple<Tilemap, TilemapRenderer>> TilemapsWithRenderers { get; }
         public TilePropertiesInfo GetTilePropertiesInfoAt(Vector3Int cellPosition);
         public bool IsNotDroppableAt(Vector3Int cellPosition);
         public bool IsPlantableAt(Vector3Int cellPosition);
