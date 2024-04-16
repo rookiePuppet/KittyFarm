@@ -38,11 +38,14 @@ namespace KittyFarm.Map
 
             var cellPosition = grid.WorldToCell(worldPosition);
             var cellCenter = grid.GetCellCenterWorld(cellPosition);
-
-            if (indicator != null) indicator.ShowAt(cellCenter);
-
+            
             TileCheck(cellPosition);
 
+            if (indicator != null)
+            {
+                indicator.ShowAt(cellCenter);
+            }
+            
             if (SelectedItem != null)
             {
                 try

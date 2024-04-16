@@ -20,6 +20,8 @@ namespace KittyFarm.Service
         //     tilemapsOrganizer.TilemapsWithRenderers;
         private TilemapsOrganizer tilemapsOrganizer;
 
+        private Tilemap digTilemap;
+
         private void OnEnable()
         {
             SceneLoader.MapLoaded += Initialize;
@@ -36,8 +38,10 @@ namespace KittyFarm.Service
             tilesData = GameDataCenter.Instance.GetMapTilesData(mapId);
 
             currentGrid = FindObjectOfType<Grid>();
-            tilemapsOrganizer = FindObjectOfType<TilemapsOrganizer>();
-            tilemapsOrganizer.Initialize(currentGrid.transform);
+            tilemapsOrganizer = currentGrid.GetComponent<TilemapsOrganizer>();
+            tilemapsOrganizer.Initialize();
+
+            digTilemap = tilemapsOrganizer.GetTilemap(TilemapSortingLayer.Dig);
 
             foreach (var item in tilesData.AllTilesDetails)
             {
@@ -70,8 +74,7 @@ namespace KittyFarm.Service
 
         private void SetDugTileAt(Vector3Int gridCoordinate)
         {
-            var dirt = tilemapsOrganizer.GetTilemap(TilemapSortingLayer.Dig);
-            dirt.SetTile(gridCoordinate, dugTile);
+            digTilemap.SetTile(gridCoordinate, dugTile);
         }
 
         #endregion

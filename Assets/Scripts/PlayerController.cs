@@ -9,8 +9,6 @@ namespace KittyFarm
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private InputReader inputReader;
-
         [SerializeField] private float movementVelocity = 5f;
 
         private PlayerInventorySO Inventory => GameDataCenter.Instance.PlayerInventory;
@@ -32,16 +30,17 @@ namespace KittyFarm
 
         private void OnEnable()
         {
-            inputReader.Move += OnMove;
+            InputReader.Move += OnMove;
         }
 
         private void OnDisable()
         {
-            inputReader.Move -= OnMove;
+            InputReader.Move -= OnMove;
         }
 
         private void Start()
         {
+            InputReader.EnableInput();
             Application.targetFrameRate = 60;
         }
 

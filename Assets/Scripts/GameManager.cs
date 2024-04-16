@@ -1,6 +1,7 @@
 using System;
 using Framework;
-using UnityEngine.Device;
+using UnityEngine;
+using Application = UnityEngine.Device.Application;
 
 namespace KittyFarm
 {

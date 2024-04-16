@@ -1,27 +1,26 @@
 using System;
-using UnityEngine;
+using Framework;
 using UnityEngine.InputSystem;
 
 namespace KittyFarm
 {
-    [CreateAssetMenu(fileName = "InputReader", menuName = "InputReader")]
-    public class InputReader : ScriptableObject
+    public class InputReader: Singleton<InputReader>
     {
-        public event Action<InputAction.CallbackContext> Move;
+        public static event Action<InputAction.CallbackContext> Move;
         
-        private PlayerInputActions inputActions;
-
-        private void OnEnable()
+        private static readonly PlayerInputActions inputActions = new ();
+        
+        static InputReader()
         {
-            inputActions = new PlayerInputActions();
-            inputActions.Gameplay.Enable();
-
             inputActions.Gameplay.Move.started += OnMove;
             inputActions.Gameplay.Move.performed += OnMove;
             inputActions.Gameplay.Move.canceled += OnMove;
         }
 
-        private void OnMove(InputAction.CallbackContext context)
+        public static void DisableInput() => inputActions.Gameplay.Disable();
+        public static void EnableInput() => inputActions.Gameplay.Enable();
+
+        private static void OnMove(InputAction.CallbackContext context)
         {
             Move?.Invoke(context);
         }

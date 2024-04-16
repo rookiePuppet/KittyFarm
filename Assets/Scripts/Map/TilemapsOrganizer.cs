@@ -12,15 +12,15 @@ namespace KittyFarm.Map
         public IEnumerable<Tuple<Tilemap, TilemapRenderer>> TilemapsWithRenderers => tilemaps.Select((tilemap, index) =>
             new Tuple<Tilemap, TilemapRenderer>(tilemap, tilemapRenderers[index]));
 
-        private readonly List<Tilemap> tilemaps = new();
-        private readonly List<TilemapRenderer> tilemapRenderers = new();
+        [SerializeField] private List<Tilemap> tilemaps = new();
+        [SerializeField] private List<TilemapRenderer> tilemapRenderers = new();
 
-        public void Initialize(Transform tilemapsParent)
+        public void Initialize()
         {
             tilemaps.Clear();
             tilemapRenderers.Clear();
 
-            foreach (Transform child in tilemapsParent)
+            foreach (Transform child in transform)
             {
                 if (child.gameObject.layer != LayerMask.NameToLayer("Tilemap")) continue;
                 tilemapRenderers.Add(child.GetComponent<TilemapRenderer>());

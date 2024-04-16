@@ -7,11 +7,10 @@ namespace KittyFarm.Service
     {
         private void Awake()
         {
-            var mapService = GetComponentInChildren<TilemapService>();
-            var cropService = GetComponentInChildren<CropService>();
-            var itemService = GetComponentInChildren<ItemService>();
-
-            var pointerService = GetComponentInChildren<PointerService>();
+            var mapService = GetComponent<TilemapService>();
+            var cropService = GetComponent<CropService>();
+            var itemService = GetComponent<ItemService>();
+            var pointerService = GetComponent<PointerService>();
             
             ServiceCenter.Register<ITilemapService>(mapService);
             ServiceCenter.Register<ICropService>(cropService);

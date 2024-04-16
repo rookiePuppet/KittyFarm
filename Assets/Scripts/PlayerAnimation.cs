@@ -9,6 +9,8 @@ namespace KittyFarm
     {
         private PlayerController player;
         private Animator animator;
+        
+        public bool IsUsingTool { get; private set; }
 
         private static readonly int Move = Animator.StringToHash("Move");
         private static readonly int XInput = Animator.StringToHash("XInput");
@@ -46,18 +48,20 @@ namespace KittyFarm
             animator.SetFloat(YInput, direction.y);
         }
 
-        public async void PlayUseTool(Vector2 direction, ToolType toolType, Action afterAnimation = null)
+        public async Task PlayUseTool(Vector2 direction, ToolType toolType)
         {
+            IsUsingTool = true;
+            
+            animator.SetFloat(XInput, direction.x);
+            animator.SetFloat(YInput, direction.y);
+            
             animator.SetBool(UseTool, true);
             animator.SetInteger(ToolType, (int)toolType);
 
-            animator.SetFloat(XInput, direction.x);
-            animator.SetFloat(YInput, direction.y);
-
-            await Task.Delay(80);
+            await Task.Delay(650);
 
             animator.SetBool(UseTool, false);
-            afterAnimation?.Invoke();
+            IsUsingTool = false;
         }
     }
 }
