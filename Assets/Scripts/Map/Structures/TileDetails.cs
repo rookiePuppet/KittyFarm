@@ -7,7 +7,15 @@ namespace KittyFarm.Map
     public class TileDetails
     {
         public Vector3Int CellPosition;
+        
         public bool IsDug;
-        public bool IsWatered;
+        
+        public float WettingValue;
+        public long LastWateringTimeTicks;
+        public DateTime LastWateringTime
+        {
+            get => new(LastWateringTimeTicks);
+            set => LastWateringTimeTicks = value.Ticks;
+        }
     }
 }

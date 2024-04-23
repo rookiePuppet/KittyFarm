@@ -6,12 +6,12 @@ namespace KittyFarm.Time
 {
     public class TimeManager : MonoSingleton<TimeManager>
     {
-        public event Action SecondPassed;
-        public event Action MinutePassed;
-        public event Action HourPassed;
-        public event Action DayPassed;
+        public static event Action SecondPassed;
+        public static event Action MinutePassed;
+        public static event Action HourPassed;
+        public static event Action DayPassed;
 
-        public DateTime CurrentTime;
+        public static DateTime CurrentTime;
 
         private DateTime lastTime;
 
@@ -69,7 +69,7 @@ namespace KittyFarm.Time
 
         public static TimeSpan GetTimeSpanFrom(DateTime beginTime)
         {
-            return DateTime.Now - beginTime;
+            return CurrentTime - beginTime;
         }
     }
 }

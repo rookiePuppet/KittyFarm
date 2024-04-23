@@ -7,7 +7,7 @@ namespace KittyFarm.CropSystem
     public class MapCropsDataSO : ScriptableData
     {
         public IEnumerable<CropGrowthDetails> GrowthDetails => data.CropDetailsList;
-        public override string DataFileName => "MapCropsData";
+        public override string DataName => "MapCropsData";
         
         private MapCropsData data;
 
@@ -25,7 +25,7 @@ namespace KittyFarm.CropSystem
 
         public void LoadData(int mapId)
         {
-            LoadData(GetDataFileNameFor(mapId));
+            LoadData(GetDataNameFor(mapId));
             data.mapId = mapId;
         }
         
@@ -36,9 +36,9 @@ namespace KittyFarm.CropSystem
 
         public override void SaveData()
         {
-            JsonDataManager.SaveData(data, GetDataFileNameFor(data.mapId));
+            JsonDataManager.SaveData(data, GetDataNameFor(data.mapId));
         }
 
-        private string GetDataFileNameFor(int mapId) => $"{DataFileName}_{mapId}";
+        private string GetDataNameFor(int mapId) => $"{DataName}_{mapId}";
     }
 }

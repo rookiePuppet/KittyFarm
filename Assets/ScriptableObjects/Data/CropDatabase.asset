@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CropDatabase
   m_EditorClassIdentifier: 
   <CropDataList>k__BackingField:
-  - {fileID: 11400000, guid: 27851aee2e444374a822e15b417c3698, type: 2}
   - {fileID: 11400000, guid: 4c4c677227921444ebcac3fd98326704, type: 2}
+  - {fileID: 11400000, guid: 27851aee2e444374a822e15b417c3698, type: 2}

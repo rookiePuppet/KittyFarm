@@ -42,6 +42,7 @@ namespace KittyFarm.Data
             foreach (var tilesData in mapTilesDataDic.Values)
             {
                 tilesData.SaveData();
+                print("退出前保存瓦片数据");
             }
         }
         

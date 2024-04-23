@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
 using KittyFarm.Map;
 using KittyFarm.UI;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 namespace KittyFarm.Service
 {
@@ -16,6 +13,8 @@ namespace KittyFarm.Service
         public bool IsPlantableAt(Vector3Int cellPosition);
         public bool CheckWasDugAt(Vector3Int cellPosition);
         public void DigAt(Vector3Int cellPosition);
+        public void WaterAt(Vector3Int cellPosition);
+        public bool TryGetTileDetailsOn(Vector3Int gridCoordinate, out TileDetails tileDetails);
         public Vector3Int WorldToCell(Vector3 worldPosition);
         public Vector3 GetCellCenterWorld(Vector3Int cellPosition);
     }

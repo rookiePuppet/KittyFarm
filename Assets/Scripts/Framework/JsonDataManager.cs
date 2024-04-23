@@ -6,37 +6,67 @@ namespace FrameWork
 {
     public static class JsonDataManager
     {
-        private static string DataPath => Application.persistentDataPath;
-
-        public static void SaveData(object data, string filePath)
+        private enum SaveType
         {
-            var path = $"{DataPath}/{filePath}.json";
-            var json = JsonUtility.ToJson(data);
-            File.WriteAllText(path, json);
+            JsonFile,
+            PlayerPrefs,
         }
 
-        public static T LoadData<T>(string filePath)
+        private static readonly SaveType saveType = SaveType.JsonFile;
+
+        public static void SaveData(object data, string fileName)
         {
-            T data;
-            
-            var path = $"{DataPath}/{filePath}.json";
-            // 数据文件已存在，从Json中读取
-            if (File.Exists(path))
+            var json = JsonUtility.ToJson(data);
+            if (saveType == SaveType.PlayerPrefs)
             {
-                var json = File.ReadAllText(path);
-                data = JsonUtility.FromJson<T>(json);
+                PlayerPrefs.SetString(GetFilePath(fileName), json);
             }
-            // 数据文件不存在，使用反射创建新的数据实例
             else
             {
-                data = Activator.CreateInstance<T>();
-                foreach (var field in typeof(T).GetFields())
+                File.WriteAllText(GetFilePath(fileName), json);
+            }
+        }
+
+        public static T LoadData<T>(string fileName)
+        {
+            var filePath = GetFilePath(fileName);
+            switch (saveType)
+            {
+                case SaveType.PlayerPrefs when PlayerPrefs.HasKey(filePath):
                 {
-                    field.SetValue(data, Activator.CreateInstance(field.FieldType));
+                    var json = PlayerPrefs.GetString(filePath);
+                    return JsonUtility.FromJson<T>(json);
                 }
+                case SaveType.JsonFile when File.Exists(filePath):
+                {
+                    var json = File.ReadAllText(filePath);
+                    return JsonUtility.FromJson<T>(json);
+                }
+                default:
+                    // 数据文件不存在，使用反射创建新的数据实例
+                    return CreateDataInstance<T>();
+            }
+        }
+
+        private static T CreateDataInstance<T>()
+        {
+            var data = Activator.CreateInstance<T>();
+            foreach (var field in typeof(T).GetFields())
+            {
+                field.SetValue(data, Activator.CreateInstance(field.FieldType));
             }
 
             return data;
+        }
+
+        private static string GetFilePath(string fileName)
+        {
+            return saveType switch
+            {
+                SaveType.JsonFile => $"{Application.persistentDataPath}/{fileName}.json",
+                SaveType.PlayerPrefs => fileName,
+                _ => fileName
+            };
         }
     }
 }

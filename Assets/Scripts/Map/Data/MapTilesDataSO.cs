@@ -7,7 +7,7 @@ namespace KittyFarm.Map
     public class MapTilesDataSO : ScriptableData
     {
         public IEnumerable<TileDetails> AllTilesDetails => data.TileDetailsList;
-        public override string DataFileName => "MapTilesData";
+        public override string DataName => "MapTilesData";
 
         private List<TileDetails> TileDetailsData => data.TileDetailsList;
         private MapTilesData data;
@@ -20,7 +20,7 @@ namespace KittyFarm.Map
 
         public void LoadData(int mapId)
         {
-            LoadData(GetDataFileNameFor(mapId));
+            LoadData(GetDataNameFor(mapId));
             data.mapId = mapId;
         }
 
@@ -31,9 +31,9 @@ namespace KittyFarm.Map
 
         public override void SaveData()
         {
-            JsonDataManager.SaveData(data, GetDataFileNameFor(data.mapId));
+            JsonDataManager.SaveData(data, GetDataNameFor(data.mapId));
         }
 
-        private string GetDataFileNameFor(int mapId) => $"{DataFileName}_{mapId}";
+        private string GetDataNameFor(int mapId) => $"{DataName}_{mapId}";
     }
 }

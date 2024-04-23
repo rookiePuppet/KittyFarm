@@ -1,6 +1,8 @@
+using System;
 using System.Linq;
 using KittyFarm.Data;
 using KittyFarm.Map;
+using KittyFarm.Time;
 using KittyFarm.UI;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -9,6 +11,8 @@ namespace KittyFarm.Service
 {
     public class TilemapService : MonoBehaviour, ITilemapService
     {
+        [Tooltip("地面湿润值变为0的总时间（分钟）")] [SerializeField] private int dryTime = 60;
+
         [SerializeField] private TileBase dugTile;
 
         private MapDataSO propertiesData;
@@ -25,11 +29,28 @@ namespace KittyFarm.Service
         private void OnEnable()
         {
             SceneLoader.MapLoaded += Initialize;
+            TimeManager.MinutePassed += UpdateAllTileDetails;
         }
 
         private void OnDisable()
         {
             SceneLoader.MapLoaded -= Initialize;
+            TimeManager.MinutePassed -= UpdateAllTileDetails;
+        }
+
+        private void UpdateAllTileDetails()
+        {
+            foreach (var tileDetails in tilesData.AllTilesDetails)
+            {
+                UpdateSingleTileDetails(tileDetails);
+            }
+        }
+
+        private void UpdateSingleTileDetails(TileDetails tileDetails)
+        {
+            var dryValue = (float)TimeManager.GetTimeSpanFrom(tileDetails.LastWateringTime).Ticks /
+                           TimeSpan.FromMinutes(dryTime).Ticks;
+            tileDetails.WettingValue = 1 - Mathf.Min(dryValue, 1);
         }
 
         private void Initialize(int mapId)
@@ -47,6 +68,8 @@ namespace KittyFarm.Service
             {
                 SetDugTileAt(item.CellPosition);
             }
+
+            UpdateAllTileDetails();
         }
 
         public TilePropertiesInfo GetTilePropertiesInfoAt(Vector3Int cellPosition) =>
@@ -72,6 +95,15 @@ namespace KittyFarm.Service
             });
         }
 
+        public void WaterAt(Vector3Int cellPosition)
+        {
+            if (TryGetTileDetailsOn(cellPosition, out var tileDetails))
+            {
+                tileDetails.LastWateringTime = TimeManager.CurrentTime;
+                UpdateSingleTileDetails(tileDetails);
+            }
+        }
+
         private void SetDugTileAt(Vector3Int gridCoordinate)
         {
             digTilemap.SetTile(gridCoordinate, dugTile);
@@ -81,16 +113,18 @@ namespace KittyFarm.Service
 
         #region Tile Details Methods
 
-        private bool TryGetTileDetailsOn(Vector3Int gridCoordinate, out TileDetails tileDetails)
+        public bool TryGetTileDetailsOn(Vector3Int gridCoordinate, out TileDetails tileDetails)
         {
-            foreach (var item in tilesData.AllTilesDetails.Where(item => item.CellPosition == gridCoordinate))
+            tileDetails = null;
+            foreach (var item in tilesData.AllTilesDetails)
             {
-                tileDetails = item;
-                return true;
+                if (item.CellPosition == gridCoordinate)
+                {
+                    tileDetails = item;
+                }
             }
 
-            tileDetails = default;
-            return false;
+            return tileDetails != null;
         }
 
         #endregion

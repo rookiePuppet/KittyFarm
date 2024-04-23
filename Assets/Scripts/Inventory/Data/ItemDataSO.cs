@@ -19,6 +19,7 @@ namespace KittyFarm.InventorySystem
                 ItemType.Seed => 0.5f,
                 ItemType.FarmProduct => 2f,
                 ItemType.Hoe => 1f,
+                ItemType.WateringCan => 0.5f,
                 _ => OperationRange
             };
         }
@@ -29,6 +30,6 @@ namespace KittyFarm.InventorySystem
         Seed,
         FarmProduct,
         Hoe,
-        None
+        WateringCan
     }
 }

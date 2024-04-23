@@ -11,7 +11,7 @@ namespace KittyFarm.InventorySystem
     {
         public event Action<int, InventoryItem> ItemChanged;
         public IEnumerable<InventoryItem> AllItems => data.ItemList;
-        public override string DataFileName => "PlayerInventory";
+        public override string DataName => "PlayerInventory";
 
         private List<InventoryItem> Items => data.ItemList;
         private const int MaxSize = 9;
@@ -87,7 +87,7 @@ namespace KittyFarm.InventorySystem
 
         public void LoadData()
         {
-            LoadData(DataFileName);
+            LoadData(DataName);
 
             if (Items.Count != 0) return;
             for (var index = 0; index < MaxSize; index++)
@@ -98,12 +98,12 @@ namespace KittyFarm.InventorySystem
 
         public override void LoadData(string fileName)
         {
-            data = JsonDataManager.LoadData<PlayerInventoryData>(DataFileName);
+            data = JsonDataManager.LoadData<PlayerInventoryData>(DataName);
         }
 
         public override void SaveData()
         {
-            JsonDataManager.SaveData(data, DataFileName);
+            JsonDataManager.SaveData(data, DataName);
         }
     }
 }

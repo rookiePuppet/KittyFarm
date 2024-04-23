@@ -6,29 +6,27 @@ namespace KittyFarm
 {
     public class HoeUsable : ToolUsable
     {
-        public HoeUsable(ItemDataSO itemData, PlayerAnimation animation, Vector2 direction) : base(itemData, animation,
-            direction)
+        private readonly ITilemapService tilemapService;
+
+        public HoeUsable(Vector3 worldPosition, Vector3Int cellPosition, ItemDataSO itemData, PlayerAnimation animation,
+            Vector2 direction) : base(worldPosition, cellPosition, itemData, animation, direction)
         {
+            tilemapService = ServiceCenter.Get<ITilemapService>();
+
+            var isPlantable = tilemapService.IsPlantableAt(cellPosition);
+            var wasDug = tilemapService.CheckWasDugAt(cellPosition);
+
+            CanUse = isPlantable && !wasDug && !animation.IsUsingTool;
         }
 
-        public override async void Use(Vector3 worldPosition, Vector3Int cellPosition)
+        public override async void Use()
         {
-            if (animation.IsUsingTool) return;
-            
-            var isDiggable = ServiceCenter.Get<ITilemapService>().IsPlantableAt(cellPosition);
-            if (!isDiggable) return;
+            if(!CanUse) return;
 
-            var tilemapService = ServiceCenter.Get<ITilemapService>();
-            var wasDug = tilemapService.CheckWasDugAt(cellPosition);
-            if (wasDug) return;
-            
             InputReader.DisableInput();
-            
             await animation.PlayUseTool(direction, ToolType.Hoe);
-            
             tilemapService.DigAt(cellPosition);
             InputReader.EnableInput();
-            
         }
     }
 }

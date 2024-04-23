@@ -6,27 +6,32 @@ namespace KittyFarm
 {
     public class SeedUsable : IUsableItem
     {
+        public bool CanUse { get; }
         private readonly SeedDataSO data;
+        private readonly Vector3 worldPosition;
+        private readonly Vector3Int cellPosition;
 
-        public SeedUsable(SeedDataSO seedData)
+        private readonly ICropService cropService;
+
+        public SeedUsable(Vector3 worldPosition, Vector3Int cellPosition, SeedDataSO seedData)
         {
+            this.worldPosition = worldPosition;
+            this.cellPosition = cellPosition;
             data = seedData;
+
+            var tilemapService = ServiceCenter.Get<ITilemapService>();
+            cropService = ServiceCenter.Get<ICropService>();
+
+            var wasDugAtCell = tilemapService.CheckWasDugAt(cellPosition);
+            var existsCropAtCell = cropService.IsCropExistentAt(cellPosition);
+
+            CanUse = wasDugAtCell && !existsCropAtCell;
         }
 
-        public void Use(Vector3 worldPosition, Vector3Int cellPosition)
+        public void Use()
         {
-            var wasDugAtCell = ServiceCenter.Get<ITilemapService>().CheckWasDugAt(cellPosition);
-            if (!wasDugAtCell) return;
-            
-            var cropService = ServiceCenter.Get<ICropService>();
-            var existsCropAtCell = cropService.CheckCropExistsAt(cellPosition);
-            
-            if (existsCropAtCell)
-            {
-                Debug.Log("Crop already exists at this position");
-                return;
-            }
-            
+            if (!CanUse) return;
+
             cropService.PlantCrop(data.CropData, cellPosition);
         }
     }

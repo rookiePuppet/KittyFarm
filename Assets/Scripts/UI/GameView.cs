@@ -24,12 +24,12 @@ namespace KittyFarm.UI
 
         private void OnEnable()
         {
-            TimeManager.Instance.MinutePassed += RefreshTimeBoard;
+            TimeManager.MinutePassed += RefreshTimeBoard;
         }
 
         private void OnDisable()
         {
-            TimeManager.Instance.MinutePassed -= RefreshTimeBoard;
+            TimeManager.MinutePassed -= RefreshTimeBoard;
         }
 
         private void Start()
@@ -41,7 +41,7 @@ namespace KittyFarm.UI
 
         private void RefreshTimeBoard()
         {
-            var currentTime = TimeManager.Instance.CurrentTime;
+            var currentTime = TimeManager.CurrentTime;
             timeText.text = $"{currentTime.Hour} : {currentTime.Minute}";
         }
 

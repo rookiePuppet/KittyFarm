@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using KittyFarm.Service;
 using KittyFarm.Time;
 using UnityEngine;
-using Task = System.Threading.Tasks.Task;
 
 namespace KittyFarm.CropSystem
 {
@@ -11,32 +9,53 @@ namespace KittyFarm.CropSystem
     {
         private List<Crop> crops { get; } = new();
 
+        private ITilemapService TilemapService => ServiceCenter.Get<ITilemapService>();
+
         private void OnEnable()
         {
-            TimeManager.Instance.SecondPassed += OnSecondPassed;
+            TimeManager.SecondPassed += UpdateAllCrops;
         }
 
         private void OnDisable()
         {
-            TimeManager.Instance.SecondPassed += OnSecondPassed;
+            TimeManager.SecondPassed += UpdateAllCrops;
         }
 
-        private void OnSecondPassed()
+        private void Start()
+        {
+            UpdateAllCrops();
+        }
+
+        private void UpdateAllCrops()
         {
             foreach (var crop in crops)
             {
-                var stageIndex = GetCropCurrentStage(crop.GrowthDetails);
-                crop.UpdateCurrentStage(stageIndex);
+                UpdateSingleCrop(crop);
             }
         }
 
-        private int GetCropCurrentStage(CropGrowthDetails growthDetails)
+        public void UpdateSingleCrop(Crop crop)
+        {
+            var growthDetails = crop.GrowthDetails;
+            crop.GrowthDetails.Status = GetCropCurrentStatus(growthDetails);
+            
+            if (growthDetails.Status != CropStatus.Healthy) return;
+            
+            crop.UpdateCurrentStage(GetCropCurrentStage(crop));
+        }
+
+        private CropStatus GetCropCurrentStatus(CropGrowthDetails growthDetails)
+        {
+            TilemapService.TryGetTileDetailsOn(growthDetails.CellPosition, out var tileDetails);
+            return tileDetails.WettingValue <= 0 ? CropStatus.WaterLacked : CropStatus.Healthy;
+        }
+
+        private int GetCropCurrentStage(Crop crop)
         {
             var stageIndex = 0;
+            var cropData = crop.Data;
 
-            var cropData = ServiceCenter.Get<ICropService>().CropDatabase.GetCropData(growthDetails.DataId);
-
-            var growthDuration = (TimeManager.Instance.CurrentTime - growthDetails.PlantedTime).TotalHours;
+            var growthDuration = TimeManager.GetTimeSpanFrom(crop.GrowthDetails.PlantedTime).TotalHours;
             // print($"{TimeManager.Instance.CurrentTime}, {growthDetails.PlantedTime}");
 
             foreach (var stage in cropData.Stages)

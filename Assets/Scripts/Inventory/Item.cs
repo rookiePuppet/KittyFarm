@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace KittyFarm.InventorySystem
@@ -29,6 +30,15 @@ namespace KittyFarm.InventorySystem
             count = amount;
 
             spriteRenderer.sprite = data.IconSprite;
+        }
+
+        [ContextMenu("Load Sprite")]
+        private void LoadSprite()
+        {
+            if (itemData != null)
+            {
+                GetComponent<SpriteRenderer>().sprite = itemData.IconSprite;
+            }
         }
     }
 }

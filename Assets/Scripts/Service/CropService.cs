@@ -13,9 +13,10 @@ namespace KittyFarm.Service
         [SerializeField] private CropDatabaseSO cropDatabase;
 
         public CropDatabaseSO CropDatabase => cropDatabase;
+        public CropGrowthTracker GrowthTracker => growthTracker;
         private PlayerInventorySO PlayerInventory => GameDataCenter.Instance.PlayerInventory;
         private MapCropsDataSO cropsData;
-        
+
         private CropGrowthTracker growthTracker;
 
         private void OnEnable()
@@ -31,7 +32,7 @@ namespace KittyFarm.Service
         private void Initialize(int mapId)
         {
             cropsData = GameDataCenter.Instance.GetMapCropsData(mapId);
-            
+
             growthTracker = new GameObject("Crops").AddComponent<CropGrowthTracker>();
 
             foreach (var growthDetails in cropsData.GrowthDetails)
@@ -45,7 +46,7 @@ namespace KittyFarm.Service
         {
             var growthDetails = crop.GrowthDetails;
 
-            var cropData = cropDatabase.GetCropData(growthDetails.DataId);
+            var cropData = cropDatabase.GetCropData(growthDetails.CropId);
 
             // 添加
             PlayerInventory.AddItem(cropData.ProductData, 1);
@@ -55,8 +56,11 @@ namespace KittyFarm.Service
 
             growthTracker.RemoveCrop(crop);
 
+            print($"收获了1个{cropData.CropName}");
+            Destroy(crop.gameObject);
+
             // TODO：随机数量机制
-            // 返回收获数量
+
             return 1;
         }
 
@@ -69,20 +73,13 @@ namespace KittyFarm.Service
             cropsData.AddCrop(growthDetails);
         }
 
-        public bool CheckCropIsRipeAt(Vector3Int cellPosition)
-        {
-            if (!TryGetCropAt(cellPosition, out var crop)) return false;
-
-            var cropData = cropDatabase.GetCropData(crop.GrowthDetails.DataId);
-            var growthMinutes = (TimeManager.Instance.CurrentTime - crop.GrowthDetails.PlantedTime).TotalMinutes;
-
-            return growthMinutes > cropData.TotalMinutesToBeRipe;
-        }
+        public bool IsCropRipeAt(Vector3Int cellPosition) =>
+            TryGetCropAt(cellPosition, out var crop) && IsCropRipe(crop.GrowthDetails);
 
         public bool IsCropRipe(CropGrowthDetails growthDetails)
         {
-            var cropData = cropDatabase.GetCropData(growthDetails.DataId);
-            var growthMinutes = (TimeManager.Instance.CurrentTime - growthDetails.PlantedTime).TotalMinutes;
+            var cropData = cropDatabase.GetCropData(growthDetails.CropId);
+            var growthMinutes = TimeManager.GetTimeSpanFrom(growthDetails.PlantedTime).TotalMinutes;
 
             return growthMinutes > cropData.TotalMinutesToBeRipe;
         }
@@ -98,14 +95,14 @@ namespace KittyFarm.Service
             return crop;
         }
 
-        public bool CheckCropExistsAt(Vector3Int cellPosition)
+        public bool IsCropExistentAt(Vector3Int cellPosition)
         {
             var cellCenter = ServiceCenter.Get<ITilemapService>().GetCellCenterWorld(cellPosition);
             var result = Physics2D.OverlapCircle(cellCenter, 0.5f, LayerMask.GetMask("Crop"));
             return result != null;
         }
 
-        private bool TryGetCropAt(Vector3Int cellPosition, out Crop crop)
+        public bool TryGetCropAt(Vector3Int cellPosition, out Crop crop)
         {
             var cellCenter = ServiceCenter.Get<ITilemapService>().GetCellCenterWorld(cellPosition);
             var overlapResult = Physics2D.OverlapPoint(cellCenter, LayerMask.GetMask("Crop"));
