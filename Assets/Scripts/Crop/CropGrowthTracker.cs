@@ -38,14 +38,7 @@ namespace KittyFarm.CropSystem
 
         public void UpdateSingleCrop(Crop crop)
         {
-            var growthDetails = crop.GrowthDetails;
             crop.UpdateCurrentStage(GetCropCurrentStage(crop));
-        }
-
-        private CropStatus GetCropCurrentStatus(CropGrowthDetails growthDetails)
-        {
-            tilemapService.TryGetTileDetailsOn(growthDetails.CellPosition, out var tileDetails);
-            return tileDetails.WettingValue <= 0 ? CropStatus.WaterLacked : CropStatus.Healthy;
         }
 
         private int GetCropCurrentStage(Crop crop)

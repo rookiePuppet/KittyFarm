@@ -41,8 +41,6 @@ namespace KittyFarm.UI
             stageText.text = $"{info.Stage}";
             ripeRateProgressImage.fillAmount = info.RipeRate;
             growthTimeText.text = $"{info.GrowthTime.Days}天{info.GrowthTime.Hours}时";
-
-            statusText.text = info.StatusName;
         }
     }
 }
