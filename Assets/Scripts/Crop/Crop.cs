@@ -7,32 +7,12 @@ namespace KittyFarm.CropSystem
     public class Crop : MonoBehaviour
     {
         public CropGrowthDetails GrowthDetails { get; private set; }
-        public CropInfo Info
-        {
-            get
-            {
-                cropService.GrowthTracker.UpdateSingleCrop(this);
-                
-                var growthTime = TimeManager.GetTimeSpanFrom(GrowthDetails.PlantedTime);
-                // print($"{growthTime.TotalMinutes}, {Data.TotalMinutesToBeRipe}");
-
-                cropInfo.CropName = Data.CropName;
-                cropInfo.Stage = GrowthDetails.CurrentStage;
-                cropInfo.GrowthTime = growthTime;
-                cropInfo.RipeRate = (float)growthTime.TotalMinutes / Data.TotalMinutesToBeRipe;
-                cropInfo.CropStatus = GrowthDetails.Status;
-                
-                return cropInfo;
-            }
-        }
-
+        public CropDataSO Data => cropService.CropDatabase.GetCropData(GrowthDetails.CropId);
+        
+        private ICropService cropService;
         private CropInfo cropInfo;
         
-        public CropDataSO Data => cropService.CropDatabase.GetCropData(GrowthDetails.CropId);
-
         private SpriteRenderer spriteRenderer;
-
-        private ICropService cropService;
 
         private void Awake()
         {
@@ -62,6 +42,24 @@ namespace KittyFarm.CropSystem
         private void UpdateCropVisual()
         {
             spriteRenderer.sprite = Data.Stages[GrowthDetails.CurrentStage].Sprite;
+        }
+        
+        public CropInfo Info
+        {
+            get
+            {
+                cropService.GrowthTracker.UpdateSingleCrop(this);
+                
+                var growthTime = TimeManager.GetTimeSpanFrom(GrowthDetails.PlantedTime);
+                // print($"{growthTime.TotalMinutes}, {Data.TotalMinutesToBeRipe}");
+
+                cropInfo.CropName = Data.CropName;
+                cropInfo.Stage = GrowthDetails.CurrentStage;
+                cropInfo.GrowthTime = growthTime;
+                cropInfo.RipeRate = (float)growthTime.TotalMinutes / Data.TotalMinutesToBeRipe;
+                
+                return cropInfo;
+            }
         }
     }
 }

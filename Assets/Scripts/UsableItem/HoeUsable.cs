@@ -21,11 +21,10 @@ namespace KittyFarm
 
         public override async void Use()
         {
-            if(!CanUse) return;
+            if (!CanUse) return;
 
             InputReader.DisableInput();
-            await animation.PlayUseTool(direction, ToolType.Hoe);
-            tilemapService.DigAt(cellPosition);
+            await animation.PlayUseTool(direction, ToolType.Hoe, () => { tilemapService.DigAt(cellPosition); });
             InputReader.EnableInput();
         }
     }

@@ -9,7 +9,7 @@ namespace KittyFarm.CropSystem
     {
         private List<Crop> crops { get; } = new();
 
-        private ITilemapService TilemapService => ServiceCenter.Get<ITilemapService>();
+        private ITilemapService tilemapService;
 
         private void OnEnable()
         {
@@ -23,6 +23,8 @@ namespace KittyFarm.CropSystem
 
         private void Start()
         {
+            tilemapService = ServiceCenter.Get<ITilemapService>();
+            
             UpdateAllCrops();
         }
 
@@ -37,16 +39,12 @@ namespace KittyFarm.CropSystem
         public void UpdateSingleCrop(Crop crop)
         {
             var growthDetails = crop.GrowthDetails;
-            crop.GrowthDetails.Status = GetCropCurrentStatus(growthDetails);
-            
-            if (growthDetails.Status != CropStatus.Healthy) return;
-            
             crop.UpdateCurrentStage(GetCropCurrentStage(crop));
         }
 
         private CropStatus GetCropCurrentStatus(CropGrowthDetails growthDetails)
         {
-            TilemapService.TryGetTileDetailsOn(growthDetails.CellPosition, out var tileDetails);
+            tilemapService.TryGetTileDetailsOn(growthDetails.CellPosition, out var tileDetails);
             return tileDetails.WettingValue <= 0 ? CropStatus.WaterLacked : CropStatus.Healthy;
         }
 

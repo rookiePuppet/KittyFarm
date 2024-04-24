@@ -1,5 +1,3 @@
-using System;
-using Framework;
 using KittyFarm.InventorySystem;
 using KittyFarm.Service;
 using KittyFarm.UI;
@@ -9,7 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace KittyFarm.Map
 {
-    public class GridClickHandler : MonoSingleton<GridClickHandler>
+    public class GridClickHandler : MonoBehaviour
     {
         private ItemSlot SelectedItem => UIManager.Instance.GetUI<GameView>().SelectedItem;
         private ItemDataSO SelectedItemData => SelectedItem.ItemData;
@@ -26,8 +24,6 @@ namespace KittyFarm.Map
 
         private bool isMapLoaded;
         private bool isPointOnUI;
-
-        public event Action<TilePropertiesInfo> TileClicked;
 
         private void OnEnable()
         {
@@ -62,7 +58,7 @@ namespace KittyFarm.Map
 
         private void OnClick(InputAction.CallbackContext context)
         {
-            if (!isMapLoaded || isPointOnUI || !context.started) return;
+            if (!context.started || !isMapLoaded || isPointOnUI) return;
 
             clickPoint = InputReader.Point;
             var worldPosition = pointerService.ScreenToWorldPoint(clickPoint);
@@ -86,16 +82,16 @@ namespace KittyFarm.Map
 
             if (SelectedItem != null)
             {
-                var actionDirection = (cellCenter - transform.position).normalized;
-
+                var actionDirection = (cellCenter - player.transform.position).normalized;
                 IUsableItem usableItem = SelectedItemData.Type switch
                 {
                     ItemType.Seed => new SeedUsable(worldPosition, cellPosition, SelectedItemData as SeedDataSO),
                     ItemType.Hoe => new HoeUsable(worldPosition, cellPosition, SelectedItemData, player.Animation,
                         actionDirection),
                     ItemType.FarmProduct => new FarmProductUsable(worldPosition, cellPosition, SelectedItemData),
-                    ItemType.WateringCan => new WateringCanUsable(worldPosition, cellPosition, SelectedItemData,
-                        player.Animation, actionDirection, existsCropAtClickPoint),
+                    // ItemType.WateringCan => new WateringCanUsable(worldPosition, cellPosition, SelectedItemData,
+                    //     player.Animation, actionDirection, existsCropAtClickPoint),
+                    _ => new FarmProductUsable(worldPosition, cellPosition, SelectedItemData)
                 };
                 usableItem.Use();
             }

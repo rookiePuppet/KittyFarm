@@ -48,7 +48,7 @@ namespace KittyFarm
             animator.SetFloat(YInput, direction.y);
         }
 
-        public async Task PlayUseTool(Vector2 direction, ToolType toolType)
+        public async Task PlayUseTool(Vector2 direction, ToolType toolType, Action onActionFinished = null)
         {
             IsUsingTool = true;
             
@@ -58,7 +58,11 @@ namespace KittyFarm
             animator.SetBool(UseTool, true);
             animator.SetInteger(ToolType, (int)toolType);
 
-            await Task.Delay(650);
+            await Task.Delay(450);
+            
+            onActionFinished?.Invoke();
+            
+            await Task.Delay(200);
 
             animator.SetBool(UseTool, false);
             IsUsingTool = false;

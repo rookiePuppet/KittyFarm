@@ -10,7 +10,7 @@ namespace KittyFarm.CropSystem
         public int CropId;
         public int CurrentStage;
         public long PlantedTimeTicks;
-        public CropStatus Status;
+        //public CropStatus Status;
         public DateTime PlantedTime => new(PlantedTimeTicks);
 
         public CropGrowthDetails(Vector3Int cellPosition, int cropId, int initialStage = 0)
@@ -21,7 +21,7 @@ namespace KittyFarm.CropSystem
             PlantedTimeTicks = DateTime.Now.Ticks;
             // PlantedTimeTicks = (DateTime.Now - TimeSpan.FromMinutes(59)-TimeSpan.FromSeconds(55)).Ticks;
 
-            Status = CropStatus.Healthy;
+            // Status = CropStatus.Healthy;
         }
     }
 
