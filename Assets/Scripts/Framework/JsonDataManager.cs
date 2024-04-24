@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using UnityEngine;
 
@@ -14,7 +13,7 @@ namespace FrameWork
 
         private static readonly SaveType saveType = SaveType.JsonFile;
 
-        public static void SaveData(object data, string fileName)
+        public static void SaveData(string fileName, object data)
         {
             var json = JsonUtility.ToJson(data);
             if (saveType == SaveType.PlayerPrefs)
@@ -27,37 +26,33 @@ namespace FrameWork
             }
         }
 
-        public static T LoadData<T>(string fileName)
+        public static void LoadData<T>(string fileName, out T data) where T : ScriptableObject
         {
             var filePath = GetFilePath(fileName);
-            switch (saveType)
+
+            data = ScriptableObject.CreateInstance<T>();
+
+            var json = saveType switch
             {
-                case SaveType.PlayerPrefs when PlayerPrefs.HasKey(filePath):
-                {
-                    var json = PlayerPrefs.GetString(filePath);
-                    return JsonUtility.FromJson<T>(json);
-                }
-                case SaveType.JsonFile when File.Exists(filePath):
-                {
-                    var json = File.ReadAllText(filePath);
-                    return JsonUtility.FromJson<T>(json);
-                }
-                default:
-                    // 数据文件不存在，使用反射创建新的数据实例
-                    return CreateDataInstance<T>();
-            }
+                SaveType.JsonFile => File.Exists(filePath) ? File.ReadAllText(filePath) : string.Empty,
+                SaveType.PlayerPrefs => PlayerPrefs.HasKey(filePath) ? PlayerPrefs.GetString(filePath) : string.Empty,
+                _ => string.Empty
+            };
+            
+            if (json == string.Empty) return;
+            JsonUtility.FromJsonOverwrite(json, data);
         }
 
-        private static T CreateDataInstance<T>()
-        {
-            var data = Activator.CreateInstance<T>();
-            foreach (var field in typeof(T).GetFields())
-            {
-                field.SetValue(data, Activator.CreateInstance(field.FieldType));
-            }
-
-            return data;
-        }
+        // private static T CreateDataInstance<T>()
+        // {
+        //     var data = Activator.CreateInstance<T>();
+        //     foreach (var field in typeof(T).GetFields())
+        //     {
+        //         field.SetValue(data, Activator.CreateInstance(field.FieldType));
+        //     }
+        //
+        //     return data;
+        // }
 
         private static string GetFilePath(string fileName)
         {

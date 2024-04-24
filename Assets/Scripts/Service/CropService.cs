@@ -29,13 +29,13 @@ namespace KittyFarm.Service
             SceneLoader.MapLoaded -= Initialize;
         }
 
-        private void Initialize(int mapId)
+        private void Initialize()
         {
-            cropsData = GameDataCenter.Instance.GetMapCropsData(mapId);
+            cropsData = GameDataCenter.Instance.MapCropsData;
 
             growthTracker = new GameObject("Crops").AddComponent<CropGrowthTracker>();
 
-            foreach (var growthDetails in cropsData.GrowthDetails)
+            foreach (var growthDetails in cropsData.CropDetailsList)
             {
                 var crop = SpawnCrop(growthDetails.CellPosition);
                 crop.Initialize(growthDetails);

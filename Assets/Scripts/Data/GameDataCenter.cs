@@ -1,6 +1,5 @@
-using System.Collections.Generic;
 using Framework;
-using KittyFarm.CropSystem;
+using FrameWork;
 using KittyFarm.InventorySystem;
 using KittyFarm.Map;
 using UnityEngine;
@@ -9,12 +8,16 @@ namespace KittyFarm.Data
 {
     public class GameDataCenter : MonoSingleton<GameDataCenter>
     {
-        [SerializeField] private MapDatabaseSO mapDatabase;
+        [SerializeField] private MapDataSO mapData;
+        public MapDataSO MapData => mapData;
         
-        public PlayerInventorySO PlayerInventory { get; private set; }
+        public PlayerInventorySO PlayerInventory => playerInventory;
+        public MapCropsDataSO MapCropsData => mapCropsData;
+        public MapTilesDataSO MapTilesData => mapTilesData;
 
-        private readonly Dictionary<int, MapCropsDataSO> mapCropsDataDic = new();
-        private readonly Dictionary<int, MapTilesDataSO> mapTilesDataDic = new();
+        private PlayerInventorySO playerInventory;
+        private MapCropsDataSO mapCropsData;
+        private MapTilesDataSO mapTilesData;
 
         private void OnEnable()
         {
@@ -28,50 +31,26 @@ namespace KittyFarm.Data
 
         private void Start()
         {
-            PlayerInventory = ScriptableObject.CreateInstance<PlayerInventorySO>();
-            PlayerInventory.LoadData();
+            LoadPlayerInventory();
+            JsonDataManager.LoadData(MapCropsDataSO.PersistentDataName, out mapCropsData);
+            JsonDataManager.LoadData(MapTilesDataSO.PersistentDataName, out mapTilesData);
+        }
+
+        private void LoadPlayerInventory()
+        {
+            JsonDataManager.LoadData(PlayerInventorySO.PersistentDataName, out playerInventory);
+            if (playerInventory.Items.Count != 0) return;
+            for (var index = 0; index < PlayerInventorySO.MaxSize; index++)
+            {
+                playerInventory.Items.Add(new InventoryItem());
+            }
         }
 
         private void OnBeforeGameExit()
         {
-            foreach (var cropsData in mapCropsDataDic.Values)
-            {
-                cropsData.SaveData();
-            }
-
-            foreach (var tilesData in mapTilesDataDic.Values)
-            {
-                tilesData.SaveData();
-                print("退出前保存瓦片数据");
-            }
-        }
-        
-        public MapDataSO GetMapData(int mapId) => mapDatabase.GetMapData(mapId);
-
-        public MapCropsDataSO GetMapCropsData(int mapId)
-        {
-            if (!mapCropsDataDic.TryGetValue(mapId, out var data))
-            {
-                data = ScriptableObject.CreateInstance<MapCropsDataSO>();
-                data.LoadData(mapId);
-
-                mapCropsDataDic[mapId] = data;
-            }
-
-            return data;
-        }
-        
-        public MapTilesDataSO GetMapTilesData(int mapId)
-        {
-            if (!mapTilesDataDic.TryGetValue(mapId, out var data))
-            {
-                data = ScriptableObject.CreateInstance<MapTilesDataSO>();
-                data.LoadData(mapId);
-
-                mapTilesDataDic[mapId] = data;
-            }
-
-            return data;
+            JsonDataManager.SaveData(PlayerInventorySO.PersistentDataName, playerInventory);
+            JsonDataManager.SaveData(MapCropsDataSO.PersistentDataName, mapCropsData);
+            JsonDataManager.SaveData(MapTilesDataSO.PersistentDataName, mapTilesData);
         }
     }
 }

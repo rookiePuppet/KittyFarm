@@ -37,7 +37,7 @@ namespace KittyFarm.Map
             InputReader.Click -= OnClick;
         }
 
-        private void OnMapLoaded(int mapId)
+        private void OnMapLoaded()
         {
             player = FindObjectOfType<PlayerController>();
             indicator = FindObjectOfType<GridCellIndicator>();

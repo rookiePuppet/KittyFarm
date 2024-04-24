@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using KittyFarm.Data;
 using KittyFarm.Map;
 using KittyFarm.Time;
@@ -15,7 +14,7 @@ namespace KittyFarm.Service
 
         [SerializeField] private TileBase dugTile;
 
-        private MapDataSO propertiesData;
+        private MapDataSO mapData;
         private MapTilesDataSO tilesData;
         private Grid currentGrid;
 
@@ -40,7 +39,7 @@ namespace KittyFarm.Service
 
         private void UpdateAllTileDetails()
         {
-            foreach (var tileDetails in tilesData.AllTilesDetails)
+            foreach (var tileDetails in tilesData.TilesDetailsList)
             {
                 UpdateSingleTileDetails(tileDetails);
             }
@@ -53,10 +52,10 @@ namespace KittyFarm.Service
             tileDetails.WettingValue = 1 - Mathf.Min(dryValue, 1);
         }
 
-        private void Initialize(int mapId)
+        private void Initialize()
         {
-            propertiesData = GameDataCenter.Instance.GetMapData(mapId);
-            tilesData = GameDataCenter.Instance.GetMapTilesData(mapId);
+            mapData = GameDataCenter.Instance.MapData;
+            tilesData = GameDataCenter.Instance.MapTilesData;
 
             currentGrid = FindObjectOfType<Grid>();
             tilemapsOrganizer = currentGrid.GetComponent<TilemapsOrganizer>();
@@ -64,7 +63,7 @@ namespace KittyFarm.Service
 
             digTilemap = tilemapsOrganizer.GetTilemap(TilemapSortingLayer.Dig);
 
-            foreach (var item in tilesData.AllTilesDetails)
+            foreach (var item in tilesData.TilesDetailsList)
             {
                 SetDugTileAt(item.CellPosition);
             }
@@ -75,11 +74,11 @@ namespace KittyFarm.Service
         public TilePropertiesInfo GetTilePropertiesInfoAt(Vector3Int cellPosition) =>
             new(IsPlantableAt(cellPosition), IsNotDroppableAt(cellPosition));
 
-        public bool IsNotDroppableAt(Vector3Int cellPosition) => propertiesData.IsNotDroppableAt(cellPosition);
+        public bool IsNotDroppableAt(Vector3Int cellPosition) => mapData.IsNotDroppableAt(cellPosition);
 
         #region Digging Methods
 
-        public bool IsPlantableAt(Vector3Int cellPosition) => propertiesData.IsPlantableAt(cellPosition);
+        public bool IsPlantableAt(Vector3Int cellPosition) => mapData.IsPlantableAt(cellPosition);
 
         public bool CheckWasDugAt(Vector3Int cellPosition) =>
             TryGetTileDetailsOn(cellPosition, out var tileDetails) && tileDetails.IsDug;
@@ -116,7 +115,7 @@ namespace KittyFarm.Service
         public bool TryGetTileDetailsOn(Vector3Int gridCoordinate, out TileDetails tileDetails)
         {
             tileDetails = null;
-            foreach (var item in tilesData.AllTilesDetails)
+            foreach (var item in tilesData.TilesDetailsList)
             {
                 if (item.CellPosition == gridCoordinate)
                 {

@@ -46,7 +46,7 @@ namespace KittyFarm.UI
         private void UpdateAllSlots()
         {
             var index = 0;
-            foreach (var item in Inventory.AllItems)
+            foreach (var item in Inventory.Items)
             {
                 SetSlotDataAt(index++, item);
             }

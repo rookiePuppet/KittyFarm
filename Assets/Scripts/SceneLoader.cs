@@ -7,7 +7,7 @@ namespace KittyFarm
 {
     public class SceneLoader : MonoSingleton<SceneLoader>
     {
-        public static event Action<int> MapLoaded;
+        public static event Action MapLoaded;
 
         private void Start()
         {
@@ -20,7 +20,7 @@ namespace KittyFarm
                 () =>
                 {
                     SceneManager.SetActiveScene(SceneManager.GetSceneByName("Plain")); 
-                    MapLoaded?.Invoke(mapId);
+                    MapLoaded?.Invoke();
                 }));
         }
 

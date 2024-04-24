@@ -9,19 +9,10 @@ namespace KittyFarm
     {
         public static event Action BeforeGameExit;
 
-        public int CurrentMapId { get; private set; }
-
-        private void OnEnable()
+        private void OnApplicationQuit()
         {
-            SceneLoader.MapLoaded += OnMapLoaded;
+            BeforeGameExit?.Invoke();
         }
-
-        private void OnDisable()
-        {
-            SceneLoader.MapLoaded -= OnMapLoaded;
-        }
-
-        private void OnMapLoaded(int mapId) => CurrentMapId = mapId;
 
         public void ExitGame()
         {
