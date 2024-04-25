@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using KittyFarm.Map;
 using UnityEngine;
 using Task = System.Threading.Tasks.Task;
 
@@ -14,14 +15,25 @@ namespace KittyFarm.UI
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
-        }
-
-        private void Start()
-        {
             spriteRenderer.enabled = false;
         }
 
-        public async void ShowAt(Vector2 position)
+        private void OnEnable()
+        {
+            GridClickable.TileClicked += OnTileClicked;
+        }
+
+        private void OnDisable()
+        {
+            GridClickable.TileClicked -= OnTileClicked;
+        }
+
+        private void OnTileClicked(Vector3Int cellPosition, Vector3 cellCenter)
+        {
+            ShowAt(cellCenter);
+        }
+        
+        private async void ShowAt(Vector2 position)
         {
             cts?.Cancel();
             cts = new CancellationTokenSource();

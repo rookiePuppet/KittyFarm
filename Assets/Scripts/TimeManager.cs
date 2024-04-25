@@ -59,6 +59,7 @@ namespace KittyFarm.Time
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 CurrentTime += TimeSpan.FromHours(1);
+                MinutePassed?.Invoke();
             }
         }
 

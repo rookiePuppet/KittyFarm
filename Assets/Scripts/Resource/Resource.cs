@@ -1,3 +1,4 @@
+using KittyFarm.Service;
 using KittyFarm.Time;
 using UnityEngine;
 
@@ -24,6 +25,8 @@ namespace KittyFarm.CropSystem
             
             GrowthDetails.LastCollectTime = TimeManager.CurrentTime;
             Refresh();
+
+            ServiceCenter.Get<IItemService>().SpawnItemAt(transform.position, data.ProductData, 3);
         }
     }
 }

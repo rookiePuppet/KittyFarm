@@ -11,17 +11,12 @@ namespace KittyFarm.Data
     {
         [SerializeField] private MapDataSO mapData;
         public MapDataSO MapData => mapData;
-        
-        public PlayerInventorySO PlayerInventory => playerInventory;
-        public MapCropsDataSO MapCropsData => mapCropsData;
-        public MapTilesDataSO MapTilesData => mapTilesData;
-        public MapResourcesDataSO MapResourcesData => mapResourcesData;
 
         private PlayerInventorySO playerInventory;
         private MapCropsDataSO mapCropsData;
         private MapTilesDataSO mapTilesData;
         private MapResourcesDataSO mapResourcesData;
-
+        
         private void OnEnable()
         {
             GameManager.BeforeGameExit += OnBeforeGameExit;
@@ -30,20 +25,6 @@ namespace KittyFarm.Data
         private void OnDisable()
         {
             GameManager.BeforeGameExit -= OnBeforeGameExit;
-        }
-
-        private void Start()
-        {
-            LoadPlayerInventory();
-            JsonDataManager.LoadData(MapCropsDataSO.PersistentDataName, out mapCropsData);
-            JsonDataManager.LoadData(MapTilesDataSO.PersistentDataName, out mapTilesData);
-            JsonDataManager.LoadData(MapResourcesDataSO.PersistentDataName, out mapResourcesData);
-        }
-
-        private void LoadPlayerInventory()
-        {
-            JsonDataManager.LoadData(PlayerInventorySO.PersistentDataName, out playerInventory);
-            playerInventory.Initialize();
         }
 
         private void OnBeforeGameExit()
@@ -58,6 +39,59 @@ namespace KittyFarm.Data
         {
             mapResourcesData = data;
             JsonDataManager.SaveData(MapResourcesDataSO.PersistentDataName, mapResourcesData);
+        }
+
+        public PlayerInventorySO PlayerInventory
+        {
+            get
+            {
+                if (playerInventory == null)
+                {
+                    JsonDataManager.LoadData(PlayerInventorySO.PersistentDataName, out playerInventory);
+                    playerInventory.Initialize();
+                }
+
+                return playerInventory;
+            }
+        }
+        
+        public MapCropsDataSO MapCropsData
+        {
+            get
+            {
+                if (mapCropsData == null)
+                {
+                    JsonDataManager.LoadData(MapCropsDataSO.PersistentDataName, out mapCropsData);
+                }
+
+                return mapCropsData;
+            }
+        }
+        
+        public MapTilesDataSO MapTilesData
+        {
+            get
+            {
+                if (mapTilesData == null)
+                {
+                    JsonDataManager.LoadData(MapTilesDataSO.PersistentDataName, out mapTilesData);
+                }
+
+                return mapTilesData;
+            }
+        }
+        
+        public MapResourcesDataSO MapResourcesData
+        {
+            get
+            {
+                if (mapResourcesData == null)
+                {
+                    JsonDataManager.LoadData(MapResourcesDataSO.PersistentDataName, out mapResourcesData);
+                }
+
+                return mapResourcesData;
+            }
         }
     }
 }

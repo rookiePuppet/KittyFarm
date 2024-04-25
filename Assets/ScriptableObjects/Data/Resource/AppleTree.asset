@@ -15,4 +15,4 @@ MonoBehaviour:
   Id: 1
   ResourceName: "\u82F9\u679C\u6811"
   RegenerationTime: 1
-  ProductData: {fileID: 0}
+  ProductData: {fileID: 11400000, guid: 1e8bad6f26c7dcd458f7c11014c0c7e4, type: 2}

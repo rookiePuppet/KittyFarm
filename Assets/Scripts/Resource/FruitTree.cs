@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace KittyFarm.CropSystem
 {
@@ -24,18 +23,6 @@ namespace KittyFarm.CropSystem
             base.Collect();
             
             print($"收获了{Data.ResourceName}");
-        }
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            if (CanBeHarvested)
-            {
-                Collect();
-            }
-            else
-            {
-                print("不能收获，还在生长中！");
-            }
         }
     }
 }
