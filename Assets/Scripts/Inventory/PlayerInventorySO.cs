@@ -13,7 +13,7 @@ namespace KittyFarm.InventorySystem
         public event Action<int, InventoryItem> ItemChanged;
 
         public const string PersistentDataName = "PlayerInventory";
-        public const int MaxSize = 9;
+        private const int MaxSize = 9;
 
         public bool AddItem(ItemDataSO itemData, int itemAmount)
         {
@@ -81,6 +81,15 @@ namespace KittyFarm.InventorySystem
             }
 
             return emptyIndex;
+        }
+
+        public void Initialize()
+        {
+            if (items.Count != 0) return;
+            for (var index = 0; index < MaxSize; index++)
+            {
+                items.Add(new InventoryItem());
+            }
         }
     }
 }

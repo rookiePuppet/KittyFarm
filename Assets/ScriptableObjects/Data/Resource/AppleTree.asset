@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f362914f7e30465bbad655fd2519ecb3, type: 3}
-  m_Name: Apple
+  m_Script: {fileID: 11500000, guid: 0c1c4faa4aab4033895ccd6b6b185869, type: 3}
+  m_Name: AppleTree
   m_EditorClassIdentifier: 
   Id: 1
-  ItemName: "\u82F9\u679C"
-  Description: "\u8FD9\u662F\u4E00\u4E2A\u82F9\u679C"
-  IconSprite: {fileID: 1778125353, guid: 2444c6f28e7c4104cb45fc627b7028f7, type: 3}
-  Type: 1
-  OperationRange: 2
+  ResourceName: "\u82F9\u679C\u6811"
+  RegenerationTime: 1
+  ProductData: {fileID: 0}
