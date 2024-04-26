@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c61ede009d64a96bed8ad7ab22846e0, type: 3}
   m_Name: PurpleYamSeed
   m_EditorClassIdentifier: 
-  Id: 3
+  Id: 26
   ItemName: "\u7D2B\u85AF\u79CD\u5B50"
   Description: 
   IconSprite: {fileID: 266352592, guid: d3c4d58bacacea44789df3cc5dbb06c3, type: 3}
+  Value: 0
+  SoldDiscount: 0
   Type: 0
   OperationRange: 0.5
   CropData: {fileID: 11400000, guid: f483c78c7d7656c43ae55766d7703928, type: 2}

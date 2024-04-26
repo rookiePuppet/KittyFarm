@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c61ede009d64a96bed8ad7ab22846e0, type: 3}
   m_Name: PumpkinSeed
   m_EditorClassIdentifier: 
-  Id: 3
+  Id: 25
   ItemName: "\u5357\u74DC\u79CD\u5B50"
   Description: 
   IconSprite: {fileID: 2028614792, guid: d3c4d58bacacea44789df3cc5dbb06c3, type: 3}
+  Value: 0
+  SoldDiscount: 0
   Type: 0
   OperationRange: 0.5
   CropData: {fileID: 11400000, guid: 0e0396f0b5556f94e88e60bb02dc0e43, type: 2}

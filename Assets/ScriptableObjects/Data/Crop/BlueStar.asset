@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a065b350575c45449b5f3683a135ca59, type: 3}
   m_Name: BlueStar
   m_EditorClassIdentifier: 
-  Id: 1
+  Id: 2
   CropName: "\u84DD\u8272\u661F\u661F"
   ProductData: {fileID: 11400000, guid: ff99c4c0bab45bf4091a8d0efd6790ec, type: 2}
   Stages:

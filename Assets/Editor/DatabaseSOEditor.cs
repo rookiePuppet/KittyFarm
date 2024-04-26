@@ -27,8 +27,7 @@ public class DatabaseSOEditor : Editor
 
         targetType = target.GetType();
         dataListItemType = targetType.BaseType.GenericTypeArguments[0];
-        var dataListType = typeof(List<>).MakeGenericType(dataListItemType);
-        addMethod = dataListType.GetMethod("Add");
+        addMethod = typeof(List<>).MakeGenericType(dataListItemType).GetMethod("Add");
         dataListField = targetType.GetField("dataList", BindingFlags.NonPublic | BindingFlags.Instance);
     }
 
@@ -65,6 +64,7 @@ public class DatabaseSOEditor : Editor
         foreach (var item in (IEnumerable)dataList)
         {
             idField.SetValue(item, index);
+            EditorUtility.SetDirty(item as ScriptableObject);
             index++;
         }
         
@@ -98,5 +98,7 @@ public class DatabaseSOEditor : Editor
                 folderQueue.Enqueue(subFolderPath);
             }
         }
+        
+        EditorUtility.SetDirty(target);
     }
 }

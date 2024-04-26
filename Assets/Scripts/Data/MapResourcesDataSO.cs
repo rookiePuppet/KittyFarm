@@ -8,7 +8,7 @@ namespace KittyFarm.Data
     public class MapResourcesDataSO : ScriptableObject
     {
         public const string PersistentDataName = "MapResourcesData";
-        [SerializeField] private List<ResourceGrowthDetails> resourcesDetailsList;
+        [SerializeField] private List<ResourceGrowthDetails> resourcesDetailsList = new();
 
         public List<ResourceGrowthDetails> ResourcesDetailsList => resourcesDetailsList;
 

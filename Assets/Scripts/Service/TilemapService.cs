@@ -14,15 +14,13 @@ namespace KittyFarm.Service
 
         [SerializeField] private TileBase dugTile;
 
+        public Grid CurrentGrid => currentGrid;
+
         private MapDataSO mapData;
         private MapTilesDataSO tilesData;
         private Grid currentGrid;
 
-        // public IEnumerable<Tilemap> Tilemaps => tilemapsOrganizer.Tilemaps;
-        // public IEnumerable<Tuple<Tilemap, TilemapRenderer>> TilemapsWithRenderers =>
-        //     tilemapsOrganizer.TilemapsWithRenderers;
         private TilemapsOrganizer tilemapsOrganizer;
-
         private Tilemap digTilemap;
 
         private void OnEnable()
@@ -35,21 +33,6 @@ namespace KittyFarm.Service
         {
             SceneLoader.MapLoaded -= Initialize;
             TimeManager.MinutePassed -= UpdateAllTileDetails;
-        }
-
-        private void UpdateAllTileDetails()
-        {
-            foreach (var tileDetails in tilesData.TilesDetailsList)
-            {
-                UpdateSingleTileDetails(tileDetails);
-            }
-        }
-
-        private void UpdateSingleTileDetails(TileDetails tileDetails)
-        {
-            var dryValue = (float)TimeManager.GetTimeSpanFrom(tileDetails.LastWateringTime).Ticks /
-                           TimeSpan.FromMinutes(dryTime).Ticks;
-            tileDetails.WettingValue = 1 - Mathf.Min(dryValue, 1);
         }
 
         private void Initialize()
@@ -69,6 +52,21 @@ namespace KittyFarm.Service
             }
 
             UpdateAllTileDetails();
+        }
+        
+        private void UpdateAllTileDetails()
+        {
+            foreach (var tileDetails in tilesData.TilesDetailsList)
+            {
+                UpdateSingleTileDetails(tileDetails);
+            }
+        }
+
+        private void UpdateSingleTileDetails(TileDetails tileDetails)
+        {
+            var dryValue = (float)TimeManager.GetTimeSpanFrom(tileDetails.LastWateringTime).Ticks /
+                           TimeSpan.FromMinutes(dryTime).Ticks;
+            tileDetails.WettingValue = 1 - Mathf.Min(dryValue, 1);
         }
 
         public TilePropertiesInfo GetTilePropertiesInfoAt(Vector3Int cellPosition) =>

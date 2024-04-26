@@ -7,13 +7,14 @@ namespace KittyFarm.InventorySystem
     public class Item : MonoBehaviour
     {
         [SerializeField] private ItemDataSO itemData;
-
         [SerializeField] private int count = 1;
 
         public ItemDataSO ItemData => itemData;
         public int Count => count;
 
         private SpriteRenderer spriteRenderer;
+
+        private bool isInitialized;
 
         private void Awake()
         {
@@ -22,7 +23,7 @@ namespace KittyFarm.InventorySystem
 
         private void Start()
         {
-            if (itemData != null) Initialize(itemData);
+            if (itemData != null && !isInitialized) Initialize(itemData);
         }
 
         public void Initialize(ItemDataSO data, int amount = 1)
@@ -31,6 +32,8 @@ namespace KittyFarm.InventorySystem
             count = amount;
 
             spriteRenderer.sprite = data.IconSprite;
+
+            isInitialized = true;
         }
 
         [ContextMenu("Load Sprite")]

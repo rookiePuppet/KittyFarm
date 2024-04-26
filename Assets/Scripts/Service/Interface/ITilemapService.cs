@@ -15,6 +15,7 @@ namespace KittyFarm.Service
         public void DigAt(Vector3Int cellPosition);
         public void WaterAt(Vector3Int cellPosition);
         public bool TryGetTileDetailsOn(Vector3Int gridCoordinate, out TileDetails tileDetails);
+        public Grid CurrentGrid { get; }
         public Vector3Int WorldToCell(Vector3 worldPosition);
         public Vector3 GetCellCenterWorld(Vector3Int cellPosition);
     }

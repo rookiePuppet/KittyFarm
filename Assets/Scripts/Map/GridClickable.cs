@@ -27,18 +27,6 @@ namespace KittyFarm.Map
             tilemapService = ServiceCenter.Get<ITilemapService>();
             pointerService = ServiceCenter.Get<IPointerService>();
         }
-
-        // private void CheckCrop(Vector3Int cellPosition)
-        // {
-        //     var cropService = ServiceCenter.Get<ICropService>();
-        //
-        //     existsCropAtClickPoint = cropService.TryGetCropAt(cellPosition, out var crop);
-        //
-        //     if (existsCropAtClickPoint)
-        //     {
-        //         UIManager.Instance.GetUI<GameView>().ShowCropInfoBoard(crop.Info);
-        //     }
-        // }
         
         public void OnPointerClick(PointerEventData eventData)
         {

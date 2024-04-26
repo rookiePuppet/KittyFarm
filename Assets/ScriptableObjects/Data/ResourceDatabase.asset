@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6542f664f1484937b740f0eed7696168, type: 3}
   m_Name: ResourceDatabase
   m_EditorClassIdentifier: 
-  <ResourceDataList>k__BackingField:
+  dataList:
   - {fileID: 11400000, guid: cd78e082f9fcf9947bcb4ba4afbc8234, type: 2}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a065b350575c45449b5f3683a135ca59, type: 3}
   m_Name: Lettuce
   m_EditorClassIdentifier: 
-  Id: 1
+  Id: 7
   CropName: "\u751F\u83DC"
   ProductData: {fileID: 11400000, guid: b07be8a4ce5e60846b9c750db262e46a, type: 2}
   Stages:

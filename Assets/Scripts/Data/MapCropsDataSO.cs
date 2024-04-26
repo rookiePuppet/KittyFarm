@@ -8,10 +8,9 @@ namespace KittyFarm.Data
     {
         [SerializeField] private List<CropGrowthDetails> cropDetailsList = new();
         
-        public List<CropGrowthDetails> CropDetailsList => cropDetailsList;
-
         public const string PersistentDataName = "MapCropsData";
-
+        public List<CropGrowthDetails> CropDetailsList => cropDetailsList;
+        
         public void RemoveCrop(CropGrowthDetails details)
         {
             cropDetailsList.Remove(details);
