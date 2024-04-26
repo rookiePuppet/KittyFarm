@@ -12,6 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f35f504aa114b8a8fdc5f1aecbe9037, type: 3}
   m_Name: CropDatabase
   m_EditorClassIdentifier: 
-  <CropDataList>k__BackingField:
+  dataList:
+  - {fileID: 11400000, guid: a7abb080b8c56544bbeeb350bb30b725, type: 2}
+  - {fileID: 11400000, guid: 015dd2aa6111d9f469e50f93d843e1ec, type: 2}
   - {fileID: 11400000, guid: 4c4c677227921444ebcac3fd98326704, type: 2}
-  - {fileID: 11400000, guid: 27851aee2e444374a822e15b417c3698, type: 2}
+  - {fileID: 11400000, guid: cf50e4d87e0dd65428cc6bcb920146f4, type: 2}
+  - {fileID: 11400000, guid: fc4610d88a119ca4a83c9b1abcf45554, type: 2}
+  - {fileID: 11400000, guid: f64234f765eb1c644be8eabffba347f7, type: 2}
+  - {fileID: 11400000, guid: 0e01ebed3eb468c45bfd92a0965d6bdf, type: 2}
+  - {fileID: 11400000, guid: cd8f8e35404360149b0ad8ddc5568978, type: 2}
+  - {fileID: 11400000, guid: 13c9a2be2dae83a40a47b398861a3a5a, type: 2}
+  - {fileID: 11400000, guid: 0e0396f0b5556f94e88e60bb02dc0e43, type: 2}
+  - {fileID: 11400000, guid: f483c78c7d7656c43ae55766d7703928, type: 2}
+  - {fileID: 11400000, guid: 82dfd658a5093b5498e7bec3664cf0ec, type: 2}
+  - {fileID: 11400000, guid: 3a1358307ba849e4981d06870b982cfc, type: 2}
+  - {fileID: 11400000, guid: 02aaec0e8a54ce14fb3a8027fa4cbb07, type: 2}

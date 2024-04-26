@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c61ede009d64a96bed8ad7ab22846e0, type: 3}
+  m_Name: BlueRoseSeed
+  m_EditorClassIdentifier: 
+  Id: 3
+  ItemName: "\u84DD\u73AB\u7470\u79CD\u5B50"
+  Description: 
+  IconSprite: {fileID: -514389301, guid: d3c4d58bacacea44789df3cc5dbb06c3, type: 3}
+  Type: 0
+  OperationRange: 0.5
+  CropData: {fileID: 11400000, guid: a7abb080b8c56544bbeeb350bb30b725, type: 2}

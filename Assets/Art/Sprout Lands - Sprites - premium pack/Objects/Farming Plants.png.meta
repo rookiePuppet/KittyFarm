@@ -70,6 +70,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
+    maxPlaceholderSize: 32
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -83,6 +84,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
+    maxPlaceholderSize: 32
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -96,9 +98,38 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: Server
     maxTextureSize: 2048
+    maxPlaceholderSize: 32
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    maxPlaceholderSize: 32
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: OpenHarmony
+    maxTextureSize: 2048
+    maxPlaceholderSize: 32
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,49 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Farming Plants_0
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 224
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 92d8fd472bbdfce4a8bd0e78e209f553
-      internalID: 1018613139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farming Plants_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 224
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4871fe3173a52fd41aa0471fae2ebdd4
-      internalID: -1119406300
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farming Plants_2
+      name: crop_maize_0
       rect:
         serializedVersion: 2
         x: 0
@@ -173,7 +162,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_3
+      name: crop_maize_1
       rect:
         serializedVersion: 2
         x: 16
@@ -194,7 +183,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_4
+      name: crop_maize_2
       rect:
         serializedVersion: 2
         x: 32
@@ -215,13 +204,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_5
+      name: crop_maize_3
       rect:
         serializedVersion: 2
         x: 48
         y: 208
         width: 16
-        height: 16
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,13 +225,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_6
+      name: crop_maize_4
       rect:
         serializedVersion: 2
         x: 64
         y: 208
         width: 16
-        height: 16
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,7 +330,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_11
+      name: crop_cauliflower_0
       rect:
         serializedVersion: 2
         x: 0
@@ -362,7 +351,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_12
+      name: crop_cauliflower_1
       rect:
         serializedVersion: 2
         x: 16
@@ -383,7 +372,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_13
+      name: crop_cauliflower_2
       rect:
         serializedVersion: 2
         x: 32
@@ -404,7 +393,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_14
+      name: crop_cauliflower_3
       rect:
         serializedVersion: 2
         x: 48
@@ -425,7 +414,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_15
+      name: crop_tomato_0
       rect:
         serializedVersion: 2
         x: 0
@@ -446,7 +435,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_16
+      name: crop_tomato_1
       rect:
         serializedVersion: 2
         x: 16
@@ -467,7 +456,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_17
+      name: crop_tomato_2
       rect:
         serializedVersion: 2
         x: 32
@@ -488,7 +477,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_18
+      name: crop_tomato_3
       rect:
         serializedVersion: 2
         x: 48
@@ -509,7 +498,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_19
+      name: crop_eggplant_0
       rect:
         serializedVersion: 2
         x: 0
@@ -530,7 +519,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_20
+      name: crop_eggplant_1
       rect:
         serializedVersion: 2
         x: 16
@@ -551,7 +540,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_21
+      name: crop_eggplant_2
       rect:
         serializedVersion: 2
         x: 32
@@ -572,7 +561,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_22
+      name: crop_eggplant_3
       rect:
         serializedVersion: 2
         x: 48
@@ -593,7 +582,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_23
+      name: crop_bluerose_0
       rect:
         serializedVersion: 2
         x: 0
@@ -614,7 +603,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_24
+      name: crop_bluerose_1
       rect:
         serializedVersion: 2
         x: 16
@@ -635,7 +624,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_25
+      name: crop_bluerose_2
       rect:
         serializedVersion: 2
         x: 32
@@ -656,7 +645,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_26
+      name: crop_bluerose_3
       rect:
         serializedVersion: 2
         x: 48
@@ -677,7 +666,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_27
+      name: crop_lettuce_0
       rect:
         serializedVersion: 2
         x: 0
@@ -698,7 +687,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_28
+      name: crop_lettuce_1
       rect:
         serializedVersion: 2
         x: 16
@@ -719,7 +708,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_29
+      name: crop_lettuce_2
       rect:
         serializedVersion: 2
         x: 32
@@ -740,7 +729,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_30
+      name: crop_lettuce_3
       rect:
         serializedVersion: 2
         x: 48
@@ -761,7 +750,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_31
+      name: crop_wheat_0
       rect:
         serializedVersion: 2
         x: 0
@@ -782,7 +771,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_32
+      name: crop_wheat_1
       rect:
         serializedVersion: 2
         x: 16
@@ -803,7 +792,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_33
+      name: crop_wheat_2
       rect:
         serializedVersion: 2
         x: 32
@@ -824,7 +813,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_34
+      name: crop_wheat_3
       rect:
         serializedVersion: 2
         x: 48
@@ -845,7 +834,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_35
+      name: crop_pumpkin_0
       rect:
         serializedVersion: 2
         x: 0
@@ -866,7 +855,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_36
+      name: crop_pumpkin_1
       rect:
         serializedVersion: 2
         x: 16
@@ -887,7 +876,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_37
+      name: crop_pumpkin_2
       rect:
         serializedVersion: 2
         x: 32
@@ -908,7 +897,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_38
+      name: crop_pumpkin_3
       rect:
         serializedVersion: 2
         x: 48
@@ -929,7 +918,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_39
+      name: crop_radish_0
       rect:
         serializedVersion: 2
         x: 0
@@ -950,7 +939,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_40
+      name: crop_radish_1
       rect:
         serializedVersion: 2
         x: 16
@@ -971,7 +960,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_41
+      name: crop_radish_2
       rect:
         serializedVersion: 2
         x: 32
@@ -992,7 +981,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_42
+      name: crop_radish_3
       rect:
         serializedVersion: 2
         x: 48
@@ -1013,7 +1002,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_43
+      name: crop_peony_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1034,7 +1023,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_44
+      name: crop_peony_1
       rect:
         serializedVersion: 2
         x: 16
@@ -1055,7 +1044,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_45
+      name: crop_peony_2
       rect:
         serializedVersion: 2
         x: 32
@@ -1076,7 +1065,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_46
+      name: crop_peony_3
       rect:
         serializedVersion: 2
         x: 48
@@ -1097,7 +1086,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_47
+      name: crop_purpleyam_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1118,7 +1107,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_48
+      name: crop_purpleyam_1
       rect:
         serializedVersion: 2
         x: 16
@@ -1139,7 +1128,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_49
+      name: crop_purpleyam_2
       rect:
         serializedVersion: 2
         x: 32
@@ -1160,7 +1149,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_50
+      name: crop_purpleyam_3
       rect:
         serializedVersion: 2
         x: 48
@@ -1181,7 +1170,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_51
+      name: crop_bluestar_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1202,7 +1191,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_52
+      name: crop_bluestar_1
       rect:
         serializedVersion: 2
         x: 16
@@ -1223,7 +1212,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_53
+      name: crop_bluestar_2
       rect:
         serializedVersion: 2
         x: 32
@@ -1244,7 +1233,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_54
+      name: crop_bluestar_3
       rect:
         serializedVersion: 2
         x: 48
@@ -1265,7 +1254,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_55
+      name: crop_cucumber_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1286,7 +1275,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_56
+      name: crop_cucumber_1
       rect:
         serializedVersion: 2
         x: 16
@@ -1307,7 +1296,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_57
+      name: crop_cucumber_2
       rect:
         serializedVersion: 2
         x: 32
@@ -1328,7 +1317,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farming Plants_58
+      name: crop_cucumber_3
       rect:
         serializedVersion: 2
         x: 48
@@ -1361,63 +1350,63 @@ TextureImporter:
     nameFileIdTable:
       Farming Plants_0: 1018613139
       Farming Plants_1: -1119406300
-      Farming Plants_11: -1654645186
-      Farming Plants_12: 1678986862
-      Farming Plants_13: 977468170
-      Farming Plants_14: 1993444703
-      Farming Plants_15: -1702734740
-      Farming Plants_16: -873384520
-      Farming Plants_17: -164536707
-      Farming Plants_18: 2025911415
-      Farming Plants_19: 1401613215
-      Farming Plants_2: 188803443
-      Farming Plants_20: -1158354608
-      Farming Plants_21: -305539048
-      Farming Plants_22: 1948062744
-      Farming Plants_23: 351322191
-      Farming Plants_24: 393831421
-      Farming Plants_25: 465134718
-      Farming Plants_26: 975410402
-      Farming Plants_27: -47535713
-      Farming Plants_28: -44034381
-      Farming Plants_29: 855596881
-      Farming Plants_3: -1457046251
-      Farming Plants_30: -1273037777
-      Farming Plants_31: -1860653548
-      Farming Plants_32: -1578713332
-      Farming Plants_33: 1508460234
-      Farming Plants_34: 1542669368
-      Farming Plants_35: -1344121078
-      Farming Plants_36: 1326903001
-      Farming Plants_37: -2008618435
-      Farming Plants_38: -1803743914
-      Farming Plants_39: -550542529
-      Farming Plants_4: -1987745759
-      Farming Plants_40: -1741381107
-      Farming Plants_41: 1830256329
-      Farming Plants_42: 196675600
-      Farming Plants_43: -168519729
-      Farming Plants_44: 1981231192
-      Farming Plants_45: -141019425
-      Farming Plants_46: 1807597867
-      Farming Plants_47: 1701245838
-      Farming Plants_48: 1917080196
-      Farming Plants_49: 1534858324
-      Farming Plants_5: 1919205123
-      Farming Plants_50: 168594489
-      Farming Plants_51: -343559127
-      Farming Plants_52: -909139213
-      Farming Plants_53: -1423242551
-      Farming Plants_54: 548605253
-      Farming Plants_55: 60457671
-      Farming Plants_56: 1684086453
-      Farming Plants_57: -1353358349
-      Farming Plants_58: -909573033
-      Farming Plants_6: 213578092
+      crop_bluerose_0: 351322191
+      crop_bluerose_1: 393831421
+      crop_bluerose_2: 465134718
+      crop_bluerose_3: 975410402
+      crop_bluestar_0: -343559127
+      crop_bluestar_1: -909139213
+      crop_bluestar_2: -1423242551
+      crop_bluestar_3: 548605253
       crop_carrot_0: 1169368356
       crop_carrot_1: 675820970
       crop_carrot_2: -1054840826
       crop_carrot_3: 204657128
+      crop_cauliflower_0: -1654645186
+      crop_cauliflower_1: 1678986862
+      crop_cauliflower_2: 977468170
+      crop_cauliflower_3: 1993444703
+      crop_cucumber_0: 60457671
+      crop_cucumber_1: 1684086453
+      crop_cucumber_2: -1353358349
+      crop_cucumber_3: -909573033
+      crop_eggplant_0: 1401613215
+      crop_eggplant_1: -1158354608
+      crop_eggplant_2: -305539048
+      crop_eggplant_3: 1948062744
+      crop_lettuce_0: -47535713
+      crop_lettuce_1: -44034381
+      crop_lettuce_2: 855596881
+      crop_lettuce_3: -1273037777
+      crop_maize_0: 188803443
+      crop_maize_1: -1457046251
+      crop_maize_2: -1987745759
+      crop_maize_3: 1919205123
+      crop_maize_4: 213578092
+      crop_peony_0: -168519729
+      crop_peony_1: 1981231192
+      crop_peony_2: -141019425
+      crop_peony_3: 1807597867
+      crop_pumpkin_0: -1344121078
+      crop_pumpkin_1: 1326903001
+      crop_pumpkin_2: -2008618435
+      crop_pumpkin_3: -1803743914
+      crop_purpleyam_0: 1701245838
+      crop_purpleyam_1: 1917080196
+      crop_purpleyam_2: 1534858324
+      crop_purpleyam_3: 168594489
+      crop_radish_0: -550542529
+      crop_radish_1: -1741381107
+      crop_radish_2: 1830256329
+      crop_radish_3: 196675600
+      crop_tomato_0: -1702734740
+      crop_tomato_1: -873384520
+      crop_tomato_2: -164536707
+      crop_tomato_3: 2025911415
+      crop_wheat_0: -1860653548
+      crop_wheat_1: -1578713332
+      crop_wheat_2: 1508460234
+      crop_wheat_3: 1542669368
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

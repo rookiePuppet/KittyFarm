@@ -1,13 +1,11 @@
-using System.Collections.Generic;
+using KittyFarm.Data;
 using UnityEngine;
 
 namespace KittyFarm.InventorySystem
 {
     [CreateAssetMenu(fileName = "ItemDatabase", menuName = "Kitty Farm/Item Database")]
-    public class ItemDatabaseSO : ScriptableObject
+    public class ItemDatabaseSO : DatabaseSO<ItemDataSO>
     {
-        [field: SerializeField] private List<ItemDataSO> ItemDataList { get; set; }
-
-        public ItemDataSO GetItemData(int id) => ItemDataList.Find(itemData => itemData.Id == id);
+        public ItemDataSO GetItemData(int id) => dataList.Find(itemData => itemData.Id == id);
     }
 }

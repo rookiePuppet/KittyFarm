@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a065b350575c45449b5f3683a135ca59, type: 3}
-  m_Name: Cabage
+  m_Script: {fileID: 11500000, guid: f362914f7e30465bbad655fd2519ecb3, type: 3}
+  m_Name: Wheat
   m_EditorClassIdentifier: 
   Id: 2
-  CropName: Cabage
-  ProductData: {fileID: 0}
-  Stages: []
+  ItemName: "\u5C0F\u9EA6"
+  Description: 
+  IconSprite: {fileID: -366392789, guid: d3c4d58bacacea44789df3cc5dbb06c3, type: 3}
+  Type: 1
+  OperationRange: 2

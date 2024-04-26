@@ -21,7 +21,7 @@ public class DatabaseSOEditor : Editor
     private void OnEnable()
     {
         serializedObject = new SerializedObject(this);
-        folderProperty = serializedObject.FindProperty("folder");
+        folderProperty = serializedObject.FindProperty(nameof(folder));
 
         targetType = target.GetType();
         var dataType = targetType.BaseType.GenericTypeArguments[0];
@@ -53,15 +53,29 @@ public class DatabaseSOEditor : Editor
     private void CollectDataFromFolder()
     {
         if (folderProperty.objectReferenceValue == null) return;
+        
+        var folderQueue = new Queue<string>();
 
         var folderPath = AssetDatabase.GetAssetPath(folderProperty.objectReferenceValue);
-        var files = Directory.GetFiles(folderPath, "*.asset");
+        folderQueue.Enqueue(folderPath);
 
         var dataList = dataListField.GetValue(target);
-        foreach (var file in files)
+        while (folderQueue.Count != 0)
         {
-            var asset = AssetDatabase.LoadAssetAtPath<ScriptableObject>(file);
-            addMethod.Invoke(dataList, new object[] { asset });
+            folderPath = folderQueue.Dequeue();
+            Debug.Log($"处理文件夹：{folderPath}");
+
+            var files = Directory.GetFiles(folderPath, "*.asset");
+            foreach (var file in files)
+            {
+                var asset = AssetDatabase.LoadAssetAtPath<ScriptableObject>(file);
+                addMethod.Invoke(dataList, new object[] { asset });
+            }
+
+            foreach (var subFolderPath in Directory.GetDirectories(folderPath))
+            {
+                folderQueue.Enqueue(subFolderPath);
+            }
         }
     }
 }

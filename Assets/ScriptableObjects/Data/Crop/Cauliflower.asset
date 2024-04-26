@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a065b350575c45449b5f3683a135ca59, type: 3}
-  m_Name: Carrot
+  m_Name: Cauliflower
   m_EditorClassIdentifier: 
   Id: 1
-  CropName: "\u80E1\u841D\u535C"
-  ProductData: {fileID: 11400000, guid: b7aa2261685b98747a3fed805059a461, type: 2}
+  CropName: "\u6930\u83DC\u82B1"
+  ProductData: {fileID: 11400000, guid: 59b82479702a6c94dab4321257ae514f, type: 2}
   Stages:
   - GrowthDuration: 1
-    Sprite: {fileID: 1169368356, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
+    Sprite: {fileID: -1654645186, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
   - GrowthDuration: 1
-    Sprite: {fileID: 675820970, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
+    Sprite: {fileID: 1678986862, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
   - GrowthDuration: 1
-    Sprite: {fileID: -1054840826, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
+    Sprite: {fileID: 977468170, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
   - GrowthDuration: 1
-    Sprite: {fileID: 204657128, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
+    Sprite: {fileID: 1993444703, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}

@@ -9,6 +9,8 @@ namespace KittyFarm.InventorySystem
         public string ItemName;
         public string Description;
         public Sprite IconSprite;
+        public int Value;
+        public float SoldDiscount;
         public ItemType Type;
         public float OperationRange;
 
