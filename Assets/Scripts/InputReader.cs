@@ -21,7 +21,6 @@ namespace KittyFarm
             inputActions.Gameplay.Move.performed += OnMove;
             inputActions.Gameplay.Move.canceled += OnMove;
             
-
             inputActions.Gameplay.Click.started += OnClick;
             inputActions.Gameplay.Click.performed += OnClick;
             inputActions.Gameplay.Click.canceled += OnClick;

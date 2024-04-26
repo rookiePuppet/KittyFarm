@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using KittyFarm.CropSystem;
 using UnityEngine;
 
-namespace KittyFarm.CropSystem
+namespace KittyFarm.Data
 {
-    [CreateAssetMenu(fileName = "MapResourcesData", menuName = "Kitty Farm/Map Resources Data")]
+    [CreateAssetMenu(fileName = "MapResourcesData", menuName = "Data/Map Resources Data")]
     public class MapResourcesDataSO : ScriptableObject
     {
         public const string PersistentDataName = "MapResourcesData";

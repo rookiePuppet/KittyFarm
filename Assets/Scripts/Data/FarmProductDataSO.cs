@@ -1,8 +1,9 @@
+using KittyFarm.InventorySystem;
 using UnityEngine;
 
-namespace KittyFarm.InventorySystem
+namespace KittyFarm.Data
 {
-    [CreateAssetMenu(fileName = "NewFarmProductData", menuName = "Inventory/Farm Product Data")]
+    [CreateAssetMenu(fileName = "NewFarmProductData", menuName = "Data/Farm Product Data")]
     public class FarmProductDataSO : ItemDataSO
     {
         protected override void OnValidate()

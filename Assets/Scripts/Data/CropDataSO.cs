@@ -1,10 +1,11 @@
 using System.Linq;
+using KittyFarm.CropSystem;
 using KittyFarm.InventorySystem;
 using UnityEngine;
 
-namespace KittyFarm.CropSystem
+namespace KittyFarm.Data
 {
-    [CreateAssetMenu(fileName = "NewCropData", menuName = "Crop/Crop Data")]
+    [CreateAssetMenu(fileName = "NewCropData", menuName = "Data/Crop Data")]
     public class CropDataSO : ScriptableObject
     {
         public int Id;

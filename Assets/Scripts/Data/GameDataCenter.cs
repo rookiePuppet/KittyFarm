@@ -1,8 +1,6 @@
 using Framework;
 using FrameWork;
-using KittyFarm.CropSystem;
 using KittyFarm.InventorySystem;
-using KittyFarm.Map;
 using UnityEngine;
 
 namespace KittyFarm.Data

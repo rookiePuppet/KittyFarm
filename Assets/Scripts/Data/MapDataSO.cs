@@ -1,9 +1,10 @@
 using System.Linq;
+using KittyFarm.Map;
 using UnityEngine;
 
-namespace KittyFarm.Map
+namespace KittyFarm.Data
 {
-    [CreateAssetMenu(fileName = "MapData", menuName = "Kitty Farm/Map Data")]
+    [CreateAssetMenu(fileName = "MapData", menuName = "Data/Map Data")]
     public class MapDataSO : ScriptableObject
     {
         [Header("基础信息")]

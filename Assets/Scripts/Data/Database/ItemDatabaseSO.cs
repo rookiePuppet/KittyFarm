@@ -1,9 +1,9 @@
-using KittyFarm.Data;
+using KittyFarm.InventorySystem;
 using UnityEngine;
 
-namespace KittyFarm.InventorySystem
+namespace KittyFarm.Data
 {
-    [CreateAssetMenu(fileName = "ItemDatabase", menuName = "Kitty Farm/Item Database")]
+    [CreateAssetMenu(fileName = "ItemDatabase", menuName = "Database/Item Database")]
     public class ItemDatabaseSO : DatabaseSO<ItemDataSO>
     {
         public ItemDataSO GetItemData(int id) => dataList.Find(itemData => itemData.Id == id);

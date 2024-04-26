@@ -1,9 +1,8 @@
-using KittyFarm.InventorySystem;
 using UnityEngine;
 
-namespace KittyFarm.CropSystem
+namespace KittyFarm.Data
 {
-    [CreateAssetMenu(fileName = "NewResourceData", menuName = "Kitty Farm/Resource Data")]
+    [CreateAssetMenu(fileName = "NewResourceData", menuName = "Data/Resource Data")]
     public class ResourceDataSO: ScriptableObject
     {
         public int Id;

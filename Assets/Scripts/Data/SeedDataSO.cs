@@ -1,9 +1,8 @@
-using KittyFarm.CropSystem;
 using UnityEngine;
 
-namespace KittyFarm.InventorySystem
+namespace KittyFarm.Data
 {
-    [CreateAssetMenu(fileName = "NewSeedData", menuName = "Inventory/Seed Data")]
+    [CreateAssetMenu(fileName = "NewSeedData", menuName = "Data/Seed Data")]
     public class SeedDataSO : ItemDataSO
     {
         public CropDataSO CropData;

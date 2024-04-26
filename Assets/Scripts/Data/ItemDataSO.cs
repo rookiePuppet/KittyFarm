@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace KittyFarm.InventorySystem
+namespace KittyFarm.Data
 {
-    [CreateAssetMenu(fileName = "NewItemData", menuName = "Inventory/Item Data")]
+    [CreateAssetMenu(fileName = "NewItemData", menuName = "Data/Item Data")]
     public class ItemDataSO : ScriptableObject
     {
         public int Id;

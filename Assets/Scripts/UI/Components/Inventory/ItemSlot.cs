@@ -1,4 +1,5 @@
 using System;
+using KittyFarm.Data;
 using KittyFarm.InventorySystem;
 using KittyFarm.Service;
 using TMPro;

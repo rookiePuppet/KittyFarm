@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
+using KittyFarm.Data;
 using UnityEngine;
 
 namespace KittyFarm.InventorySystem
 {
-    [CreateAssetMenu(fileName = "PlayerInventory", menuName = "Inventory/PlayerInventory")]
     public class PlayerInventorySO : ScriptableObject
     {
         [SerializeField] private List<InventoryItem> items = new();
