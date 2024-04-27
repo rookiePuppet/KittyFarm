@@ -22,5 +22,18 @@ namespace KittyFarm.Service
 
             return item;
         }
+
+        public Item SpawnItemAt(Transform parent, Vector3 position, ItemDataSO itemData, int amount = 1)
+        {
+            position.z = 0;
+
+            // var itemObj = Instantiate(itemPrefab, position, Quaternion.identity, parent);
+            var itemObj = Instantiate(itemPrefab, parent);
+            itemObj.transform.localPosition = position;
+            var item = itemObj.GetComponent<Item>();
+            item.Initialize(itemData, amount);
+
+            return item;
+        }
     }
 }

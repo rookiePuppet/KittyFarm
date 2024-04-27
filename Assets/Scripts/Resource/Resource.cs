@@ -1,3 +1,4 @@
+using System;
 using KittyFarm.Data;
 using KittyFarm.Service;
 using KittyFarm.Time;
@@ -8,7 +9,7 @@ namespace KittyFarm.CropSystem
     public abstract class Resource : MonoBehaviour
     {
         [SerializeField] private ResourceDataSO data;
-        
+
         public ResourceDataSO Data => data;
         public ResourceGrowthDetails GrowthDetails { get; set; }
         public bool CanBeHarvested => !IsGrowing;
@@ -20,14 +21,18 @@ namespace KittyFarm.CropSystem
             IsGrowing = sinceLastCollectTime.TotalHours < data.RegenerationTime;
         }
 
-        public virtual void Collect()
+        public abstract void Collect();
+
+        protected void FinishCollection()
         {
-            if (IsGrowing) return;
-            
             GrowthDetails.LastCollectTime = TimeManager.CurrentTime;
             Refresh();
 
-            ServiceCenter.Get<IItemService>().SpawnItemAt(transform.position, data.ProductData, 3);
+            var itemService = ServiceCenter.Get<IItemService>();
+            foreach (var position in Data.ProductPositions)
+            {
+                itemService.SpawnItemAt(transform, position, data.ProductData);
+            }
         }
     }
 }

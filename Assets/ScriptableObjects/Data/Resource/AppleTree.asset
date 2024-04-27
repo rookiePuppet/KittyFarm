@@ -16,3 +16,7 @@ MonoBehaviour:
   ResourceName: "\u82F9\u679C\u6811"
   RegenerationTime: 1
   ProductData: {fileID: 11400000, guid: 1e8bad6f26c7dcd458f7c11014c0c7e4, type: 2}
+  ProductPositions:
+  - {x: 1, y: 0.2, z: 0}
+  - {x: 1.3, y: 0.6, z: 0}
+  - {x: -1.2, y: 0.4, z: 0}

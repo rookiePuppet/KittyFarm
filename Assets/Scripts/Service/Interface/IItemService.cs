@@ -8,5 +8,6 @@ namespace KittyFarm.Service
     {
         public ItemDatabaseSO ItemDatabase { get; }
         public Item SpawnItemAt(Vector3 position, ItemDataSO itemData, int amount = 1);
+        public Item SpawnItemAt(Transform parent, Vector3 position, ItemDataSO itemData, int amount = 1);
     }
 }

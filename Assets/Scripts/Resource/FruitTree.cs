@@ -6,9 +6,18 @@ namespace KittyFarm.CropSystem
     {
         private SpriteRenderer fruitRenderer;
 
+        private Animator treeAnimator;
+        private Animator fruitAnimator;
+        
+        private static readonly int AnimatorHash_Shake = Animator.StringToHash("Shake");
+        private static readonly int AnimatorHash_Fall = Animator.StringToHash("Fall");
+
         private void Awake()
         {
-            fruitRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+            var child = transform.GetChild(0);
+            fruitRenderer = child.GetComponent<SpriteRenderer>();
+            treeAnimator = GetComponent<Animator>();
+            fruitAnimator = child.GetComponent<Animator>();
         }
 
         public override void Refresh()
@@ -20,9 +29,8 @@ namespace KittyFarm.CropSystem
 
         public override void Collect()
         {
-            base.Collect();
-            
-            print($"收获了{Data.ResourceName}");
+            treeAnimator.SetTrigger(AnimatorHash_Shake);
+            fruitAnimator.SetTrigger(AnimatorHash_Fall);
         }
     }
 }
