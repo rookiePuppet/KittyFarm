@@ -9,24 +9,25 @@ namespace KittyFarm
     {
         public static event Action MapLoaded;
 
-        private void Start()
+        public void LoadMapScene(string sceneName, Action onSceneLoaded = null)
         {
-            SceneManager.LoadScene("StartScene", LoadSceneMode.Additive);
-        }
-
-        public void LoadMapScene(int mapId)
-        {
-            StartCoroutine(LoadSceneAsync("Plain",
+            StartCoroutine(LoadSceneAsync(sceneName,
                 () =>
                 {
-                    SceneManager.SetActiveScene(SceneManager.GetSceneByName("Plain")); 
+                    SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
                     MapLoaded?.Invoke();
+                    
+                    onSceneLoaded?.Invoke();
                 }));
         }
 
-        private IEnumerator LoadSceneAsync(string name, Action onSceneLoaded = null)
+        private IEnumerator LoadSceneAsync(string sceneName, Action onSceneLoaded = null)
         {
-            yield return SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
+            if (!SceneManager.GetSceneByName(sceneName).IsValid())
+            {
+                yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            }
+
             onSceneLoaded?.Invoke();
         }
     }
