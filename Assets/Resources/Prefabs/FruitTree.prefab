@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2274173448107722774}
   - component: {fileID: 4754304330377172969}
   - component: {fileID: 3097654807553067723}
+  - component: {fileID: 8460056156252094368}
   m_Layer: 13
   m_Name: FruitTree
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2209062740947446312}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.2, y: -0.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -182,8 +183,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.015480995, y: 0.8110185}
-  m_Size: {x: 1.250742, y: 1.808029}
+  m_Offset: {x: 0.013695717, y: 0.8646844}
+  m_Size: {x: 1.2471714, y: 1.6582416}
   m_Direction: 0
 --- !u!95 &2274173448107722774
 Animator:
@@ -195,7 +196,7 @@ Animator:
   m_GameObject: {fileID: 2209062740947446312}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 061f3c6654554324d8ce328776401843, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -231,6 +232,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355810307b4943088b8036006c11699b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8460056156252094368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2209062740947446312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbeed9e12814f278310fcb06b387909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faderConfig: {fileID: 11400000, guid: f7781a14eec384642991db16667a343b, type: 2}
 --- !u!1 &4237644769384590540
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +342,7 @@ Animator:
   m_GameObject: {fileID: 4237644769384590540}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ec4734713af04e45b88356e79f717aa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

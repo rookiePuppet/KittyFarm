@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6393059075037576555}
   - component: {fileID: 3179489997480710646}
   - component: {fileID: 1847796872314736939}
+  - component: {fileID: 4114387536854933959}
+  - component: {fileID: 1970293230325816472}
   m_Layer: 0
   m_Name: SceneryTree
   m_TagString: Untagged
@@ -31,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3179489997480710646
 SpriteRenderer:
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1334573103
-  m_SortingLayer: 15
+  m_SortingLayer: 16
   m_SortingOrder: 0
   m_Sprite: {fileID: -2096060512, guid: eefec32bb52e7804190b9571f11fb4c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -132,3 +134,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0047662, y: 0.21250248}
   m_EdgeRadius: 0
+--- !u!58 &4114387536854933959
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296127325779679785}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.4}
+  serializedVersion: 2
+  m_Radius: 1.3
+--- !u!114 &1970293230325816472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296127325779679785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbeed9e12814f278310fcb06b387909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faderConfig: {fileID: 11400000, guid: f7781a14eec384642991db16667a343b, type: 2}

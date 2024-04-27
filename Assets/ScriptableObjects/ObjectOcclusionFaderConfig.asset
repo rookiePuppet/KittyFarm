@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ffc0c6d0c43401ea51bca2db5eaf964, type: 3}
-  m_Name: MapResourcesData
+  m_Script: {fileID: 11500000, guid: 6f19d83b9305402eb6776d262be35a7d, type: 3}
+  m_Name: ObjectOcclusionFaderConfig
   m_EditorClassIdentifier: 
-  resourcesDetailsList:
-  - Position: {x: 18.2, y: -0.62, z: 0}
-    ResourceId: 1
-    LastCollectTimeTicks: 638498132593537443
+  fadeAlpha: 0.35
+  fadeDuration: 0.5
