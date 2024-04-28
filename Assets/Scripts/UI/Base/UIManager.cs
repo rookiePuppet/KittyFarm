@@ -6,6 +6,7 @@ namespace KittyFarm.UI
 {
     public class UIManager : MonoSingleton<UIManager>
     {
+        [SerializeField] private string canvasTag = "MainCanvas";
         [SerializeField] private string uiRootPath = "UI";
 
         private readonly Dictionary<string, UIBase> uiDic = new();
@@ -15,7 +16,7 @@ namespace KittyFarm.UI
         protected override void Awake()
         {
             base.Awake();
-            canvas = FindObjectOfType<Canvas>();
+            canvas = GameObject.FindWithTag(canvasTag).GetComponent<Canvas>();
         }
 
         public TUI ShowUI<TUI>() where TUI : UIBase

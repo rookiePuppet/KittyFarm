@@ -40,7 +40,6 @@ namespace KittyFarm
         private void Start()
         {
             InputReader.EnableInput();
-            Application.targetFrameRate = 60;
         }
 
         private void OnMove(InputAction.CallbackContext context)

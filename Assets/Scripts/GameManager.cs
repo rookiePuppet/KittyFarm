@@ -9,7 +9,7 @@ namespace KittyFarm
     public class GameManager : MonoSingleton<GameManager>
     {
         public static event Action BeforeGameExit;
-        
+
         private void OnApplicationQuit()
         {
             BeforeGameExit?.Invoke();
@@ -18,19 +18,23 @@ namespace KittyFarm
         public void ExitGame()
         {
             BeforeGameExit?.Invoke();
-            
+
 #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
 #endif
             Application.Quit();
         }
-        
+
 #if UNITY_EDITOR
         public bool autoLoadScene = true;
         public SceneAsset defaultMap;
+#endif
 
         private void Start()
         {
+            Application.targetFrameRate = 60;
+
+#if UNITY_EDITOR
             if (autoLoadScene)
             {
                 SceneLoader.Instance.LoadMapScene(defaultMap.name, () =>
@@ -39,8 +43,7 @@ namespace KittyFarm
                     UIManager.Instance.ShowUI<OnScreenControllerView>();
                 });
             }
-        }
-
 #endif
+        }
     }
 }

@@ -19,8 +19,8 @@ namespace KittyFarm
             var tilemapService = ServiceCenter.Get<ITilemapService>();
 
             InputReader.DisableInput();
-            await animation.PlayUseTool(direction, ToolType.WateringCan,
-                () => { tilemapService.WaterAt(cellPosition); });
+            //await animation.PlayUseTool(direction, ToolType.WateringCan,
+               // () => { tilemapService.WaterAt(cellPosition); });
             InputReader.EnableInput();
         }
     }

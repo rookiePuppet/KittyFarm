@@ -9,8 +9,10 @@ namespace KittyFarm
     {
         public static event Action MapLoaded;
 
-        public void LoadMapScene(string sceneName, Action onSceneLoaded = null)
+        public void LoadMapScene(string sceneName, Action onSceneLoaded = null, Action beforeLoadScene = null)
         {
+            beforeLoadScene?.Invoke();
+            
             StartCoroutine(LoadSceneAsync(sceneName,
                 () =>
                 {

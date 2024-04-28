@@ -10,7 +10,7 @@ namespace KittyFarm.Service
 {
     public class TilemapService : MonoBehaviour, ITilemapService
     {
-        [Tooltip("地面湿润值变为0的总时间（分钟）")] [SerializeField] private int dryTime = 60;
+        // [Tooltip("地面湿润值变为0的总时间（分钟）")] [SerializeField] private int dryTime = 60;
 
         [SerializeField] private TileBase dugTile;
 
@@ -26,13 +26,13 @@ namespace KittyFarm.Service
         private void OnEnable()
         {
             SceneLoader.MapLoaded += Initialize;
-            TimeManager.MinutePassed += UpdateAllTileDetails;
+            // TimeManager.MinutePassed += UpdateAllTileDetails;
         }
 
         private void OnDisable()
         {
             SceneLoader.MapLoaded -= Initialize;
-            TimeManager.MinutePassed -= UpdateAllTileDetails;
+            // TimeManager.MinutePassed -= UpdateAllTileDetails;
         }
 
         private void Initialize()
@@ -51,23 +51,23 @@ namespace KittyFarm.Service
                 SetDugTileAt(item.CellPosition);
             }
 
-            UpdateAllTileDetails();
+            // UpdateAllTileDetails();
         }
         
-        private void UpdateAllTileDetails()
-        {
-            foreach (var tileDetails in tilesData.TilesDetailsList)
-            {
-                UpdateSingleTileDetails(tileDetails);
-            }
-        }
-
-        private void UpdateSingleTileDetails(TileDetails tileDetails)
-        {
-            var dryValue = (float)TimeManager.GetTimeSpanFrom(tileDetails.LastWateringTime).Ticks /
-                           TimeSpan.FromMinutes(dryTime).Ticks;
-            tileDetails.WettingValue = 1 - Mathf.Min(dryValue, 1);
-        }
+        // private void UpdateAllTileDetails()
+        // {
+        //     foreach (var tileDetails in tilesData.TilesDetailsList)
+        //     {
+        //         UpdateSingleTileDetails(tileDetails);
+        //     }
+        // }
+        //
+        // private void UpdateSingleTileDetails(TileDetails tileDetails)
+        // {
+        //     var dryValue = (float)TimeManager.GetTimeSpanFrom(tileDetails.LastWateringTime).Ticks /
+        //                    TimeSpan.FromMinutes(dryTime).Ticks;
+        //     tileDetails.WettingValue = 1 - Mathf.Min(dryValue, 1);
+        // }
 
         public TilePropertiesInfo GetTilePropertiesInfoAt(Vector3Int cellPosition) =>
             new(IsPlantableAt(cellPosition), IsNotDroppableAt(cellPosition));
@@ -92,14 +92,14 @@ namespace KittyFarm.Service
             });
         }
 
-        public void WaterAt(Vector3Int cellPosition)
-        {
-            if (TryGetTileDetailsOn(cellPosition, out var tileDetails))
-            {
-                tileDetails.LastWateringTime = TimeManager.CurrentTime;
-                UpdateSingleTileDetails(tileDetails);
-            }
-        }
+        // public void WaterAt(Vector3Int cellPosition)
+        // {
+        //     if (TryGetTileDetailsOn(cellPosition, out var tileDetails))
+        //     {
+        //         tileDetails.LastWateringTime = TimeManager.CurrentTime;
+        //         UpdateSingleTileDetails(tileDetails);
+        //     }
+        // }
 
         private void SetDugTileAt(Vector3Int gridCoordinate)
         {
