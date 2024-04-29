@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace KittyFarm.UI
@@ -82,13 +80,7 @@ namespace KittyFarm.UI
 
         private void OnStartButtonClicked()
         {
-            SceneLoader.Instance.LoadMapScene("Plain", () =>
-            {
-                UIManager.Instance.HideUI<StartView>();
-
-                UIManager.Instance.ShowUI<GameView>();
-                UIManager.Instance.ShowUI<OnScreenControllerView>();
-            }, () => { SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()); });
+            GameManager.LoadMapScene();
         }
 
         private void OnSettingsButtonClicked()
@@ -97,7 +89,7 @@ namespace KittyFarm.UI
 
         private void OnExitButtonClicked()
         {
-            GameManager.Instance.ExitGame();
+            GameManager.ExitGame();
         }
     }
 }

@@ -21,12 +21,12 @@ namespace KittyFarm.Service
 
         private void OnEnable()
         {
-            SceneLoader.MapLoaded += Initialize;
+            GameManager.MapChanged += Initialize;
         }
 
         private void OnDisable()
         {
-            SceneLoader.MapLoaded -= Initialize;
+            GameManager.MapChanged -= Initialize;
         }
 
         private void Initialize()

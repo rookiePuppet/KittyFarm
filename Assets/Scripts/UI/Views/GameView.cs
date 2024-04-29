@@ -36,7 +36,7 @@ namespace KittyFarm.UI
         {
             RefreshTimeBoard();
 
-            exitButton.onClick.AddListener(GameManager.Instance.ExitGame);
+            exitButton.onClick.AddListener(GameManager.ExitGame);
         }
 
         private void RefreshTimeBoard()

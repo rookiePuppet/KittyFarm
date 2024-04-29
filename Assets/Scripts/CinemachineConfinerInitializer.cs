@@ -15,15 +15,15 @@ namespace KittyFarm
 
         private void OnEnable()
         {
-            SceneLoader.MapLoaded += OnMapLoaded;
+            GameManager.MapChanged += OnMapChanged;
         }
 
         private void OnDisable()
         {
-            SceneLoader.MapLoaded -= OnMapLoaded;
+            GameManager.MapChanged -= OnMapChanged;
         }
 
-        private void OnMapLoaded()
+        private void OnMapChanged()
         {
             var gridCollider = FindObjectOfType<Grid>().GetComponent<PolygonCollider2D>();
             confiner.m_BoundingShape2D = gridCollider;

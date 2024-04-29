@@ -25,13 +25,13 @@ namespace KittyFarm.Service
 
         private void OnEnable()
         {
-            SceneLoader.MapLoaded += Initialize;
+            GameManager.MapChanged += Initialize;
             // TimeManager.MinutePassed += UpdateAllTileDetails;
         }
 
         private void OnDisable()
         {
-            SceneLoader.MapLoaded -= Initialize;
+            GameManager.MapChanged -= Initialize;
             // TimeManager.MinutePassed -= UpdateAllTileDetails;
         }
 

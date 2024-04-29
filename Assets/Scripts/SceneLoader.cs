@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+using System.Threading.Tasks;
 using Framework;
 using UnityEngine.SceneManagement;
 
@@ -7,30 +6,53 @@ namespace KittyFarm
 {
     public class SceneLoader : MonoSingleton<SceneLoader>
     {
-        public static event Action MapLoaded;
-
-        public void LoadMapScene(string sceneName, Action onSceneLoaded = null, Action beforeLoadScene = null)
+        public static async Task<Scene> LoadSceneAndSetActiveAsync(string sceneName)
         {
-            beforeLoadScene?.Invoke();
+            // 由于加载模式是Additive，执行完同步加载场景方法后
+            // 虽然场景已经显示，但仍未完全加载完成（isLoaded属性为false），不能设置为激活场景
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
             
-            StartCoroutine(LoadSceneAsync(sceneName,
-                () =>
-                {
-                    SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
-                    MapLoaded?.Invoke();
-                    
-                    onSceneLoaded?.Invoke();
-                }));
+            var scene = SceneManager.GetSceneByName(sceneName);
+            // 等待场景完全加载完成
+            await WaitForSceneCompletelyLoaded(scene);
+            
+            SceneManager.SetActiveScene(scene);
+            
+            return scene;
         }
 
-        private IEnumerator LoadSceneAsync(string sceneName, Action onSceneLoaded = null)
+        public static async Task<Scene> LoadSceneAsync(string sceneName)
         {
-            if (!SceneManager.GetSceneByName(sceneName).IsValid())
-            {
-                yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-            }
+            await UnityLoadSceneAsync(sceneName);
 
-            onSceneLoaded?.Invoke();
+            var scene = SceneManager.GetSceneByName(sceneName);
+            SceneManager.SetActiveScene(scene);
+
+            return scene;
+        }
+
+        private static Task UnityLoadSceneAsync(string sceneName)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+
+            var loadOperation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            loadOperation.completed += _ => { tcs.SetResult(true); };
+
+            return tcs.Task;
+        }
+
+        private static async Task WaitForSceneCompletelyLoaded(Scene scene)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+            
+            var sceneLoaded = false;
+            while (!sceneLoaded)
+            {
+                await Task.Delay(100);
+                sceneLoaded = scene.isLoaded;
+            }
+            
+            tcs.SetResult(true);
         }
     }
 }

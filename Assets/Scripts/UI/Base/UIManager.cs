@@ -46,6 +46,16 @@ namespace KittyFarm.UI
             }
         }
 
+        public void DestroyUI<TUI>() where TUI : UIBase
+        {
+            var uiName = typeof(TUI).Name;
+
+            if (uiDic.TryGetValue(uiName, out var ui))
+            {
+                Destroy(ui.gameObject);
+            }
+        }
+
         public TUI GetUI<TUI>() where TUI : UIBase
         {
             var uiName = typeof(TUI).Name;
@@ -54,6 +64,16 @@ namespace KittyFarm.UI
             return ui as TUI;
         }
 
+        public void ClearCache()
+        {
+            foreach (var ui in uiDic.Values)
+            {
+                Destroy(ui.gameObject);
+            }
+            
+            uiDic.Clear();
+        }
+        
         private string GetUIPath(string uiName)
         {
             return $"{uiRootPath}/{uiName}";

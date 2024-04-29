@@ -7,7 +7,7 @@ namespace KittyFarm
     {
         public void Start()
         {
-            UIManager.Instance.ShowUI<StartView>();
+            //UIManager.Instance.ShowUI<StartView>();
         }
     }
 }
