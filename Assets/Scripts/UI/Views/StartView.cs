@@ -21,19 +21,24 @@ namespace KittyFarm.UI
         [SerializeField] private float buttonStretchSize = 1.2f;
 
         private RectTransform startButtonRectTransform;
-
         private bool playTextAnimation = true;
-        private bool playStartButtonAnimation = true;
+        private Sequence startButtonSequence;
 
         private void Awake()
         {
             startButtonRectTransform = startButton.GetComponent<RectTransform>();
+
+            startButtonSequence = DOTween.Sequence()
+                .Append(startButtonRectTransform.DOScale(buttonStretchSize * Vector3.one, 1f))
+                .Append(startButtonRectTransform.DOScale(1f * Vector3.one, 1f))
+                .Pause();
+            startButtonSequence.onComplete += () => startButtonSequence.Restart();
         }
 
         private void OnDisable()
         {
+            startButtonSequence.Pause();
             playTextAnimation = false;
-            playStartButtonAnimation = false;
         }
 
         private void Start()
@@ -42,21 +47,9 @@ namespace KittyFarm.UI
             settingsButton.onClick.AddListener(OnSettingsButtonClicked);
             exitButton.onClick.AddListener(OnExitButtonClicked);
 
+            startButtonSequence.Play();
+
             StartCoroutine(PlayTitleTextAnimationRoutine());
-            StartCoroutine(PlayStartButtonAnimationRoutine());
-        }
-
-        private IEnumerator PlayStartButtonAnimationRoutine()
-        {
-            yield return startButtonRectTransform.DOScale(buttonStretchSize * Vector2.one, 1f);
-
-            while (playStartButtonAnimation)
-            {
-                var sequence = DOTween.Sequence()
-                    .Append(startButtonRectTransform.DOScale(1f, 1f))
-                    .Append(startButtonRectTransform.DOScale(buttonStretchSize * Vector2.one, 1f));
-                yield return sequence.WaitForCompletion();
-            }
         }
 
         private IEnumerator PlayTitleTextAnimationRoutine()

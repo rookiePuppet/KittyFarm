@@ -27,9 +27,11 @@ namespace KittyFarm
         private void Start()
         {
             Application.targetFrameRate = 60;
-
+            
+            UIManager.Instance.ShowUI<StartView>();
+            ServiceCenter.Get<ICameraService>().EnableFixedCamera();
+            
             InitializePlayer();
-            HandleSceneLoading();
         }
 
         private void OnApplicationQuit()
@@ -39,10 +41,7 @@ namespace KittyFarm
 
         public static async void LoadMapScene()
         {
-            SceneManager.UnloadSceneAsync(currentScene);
-
-            var scene = await SceneLoader.LoadSceneAsync("Plain");
-            currentScene = scene;
+            await SceneLoader.LoadSceneAsync("Plain");
 
             UIManager.Instance.ClearCache();
 
@@ -75,14 +74,6 @@ namespace KittyFarm
 
             player.transform.position = GameDataCenter.Instance.PlayerData.LastPosition;
             IsPlayerEnabled = false;
-        }
-
-        private async void HandleSceneLoading()
-        {
-            currentScene = await SceneLoader.LoadSceneAndSetActiveAsync("StartScene");
-            UIManager.Instance.ShowUI<StartView>();
-            
-            ServiceCenter.Get<ICameraService>().EnableFixedCamera();
         }
     }
 }
