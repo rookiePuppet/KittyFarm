@@ -6,7 +6,7 @@ namespace KittyFarm
 {
     public class PickUpItemAbility : MonoBehaviour
     {
-        private PlayerInventorySO Inventory => GameDataCenter.Instance.PlayerInventory;
+        private PlayerInventory Inventory => GameDataCenter.Instance.PlayerInventory;
 
         private void PickUpItem(Item item)
         {

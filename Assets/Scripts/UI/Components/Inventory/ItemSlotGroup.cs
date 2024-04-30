@@ -14,7 +14,7 @@ namespace KittyFarm.UI
         
         public ItemSlot SelectedSlot { get; private set; }
         
-        private PlayerInventorySO Inventory => GameDataCenter.Instance.PlayerInventory;
+        private PlayerInventory Inventory => GameDataCenter.Instance.PlayerInventory;
         private ItemSlot[] slots;
 
         private void Awake()
@@ -83,7 +83,7 @@ namespace KittyFarm.UI
                 var itemData = draggedSlot.ItemData;
                 var amount = draggedSlot.Item.count;
 
-                var position = ServiceCenter.Get<IPointerService>().ScreenToWorldPoint(eventData.position);
+                var position = ServiceCenter.Get<ICameraService>().ScreenToWorldPoint(eventData.position);
                 ServiceCenter.Get<IItemService>().SpawnItemAt(position, itemData, amount);
 
                 Inventory.RemoveItemAll(draggedSlot.Index);

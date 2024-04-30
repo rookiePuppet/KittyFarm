@@ -16,7 +16,7 @@ namespace KittyFarm.Map
         private PlayerController player;
 
         private ITilemapService tilemapService;
-        private IPointerService pointerService;
+        private ICameraService cameraService;
 
         public static Action<Vector3Int, Vector3> TileClicked;
         
@@ -25,12 +25,12 @@ namespace KittyFarm.Map
             player = FindObjectOfType<PlayerController>();
             
             tilemapService = ServiceCenter.Get<ITilemapService>();
-            pointerService = ServiceCenter.Get<IPointerService>();
+            cameraService = ServiceCenter.Get<ICameraService>();
         }
         
         public void OnPointerClick(PointerEventData eventData)
         {
-            var worldPosition = pointerService.ScreenToWorldPoint(eventData.position);
+            var worldPosition = cameraService.ScreenToWorldPoint(eventData.position);
             var cellPosition = tilemapService.WorldToCell(worldPosition);
             var cellCenter = tilemapService.GetCellCenterWorld(cellPosition);
             

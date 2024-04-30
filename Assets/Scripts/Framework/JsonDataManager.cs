@@ -43,16 +43,17 @@ namespace FrameWork
             JsonUtility.FromJsonOverwrite(json, data);
         }
 
-        // private static T CreateDataInstance<T>()
-        // {
-        //     var data = Activator.CreateInstance<T>();
-        //     foreach (var field in typeof(T).GetFields())
-        //     {
-        //         field.SetValue(data, Activator.CreateInstance(field.FieldType));
-        //     }
-        //
-        //     return data;
-        // }
+        public static bool Exists<T>(string fileName)
+        {
+            var filePath = GetFilePath(fileName);
+
+            return saveType switch
+            {
+                SaveType.JsonFile => File.Exists(filePath),
+                SaveType.PlayerPrefs => PlayerPrefs.HasKey(filePath),
+                _ => false
+            };
+        }
 
         private static string GetFilePath(string fileName)
         {

@@ -1,5 +1,4 @@
 using Cinemachine;
-using KittyFarm.Service;
 using UnityEngine;
 
 namespace KittyFarm

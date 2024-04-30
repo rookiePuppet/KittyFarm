@@ -1,18 +1,19 @@
 using System;
 using System.Collections.Generic;
-using KittyFarm.Data;
+using KittyFarm.InventorySystem;
 using UnityEngine;
 
-namespace KittyFarm.InventorySystem
+namespace KittyFarm.Data
 {
-    public class PlayerInventorySO : ScriptableObject
+    [Serializable]
+    public class PlayerInventory
     {
         [SerializeField] private List<InventoryItem> items = new();
 
         public List<InventoryItem> Items => items;
         public event Action<int, InventoryItem> ItemChanged;
 
-        public const string PersistentDataName = "PlayerInventory";
+        // public const string PersistentDataName = "PlayerInventory";
         private const int MaxSize = 9;
 
         public bool AddItem(ItemDataSO itemData, int itemAmount)

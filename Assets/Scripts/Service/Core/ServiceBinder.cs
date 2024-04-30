@@ -10,12 +10,12 @@ namespace KittyFarm.Service
             var mapService = GetComponent<TilemapService>();
             var cropService = GetComponent<CropService>();
             var itemService = GetComponent<ItemService>();
-            var pointerService = GetComponent<PointerService>();
+            var cameraService = GetComponent<CameraService>();
             
             ServiceCenter.Register<ITilemapService>(mapService);
             ServiceCenter.Register<ICropService>(cropService);
             ServiceCenter.Register<IItemService>(itemService);
-            ServiceCenter.Register<IPointerService>(pointerService);
+            ServiceCenter.Register<ICameraService>(cameraService);
         }
     }
 }

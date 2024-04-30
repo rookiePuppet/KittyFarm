@@ -14,7 +14,7 @@ namespace KittyFarm.Service
 
         public CropDatabaseSO CropDatabase => cropDatabase;
         public CropGrowthTracker GrowthTracker => growthTracker;
-        private PlayerInventorySO PlayerInventory => GameDataCenter.Instance.PlayerInventory;
+        private PlayerInventory PlayerInventory => GameDataCenter.Instance.PlayerInventory;
         private MapCropsDataSO cropsData;
 
         private CropGrowthTracker growthTracker;

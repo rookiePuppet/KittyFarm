@@ -2,9 +2,10 @@ using UnityEngine;
 
 namespace KittyFarm.Service
 {
-    public interface IPointerService: IService
+    public interface ICameraService: IService
     {
-        public Camera MainCamera { get; }
+        public void EnableKineticCamera();
+        public void EnableFixedCamera();
         public Vector3 ScreenToWorldPoint(Vector3 screenPosition);
     }
 }

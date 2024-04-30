@@ -29,15 +29,8 @@ namespace KittyFarm.CropSystem
 
         private void Initialize()
         {
-            if (GameDataCenter.Instance.MapResourcesData.ResourcesDetailsList.Count == 0)
-            {
-                GameDataCenter.Instance.FirstCreateMapResourcesData(mapResourcesData);
-            }
-            else
-            {
-                mapResourcesData = GameDataCenter.Instance.MapResourcesData;
-            }
-
+            mapResourcesData = GameDataCenter.Instance.MapResourcesData;
+ 
             foreach (var resource in FindObjectsOfType<Resource>())
             {
                 resource.GrowthDetails = mapResourcesData.GetGrowthDetails(resource.transform.position);

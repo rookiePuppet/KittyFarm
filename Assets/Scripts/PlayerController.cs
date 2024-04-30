@@ -8,18 +8,14 @@ namespace KittyFarm
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private float movementVelocity = 5f;
-
-        private PlayerInventorySO Inventory => GameDataCenter.Instance.PlayerInventory;
-
-        public PlayerAnimation Animation { get; private set; }
-
-        private new Rigidbody2D rigidbody;
-
-        private Vector2 MovementInput { get; set; }
-
         public event Action<Vector2> Moving;
         public event Action MoveStopped;
+
+        private PlayerDataSO Data => GameDataCenter.Instance.PlayerData;
+        public PlayerAnimation Animation { get; private set; }
+        private Vector2 MovementInput { get; set; }
+        
+        private new Rigidbody2D rigidbody;
 
         private void Awake()
         {
@@ -30,13 +26,15 @@ namespace KittyFarm
         private void OnEnable()
         {
             InputReader.Move += OnMove;
+            GameDataCenter.BeforeSaveData += DoBeforeSaveData;
         }
 
         private void OnDisable()
         {
             InputReader.Move -= OnMove;
+            GameDataCenter.BeforeSaveData += DoBeforeSaveData;
         }
-
+        
         private void Start()
         {
             InputReader.EnableInput();
@@ -47,7 +45,7 @@ namespace KittyFarm
             if (context.performed)
             {
                 MovementInput = context.ReadValue<Vector2>();
-                rigidbody.velocity = MovementInput * movementVelocity;
+                rigidbody.velocity = MovementInput * Data.MovementVelocity;
 
                 Moving?.Invoke(MovementInput);
             }
@@ -57,6 +55,11 @@ namespace KittyFarm
 
                 MoveStopped?.Invoke();
             }
+        }
+        
+        private void DoBeforeSaveData()
+        {
+            Data.LastPosition = transform.position;
         }
     }
 }

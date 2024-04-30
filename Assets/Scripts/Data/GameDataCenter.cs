@@ -1,20 +1,28 @@
+using System;
 using Framework;
 using FrameWork;
-using KittyFarm.InventorySystem;
 using UnityEngine;
 
 namespace KittyFarm.Data
 {
     public class GameDataCenter : MonoSingleton<GameDataCenter>
     {
-        [SerializeField] private MapDataSO mapData;
-        public MapDataSO MapData => mapData;
+        public static event Action BeforeSaveData;
 
-        private PlayerInventorySO playerInventory;
+        [SerializeField] private MapDataSO mapData;
+        [SerializeField] private MapResourcesDataSO mapResourcesData;
+        [SerializeField] private PlayerDataSO playerData;
+
+        public PlayerDataSO PlayerData => playerData;
+        public PlayerInventory PlayerInventory => PlayerData.Inventory;
+        public MapDataSO MapData => mapData;
+        public MapResourcesDataSO MapResourcesData => mapResourcesData;
+        public MapCropsDataSO MapCropsData => mapCropsData;
+        public MapTilesDataSO MapTilesData => mapTilesData;
+
         private MapCropsDataSO mapCropsData;
         private MapTilesDataSO mapTilesData;
-        private MapResourcesDataSO mapResourcesData;
-        
+
         private void OnEnable()
         {
             GameManager.BeforeGameExit += OnBeforeGameExit;
@@ -24,72 +32,42 @@ namespace KittyFarm.Data
         {
             GameManager.BeforeGameExit -= OnBeforeGameExit;
         }
+        
+        protected override void Awake()
+        {
+            base.Awake();
 
+            LoadData();
+        }
+        
+        private void LoadData()
+        {
+            if (JsonDataManager.Exists<PlayerDataSO>(PlayerDataSO.PersistentDataName))
+            {
+                JsonDataManager.LoadData(PlayerDataSO.PersistentDataName, out playerData);
+            }
+            else
+            {
+                playerData.Initialize();
+            }
+
+            if (JsonDataManager.Exists<MapResourcesDataSO>(MapResourcesDataSO.PersistentDataName))
+            {
+                JsonDataManager.LoadData(MapResourcesDataSO.PersistentDataName, out mapResourcesData);
+            }
+
+            JsonDataManager.LoadData(MapCropsDataSO.PersistentDataName, out mapCropsData);
+            JsonDataManager.LoadData(MapTilesDataSO.PersistentDataName, out mapTilesData);
+        }
+        
         private void OnBeforeGameExit()
         {
-            JsonDataManager.SaveData(PlayerInventorySO.PersistentDataName, playerInventory);
+            BeforeSaveData?.Invoke();
+
+            JsonDataManager.SaveData(PlayerDataSO.PersistentDataName, playerData);
             JsonDataManager.SaveData(MapCropsDataSO.PersistentDataName, mapCropsData);
             JsonDataManager.SaveData(MapTilesDataSO.PersistentDataName, mapTilesData);
             JsonDataManager.SaveData(MapResourcesDataSO.PersistentDataName, mapResourcesData);
-        }
-
-        public void FirstCreateMapResourcesData(MapResourcesDataSO data)
-        {
-            mapResourcesData = data;
-            JsonDataManager.SaveData(MapResourcesDataSO.PersistentDataName, mapResourcesData);
-        }
-
-        public PlayerInventorySO PlayerInventory
-        {
-            get
-            {
-                if (playerInventory == null)
-                {
-                    JsonDataManager.LoadData(PlayerInventorySO.PersistentDataName, out playerInventory);
-                    playerInventory.Initialize();
-                }
-
-                return playerInventory;
-            }
-        }
-        
-        public MapCropsDataSO MapCropsData
-        {
-            get
-            {
-                if (mapCropsData == null)
-                {
-                    JsonDataManager.LoadData(MapCropsDataSO.PersistentDataName, out mapCropsData);
-                }
-
-                return mapCropsData;
-            }
-        }
-        
-        public MapTilesDataSO MapTilesData
-        {
-            get
-            {
-                if (mapTilesData == null)
-                {
-                    JsonDataManager.LoadData(MapTilesDataSO.PersistentDataName, out mapTilesData);
-                }
-
-                return mapTilesData;
-            }
-        }
-        
-        public MapResourcesDataSO MapResourcesData
-        {
-            get
-            {
-                if (mapResourcesData == null)
-                {
-                    JsonDataManager.LoadData(MapResourcesDataSO.PersistentDataName, out mapResourcesData);
-                }
-
-                return mapResourcesData;
-            }
         }
     }
 }
