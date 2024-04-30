@@ -16,12 +16,12 @@ namespace KittyFarm
 
         [SerializeField] private GameObject playerPrefab;
 
+        public static PlayerController Player { get; private set; }
         private static bool IsPlayerEnabled
         {
-            set => player.gameObject.SetActive(value);
+            set => Player.gameObject.SetActive(value);
         }
 
-        private static PlayerController player;
         private static Scene currentScene;
 
         private void Start()
@@ -66,13 +66,13 @@ namespace KittyFarm
 
         private void InitializePlayer()
         {
-            player = FindObjectOfType<PlayerController>();
-            if (player == null)
+            Player = FindObjectOfType<PlayerController>();
+            if (Player == null)
             {
-                player = Instantiate(playerPrefab).GetComponent<PlayerController>();
+                Player = Instantiate(playerPrefab).GetComponent<PlayerController>();
             }
 
-            player.transform.position = GameDataCenter.Instance.PlayerData.LastPosition;
+            Player.transform.position = GameDataCenter.Instance.PlayerData.LastPosition;
             IsPlayerEnabled = false;
         }
     }

@@ -12,11 +12,14 @@ namespace KittyFarm.UI
         private readonly Dictionary<string, UIBase> uiDic = new();
 
         private Canvas canvas;
+        private GameMessagePool messagePool;
 
         protected override void Awake()
         {
             base.Awake();
+            
             canvas = GameObject.FindWithTag(canvasTag).GetComponent<Canvas>();
+            InitializeMessagePool();
         }
 
         public TUI ShowUI<TUI>() where TUI : UIBase
@@ -72,8 +75,28 @@ namespace KittyFarm.UI
             }
             
             uiDic.Clear();
+            messagePool.Clear();
         }
         
+        public void ShowMessage(string content)
+        {
+            var message = messagePool.Get();
+            message.Show(content);
+        }
+
+        private void InitializeMessagePool()
+        {
+            var path = GetUIPath(nameof(GameMessage));
+            var prefab = Resources.Load<GameObject>(path);
+
+            var poolParent = new GameObject(nameof(GameMessagePool));
+            poolParent.transform.SetParent(canvas.transform);
+            poolParent.transform.localPosition = Vector3.zero;
+
+            messagePool = poolParent.AddComponent<GameMessagePool>();
+            messagePool.Initialize(prefab, canvas.transform);
+        }
+
         private string GetUIPath(string uiName)
         {
             return $"{uiRootPath}/{uiName}";

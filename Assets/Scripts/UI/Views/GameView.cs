@@ -16,7 +16,7 @@ namespace KittyFarm.UI
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private MapPropertiesBoard propertiesBoard;
         [SerializeField] private CropInfoBoard cropInfoBoard;
-
+        
         public ItemSlot SelectedItem => slotGroup.SelectedSlot;
         
         private CancellationTokenSource propertiesBoardCTS;

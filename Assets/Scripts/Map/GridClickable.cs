@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using KittyFarm.Data;
 using KittyFarm.Service;
 using KittyFarm.UI;
@@ -9,48 +10,51 @@ namespace KittyFarm.Map
 {
     public class GridClickable : MonoBehaviour, IPointerClickHandler
     {
+        public static Action<Vector3Int, Vector3> TileClicked;
+
         private ItemSlot SelectedItem => UIManager.Instance.GetUI<GameView>().SelectedItem;
         private ItemDataSO SelectedItemData => SelectedItem.ItemData;
-
-        private PlayerController player;
 
         private ITilemapService tilemapService;
         private ICameraService cameraService;
 
-        public static Action<Vector3Int, Vector3> TileClicked;
-        
-        private void Start()
+        private readonly UsableItemSet usableItemSet = new();
+
+        private void Awake()
         {
-            player = FindObjectOfType<PlayerController>();
-            
             tilemapService = ServiceCenter.Get<ITilemapService>();
             cameraService = ServiceCenter.Get<ICameraService>();
         }
-        
+
         public void OnPointerClick(PointerEventData eventData)
         {
             var worldPosition = cameraService.ScreenToWorldPoint(eventData.position);
             var cellPosition = tilemapService.WorldToCell(worldPosition);
             var cellCenter = tilemapService.GetCellCenterWorld(cellPosition);
-            
-            if (SelectedItem != null)
-            {
-                var actionDirection = (cellCenter - player.transform.position).normalized;
-                IUsableItem usableItem = SelectedItemData.Type switch
-                {
-                    ItemType.Seed => new SeedUsable(worldPosition, cellPosition, SelectedItemData as SeedDataSO),
-                    ItemType.Hoe => new HoeUsable(worldPosition, cellPosition, SelectedItemData, player.Animation,
-                        actionDirection),
-                    ItemType.FarmProduct => new FarmProductUsable(worldPosition, cellPosition, SelectedItemData),
-                    _ => new FarmProductUsable(worldPosition, cellPosition, SelectedItemData)
-                };
-                usableItem.Use();
-            }
-            
+
+            HandleItemUsing(worldPosition, cellPosition);
+
             var info = tilemapService.GetTilePropertiesInfoAt(cellPosition);
             UIManager.Instance.GetUI<GameView>().ShowPropertiesBoard(info);
-            
+
             TileClicked?.Invoke(cellPosition, cellCenter);
+        }
+
+        private void HandleItemUsing(Vector3 worldPosition, Vector3Int cellPosition)
+        {
+            if (SelectedItem == null) return;
+
+            var usableItem = usableItemSet.GetUsableItem(SelectedItemData, worldPosition, cellPosition);
+            var judgements = usableItem.JudgeUsable().ToArray();
+
+            if (judgements.Length > 0)
+            {
+                Debug.LogWarning(judgements[0]);
+                UIManager.Instance.ShowMessage(judgements[0]);
+                return;
+            }
+
+            usableItem.Use();
         }
     }
 }

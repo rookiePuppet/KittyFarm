@@ -7,5 +7,6 @@ namespace KittyFarm.Service
         public void EnableKineticCamera();
         public void EnableFixedCamera();
         public Vector3 ScreenToWorldPoint(Vector3 screenPosition);
+        public Vector3 WorldToScreenPoint(Vector3 worldPosition);
     }
 }
