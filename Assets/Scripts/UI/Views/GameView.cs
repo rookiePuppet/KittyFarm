@@ -42,7 +42,7 @@ namespace KittyFarm.UI
         private void RefreshTimeBoard()
         {
             var currentTime = TimeManager.CurrentTime;
-            timeText.text = $"{currentTime.Hour} : {currentTime.Minute}";
+            timeText.text = currentTime.ToString("HH : mm");
         }
 
         public async void ShowPropertiesBoard(TilePropertiesInfo info)

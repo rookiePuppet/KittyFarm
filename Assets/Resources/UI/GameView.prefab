@@ -1696,7 +1696,6 @@ MonoBehaviour:
   timeText: {fileID: 4709394668966990033}
   propertiesBoard: {fileID: 365585174693054596}
   cropInfoBoard: {fileID: 6465591781838647037}
-  talkingBox: {fileID: 0}
 --- !u!1 &4543324747536980602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2764,7 +2763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8580935932017399827
@@ -2828,7 +2827,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
