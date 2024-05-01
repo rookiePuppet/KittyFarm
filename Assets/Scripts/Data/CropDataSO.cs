@@ -1,7 +1,6 @@
 using System.Linq;
 using KittyFarm.CropSystem;
 using UnityEngine;
-using Random = Unity.Mathematics.Random;
 
 namespace KittyFarm.Data
 {
@@ -16,6 +15,6 @@ namespace KittyFarm.Data
 
         public int TotalMinutesToBeRipe => Stages.Sum(stage => stage.GrowthDuration * 60);
 
-        public int RandomHarvestCount => new Random().NextInt(1, MaxHarvestCount);
+        public int RandomHarvestCount => Random.Range(1, MaxHarvestCount + 1);
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using Framework;
 using KittyFarm.Data;
 using KittyFarm.Service;
 using KittyFarm.UI;
@@ -9,7 +10,7 @@ using Application = UnityEngine.Device.Application;
 
 namespace KittyFarm
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoSingleton<GameManager>
     {
         public static event Action MapChanged;
         public static event Action BeforeGameExit;
@@ -27,10 +28,9 @@ namespace KittyFarm
         private void Start()
         {
             Application.targetFrameRate = 60;
-            
-            UIManager.Instance.ShowUI<StartView>();
-            ServiceCenter.Get<ICameraService>().EnableFixedCamera();
-            
+            var startupView = UIManager.Instance.ShowUI<StartupView>();
+            startupView.StartLoading(startScene => currentScene = startScene);
+
             InitializePlayer();
         }
 
@@ -41,7 +41,8 @@ namespace KittyFarm
 
         public static async void LoadMapScene()
         {
-            await SceneLoader.LoadSceneAsync("Plain");
+            SceneManager.UnloadSceneAsync(currentScene);
+            currentScene = await SceneLoader.LoadSceneAsync("Plain");
 
             UIManager.Instance.ClearCache();
 
@@ -50,7 +51,9 @@ namespace KittyFarm
             UIManager.Instance.ShowUI<GameView>();
             UIManager.Instance.ShowUI<OnScreenControllerView>();
 
+            Player.transform.position = GameDataCenter.Instance.PlayerData.LastPosition;
             IsPlayerEnabled = true;
+
             ServiceCenter.Get<ICameraService>().EnableKineticCamera();
         }
 
@@ -58,9 +61,11 @@ namespace KittyFarm
         {
             BeforeGameExit?.Invoke();
 
-            await SceneLoader.LoadSceneAsync("StartScene");
+            SceneManager.UnloadSceneAsync(currentScene);
+
+            currentScene = await SceneLoader.LoadSceneAsync("StartScene");
             UIManager.Instance.ClearCache();
-            
+
             UIManager.Instance.ShowUI<StartView>();
             ServiceCenter.Get<ICameraService>().EnableFixedCamera();
 
@@ -85,7 +90,6 @@ namespace KittyFarm
                 Player = Instantiate(playerPrefab).GetComponent<PlayerController>();
             }
 
-            Player.transform.position = GameDataCenter.Instance.PlayerData.LastPosition;
             IsPlayerEnabled = false;
         }
     }

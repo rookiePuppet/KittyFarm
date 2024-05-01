@@ -8,7 +8,7 @@ namespace KittyFarm
         [SerializeField] private Camera fixedCamera;
 
         public Camera ActiveCamera { get; private set; }
-
+        
         public void EnableKineticCamera()
         {
             kineticCamera.enabled = true;

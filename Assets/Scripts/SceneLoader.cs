@@ -6,18 +6,23 @@ namespace KittyFarm
 {
     public class SceneLoader : MonoSingleton<SceneLoader>
     {
-        public static async Task LoadSceneAsync(string sceneName)
+        public static async Task<Scene> LoadSceneAsync(string sceneName, LoadSceneMode mode = LoadSceneMode.Additive)
         {
-            await UnityLoadSceneAsync(sceneName);
+            await UnityLoadSceneAsync(sceneName, mode);
+            
+            var scene = SceneManager.GetSceneByName(sceneName);
+            SceneManager.SetActiveScene(scene);
+            
+            return scene;
         }
         
-        private static Task UnityLoadSceneAsync(string sceneName)
+        private static Task UnityLoadSceneAsync(string sceneName, LoadSceneMode mode = LoadSceneMode.Additive)
         {
             var tcs = new TaskCompletionSource<bool>();
         
-            var loadOperation = SceneManager.LoadSceneAsync(sceneName);
+            var loadOperation = SceneManager.LoadSceneAsync(sceneName, mode);
             loadOperation.completed += _ => { tcs.SetResult(true); };
-        
+            
             return tcs.Task;
         }
         
@@ -46,8 +51,7 @@ namespace KittyFarm
         //     return scene;
         // }
         //
-
-        //
+        
         // private static async Task WaitForSceneCompletelyLoaded(Scene scene)
         // {
         //     var tcs = new TaskCompletionSource<bool>();
