@@ -24,7 +24,7 @@ namespace KittyFarm
             progressImage.fillAmount = 0;
             await UpdateProgressAsync(30, 0.2f);
 
-            var startScene = await SceneLoader.LoadSceneAsync("StartScene");
+            var startScene = await SceneLoader.LoadSceneAsync(SceneNameCollection.Start);
             setCurrentScene?.Invoke(startScene);
             await UpdateProgressAsync(60, 0.5f);
 

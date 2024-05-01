@@ -28,6 +28,7 @@ namespace KittyFarm
         private void Start()
         {
             Application.targetFrameRate = 60;
+            
             var startupView = UIManager.Instance.ShowUI<StartupView>();
             startupView.StartLoading(startScene => currentScene = startScene);
 
@@ -42,7 +43,7 @@ namespace KittyFarm
         public static async void LoadMapScene()
         {
             SceneManager.UnloadSceneAsync(currentScene);
-            currentScene = await SceneLoader.LoadSceneAsync("Plain");
+            currentScene = await SceneLoader.LoadSceneAsync(SceneNameCollection.Plain);
 
             UIManager.Instance.ClearCache();
 
@@ -63,7 +64,7 @@ namespace KittyFarm
 
             SceneManager.UnloadSceneAsync(currentScene);
 
-            currentScene = await SceneLoader.LoadSceneAsync("StartScene");
+            currentScene = await SceneLoader.LoadSceneAsync(SceneNameCollection.Start);
             UIManager.Instance.ClearCache();
 
             UIManager.Instance.ShowUI<StartView>();
