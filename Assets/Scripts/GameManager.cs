@@ -54,6 +54,19 @@ namespace KittyFarm
             ServiceCenter.Get<ICameraService>().EnableKineticCamera();
         }
 
+        public static async void BackToStartScene()
+        {
+            BeforeGameExit?.Invoke();
+
+            await SceneLoader.LoadSceneAsync("StartScene");
+            UIManager.Instance.ClearCache();
+            
+            UIManager.Instance.ShowUI<StartView>();
+            ServiceCenter.Get<ICameraService>().EnableFixedCamera();
+
+            IsPlayerEnabled = false;
+        }
+
         public static void ExitGame()
         {
             BeforeGameExit?.Invoke();

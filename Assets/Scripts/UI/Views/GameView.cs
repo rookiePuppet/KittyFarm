@@ -11,16 +11,24 @@ namespace KittyFarm.UI
 {
     public class GameView : UIBase
     {
-        [SerializeField] private Button exitButton;
+        [SerializeField] private Button homeButton;
         [SerializeField] private ItemSlotGroup slotGroup;
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private MapPropertiesBoard propertiesBoard;
         [SerializeField] private CropInfoBoard cropInfoBoard;
+
+        [SerializeField] private Button shopButton;
         
         public ItemSlot SelectedItem => slotGroup.SelectedSlot;
         
         private CancellationTokenSource propertiesBoardCTS;
         private CancellationTokenSource cropInfoBoardCTS;
+
+        private void Awake()
+        {
+            homeButton.onClick.AddListener(OnHomeButtonClicked);
+            shopButton.onClick.AddListener(OnShopButtonClicked);
+        }
 
         private void OnEnable()
         {
@@ -35,8 +43,16 @@ namespace KittyFarm.UI
         private void Start()
         {
             RefreshTimeBoard();
+        }
 
-            exitButton.onClick.AddListener(GameManager.ExitGame);
+        private void OnShopButtonClicked()
+        {
+            UIManager.Instance.ShowUI<ShopWindow>();
+        }
+
+        private void OnHomeButtonClicked()
+        {
+            GameManager.BackToStartScene();
         }
 
         private void RefreshTimeBoard()
