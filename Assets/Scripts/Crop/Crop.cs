@@ -1,13 +1,12 @@
 using KittyFarm.Data;
 using KittyFarm.Service;
-using KittyFarm.Time;
-using KittyFarm.UI;
 using UnityEngine;
 
 namespace KittyFarm.CropSystem
 {
-    public class Crop : MonoBehaviour
+    public class Crop : MonoBehaviour, IHarvestable
     {
+        public bool CanBeHarvested => ServiceCenter.Get<ICropService>().IsCropRipe(GrowthDetails);
         public CropGrowthDetails GrowthDetails { get; private set; }
         public CropDataSO Data => ServiceCenter.Get<ICropService>().CropDatabase.GetCropData(GrowthDetails.CropId);
         
@@ -22,6 +21,11 @@ namespace KittyFarm.CropSystem
         {
             GrowthDetails = details;
             UpdateCropVisual();
+        }
+        
+        public void Harvest()
+        {
+            ServiceCenter.Get<ICropService>().HarvestCrop(this);
         }
 
         public void UpdateCurrentStage(int newStage)

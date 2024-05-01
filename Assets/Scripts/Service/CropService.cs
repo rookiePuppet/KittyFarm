@@ -1,6 +1,5 @@
 using KittyFarm.CropSystem;
 using KittyFarm.Data;
-using KittyFarm.InventorySystem;
 using KittyFarm.Time;
 using UnityEngine;
 
@@ -32,9 +31,8 @@ namespace KittyFarm.Service
         private void Initialize()
         {
             cropsData = GameDataCenter.Instance.MapCropsData;
-
+            
             growthTracker = new GameObject("Crops").AddComponent<CropGrowthTracker>();
-
             foreach (var growthDetails in cropsData.CropDetailsList)
             {
                 var crop = SpawnCrop(growthDetails.CellPosition);
@@ -45,23 +43,18 @@ namespace KittyFarm.Service
         public int HarvestCrop(Crop crop)
         {
             var growthDetails = crop.GrowthDetails;
-
             var cropData = cropDatabase.GetCropData(growthDetails.CropId);
+            var randomCount = cropData.RandomHarvestCount;
 
-            // 添加
-            PlayerInventory.AddItem(cropData.ProductData, 1);
-
+            // 添加到背包
+            PlayerInventory.AddItem(cropData.ProductData, randomCount);
             // 删除地图上该位置作物数据
             cropsData.RemoveCrop(growthDetails);
-
             growthTracker.RemoveCrop(crop);
-
-            print($"收获了1个{cropData.CropName}");
+            
             Destroy(crop.gameObject);
-
-            // TODO：随机数量机制
-
-            return 1;
+            
+            return randomCount;
         }
 
         public void PlantCrop(CropDataSO cropData, Vector3Int cellPosition)

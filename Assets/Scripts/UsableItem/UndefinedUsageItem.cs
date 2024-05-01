@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using KittyFarm.Map;
 
 namespace KittyFarm
 {

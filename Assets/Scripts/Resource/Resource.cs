@@ -5,13 +5,20 @@ using UnityEngine;
 
 namespace KittyFarm.CropSystem
 {
-    public abstract class Resource : MonoBehaviour
+    public interface IHarvestable
+    {
+        public bool CanBeHarvested { get; }
+        public void Harvest();
+    }
+    
+    public abstract class Resource : MonoBehaviour, IHarvestable
     {
         [SerializeField] private ResourceDataSO data;
 
         public ResourceDataSO Data => data;
         public ResourceGrowthDetails GrowthDetails { get; set; }
         public bool CanBeHarvested => !IsGrowing;
+
         protected bool IsGrowing { get; private set; }
 
         public virtual void Refresh()
@@ -20,7 +27,7 @@ namespace KittyFarm.CropSystem
             IsGrowing = sinceLastCollectTime.TotalHours < data.RegenerationTime;
         }
 
-        public abstract void Collect();
+        public abstract void Harvest();
 
         protected void FinishCollection()
         {

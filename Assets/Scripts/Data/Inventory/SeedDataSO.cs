@@ -7,10 +7,9 @@ namespace KittyFarm.Data
     {
         public CropDataSO CropData;
         
-        protected override void OnValidate()
+        protected void OnValidate()
         {
             Type = ItemType.Seed;
-            base.OnValidate();
         }
     }
 }

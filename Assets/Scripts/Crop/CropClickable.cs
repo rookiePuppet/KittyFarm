@@ -1,3 +1,4 @@
+using System.Linq;
 using KittyFarm.Service;
 using KittyFarm.Time;
 using KittyFarm.UI;
@@ -9,7 +10,7 @@ namespace KittyFarm.CropSystem
     public class CropClickable : MonoBehaviour, IPointerClickHandler
     {
         private Crop crop;
-        
+
         private void Awake()
         {
             crop = GetComponent<Crop>();
@@ -18,6 +19,16 @@ namespace KittyFarm.CropSystem
         public void OnPointerClick(PointerEventData eventData)
         {
             UIManager.Instance.GetUI<GameView>().ShowCropInfoBoard(GetCropInfo());
+            
+            var harvestTool = ServiceCenter.Get<IItemService>().TakeHarvestTool(crop, transform.position);
+            var judgements = harvestTool.JudgeUsable().ToArray();
+            if (judgements.Length > 0)
+            {
+                UIManager.Instance.ShowMessage(judgements[0]);
+                return;
+            }
+            
+            harvestTool.Use();
         }
         
         private CropInfo GetCropInfo()

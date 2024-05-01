@@ -17,13 +17,13 @@ namespace KittyFarm.Map
 
         private ITilemapService tilemapService;
         private ICameraService cameraService;
-
-        private readonly UsableItemSet usableItemSet = new();
+        private IItemService itemService;
 
         private void Awake()
         {
             tilemapService = ServiceCenter.Get<ITilemapService>();
             cameraService = ServiceCenter.Get<ICameraService>();
+            itemService = ServiceCenter.Get<IItemService>();
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -44,7 +44,7 @@ namespace KittyFarm.Map
         {
             if (SelectedItem == null) return;
 
-            var usableItem = usableItemSet.GetUsableItem(SelectedItemData, worldPosition, cellPosition);
+            var usableItem = itemService.TakeUsableItem(SelectedItemData, worldPosition, cellPosition);
             var judgements = usableItem.JudgeUsable().ToArray();
 
             if (judgements.Length > 0)

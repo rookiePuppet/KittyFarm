@@ -12,24 +12,13 @@ namespace KittyFarm.Data
         public int Value;
         public float SoldDiscount;
         public ItemType Type;
-        public float OperationRange;
-
-        protected virtual void OnValidate()
-        {
-            OperationRange = Type switch
-            {
-                ItemType.Seed => 1f,
-                ItemType.FarmProduct => 2f,
-                ItemType.Hoe => 1f,
-                _ => OperationRange
-            };
-        }
     }
 
     public enum ItemType
     {
         Seed,
         FarmProduct,
-        Hoe
+        Hoe,
+        HarvestTool
     }
 }

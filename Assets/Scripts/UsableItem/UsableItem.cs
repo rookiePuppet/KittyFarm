@@ -1,13 +1,12 @@
 using System.Collections.Generic;
-using KittyFarm.Map;
 
 namespace KittyFarm
 {
     public abstract class UsableItem
     {
-        protected readonly UsableItemSet itemSet;
-        
         protected readonly List<string> judgementList = new();
+        
+        protected readonly UsableItemSet itemSet;
 
         protected UsableItem(UsableItemSet set)
         {
@@ -15,6 +14,7 @@ namespace KittyFarm
         }
         
         public abstract void Use();
+        
         public abstract IEnumerable<string> JudgeUsable();
     }
 }

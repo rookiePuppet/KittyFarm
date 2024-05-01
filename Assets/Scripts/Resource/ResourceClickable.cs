@@ -1,4 +1,6 @@
-using System;
+using System.Linq;
+using KittyFarm.Service;
+using KittyFarm.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -15,10 +17,15 @@ namespace KittyFarm.CropSystem
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (resource.CanBeHarvested)
+            var harvestTool = ServiceCenter.Get<IItemService>().TakeHarvestTool(resource, transform.position);
+            var judgements = harvestTool.JudgeUsable().ToArray();
+            if (judgements.Length > 0)
             {
-                resource.Collect();
+                UIManager.Instance.ShowMessage(judgements[0]);
+                return;
             }
+            
+            harvestTool.Use();
         }
     }
 }

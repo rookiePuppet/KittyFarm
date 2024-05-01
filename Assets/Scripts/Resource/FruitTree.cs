@@ -27,7 +27,7 @@ namespace KittyFarm.CropSystem
             fruitRenderer.enabled = !IsGrowing;
         }
 
-        public override void Collect()
+        public override void Harvest()
         {
             treeAnimator.SetTrigger(AnimatorHash_Shake);
             fruitAnimator.SetTrigger(AnimatorHash_Fall);
