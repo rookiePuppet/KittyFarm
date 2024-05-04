@@ -25,6 +25,11 @@ public class CounterController : MonoBehaviour
            intValue = 0;
        }
 
+       if (intValue < 0)
+       {
+           return;
+       }
+       
        Value = intValue;
    }
 
@@ -37,6 +42,11 @@ public class CounterController : MonoBehaviour
    private void ReduceValue()
    {
        Value -= 1;
+       if (Value < 0)
+       {
+           Value = 0;
+       }
+       
        inputField.text = Value.ToString();
    }
 }

@@ -12,8 +12,10 @@ namespace KittyFarm.Data
         [SerializeField] private MapDataSO mapData;
         [SerializeField] private MapResourcesDataSO mapResourcesData;
         [SerializeField] private PlayerDataSO playerData;
+        [SerializeField] private ShopDataSO shopData;
 
         public PlayerDataSO PlayerData => playerData;
+        public ShopDataSO ShopData => shopData;
         public PlayerInventory PlayerInventory => PlayerData.Inventory;
         public MapDataSO MapData => mapData;
         public MapResourcesDataSO MapResourcesData => mapResourcesData;
@@ -32,14 +34,14 @@ namespace KittyFarm.Data
         {
             GameManager.BeforeGameExit -= OnBeforeGameExit;
         }
-        
+
         protected override void Awake()
         {
             base.Awake();
 
             LoadData();
         }
-        
+
         private void LoadData()
         {
             if (JsonDataManager.Exists<PlayerDataSO>(PlayerDataSO.PersistentDataName))
@@ -58,8 +60,13 @@ namespace KittyFarm.Data
 
             JsonDataManager.LoadData(MapCropsDataSO.PersistentDataName, out mapCropsData);
             JsonDataManager.LoadData(MapTilesDataSO.PersistentDataName, out mapTilesData);
+
+            if (JsonDataManager.Exists<ShopDataSO>(ShopDataSO.PersistentDataName))
+            {
+                JsonDataManager.LoadData(ShopDataSO.PersistentDataName, out shopData);
+            }
         }
-        
+
         private void OnBeforeGameExit()
         {
             BeforeSaveData?.Invoke();
@@ -68,6 +75,7 @@ namespace KittyFarm.Data
             JsonDataManager.SaveData(MapCropsDataSO.PersistentDataName, mapCropsData);
             JsonDataManager.SaveData(MapTilesDataSO.PersistentDataName, mapTilesData);
             JsonDataManager.SaveData(MapResourcesDataSO.PersistentDataName, mapResourcesData);
+            JsonDataManager.SaveData(ShopDataSO.PersistentDataName, shopData);
         }
     }
 }

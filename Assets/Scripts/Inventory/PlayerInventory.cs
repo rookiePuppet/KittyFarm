@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using KittyFarm.InventorySystem;
+using KittyFarm.UI;
 using UnityEngine;
 
 namespace KittyFarm.Data
@@ -8,13 +9,23 @@ namespace KittyFarm.Data
     [Serializable]
     public class PlayerInventory
     {
+        public static event Action<int, InventoryItem> ItemChanged;
+        
         [SerializeField] private List<InventoryItem> items = new();
 
         public List<InventoryItem> Items => items;
-        public event Action<int, InventoryItem> ItemChanged;
 
-        // public const string PersistentDataName = "PlayerInventory";
         private const int MaxSize = 9;
+
+        public PlayerInventory()
+        {
+            ShopWindow.PurchasedCommodity += OnPurchasedCommodity;
+        }
+
+        private void OnPurchasedCommodity(ItemDataSO itemData, int amount)
+        {
+            AddItem(itemData, amount);
+        }
 
         public bool AddItem(ItemDataSO itemData, int itemAmount)
         {

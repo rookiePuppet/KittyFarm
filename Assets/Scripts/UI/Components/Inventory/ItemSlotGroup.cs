@@ -3,7 +3,6 @@ using KittyFarm.InventorySystem;
 using KittyFarm.Service;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace KittyFarm.UI
@@ -24,12 +23,12 @@ namespace KittyFarm.UI
 
         private void OnEnable()
         {
-            Inventory.ItemChanged += SetSlotDataAt;
+            PlayerInventory.ItemChanged += SetSlotDataAt;
         }
 
         private void OnDisable()
         {
-            Inventory.ItemChanged -= SetSlotDataAt;
+            PlayerInventory.ItemChanged -= SetSlotDataAt;
         }
 
         private void Start()
