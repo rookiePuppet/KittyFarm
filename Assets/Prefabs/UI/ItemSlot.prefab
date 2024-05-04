@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 3558175863260595831}
   - component: {fileID: 6695316905227917849}
   - component: {fileID: 8199300304775483662}
+  - component: {fileID: 7263753282273536689}
   m_Layer: 5
   m_Name: ItemSlot
   m_TagString: Untagged
@@ -321,6 +322,19 @@ MonoBehaviour:
   itemIcon: {fileID: 8993415906116928794}
   itemCountText: {fileID: 8937703590283368634}
   selectedBackgroundObject: {fileID: 7842225597219171603}
+--- !u!114 &7263753282273536689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504945557523128517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583e7a34a5ed490886e8d9d473130fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragImage: {fileID: 0}
 --- !u!1 &4747649248920967176
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,12 +9,12 @@ using UnityEngine.UI;
 
 namespace KittyFarm.UI
 {
-    public class ItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class ItemSlot : MonoBehaviour
     {
         [SerializeField] private Image itemIcon;
         [SerializeField] private TextMeshProUGUI itemCountText;
         [SerializeField] private GameObject selectedBackgroundObject;
-        
+
         public int Index { get; private set; }
         public bool IsEmpty { get; private set; }
         public bool IsSelected
@@ -39,13 +39,13 @@ namespace KittyFarm.UI
                     ItemData = ServiceCenter.Get<IItemService>().ItemDatabase.GetItemData(item.itemId);
                 }
 
-                DataChanged?.Invoke();
+                Refresh();
             }
         }
         public ItemDataSO ItemData { get; private set; }
-        
+        public Sprite ItemSprite => itemIcon.sprite;
+
         private ItemSlotGroup Group { get; set; }
-        private event Action DataChanged;
         private InventoryItem item;
         private bool isSelected;
         private Button slotButton;
@@ -55,8 +55,6 @@ namespace KittyFarm.UI
         {
             slotButton = GetComponent<Button>();
             rectTransform = GetComponent<RectTransform>();
-
-            DataChanged += Refresh;
         }
 
         public void Initialize(ItemSlotGroup group, int index)
@@ -83,24 +81,6 @@ namespace KittyFarm.UI
         private void OnClicked()
         {
             Group.UpdateItemSlotSelected(this);
-        }
-
-        public void OnDrag(PointerEventData eventData)
-        {
-            if (IsEmpty) return;
-            Group.DragItemSlot(eventData);
-        }
-
-        public void OnBeginDrag(PointerEventData eventData)
-        {
-            if (IsEmpty) return;
-            Group.BeginDragItemSlot(eventData, itemIcon.sprite);
-        }
-
-        public void OnEndDrag(PointerEventData eventData)
-        {
-            if (IsEmpty) return;
-            Group.EndDragItemSlot(eventData);
         }
     }
 }
