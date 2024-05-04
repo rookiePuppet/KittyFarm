@@ -8,45 +8,51 @@ public class CounterController : MonoBehaviour
     [SerializeField] private Button reduceButton;
     [SerializeField] private Button increaseButton;
 
-   public int Value { get; private set; }
+    public int Value { get; private set; }
 
-   private void Awake()
-   {
-       reduceButton.onClick.AddListener(ReduceValue);
-       increaseButton.onClick.AddListener(IncreaseValue);
+    private void Awake()
+    {
+        reduceButton.onClick.AddListener(ReduceValue);
+        increaseButton.onClick.AddListener(IncreaseValue);
 
-       inputField.onEndEdit.AddListener(OnInputFieldEndEdit);
-   }
+        inputField.onEndEdit.AddListener(OnInputFieldEndEdit);
+    }
 
-   private void OnInputFieldEndEdit(string newValue)
-   {
-       if (!int.TryParse(newValue, out var intValue))
-       {
-           intValue = 0;
-       }
+    public void Reset()
+    {
+        Value = 0;
+        inputField.text = "0";
+    }
 
-       if (intValue < 0)
-       {
-           return;
-       }
-       
-       Value = intValue;
-   }
+    private void OnInputFieldEndEdit(string newValue)
+    {
+        if (!int.TryParse(newValue, out var intValue))
+        {
+            intValue = 0;
+        }
 
-   private void IncreaseValue()
-   {
-       Value += 1;
-       inputField.text = Value.ToString();
-   }
+        if (intValue < 0)
+        {
+            return;
+        }
 
-   private void ReduceValue()
-   {
-       Value -= 1;
-       if (Value < 0)
-       {
-           Value = 0;
-       }
-       
-       inputField.text = Value.ToString();
-   }
+        Value = intValue;
+    }
+
+    private void IncreaseValue()
+    {
+        Value += 1;
+        inputField.text = Value.ToString();
+    }
+
+    private void ReduceValue()
+    {
+        Value -= 1;
+        if (Value < 0)
+        {
+            Value = 0;
+        }
+
+        inputField.text = Value.ToString();
+    }
 }

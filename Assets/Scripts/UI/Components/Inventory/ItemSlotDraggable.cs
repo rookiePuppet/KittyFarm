@@ -36,7 +36,7 @@ namespace KittyFarm.UI
         public void OnEndDrag(PointerEventData eventData)
         {
             if (slot.IsEmpty) return;
-            
+
             var draggedSlot = eventData.pointerDrag.GetComponent<ItemSlot>();
 
             var raycastHit = Physics2D.Raycast(eventData.position, Vector3.forward, 5f, LayerMask.GetMask("UI"));
@@ -44,14 +44,13 @@ namespace KittyFarm.UI
             {
                 if (raycastHit.transform.TryGetComponent(typeof(ShopWindow), out var shopWindow))
                 {
-                    print(shopWindow);
+                    ((ShopWindow)shopWindow).OnItemDraggedIn(slot.ItemData, slot.Item.count);
                 }
-                else
+                else if (raycastHit.transform.TryGetComponent(typeof(ItemSlot), out var targetSlot))
                 {
-                    var targetSlot = raycastHit.transform.GetComponent<ItemSlot>();
                     if (targetSlot == draggedSlot) return;
 
-                    Inventory.SwapTwoItems(draggedSlot.Index, targetSlot.Index);
+                    Inventory.SwapTwoItems(draggedSlot.Index, ((ItemSlot)targetSlot).Index);
                 }
             }
             else
@@ -66,7 +65,7 @@ namespace KittyFarm.UI
 
                 draggedSlot.IsSelected = false;
             }
-            
+
             UIManager.Instance.HideUI<DragItemWidget>();
         }
     }

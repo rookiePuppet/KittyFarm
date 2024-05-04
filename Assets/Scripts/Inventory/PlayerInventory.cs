@@ -10,7 +10,7 @@ namespace KittyFarm.Data
     public class PlayerInventory
     {
         public static event Action<int, InventoryItem> ItemChanged;
-        
+
         [SerializeField] private List<InventoryItem> items = new();
 
         public List<InventoryItem> Items => items;
@@ -55,6 +55,28 @@ namespace KittyFarm.Data
             ItemChanged?.Invoke(index, inventoryItem);
 
             //SaveData();
+        }
+
+        public void RemoveItem(ItemDataSO itemData, int amount)
+        {
+            var index = items.FindIndex(item => item.itemId == itemData.Id);
+            if (index == -1)
+            {
+                return;
+            }
+
+            var item = items[index];
+
+            var totalCount = item.count;
+            if (amount >= totalCount)
+            {
+                RemoveItemAll(index);
+            }
+            else
+            {
+                item.count -= amount;
+                ItemChanged?.Invoke(index, item);
+            }
         }
 
         public void SwapTwoItems(int index1, int index2)

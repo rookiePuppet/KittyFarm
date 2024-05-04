@@ -1815,6 +1815,7 @@ MonoBehaviour:
   timeText: {fileID: 4709394668966990033}
   propertiesBoard: {fileID: 365585174693054596}
   cropInfoBoard: {fileID: 6465591781838647037}
+  coinsText: {fileID: 4806685575681343094}
   shopButton: {fileID: 5064585579209591806}
 --- !u!1 &4543324747536980602
 GameObject:

@@ -34,13 +34,18 @@ namespace KittyFarm.Data
         {
             lastPosition = defaultPosition;
             inventory.Initialize();
+        }
 
+        private void Awake()
+        {
             ShopWindow.PurchasedCommodity += OnPurchasedCommodity;
+            ShopWindow.SoldItem += OnSoldItem;
         }
 
         private void OnDestroy()
         {
             ShopWindow.PurchasedCommodity -= OnPurchasedCommodity;
+            ShopWindow.SoldItem -= OnSoldItem;
         }
 
         private void OnPurchasedCommodity(ItemDataSO itemData, int amount)
@@ -49,6 +54,20 @@ namespace KittyFarm.Data
             coins -= totalValue;
 
             CoinsUpdated?.Invoke(coins);
+            
+            UIManager.Instance.ShowMessage($"购买{itemData.ItemName}X{amount}，花费{totalValue}金币");
+        }
+
+        private void OnSoldItem(ItemDataSO itemData, int amount)
+        {
+            var income = Mathf.RoundToInt(itemData.Value * itemData.SoldDiscount * amount);
+
+            coins += income;
+            CoinsUpdated?.Invoke(coins);
+            
+            inventory.RemoveItem(itemData, amount);
+            
+            UIManager.Instance.ShowMessage($"卖出{itemData.ItemName}X{amount}，收入{income}金币");
         }
     }
 }

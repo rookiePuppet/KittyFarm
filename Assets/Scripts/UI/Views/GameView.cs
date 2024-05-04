@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using KittyFarm.CropSystem;
+using KittyFarm.Data;
 using KittyFarm.Time;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace KittyFarm.UI
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private MapPropertiesBoard propertiesBoard;
         [SerializeField] private CropInfoBoard cropInfoBoard;
+        [SerializeField] private TextMeshProUGUI coinsText;
 
         [SerializeField] private Button shopButton;
         
@@ -33,16 +35,19 @@ namespace KittyFarm.UI
         private void OnEnable()
         {
             TimeManager.MinutePassed += RefreshTimeBoard;
+            PlayerDataSO.CoinsUpdated += RefreshCoins;
         }
 
         private void OnDisable()
         {
             TimeManager.MinutePassed -= RefreshTimeBoard;
+            PlayerDataSO.CoinsUpdated -= RefreshCoins;
         }
 
         private void Start()
         {
             RefreshTimeBoard();
+            RefreshCoins(GameDataCenter.Instance.PlayerData.Coins);
         }
 
         private void OnShopButtonClicked()
@@ -95,6 +100,11 @@ namespace KittyFarm.UI
             catch (OperationCanceledException)
             {
             }
+        }
+
+        private void RefreshCoins(int coins)
+        {
+            coinsText.text = coins.ToString();
         }
     }
 }
