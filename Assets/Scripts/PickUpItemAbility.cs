@@ -1,5 +1,6 @@
 using KittyFarm.Data;
 using KittyFarm.InventorySystem;
+using KittyFarm.Service;
 using UnityEngine;
 
 namespace KittyFarm
@@ -13,6 +14,7 @@ namespace KittyFarm
             var isItemAdded = Inventory.AddItem(item);
             if (isItemAdded)
             {
+                ServiceCenter.Get<IItemService>().RemoveMapItem(item.InherentPosition);
                 Destroy(item.gameObject);
             }
         }

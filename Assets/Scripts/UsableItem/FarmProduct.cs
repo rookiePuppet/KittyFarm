@@ -16,6 +16,12 @@ namespace KittyFarm
         public override IEnumerable<string> JudgeUsable()
         {
             judgementList.Clear();
+
+            // if (ServiceCenter.Get<ITilemapService>().IsNotDroppableAt(itemSet.CellPosition))
+            // {
+            //     judgementList.Add($"不能将{itemSet.ItemData.ItemName}丢在这里");
+            //     return judgementList;
+            // }
             
             if (!itemSet.MeetDistanceAtWorld)
             {

@@ -21,9 +21,11 @@ namespace KittyFarm.Data
         public MapResourcesDataSO MapResourcesData => mapResourcesData;
         public MapCropsDataSO MapCropsData => mapCropsData;
         public MapTilesDataSO MapTilesData => mapTilesData;
+        public MapItemsDataSO MapItemsData => mapItemsData;
 
         private MapCropsDataSO mapCropsData;
         private MapTilesDataSO mapTilesData;
+        private MapItemsDataSO mapItemsData;
 
         private void OnEnable()
         {
@@ -60,6 +62,7 @@ namespace KittyFarm.Data
 
             JsonDataManager.LoadData(MapCropsDataSO.PersistentDataName, out mapCropsData);
             JsonDataManager.LoadData(MapTilesDataSO.PersistentDataName, out mapTilesData);
+            JsonDataManager.LoadData(MapItemsDataSO.PersistentDataName, out mapItemsData);
 
             if (JsonDataManager.Exists<ShopDataSO>(ShopDataSO.PersistentDataName))
             {
@@ -75,6 +78,7 @@ namespace KittyFarm.Data
             JsonDataManager.SaveData(MapCropsDataSO.PersistentDataName, mapCropsData);
             JsonDataManager.SaveData(MapTilesDataSO.PersistentDataName, mapTilesData);
             JsonDataManager.SaveData(MapResourcesDataSO.PersistentDataName, mapResourcesData);
+            JsonDataManager.SaveData(MapItemsDataSO.PersistentDataName, mapItemsData);
             JsonDataManager.SaveData(ShopDataSO.PersistentDataName, shopData);
         }
     }

@@ -12,17 +12,12 @@ namespace KittyFarm.InventorySystem
         public int Count => count;
 
         private SpriteRenderer spriteRenderer;
-
-        private bool isInitialized;
+        public Vector3 InherentPosition { get; private set; }
 
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
-        }
-
-        private void Start()
-        {
-            if (itemData != null && !isInitialized) Initialize(itemData);
+            InherentPosition = transform.position;
         }
 
         public void Initialize(ItemDataSO data, int amount = 1)
@@ -31,17 +26,6 @@ namespace KittyFarm.InventorySystem
             count = amount;
 
             spriteRenderer.sprite = data.IconSprite;
-
-            isInitialized = true;
-        }
-
-        [ContextMenu("Load Sprite")]
-        private void LoadSprite()
-        {
-            if (itemData != null)
-            {
-                GetComponent<SpriteRenderer>().sprite = itemData.IconSprite;
-            }
         }
     }
 }

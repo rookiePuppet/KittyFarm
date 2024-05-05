@@ -35,9 +35,10 @@ namespace KittyFarm.CropSystem
             Refresh();
 
             var itemService = ServiceCenter.Get<IItemService>();
-            foreach (var position in Data.ProductPositions)
+            var basePosition = transform.position;
+            foreach (var offset in Data.ProductPositions)
             {
-                itemService.SpawnItemAt(transform, position, data.ProductData);
+                itemService.SpawnItemAt(basePosition + offset, data.ProductData);
             }
         }
     }

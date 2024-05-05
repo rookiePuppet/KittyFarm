@@ -15,10 +15,32 @@ namespace KittyFarm.Service
         private readonly UsableItemSet usableItemSet = new();
         private ItemDataSO harvestTool;
 
+        private MapItemsDataSO mapItemsData;
+
         private void Awake()
         {
             harvestTool = ScriptableObject.CreateInstance<ItemDataSO>();
             harvestTool.Type = ItemType.HarvestTool;
+        }
+
+        private void OnEnable()
+        {
+            GameManager.MapChanged += Initialize;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.MapChanged -= Initialize;
+        }
+
+        private void Initialize()
+        {
+            mapItemsData = GameDataCenter.Instance.MapItemsData;
+
+            foreach (var item in mapItemsData.ItemList)
+            {
+                SpawnItemAt(item.Position, itemDatabase.GetItemData(item.ItemId), item.Count);
+            }
         }
 
         public Item SpawnItemAt(Vector3 position, ItemDataSO itemData, int amount = 1)
@@ -28,6 +50,11 @@ namespace KittyFarm.Service
             var itemObj = Instantiate(itemPrefab, position, Quaternion.identity);
             var item = itemObj.GetComponent<Item>();
             item.Initialize(itemData, amount);
+
+            if (GetMapItem(position) == null)
+            {
+                AddMapItem(position, itemData.Id, amount);
+            }
 
             return item;
         }
@@ -41,7 +68,27 @@ namespace KittyFarm.Service
             var item = itemObj.GetComponent<Item>();
             item.Initialize(itemData, amount);
 
+            if (GetMapItem(position) == null)
+            {
+                AddMapItem(position, itemData.Id, amount);
+            }
+
             return item;
+        }
+
+        public void AddMapItem(Vector3 position, int itemId, int amount)
+        {
+            mapItemsData.AddItem(position, itemId, amount);
+        }
+
+        public void RemoveMapItem(Vector3 position)
+        {
+            mapItemsData.RemoveItem(mapItemsData.GetItem(position));
+        }
+
+        public MapItem GetMapItem(Vector3 position)
+        {
+            return mapItemsData.GetItem(position);
         }
 
         public UsableItem TakeUsableItem(ItemDataSO itemData, Vector3 worldPosition, Vector3Int cellPosition)
@@ -55,6 +102,5 @@ namespace KittyFarm.Service
             tool!.HarvestTarget = harvestable;
             return tool;
         }
-        
     }
 }
