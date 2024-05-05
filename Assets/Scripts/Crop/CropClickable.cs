@@ -15,28 +15,25 @@ namespace KittyFarm.CropSystem
         {
             crop = GetComponent<Crop>();
         }
-        
+
         public void OnPointerClick(PointerEventData eventData)
         {
             UIManager.Instance.GetUI<GameView>().ShowCropInfoBoard(GetCropInfo());
-            
+
             var harvestTool = ServiceCenter.Get<IItemService>().TakeHarvestTool(crop, transform.position);
-            var judgements = harvestTool.JudgeUsable().ToArray();
-            if (judgements.Length > 0)
+            var canUse = harvestTool.TryUse(out var explanation);
+            if (!canUse)
             {
-                UIManager.Instance.ShowMessage(judgements[0]);
-                return;
+                UIManager.Instance.ShowMessage(explanation);
             }
-            
-            harvestTool.Use();
         }
-        
+
         private CropInfo GetCropInfo()
         {
             ServiceCenter.Get<ICropService>().GrowthTracker.UpdateSingleCrop(crop);
-            
+
             var cropData = crop.Data;
-            var cropGrowthDetails = crop.GrowthDetails;  
+            var cropGrowthDetails = crop.GrowthDetails;
             var growthTime = TimeManager.GetTimeSpanFrom(cropGrowthDetails.PlantedTime);
             return new CropInfo
             {

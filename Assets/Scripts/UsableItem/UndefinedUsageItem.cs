@@ -2,22 +2,20 @@ using System.Collections.Generic;
 
 namespace KittyFarm
 {
-    public class UndefinedUsageItem: UsableItem
+    public class UndefinedUsageItem : UsableItem
     {
         public UndefinedUsageItem(UsableItemSet set) : base(set)
         {
+            JudgeConditions = new List<JudgeCondition>
+            {
+                new(() => false, "未定义用途")
+            };
         }
 
-        public override void Use()
-        {
-            
-        }
+        protected override List<JudgeCondition> JudgeConditions { get; }
 
-        public override IEnumerable<string> JudgeUsable()
+        protected override void Use()
         {
-            judgementList.Clear();
-            judgementList.Add("未定义用途");
-            return judgementList;
         }
     }
 }

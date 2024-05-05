@@ -18,14 +18,11 @@ namespace KittyFarm.CropSystem
         public void OnPointerClick(PointerEventData eventData)
         {
             var harvestTool = ServiceCenter.Get<IItemService>().TakeHarvestTool(resource, transform.position);
-            var judgements = harvestTool.JudgeUsable().ToArray();
-            if (judgements.Length > 0)
+            var canUse = harvestTool.TryUse(out var explanation);
+            if (!canUse)
             {
-                UIManager.Instance.ShowMessage(judgements[0]);
-                return;
+                UIManager.Instance.ShowMessage(explanation);
             }
-            
-            harvestTool.Use();
         }
     }
 }

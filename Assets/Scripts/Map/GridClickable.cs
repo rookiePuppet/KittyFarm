@@ -45,16 +45,12 @@ namespace KittyFarm.Map
             if (SelectedItem == null) return;
 
             var usableItem = itemService.TakeUsableItem(SelectedItemData, worldPosition, cellPosition);
-            var judgements = usableItem.JudgeUsable().ToArray();
 
-            if (judgements.Length > 0)
+            var canUse = usableItem.TryUse(out var explanation);
+            if (!canUse)
             {
-                Debug.LogWarning(judgements[0]);
-                UIManager.Instance.ShowMessage(judgements[0]);
-                return;
+                UIManager.Instance.ShowMessage(explanation);
             }
-
-            usableItem.Use();
         }
     }
 }
