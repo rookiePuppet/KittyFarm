@@ -20,13 +20,13 @@ namespace KittyFarm
 
         public async void StartLoading(Action<Scene> setCurrentScene)
         {
-            progress = 0;
-            progressImage.fillAmount = 0;
-            await UpdateProgressAsync(30, 0.2f);
+            await Task.Delay(200);
+            progress = 30;
+            progressImage.fillAmount = 0.3f;
 
             var startScene = await SceneLoader.LoadSceneAsync(SceneNameCollection.Start);
             setCurrentScene?.Invoke(startScene);
-            await UpdateProgressAsync(60, 0.5f);
+            await UpdateProgressAsync(85, 0.5f);
 
             UIManager.Instance.ShowUI<StartView>();
             ServiceCenter.Get<ICameraService>().EnableFixedCamera();
