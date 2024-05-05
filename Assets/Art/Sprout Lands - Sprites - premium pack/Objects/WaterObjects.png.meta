@@ -123,11 +123,25 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    maxPlaceholderSize: 32
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WaterObjects_0
+      name: stone_water_0
       rect:
         serializedVersion: 2
         x: 0
@@ -135,7 +149,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -148,7 +162,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_1
+      name: stone_water_1
       rect:
         serializedVersion: 2
         x: 16
@@ -156,7 +170,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -169,7 +183,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_2
+      name: stone_water_2
       rect:
         serializedVersion: 2
         x: 32
@@ -177,7 +191,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -190,7 +204,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_3
+      name: stone_water_3
       rect:
         serializedVersion: 2
         x: 48
@@ -198,7 +212,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -211,15 +225,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_4
+      name: stone_water_4
       rect:
         serializedVersion: 2
         x: 64
         y: 16
-        width: 16
+        width: 32
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -232,28 +246,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 654d27a585633f34fb06509bb5f40e54
-      internalID: 801124070
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WaterObjects_6
+      name: water_plant_0
       rect:
         serializedVersion: 2
         x: 96
@@ -261,7 +254,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -274,7 +267,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_7
+      name: water_plant_1
       rect:
         serializedVersion: 2
         x: 112
@@ -282,7 +275,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -295,7 +288,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_8
+      name: water_plant_2
       rect:
         serializedVersion: 2
         x: 128
@@ -303,7 +296,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -316,7 +309,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_9
+      name: water_plant_3
       rect:
         serializedVersion: 2
         x: 144
@@ -324,7 +317,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -337,7 +330,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_10
+      name: water_plant_4
       rect:
         serializedVersion: 2
         x: 160
@@ -345,7 +338,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -358,7 +351,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_11
+      name: water_plant_5
       rect:
         serializedVersion: 2
         x: 176
@@ -366,7 +359,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -379,7 +372,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_12
+      name: puddle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -387,7 +380,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -400,7 +393,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_13
+      name: puddle_1
       rect:
         serializedVersion: 2
         x: 16
@@ -408,7 +401,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -421,7 +414,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_14
+      name: puddle_2
       rect:
         serializedVersion: 2
         x: 32
@@ -429,7 +422,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -442,7 +435,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_15
+      name: puddle_3
       rect:
         serializedVersion: 2
         x: 48
@@ -450,7 +443,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -463,7 +456,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_16
+      name: puddle_4
       rect:
         serializedVersion: 2
         x: 64
@@ -471,7 +464,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -484,7 +477,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterObjects_17
+      name: puddle_5
       rect:
         serializedVersion: 2
         x: 80
@@ -492,7 +485,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -515,24 +508,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WaterObjects_0: 1997155485
-      WaterObjects_1: -706108137
-      WaterObjects_10: 945524134
-      WaterObjects_11: -564714005
-      WaterObjects_12: 998496785
-      WaterObjects_13: -2077568624
-      WaterObjects_14: -980813212
-      WaterObjects_15: -1621682003
-      WaterObjects_16: -825575811
-      WaterObjects_17: 1479089326
-      WaterObjects_2: 696552456
-      WaterObjects_3: 1951963907
-      WaterObjects_4: 267725864
       WaterObjects_5: 801124070
-      WaterObjects_6: 1145463508
-      WaterObjects_7: -812893275
-      WaterObjects_8: 1007172532
-      WaterObjects_9: -816564962
+      puddle_0: 998496785
+      puddle_1: -2077568624
+      puddle_2: -980813212
+      puddle_3: -1621682003
+      puddle_4: -825575811
+      puddle_5: 1479089326
+      stone_water_0: 1997155485
+      stone_water_1: -706108137
+      stone_water_2: 696552456
+      stone_water_3: 1951963907
+      stone_water_4: 267725864
+      water_plant_0: 1145463508
+      water_plant_1: -812893275
+      water_plant_2: 1007172532
+      water_plant_3: -816564962
+      water_plant_4: 945524134
+      water_plant_5: -564714005
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
