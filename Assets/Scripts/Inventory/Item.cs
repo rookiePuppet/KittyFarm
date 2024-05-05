@@ -1,4 +1,3 @@
-using System;
 using KittyFarm.Data;
 using UnityEngine;
 

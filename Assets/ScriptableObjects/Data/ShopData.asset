@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ShopData
   m_EditorClassIdentifier: 
   commodityList:
-  - ItemData: {fileID: 11400000, guid: d381b610c700e674eb7b09aba8155431, type: 2}
-    Quantity: 10
+  - ItemId: 16
+    Quantity: -2
     Infinite: 1
-  - ItemData: {fileID: 11400000, guid: 6bbd7ec9bc67ff348b619c8ff36abe2a, type: 2}
-    Quantity: 0
+  - ItemId: 20
+    Quantity: 98
     Infinite: 0
