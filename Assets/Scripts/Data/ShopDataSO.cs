@@ -21,7 +21,7 @@ namespace KittyFarm.Data
 
         private void OnPurchasedCommodity(ItemDataSO itemData, int amount)
         {
-            var details = commodityList.Find(details => details.ItemData == itemData);
+            var details = commodityList.Find(details => details.ItemId == itemData.Id);
             details.Quantity -= amount;
         }
     }
@@ -29,7 +29,7 @@ namespace KittyFarm.Data
     [Serializable]
     public class CommodityDetails
     {
-        public ItemDataSO ItemData;
+        public int ItemId;
         public int Quantity;
         public bool Infinite;
     }

@@ -1,5 +1,6 @@
 using System;
 using KittyFarm.Data;
+using KittyFarm.Service;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,6 +31,8 @@ namespace KittyFarm.UI
         private CommodityItem SelectedCommodityItem { get; set; }
         private CommodityDetails SelectedCommodity => SelectedCommodityItem.Details;
         private (ItemDataSO itemData, int itemAmount) DraggedInItem { get; set; }
+
+        private IItemService ItemService => ServiceCenter.Get<IItemService>();
 
         private bool IsSellMode // 是否为卖出物品模式
         {
@@ -77,7 +80,7 @@ namespace KittyFarm.UI
                 return;
             }
 
-            var itemData = SelectedCommodity.ItemData;
+            var itemData = ItemService.ItemDatabase.GetItemData(SelectedCommodity.ItemId);
 
             var totalValue = itemData.Value * purchaseAmount;
             if (GameDataCenter.Instance.PlayerData.Coins >= totalValue)
@@ -107,11 +110,11 @@ namespace KittyFarm.UI
         {
             SelectedCommodityItem = commodityItem;
 
-            var commodityDetails = commodityItem.Details;
-            commodityImage.sprite = commodityDetails.ItemData.IconSprite;
-            commodityNameText.text = commodityDetails.ItemData.ItemName;
-            commodityDescriptionText.text = commodityDetails.ItemData.Description;
-            commodityPriceText.text = commodityDetails.ItemData.Value.ToString();
+            var itemData = ItemService.ItemDatabase.GetItemData(commodityItem.Details.ItemId);
+            commodityImage.sprite = itemData.IconSprite;
+            commodityNameText.text = itemData.ItemName;
+            commodityDescriptionText.text = itemData.Description;
+            commodityPriceText.text = itemData.Value.ToString();
 
             rightPanel.SetActive(true);
             IsSellMode = false;

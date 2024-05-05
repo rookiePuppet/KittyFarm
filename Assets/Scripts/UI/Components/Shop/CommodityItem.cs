@@ -1,5 +1,6 @@
 using System;
 using KittyFarm.Data;
+using KittyFarm.Service;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,7 +29,7 @@ namespace KittyFarm.UI
         {
             Details = commodityDetails;
 
-            iconImage.sprite = Details.ItemData.IconSprite;
+            iconImage.sprite = ServiceCenter.Get<IItemService>().ItemDatabase.GetItemData(Details.ItemId).IconSprite;
             if (Details.Infinite)
             {
                 amountText.enabled = false;
