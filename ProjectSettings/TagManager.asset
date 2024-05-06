@@ -79,9 +79,6 @@ TagManager:
   - name: BuildingFront
     uniqueID: 169194941
     locked: 0
-  - name: BuildingTop
-    uniqueID: 1669895417
-    locked: 0
   - name: Indicator
     uniqueID: 3341251233
     locked: 0
@@ -99,4 +96,10 @@ TagManager:
     locked: 0
   - name: NotDroppable
     uniqueID: 3902564055
+    locked: 0
+  - name: BuildingTop
+    uniqueID: 1669895417
+    locked: 0
+  - name: Collision
+    uniqueID: 3246618853
     locked: 0
