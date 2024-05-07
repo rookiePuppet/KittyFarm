@@ -223,6 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 274404625}
   - component: {fileID: 274404624}
+  - component: {fileID: 274404626}
   m_Layer: 0
   m_Name: GlobalLight
   m_TagString: Untagged
@@ -246,8 +247,8 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 0.759434, b: 0.759434, a: 1}
-  m_Intensity: 0.66
+  m_Color: {r: 0.027450979, g: 0.02352941, b: 0.28235295, a: 1}
+  m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000059a7197dbdfcafd6b32a954e138d7934a185d95e153d11c7354e9fc8e3fbb7aafffb28f6c34c397961d019d1bdb5150aa17227c7c1c1aeb72ff88b4fa9beec7d95ba7f36d7669ce8f9948863e57883c1
@@ -295,6 +296,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &274404626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274404623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a35ad89f8de2b459b13a4e17071c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorsInDay:
+    serializedVersion: 2
+    key0: {r: 0.025627287, g: 0.022694914, b: 0.2830189, a: 1}
+    key1: {r: 0.14618193, g: 0.29559147, b: 0.6886792, a: 1}
+    key2: {r: 1, g: 1, b: 1, a: 0}
+    key3: {r: 1, g: 0.78456306, b: 0.2783019, a: 0}
+    key4: {r: 0.9603043, g: 0.6767788, b: 0.2672545, a: 0}
+    key5: {r: 0.9056604, g: 0.42425725, b: 0.20932718, a: 0}
+    key6: {r: 0.24143326, g: 0.10849057, b: 0.4339623, a: 0}
+    key7: {r: 0.02745098, g: 0.023529412, b: 0.28235295, a: 0}
+    ctime0: 16384
+    ctime1: 20320
+    ctime2: 27342
+    ctime3: 42768
+    ctime4: 46492
+    ctime5: 50960
+    ctime6: 54683
+    ctime7: 56360
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 2
+  hour: 12
+  minute: 0
+  second: 0
 --- !u!1 &277965751
 GameObject:
   m_ObjectHideFlags: 0
