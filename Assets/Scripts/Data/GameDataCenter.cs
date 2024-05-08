@@ -14,6 +14,8 @@ namespace KittyFarm.Data
         [SerializeField] private PlayerDataSO playerData;
         [SerializeField] private ShopDataSO shopData;
 
+        public SettingsDataSO SettingsData => settingsData;
+        
         public PlayerDataSO PlayerData => playerData;
         public ShopDataSO ShopData => shopData;
         public PlayerInventory PlayerInventory => PlayerData.Inventory;
@@ -26,6 +28,8 @@ namespace KittyFarm.Data
         private MapCropsDataSO mapCropsData;
         private MapTilesDataSO mapTilesData;
         private MapItemsDataSO mapItemsData;
+        
+        private SettingsDataSO settingsData;
 
         private void OnEnable()
         {
@@ -68,6 +72,8 @@ namespace KittyFarm.Data
             {
                 JsonDataManager.LoadData(ShopDataSO.PersistentDataName, out shopData);
             }
+            
+            JsonDataManager.LoadData(SettingsDataSO.PersistentDataName, out settingsData);
         }
 
         private void OnBeforeGameExit()
@@ -80,6 +86,7 @@ namespace KittyFarm.Data
             JsonDataManager.SaveData(MapResourcesDataSO.PersistentDataName, mapResourcesData);
             JsonDataManager.SaveData(MapItemsDataSO.PersistentDataName, mapItemsData);
             JsonDataManager.SaveData(ShopDataSO.PersistentDataName, shopData);
+            JsonDataManager.SaveData(SettingsDataSO.PersistentDataName, settingsData);
         }
     }
 }

@@ -15,9 +15,11 @@ namespace KittyFarm
         public static event Action MapChanged;
         public static event Action BeforeGameExit;
 
+        [SerializeField] private GameAudioConfigSO audioConfig;
         [SerializeField] private GameObject playerPrefab;
 
         public static PlayerController Player { get; private set; }
+        
         private static bool IsPlayerEnabled
         {
             set => Player.gameObject.SetActive(value);
@@ -25,14 +27,16 @@ namespace KittyFarm
 
         private static Scene currentScene;
 
-        private void Start()
+        private async void Start()
         {
             Application.targetFrameRate = 60;
             
             var startupView = UIManager.Instance.ShowUI<StartupView>();
-            startupView.StartLoading(startScene => currentScene = startScene);
+            await startupView.StartLoading(startScene => currentScene = startScene);
 
             InitializePlayer();
+            
+            AudioManager.Instance.PlayMusic(audioConfig.BackgroundMusic);
         }
 
         private void OnApplicationQuit()

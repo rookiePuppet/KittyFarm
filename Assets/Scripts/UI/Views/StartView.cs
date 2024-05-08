@@ -78,6 +78,7 @@ namespace KittyFarm.UI
 
         private void OnSettingsButtonClicked()
         {
+            UIManager.Instance.ShowUI<SettingsWindow>();
         }
 
         private void OnExitButtonClicked()

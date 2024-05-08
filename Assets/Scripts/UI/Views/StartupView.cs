@@ -18,7 +18,7 @@ namespace KittyFarm
         // 范围0~100
         private int progress;
 
-        public async void StartLoading(Action<Scene> setCurrentScene)
+        public async Task StartLoading(Action<Scene> setCurrentScene)
         {
             await Task.Delay(200);
             progress = 30;
@@ -32,6 +32,8 @@ namespace KittyFarm
             ServiceCenter.Get<ICameraService>().EnableFixedCamera();
             await UpdateProgressAsync(100, 0.2f);
 
+            AudioManager.Instance.Initialize();
+            
             Hide();
         }
 

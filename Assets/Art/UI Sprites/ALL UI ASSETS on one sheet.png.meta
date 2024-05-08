@@ -2417,8 +2417,8 @@ TextureImporter:
         width: 28
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 5, z: 10, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2438,14 +2438,98 @@ TextureImporter:
         width: 28
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 5, z: 10, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: b4fbc60ab7b3e884382dd02ecfc5c862
       internalID: -289796473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: switch_handle
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 871
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49e10249fdf9004cadb82dc8fb9d656
+      internalID: -1140719781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slider_empty
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 626
+        width: 44
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e53368ea7a00c540bf06528ef47b8e8
+      internalID: 716621473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slider_filled
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 626
+        width: 44
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15ef2916ffbf5de4da6bb9d9ada6f282
+      internalID: 1848885553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slider_handle
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 649
+        width: 7
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 760825474e81ca843b963423dd577b38
+      internalID: -1336917059
       vertices: []
       indices: 
       edges: []
@@ -2563,8 +2647,12 @@ TextureImporter:
       select_1: -218233840
       select_2: -744032729
       select_3: 1854726167
+      slider_empty: 716621473
+      slider_filled: 1848885553
+      slider_handle: -1336917059
       switch_background_empty: -1908796614
       switch_background_filled: -289796473
+      switch_handle: -1140719781
       tick_dark_large_normal: -2052664334
       tick_dark_large_pressed: 404360114
       tick_dark_medium_normal: 399355600
