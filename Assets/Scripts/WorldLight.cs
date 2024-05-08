@@ -3,7 +3,6 @@ using KittyFarm.Time;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-[ExecuteInEditMode]
 public class WorldLight : MonoBehaviour
 {
     [SerializeField] private Gradient colorsInDay;
@@ -17,6 +16,7 @@ public class WorldLight : MonoBehaviour
     private void Awake()
     {
         globalLight = GetComponent<Light2D>();
+        globalLight.enabled = false;
     }
 
     private void OnEnable()
@@ -32,6 +32,7 @@ public class WorldLight : MonoBehaviour
     private void Start()
     {
         UpdateLightColor();
+        globalLight.enabled = true;
     }
 
     private float PercentOfDay =>

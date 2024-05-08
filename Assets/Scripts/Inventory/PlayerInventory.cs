@@ -57,7 +57,7 @@ namespace KittyFarm.Data
             //SaveData();
         }
 
-        public void RemoveItem(ItemDataSO itemData, int amount)
+        public void RemoveItem(ItemDataSO itemData, int amount = 1)
         {
             var index = items.FindIndex(item => item.itemId == itemData.Id);
             if (index == -1)

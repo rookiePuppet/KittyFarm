@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using KittyFarm.Data;
 using KittyFarm.Service;
 
 namespace KittyFarm
@@ -20,6 +21,7 @@ namespace KittyFarm
         protected override void Use()
         {
             itemSet.ItemService.SpawnItemAt(itemSet.WorldPosition, itemSet.ItemData);
+            GameDataCenter.Instance.PlayerInventory.RemoveItem(itemSet.ItemData);
         }
     }
 }

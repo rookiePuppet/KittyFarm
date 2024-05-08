@@ -15,11 +15,14 @@ namespace KittyFarm.Time
 
         private DateTime lastTime;
 
-        private void Start()
+        static TimeManager()
         {
             CurrentTime = DateTime.Now;
-            lastTime = CurrentTime;
+        }
 
+        private void Start()
+        {
+            lastTime = CurrentTime;
             InvokeRepeating(nameof(CheckTime), 0, 1);
             InvokeRepeating(nameof(PlusOneMinute), 0, 1);
         }

@@ -20,6 +20,7 @@ namespace KittyFarm
         protected override void Use()
         {
             itemSet.CropService.PlantCrop(((SeedDataSO)itemSet.ItemData).CropData, itemSet.CellPosition);
+            GameDataCenter.Instance.PlayerInventory.RemoveItem(itemSet.ItemData);
         }
     }
 }
