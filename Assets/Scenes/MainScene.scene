@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioConfig: {fileID: 11400000, guid: 34b7e40850d35034fb56c2805ded57aa, type: 2}
+  soundEffectLifeTime: 1100
 --- !u!4 &245497873
 Transform:
   m_ObjectHideFlags: 0

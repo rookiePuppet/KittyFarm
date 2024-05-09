@@ -91,6 +91,7 @@ namespace KittyFarm.UI
             }
             
             counter.Reset();
+            AudioManager.Instance.PlaySoundEffect(GameSoundEffect.Coin);
         }
 
         private void OnSellButtonClicked()
@@ -104,6 +105,7 @@ namespace KittyFarm.UI
             
             SoldItem?.Invoke(DraggedInItem.itemData, sellAmount);
             counter.Reset();
+            AudioManager.Instance.PlaySoundEffect(GameSoundEffect.Coin);
         }
 
         private void OnCommodityItemClicked(CommodityItem commodityItem)

@@ -1,15 +1,20 @@
-using System;
+using System.Threading.Tasks;
 using Framework;
 using KittyFarm.Data;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace KittyFarm
 {
     public class AudioManager : MonoSingleton<AudioManager>
     {
         [SerializeField] private GameAudioConfigSO audioConfig;
-        public GameAudioConfigSO AudioConfig => audioConfig;
+
+        [Tooltip("音效开始播放直到放回对象池的时间（毫秒）")]
+        [SerializeField] private int soundEffectLifeTime = 1100;
         
+        public GameAudioConfigSO AudioConfig => audioConfig;
+
         public float MusicVolume
         {
             get => SettingsData.MusicVolume;
@@ -22,11 +27,7 @@ namespace KittyFarm
         public float EffectVolume
         {
             get => SettingsData.EffectVolume;
-            set
-            {
-                SettingsData.EffectVolume = value;
-                soundEffectSource.volume = value;
-            }
+            set => SettingsData.EffectVolume = value;
         }
         public bool IsMusicOn
         {
@@ -40,16 +41,12 @@ namespace KittyFarm
         public bool IsSoundEffectOn
         {
             get => SettingsData.IsSoundEffectOn;
-            set
-            {
-                SettingsData.IsSoundEffectOn = value;
-                soundEffectSource.mute = !value;
-            }
+            set => SettingsData.IsSoundEffectOn = value;
         }
-
+        
         private AudioSource backgroundMusicSource;
-        private AudioSource soundEffectSource;
-
+        private IObjectPool<AudioSource> soundEffectPool;
+        
         private SettingsDataSO SettingsData => GameDataCenter.Instance.SettingsData;
 
         public void Initialize()
@@ -58,9 +55,8 @@ namespace KittyFarm
             obj.transform.parent = transform;
             backgroundMusicSource = obj.AddComponent<AudioSource>();
 
-            obj = new GameObject("SoundEffect");
-            obj.transform.parent = transform;
-            soundEffectSource = obj.AddComponent<AudioSource>();
+            soundEffectPool = new ObjectPool<AudioSource>(createFunc: CreateAudioSource, actionOnGet: OnGetAudioSource,
+                actionOnRelease: OnReleaseAudioSource);
 
             MusicVolume = SettingsData.MusicVolume;
             EffectVolume = SettingsData.EffectVolume;
@@ -84,6 +80,7 @@ namespace KittyFarm
 
         public void PlaySoundEffect(AudioClip clip)
         {
+            var soundEffectSource = soundEffectPool.Get();
             soundEffectSource.clip = clip;
             soundEffectSource.volume = EffectVolume;
             soundEffectSource.Play();
@@ -100,10 +97,30 @@ namespace KittyFarm
                 GameSoundEffect.PickUpItem => audioConfig.pickUpItemSound,
                 GameSoundEffect.Switch => audioConfig.switchSound,
                 GameSoundEffect.StartGame => audioConfig.startGameSound,
+                GameSoundEffect.Coin => audioConfig.coinSound,
                 _ => audioConfig.buttonClickSound
             };
-            
+
             PlaySoundEffect(clip);
+        }
+        
+        private AudioSource CreateAudioSource()
+        {
+            var obj = new GameObject("SoundEffect");
+            obj.transform.parent = transform;
+            return obj.AddComponent<AudioSource>();
+        }
+
+        private async void OnGetAudioSource(AudioSource source)
+        {
+            source.gameObject.SetActive(true);
+            await Task.Delay(1000);
+            soundEffectPool.Release(source);
+        }
+
+        private void OnReleaseAudioSource(AudioSource source)
+        {
+            source.gameObject.SetActive(false);
         }
     }
 }

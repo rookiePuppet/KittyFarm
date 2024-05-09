@@ -20,3 +20,4 @@ MonoBehaviour:
   startGameSound: {fileID: 8300000, guid: 92475727c69621c4da2d26c9ccc5f64c, type: 3}
   digSound: {fileID: 8300000, guid: 92367a7bf68d0fd4d815ff4ac5b3d1a1, type: 3}
   pickUpItemSound: {fileID: 8300000, guid: d88b60c27e02ee943b50890ba5063264, type: 3}
+  coinSound: {fileID: 8300000, guid: ac25074d2fcc3c34a9ea193484653788, type: 3}

@@ -8,6 +8,7 @@ namespace KittyFarm
         Dig,
         PickUpItem,
         Switch,
-        StartGame
+        StartGame,
+        Coin,
     }
 }
