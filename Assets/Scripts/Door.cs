@@ -1,4 +1,5 @@
 using System;
+using KittyFarm;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -17,10 +18,17 @@ public class Door : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         animator.SetTrigger(AnimatorHash_Open);
+        PlayDoorSound();
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         animator.SetTrigger(AnimatorHash_Close);
+        PlayDoorSound();
+    }
+
+    private void PlayDoorSound()
+    {
+        AudioManager.Instance.PlaySoundEffect(GameSoundEffect.Door);
     }
 }

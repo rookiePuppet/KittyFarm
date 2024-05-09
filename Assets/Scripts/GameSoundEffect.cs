@@ -10,5 +10,7 @@ namespace KittyFarm
         Switch,
         StartGame,
         Coin,
+        TreeShake,
+        Door
     }
 }

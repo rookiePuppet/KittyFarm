@@ -17,5 +17,7 @@ namespace KittyFarm.Data
         public AudioClip digSound;
         public AudioClip pickUpItemSound;
         public AudioClip coinSound;
+        public AudioClip treeShakeSound;
+        public AudioClip doorSound;
     }
 }

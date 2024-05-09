@@ -12,7 +12,7 @@ namespace KittyFarm
 
         [Tooltip("音效开始播放直到放回对象池的时间（毫秒）")]
         [SerializeField] private int soundEffectLifeTime = 1100;
-        
+
         public GameAudioConfigSO AudioConfig => audioConfig;
 
         public float MusicVolume
@@ -43,10 +43,10 @@ namespace KittyFarm
             get => SettingsData.IsSoundEffectOn;
             set => SettingsData.IsSoundEffectOn = value;
         }
-        
+
         private AudioSource backgroundMusicSource;
         private IObjectPool<AudioSource> soundEffectPool;
-        
+
         private SettingsDataSO SettingsData => GameDataCenter.Instance.SettingsData;
 
         public void Initialize()
@@ -98,12 +98,14 @@ namespace KittyFarm
                 GameSoundEffect.Switch => audioConfig.switchSound,
                 GameSoundEffect.StartGame => audioConfig.startGameSound,
                 GameSoundEffect.Coin => audioConfig.coinSound,
+                GameSoundEffect.TreeShake => audioConfig.treeShakeSound,
+                GameSoundEffect.Door => audioConfig.doorSound,
                 _ => audioConfig.buttonClickSound
             };
 
             PlaySoundEffect(clip);
         }
-        
+
         private AudioSource CreateAudioSource()
         {
             var obj = new GameObject("SoundEffect");
@@ -114,7 +116,7 @@ namespace KittyFarm
         private async void OnGetAudioSource(AudioSource source)
         {
             source.gameObject.SetActive(true);
-            await Task.Delay(1000);
+            await Task.Delay(soundEffectLifeTime);
             soundEffectPool.Release(source);
         }
 

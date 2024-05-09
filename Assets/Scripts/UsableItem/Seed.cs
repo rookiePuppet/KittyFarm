@@ -11,6 +11,7 @@ namespace KittyFarm
         {
             JudgeConditions = new List<JudgeCondition>
             {
+                new(() => itemSet.TilemapService.IsPlantableAt(itemSet.CellPosition), "这里不能种植哦"),
                 new(() => itemSet.TilemapService.CheckWasDugAt(itemSet.CellPosition), "还没有松土呢"),
                 new(() => !itemSet.CropService.IsCropExistentAt(itemSet.CellPosition), "这里已经没位置种了哦"),
                 new(() => itemSet.MeetDistanceAtCellCenter, "走近点试试吧")

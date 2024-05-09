@@ -32,7 +32,8 @@ namespace KittyFarm.CropSystem
         {
             treeAnimator.SetTrigger(AnimatorHash_Shake);
             fruitAnimator.SetTrigger(AnimatorHash_Fall);
-
+            
+            AudioManager.Instance.PlaySoundEffect(GameSoundEffect.TreeShake);
             await Task.Delay(800);
 
             FinishCollection();
