@@ -6,10 +6,6 @@ using UnityEngine.Rendering.Universal;
 public class WorldLight : MonoBehaviour
 {
     [SerializeField] private Gradient colorsInDay;
-
-    [SerializeField] private int hour;
-    [SerializeField] private int minute;
-    [SerializeField] private int second;
     
     private Light2D globalLight;
 

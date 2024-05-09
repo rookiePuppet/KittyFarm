@@ -46,13 +46,12 @@ namespace KittyFarm
 
         public static async void LoadMapScene()
         {
-            SceneManager.UnloadSceneAsync(currentScene);
+            var lastScene = currentScene;
             currentScene = await SceneLoader.LoadSceneAsync(SceneNameCollection.Plain);
-
-            UIManager.Instance.ClearCache();
-
+            await SceneLoader.UnityUnloadSceneAsync(lastScene);
+            
             MapChanged?.Invoke();
-
+            UIManager.Instance.ClearCache();
             UIManager.Instance.ShowUI<GameView>();
             UIManager.Instance.ShowUI<OnScreenControllerView>();
 
@@ -66,11 +65,11 @@ namespace KittyFarm
         {
             BeforeGameExit?.Invoke();
 
-            SceneManager.UnloadSceneAsync(currentScene);
-
+            var lastScene = currentScene;
             currentScene = await SceneLoader.LoadSceneAsync(SceneNameCollection.Start);
+            await SceneLoader.UnityUnloadSceneAsync(lastScene);
+            
             UIManager.Instance.ClearCache();
-
             UIManager.Instance.ShowUI<StartView>();
             ServiceCenter.Get<ICameraService>().EnableFixedCamera();
 

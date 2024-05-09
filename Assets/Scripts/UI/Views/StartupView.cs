@@ -27,14 +27,14 @@ namespace KittyFarm
             var startScene = await SceneLoader.LoadSceneAsync(SceneNameCollection.Start);
             setCurrentScene?.Invoke(startScene);
             await UpdateProgressAsync(85, 0.5f);
-
-            UIManager.Instance.ShowUI<StartView>();
+            
             ServiceCenter.Get<ICameraService>().EnableFixedCamera();
             await UpdateProgressAsync(100, 0.2f);
 
             AudioManager.Instance.Initialize();
             
             Hide();
+            UIManager.Instance.ShowUI<StartView>();
         }
 
         private Task<bool> UpdateProgressAsync(int endValue, float duration)

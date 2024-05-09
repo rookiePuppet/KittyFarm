@@ -1,6 +1,5 @@
 using System;
 using KittyFarm.Data;
-using KittyFarm.InventorySystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

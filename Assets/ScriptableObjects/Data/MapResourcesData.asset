@@ -13,6 +13,48 @@ MonoBehaviour:
   m_Name: MapResourcesData
   m_EditorClassIdentifier: 
   resourcesDetailsList:
-  - Position: {x: 18.2, y: -0.62, z: 0}
+  - Position: {x: 5.787634, y: -13.441048, z: 0}
     ResourceId: 1
-    LastCollectTimeTicks: 638498132593537443
+    LastCollectTimeTicks: 0
+  - Position: {x: 0.48662758, y: -3.027028, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 12.326626, y: -12.122597, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 7.6800003, y: -5.9700003, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 19.810846, y: -11.786835, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 11.96, y: -16.05, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 2.817565, y: -5.809113, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 25.55986, y: -14.536498, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 14.72, y: -8.07, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 18.2, y: -0.6199999, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 11.5773735, y: 0.093419075, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 1.2521095, y: 4.6237698, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 28.490002, y: -7.4, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 4.283799, y: -10.320602, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 22.141783, y: -13.892197, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0

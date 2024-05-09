@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DebugView : UIBase
 {
-    public TextMeshProUGUI frameRateText;
+    [SerializeField] private TextMeshProUGUI frameRateText;
 
     private int frameRate;
 
@@ -13,9 +13,13 @@ public class DebugView : UIBase
         InvokeRepeating(nameof(UpdateFrameRate),0, 1f);
     }
 
-    private void UpdateFrameRate()
+    private void Update()
     {
         frameRate = Mathf.RoundToInt(1f / Time.deltaTime);
+    }
+
+    private void UpdateFrameRate()
+    {
         frameRateText.text = $"FPS  {frameRate}";
     }
 }

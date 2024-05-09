@@ -25,6 +25,8 @@ public class ResourceManagerEditor : Editor
                 };
                 mapResourcesData.AddGrowthDetails(growthDetails);
             }
+            
+            EditorUtility.SetDirty(mapResourcesData);
         }
     }
 }

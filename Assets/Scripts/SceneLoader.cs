@@ -25,6 +25,16 @@ namespace KittyFarm
             
             return tcs.Task;
         }
+
+        public static Task UnityUnloadSceneAsync(Scene scene)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+        
+            var loadOperation = SceneManager.UnloadSceneAsync(scene);
+            loadOperation.completed += _ => { tcs.SetResult(true); };
+            
+            return tcs.Task;
+        }
         
         // public static async Task<Scene> LoadSceneAndSetActiveAsync(string sceneName)
         // {

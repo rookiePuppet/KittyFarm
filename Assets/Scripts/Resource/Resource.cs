@@ -5,12 +5,6 @@ using UnityEngine;
 
 namespace KittyFarm.CropSystem
 {
-    public interface IHarvestable
-    {
-        public bool CanBeHarvested { get; }
-        public void Harvest();
-    }
-    
     public abstract class Resource : MonoBehaviour, IHarvestable
     {
         [SerializeField] private ResourceDataSO data;

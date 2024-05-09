@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace KittyFarm.CropSystem
@@ -8,7 +9,7 @@ namespace KittyFarm.CropSystem
 
         private Animator treeAnimator;
         private Animator fruitAnimator;
-        
+
         private static readonly int AnimatorHash_Shake = Animator.StringToHash("Shake");
         private static readonly int AnimatorHash_Fall = Animator.StringToHash("Fall");
 
@@ -27,10 +28,14 @@ namespace KittyFarm.CropSystem
             fruitRenderer.enabled = !IsGrowing;
         }
 
-        public override void Harvest()
+        public override async void Harvest()
         {
             treeAnimator.SetTrigger(AnimatorHash_Shake);
             fruitAnimator.SetTrigger(AnimatorHash_Fall);
+
+            await Task.Delay(800);
+
+            FinishCollection();
         }
     }
 }
