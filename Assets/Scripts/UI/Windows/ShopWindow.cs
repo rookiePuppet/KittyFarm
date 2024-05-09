@@ -87,6 +87,7 @@ namespace KittyFarm.UI
             {
                 PurchasedCommodity?.Invoke(itemData, purchaseAmount);
 
+                SelectedCommodity.Quantity -= purchaseAmount;
                 SelectedCommodityItem.Initialize(SelectedCommodity);
             }
             

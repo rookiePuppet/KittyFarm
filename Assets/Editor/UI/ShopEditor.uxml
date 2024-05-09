@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: flex-start; justify-content: flex-start; align-self: stretch; width: 800px; height: 600px;">
+        <ui:ListView focusable="true" reorderable="true" show-add-remove-footer="true" name="ListView" style="flex-grow: 1; flex-basis: auto; height: 100%; width: 45%;" />
+        <ui:VisualElement style="flex-grow: 1; justify-content: space-between; height: 100%;">
+            <ui:VisualElement style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);">
+                <uie:ObjectField label="商品数据" name="ItemDataField" type="KittyFarm.Data.ItemDataSO, Assembly-CSharp" style="font-size: 22px; -unity-font: url(&apos;project://database/Assets/Art/fusion-pixel-12px-monospaced-zh_hans.otf?fileID=12800000&amp;guid=2758ba6ba90412742bb9545b091e54de&amp;type=3#fusion-pixel-12px-monospaced-zh_hans&apos;);" />
+                <ui:IntegerField label="固定数量" value="42" name="NumberField" style="font-size: 22px; -unity-font: url(&apos;project://database/Assets/Art/fusion-pixel-12px-monospaced-zh_hans.otf?fileID=12800000&amp;guid=2758ba6ba90412742bb9545b091e54de&amp;type=3#fusion-pixel-12px-monospaced-zh_hans&apos;);" />
+                <ui:Toggle label="无限数量" name="InfiniteField" style="font-size: 22px; -unity-font: url(&apos;project://database/Assets/Art/fusion-pixel-12px-monospaced-zh_hans.otf?fileID=12800000&amp;guid=2758ba6ba90412742bb9545b091e54de&amp;type=3#fusion-pixel-12px-monospaced-zh_hans&apos;);" />
+            </ui:VisualElement>
+            <ui:Button text="保存" display-tooltip-when-elided="true" name="SaveButton" style="font-size: 22px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

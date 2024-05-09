@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using KittyFarm.UI;
 using UnityEngine;
 
@@ -12,7 +13,11 @@ namespace KittyFarm.Data
         
         [SerializeField] private List<CommodityDetails> commodityList;
 
-        public IEnumerable<CommodityDetails> CommodityList => commodityList;
+        public IEnumerable<CommodityDetails> CommodityList
+        {
+            get => commodityList;
+            set => commodityList = value.ToList();
+        }
 
         private void OnEnable()
         {

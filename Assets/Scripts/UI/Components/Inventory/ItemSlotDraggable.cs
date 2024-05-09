@@ -48,23 +48,24 @@ namespace KittyFarm.UI
                 }
                 else if (raycastHit.transform.TryGetComponent(typeof(ItemSlot), out var targetSlot))
                 {
-                    if (targetSlot == draggedSlot) return;
-
-                    Inventory.SwapTwoItems(draggedSlot.Index, ((ItemSlot)targetSlot).Index);
+                    if (targetSlot != draggedSlot)
+                    {
+                        Inventory.SwapTwoItems(draggedSlot.Index, ((ItemSlot)targetSlot).Index);
+                    }
                 }
             }
-            else
-            {
-                var itemData = draggedSlot.ItemData;
-                var amount = draggedSlot.Item.count;
-
-                var position = ServiceCenter.Get<ICameraService>().ScreenToWorldPoint(eventData.position);
-                ServiceCenter.Get<IItemService>().SpawnItemAt(position, itemData, amount);
-
-                Inventory.RemoveItemAll(draggedSlot.Index);
-
-                draggedSlot.IsSelected = false;
-            }
+            // else
+            // {
+            //     var itemData = draggedSlot.ItemData;
+            //     var amount = draggedSlot.Item.count;
+            //
+            //     var position = ServiceCenter.Get<ICameraService>().ScreenToWorldPoint(eventData.position);
+            //     ServiceCenter.Get<IItemService>().SpawnItemAt(position, itemData, amount);
+            //
+            //     Inventory.RemoveItemAll(draggedSlot.Index);
+            //
+            //     draggedSlot.IsSelected = false;
+            // }
 
             UIManager.Instance.HideUI<DragItemWidget>();
         }

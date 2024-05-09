@@ -35,7 +35,7 @@ namespace KittyFarm.Map
             HandleItemUsing(worldPosition, cellPosition);
 
             var info = tilemapService.GetTilePropertiesInfoAt(cellPosition);
-            UIManager.Instance.GetUI<GameView>().ShowPropertiesBoard(info);
+            // UIManager.Instance.GetUI<GameView>().ShowPropertiesBoard(info);
 
             TileClicked?.Invoke(cellPosition, cellCenter);
         }

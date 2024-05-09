@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 0; height: 80px; justify-content: flex-start; flex-direction: row; align-items: center;">
+        <ui:VisualElement name="Icon" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/Sprout%20Lands%20-%20Sprites%20-%20premium%20pack/Objects/Items/fruit%20and%20berries%20items.png?fileID=370345674&amp;guid=2444c6f28e7c4104cb45fc627b7028f7&amp;type=3#fruit and berries items_5&apos;); height: 60px; width: 60px; align-self: auto; margin-left: 10px;" />
+        <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="Name" style="justify-content: flex-start; align-items: auto; -unity-text-align: middle-center; font-size: 32px; -unity-font: url(&apos;project://database/Assets/Art/fusion-pixel-12px-monospaced-zh_hans.otf?fileID=12800000&amp;guid=2758ba6ba90412742bb9545b091e54de&amp;type=3#fusion-pixel-12px-monospaced-zh_hans&apos;); margin-left: 23px;" />
+    </ui:VisualElement>
+</ui:UXML>
