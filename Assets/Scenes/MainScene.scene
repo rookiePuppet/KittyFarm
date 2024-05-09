@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1354114d769457a9008a4c293a20509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioConfig: {fileID: 11400000, guid: 34b7e40850d35034fb56c2805ded57aa, type: 2}
 --- !u!4 &245497873
 Transform:
   m_ObjectHideFlags: 0
@@ -603,7 +604,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d4420f380c40aaa5d4ca7370e4a789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioConfig: {fileID: 11400000, guid: 34b7e40850d35034fb56c2805ded57aa, type: 2}
   playerPrefab: {fileID: 7294001650860626726, guid: 4f553b7a087dcbb46ad2b9a41848677f, type: 3}
 --- !u!1 &519420028
 GameObject:

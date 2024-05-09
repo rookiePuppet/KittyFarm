@@ -12,34 +12,36 @@ namespace KittyFarm.UI
 {
     public class GameView : UIBase
     {
-        [SerializeField] private Button homeButton;
         [SerializeField] private ItemSlotGroup slotGroup;
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private MapPropertiesBoard propertiesBoard;
         [SerializeField] private CropInfoBoard cropInfoBoard;
         [SerializeField] private TextMeshProUGUI coinsText;
-
+        [SerializeField] private Button homeButton;
         [SerializeField] private Button shopButton;
-        
+        [SerializeField] private Button settingsButton;
+
         public ItemSlot SelectedItem => slotGroup.SelectedSlot;
-        
+
         private CancellationTokenSource propertiesBoardCTS;
         private CancellationTokenSource cropInfoBoardCTS;
 
-        private void Awake()
+        private void OnEnable()
         {
             homeButton.onClick.AddListener(OnHomeButtonClicked);
             shopButton.onClick.AddListener(OnShopButtonClicked);
-        }
+            settingsButton.onClick.AddListener(OnSettingsButtonClicked);
 
-        private void OnEnable()
-        {
             TimeManager.MinutePassed += RefreshTimeBoard;
             PlayerDataSO.CoinsUpdated += RefreshCoins;
         }
 
         private void OnDisable()
         {
+            homeButton.onClick.RemoveListener(OnHomeButtonClicked);
+            shopButton.onClick.RemoveListener(OnShopButtonClicked);
+            settingsButton.onClick.RemoveListener(OnSettingsButtonClicked);
+
             TimeManager.MinutePassed -= RefreshTimeBoard;
             PlayerDataSO.CoinsUpdated -= RefreshCoins;
         }
@@ -48,16 +50,6 @@ namespace KittyFarm.UI
         {
             RefreshTimeBoard();
             RefreshCoins(GameDataCenter.Instance.PlayerData.Coins);
-        }
-
-        private void OnShopButtonClicked()
-        {
-            UIManager.Instance.ShowUI<ShopWindow>();
-        }
-
-        private void OnHomeButtonClicked()
-        {
-            GameManager.BackToStartScene();
         }
 
         private void RefreshTimeBoard()
@@ -105,6 +97,21 @@ namespace KittyFarm.UI
         private void RefreshCoins(int coins)
         {
             coinsText.text = coins.ToString();
+        }
+
+        private void OnShopButtonClicked()
+        {
+            UIManager.Instance.ShowUI<ShopWindow>();
+        }
+
+        private void OnHomeButtonClicked()
+        {
+            GameManager.BackToStartScene();
+        }
+
+        private void OnSettingsButtonClicked()
+        {
+            UIManager.Instance.ShowUI<SettingsWindow>();
         }
     }
 }

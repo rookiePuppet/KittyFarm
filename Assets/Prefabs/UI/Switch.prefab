@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5918687254544557246}
   - component: {fileID: 1313929701224431055}
   - component: {fileID: 8880468961948130609}
+  - component: {fileID: 1809835559825967952}
   m_Layer: 5
   m_Name: Switch
   m_TagString: Untagged
@@ -138,6 +139,19 @@ MonoBehaviour:
   offBackground: {fileID: -1908796614, guid: 0c4b6284b6d6d6e44afdcf68934a0058, type: 3}
   onBackground: {fileID: -289796473, guid: 0c4b6284b6d6d6e44afdcf68934a0058, type: 3}
   handle: {fileID: 95175115014999967}
+--- !u!114 &1809835559825967952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178990759847590682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6992da7ed6059b847bf0799ba51532c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: 5
 --- !u!1 &4303200104216651331
 GameObject:
   m_ObjectHideFlags: 0

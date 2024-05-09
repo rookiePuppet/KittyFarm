@@ -24,7 +24,11 @@ namespace KittyFarm
             var playerPosition = GameManager.Player.transform.position;
             var actionDirection = (itemSet.CellCenterPosition - playerPosition).normalized;
             await PlayerAnimation.PlayUseTool(actionDirection, ToolType.Hoe,
-                () => { itemSet.TilemapService.DigAt(itemSet.CellPosition); });
+                () =>
+                {
+                    AudioManager.Instance.PlaySoundEffect(GameSoundEffect.Dig);
+                    itemSet.TilemapService.DigAt(itemSet.CellPosition);
+                });
 
             InputReader.EnableInput();
         }

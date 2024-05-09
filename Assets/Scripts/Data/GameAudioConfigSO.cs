@@ -3,10 +3,18 @@ using UnityEngine;
 namespace KittyFarm.Data
 {
     [CreateAssetMenu(fileName = "GameAudioConfig", menuName = "Game Audio Config")]
-    public class GameAudioConfigSO: ScriptableObject
+    public class GameAudioConfigSO : ScriptableObject
     {
-        [SerializeField] private AudioClip backgroundMusic;
-
-        public AudioClip BackgroundMusic => backgroundMusic;
+        [Header("音乐")]
+        public AudioClip backgroundMusic;
+        [Header("音效")]
+        public AudioClip buttonClickSound;
+        public AudioClip bagItemClickSound;
+        public AudioClip commodityItemClickSound;
+        public AudioClip switchSound;
+        public AudioClip startGameSound;
+        [Space]
+        public AudioClip digSound;
+        public AudioClip pickUpItemSound;
     }
 }

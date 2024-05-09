@@ -6,7 +6,7 @@ namespace KittyFarm.Data
     {
         public const string PersistentDataName = "SettingsData";
 
-        [SerializeField] private float musicVolume = 0.75f;
+        [SerializeField] private float musicVolume = 0.5f;
         [SerializeField] private float effectVolume = 0.75f;
         [SerializeField] private bool isMusicOn = true;
         [SerializeField] private bool isSoundEffectOn = true;

@@ -14,6 +14,7 @@ namespace KittyFarm
             var isItemAdded = Inventory.AddItem(item);
             if (isItemAdded)
             {
+                AudioManager.Instance.PlaySoundEffect(GameSoundEffect.PickUpItem);
                 ServiceCenter.Get<IItemService>().RemoveMapItem(item.InherentPosition);
                 Destroy(item.gameObject);
             }

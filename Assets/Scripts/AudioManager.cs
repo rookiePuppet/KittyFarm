@@ -1,3 +1,4 @@
+using System;
 using Framework;
 using KittyFarm.Data;
 using UnityEngine;
@@ -6,6 +7,9 @@ namespace KittyFarm
 {
     public class AudioManager : MonoSingleton<AudioManager>
     {
+        [SerializeField] private GameAudioConfigSO audioConfig;
+        public GameAudioConfigSO AudioConfig => audioConfig;
+        
         public float MusicVolume
         {
             get => SettingsData.MusicVolume;
@@ -18,7 +22,11 @@ namespace KittyFarm
         public float EffectVolume
         {
             get => SettingsData.EffectVolume;
-            set => SettingsData.EffectVolume = value;
+            set
+            {
+                SettingsData.EffectVolume = value;
+                soundEffectSource.volume = value;
+            }
         }
         public bool IsMusicOn
         {
@@ -32,10 +40,15 @@ namespace KittyFarm
         public bool IsSoundEffectOn
         {
             get => SettingsData.IsSoundEffectOn;
-            set => SettingsData.IsSoundEffectOn = value;
+            set
+            {
+                SettingsData.IsSoundEffectOn = value;
+                soundEffectSource.mute = !value;
+            }
         }
 
         private AudioSource backgroundMusicSource;
+        private AudioSource soundEffectSource;
 
         private SettingsDataSO SettingsData => GameDataCenter.Instance.SettingsData;
 
@@ -43,9 +56,12 @@ namespace KittyFarm
         {
             var obj = new GameObject("BackgroundMusic");
             obj.transform.parent = transform;
-
             backgroundMusicSource = obj.AddComponent<AudioSource>();
-            
+
+            obj = new GameObject("SoundEffect");
+            obj.transform.parent = transform;
+            soundEffectSource = obj.AddComponent<AudioSource>();
+
             MusicVolume = SettingsData.MusicVolume;
             EffectVolume = SettingsData.EffectVolume;
             IsMusicOn = SettingsData.IsMusicOn;
@@ -61,8 +77,33 @@ namespace KittyFarm
             backgroundMusicSource.Play();
         }
 
-        public void PlaySoundEffect()
+        public void PlayBackgroundMusic()
         {
+            PlayMusic(audioConfig.backgroundMusic);
+        }
+
+        public void PlaySoundEffect(AudioClip clip)
+        {
+            soundEffectSource.clip = clip;
+            soundEffectSource.volume = EffectVolume;
+            soundEffectSource.Play();
+        }
+
+        public void PlaySoundEffect(GameSoundEffect soundEffect)
+        {
+            var clip = soundEffect switch
+            {
+                GameSoundEffect.ButtonClick => audioConfig.buttonClickSound,
+                GameSoundEffect.BagItemClick => audioConfig.bagItemClickSound,
+                GameSoundEffect.CommodityItemClick => audioConfig.commodityItemClickSound,
+                GameSoundEffect.Dig => audioConfig.digSound,
+                GameSoundEffect.PickUpItem => audioConfig.pickUpItemSound,
+                GameSoundEffect.Switch => audioConfig.switchSound,
+                GameSoundEffect.StartGame => audioConfig.startGameSound,
+                _ => audioConfig.buttonClickSound
+            };
+            
+            PlaySoundEffect(clip);
         }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 993862840616861210}
   - component: {fileID: 1746366785501121095}
   - component: {fileID: 7134362177822041997}
+  - component: {fileID: 8096902647841403832}
   m_Layer: 5
   m_Name: SellButton
   m_TagString: Untagged
@@ -122,6 +123,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8096902647841403832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216056430908018640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6992da7ed6059b847bf0799ba51532c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectClip: {fileID: 8300000, guid: 2a04d342d97de064183d7d0d076e23cc, type: 3}
 --- !u!1 &589729929396682215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,6 +1546,7 @@ GameObject:
   - component: {fileID: 3326289052733959830}
   - component: {fileID: 7746626531816863474}
   - component: {fileID: 476871636240950888}
+  - component: {fileID: 6846997905091613918}
   m_Layer: 5
   m_Name: PurchaseButton
   m_TagString: Untagged
@@ -1642,6 +1657,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6846997905091613918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537046630855785659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6992da7ed6059b847bf0799ba51532c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectClip: {fileID: 8300000, guid: 2a04d342d97de064183d7d0d076e23cc, type: 3}
 --- !u!1 &7654270657747098741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,6 +1965,7 @@ GameObject:
   - component: {fileID: 8110143234185180715}
   - component: {fileID: 2188244799337103456}
   - component: {fileID: 7830808046950182772}
+  - component: {fileID: 9118032772821056842}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -2046,6 +2075,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9118032772821056842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7768041630444913557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6992da7ed6059b847bf0799ba51532c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectClip: {fileID: 8300000, guid: 2a04d342d97de064183d7d0d076e23cc, type: 3}
 --- !u!1 &7814445718046853357
 GameObject:
   m_ObjectHideFlags: 0

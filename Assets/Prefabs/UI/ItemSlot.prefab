@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 6695316905227917849}
   - component: {fileID: 8199300304775483662}
   - component: {fileID: 7263753282273536689}
+  - component: {fileID: 3708776630614811365}
   m_Layer: 5
   m_Name: ItemSlot
   m_TagString: Untagged
@@ -334,7 +335,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583e7a34a5ed490886e8d9d473130fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragImage: {fileID: 0}
+--- !u!114 &3708776630614811365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504945557523128517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6992da7ed6059b847bf0799ba51532c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: 1
 --- !u!1 &4747649248920967176
 GameObject:
   m_ObjectHideFlags: 0

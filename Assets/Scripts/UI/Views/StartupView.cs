@@ -2,13 +2,12 @@ using System;
 using System.Threading.Tasks;
 using DG.Tweening;
 using KittyFarm.Service;
-using KittyFarm.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace KittyFarm
+namespace KittyFarm.UI
 {
     public class StartupView : UIBase
     {

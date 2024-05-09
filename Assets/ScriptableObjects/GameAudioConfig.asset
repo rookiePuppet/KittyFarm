@@ -13,3 +13,10 @@ MonoBehaviour:
   m_Name: GameAudioConfig
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 8300000, guid: 47bccd058a575504192e5fde47e834bb, type: 3}
+  buttonClickSound: {fileID: 8300000, guid: 3fd4b12c28a42a041b823778ecfc2fb8, type: 3}
+  bagItemClickSound: {fileID: 8300000, guid: 2a04d342d97de064183d7d0d076e23cc, type: 3}
+  commodityItemClickSound: {fileID: 8300000, guid: 2a04d342d97de064183d7d0d076e23cc, type: 3}
+  switchSound: {fileID: 8300000, guid: 74c006ec994f41545a4a6b32ee0c6771, type: 3}
+  startGameSound: {fileID: 8300000, guid: 92475727c69621c4da2d26c9ccc5f64c, type: 3}
+  digSound: {fileID: 8300000, guid: 92367a7bf68d0fd4d815ff4ac5b3d1a1, type: 3}
+  pickUpItemSound: {fileID: 8300000, guid: d88b60c27e02ee943b50890ba5063264, type: 3}

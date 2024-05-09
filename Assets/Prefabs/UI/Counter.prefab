@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3543322751174693098}
   - component: {fileID: 5889071278181767286}
   - component: {fileID: 7560069031780880514}
+  - component: {fileID: 7718856373105092043}
   m_Layer: 5
   m_Name: ReduceButton
   m_TagString: Untagged
@@ -121,6 +122,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7718856373105092043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572361313040344891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6992da7ed6059b847bf0799ba51532c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectClip: {fileID: 8300000, guid: 2a04d342d97de064183d7d0d076e23cc, type: 3}
 --- !u!1 &1120942845378236569
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,6 +229,7 @@ GameObject:
   - component: {fileID: 7329928913391145912}
   - component: {fileID: 125810800401727094}
   - component: {fileID: 934371862352462264}
+  - component: {fileID: 5217569953251128467}
   m_Layer: 5
   m_Name: IncreaseButton
   m_TagString: Untagged
@@ -324,6 +339,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5217569953251128467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996881925920655076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6992da7ed6059b847bf0799ba51532c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectClip: {fileID: 8300000, guid: 2a04d342d97de064183d7d0d076e23cc, type: 3}
 --- !u!1 &3930075186718090583
 GameObject:
   m_ObjectHideFlags: 0

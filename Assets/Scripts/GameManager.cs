@@ -15,7 +15,6 @@ namespace KittyFarm
         public static event Action MapChanged;
         public static event Action BeforeGameExit;
 
-        [SerializeField] private GameAudioConfigSO audioConfig;
         [SerializeField] private GameObject playerPrefab;
 
         public static PlayerController Player { get; private set; }
@@ -36,7 +35,7 @@ namespace KittyFarm
 
             InitializePlayer();
             
-            AudioManager.Instance.PlayMusic(audioConfig.BackgroundMusic);
+            AudioManager.Instance.PlayBackgroundMusic();
         }
 
         private void OnApplicationQuit()
