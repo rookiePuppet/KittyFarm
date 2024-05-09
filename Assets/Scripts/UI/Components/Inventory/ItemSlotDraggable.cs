@@ -23,7 +23,7 @@ namespace KittyFarm.UI
 
             dragItem = UIManager.Instance.ShowUI<DragItemWidget>();
 
-            dragItem.ItemSprite = slot.ItemSprite;
+            dragItem.ItemSprite = slot.ItemData.IconSprite;
         }
 
         public void OnDrag(PointerEventData eventData)

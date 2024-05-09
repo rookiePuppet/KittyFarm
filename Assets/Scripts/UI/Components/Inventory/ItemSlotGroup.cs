@@ -7,8 +7,8 @@ namespace KittyFarm.UI
     public class ItemSlotGroup : MonoBehaviour
     {
         public ItemSlot SelectedSlot { get; private set; }
-        
         private PlayerInventory Inventory => GameDataCenter.Instance.PlayerInventory;
+        
         private ItemSlot[] slots;
 
         private void Awake()
@@ -19,11 +19,13 @@ namespace KittyFarm.UI
         private void OnEnable()
         {
             PlayerInventory.ItemChanged += SetSlotDataAt;
+            ItemSlot.OnClicked += UpdateItemSlotSelected;
         }
 
         private void OnDisable()
         {
             PlayerInventory.ItemChanged -= SetSlotDataAt;
+            ItemSlot.OnClicked -= UpdateItemSlotSelected;
         }
 
         private void Start()
@@ -31,7 +33,7 @@ namespace KittyFarm.UI
             var index = 0;
             foreach (var slot in slots)
             {
-                slot.Initialize(this, index++);
+                slot.Index = index++;
             }
 
             UpdateAllSlots();
@@ -50,10 +52,16 @@ namespace KittyFarm.UI
         {
             var targetSlot = slots[slotIndex];
             targetSlot.Item = item;
+
+            if (targetSlot.IsEmpty && SelectedSlot == targetSlot)
+            {
+                SelectedSlot = null;
+                targetSlot.IsSelected = false;
+            }
         }
         
-        public void UpdateItemSlotSelected(ItemSlot clickedSlot)
-        {
+        private void UpdateItemSlotSelected(ItemSlot clickedSlot)
+        { 
             if (clickedSlot.IsEmpty) return;
 
             foreach (var slot in slots)
