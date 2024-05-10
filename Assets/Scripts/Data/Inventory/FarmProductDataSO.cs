@@ -1,4 +1,3 @@
-using KittyFarm.InventorySystem;
 using UnityEngine;
 
 namespace KittyFarm.Data

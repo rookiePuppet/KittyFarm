@@ -11,10 +11,11 @@ namespace KittyFarm.Data
         public string CropName;
         public FarmProductDataSO ProductData;
         public CropGrowthStage[] Stages;
-        public int MaxHarvestCount = 3;
+        public int MinHarvestCount = 1;
+        public int MaxHarvestCount = 2;
 
-        public int TotalMinutesToBeRipe => Stages.Sum(stage => stage.GrowthDuration * 60);
+        public int TotalMinutesToBeRipe => Stages.Sum(stage => stage.GrowthHours * 60 + stage.GrowthMinutes);
 
-        public int RandomHarvestCount => Random.Range(1, MaxHarvestCount + 1);
+        public int RandomHarvestCount => Random.Range(MinHarvestCount, MaxHarvestCount + 1);
     }
 }

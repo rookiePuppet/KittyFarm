@@ -16,11 +16,17 @@ MonoBehaviour:
   CropName: "\u84DD\u73AB\u7470"
   ProductData: {fileID: 11400000, guid: 759e38968f8576643ad6844c7940086c, type: 2}
   Stages:
-  - GrowthDuration: 1
+  - GrowthHours: 0
+    GrowthMinutes: 30
     Sprite: {fileID: 351322191, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
-  - GrowthDuration: 1
+  - GrowthHours: 1
+    GrowthMinutes: 0
     Sprite: {fileID: 393831421, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
-  - GrowthDuration: 1
+  - GrowthHours: 1
+    GrowthMinutes: 30
     Sprite: {fileID: 465134718, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
-  - GrowthDuration: 1
+  - GrowthHours: 1
+    GrowthMinutes: 0
     Sprite: {fileID: 975410402, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
+  MinHarvestCount: 1
+  MaxHarvestCount: 2

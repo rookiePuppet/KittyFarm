@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using KittyFarm.Service;
 using KittyFarm.Time;
@@ -24,7 +25,7 @@ namespace KittyFarm.CropSystem
         private void Start()
         {
             tilemapService = ServiceCenter.Get<ITilemapService>();
-            
+
             UpdateAllCrops();
         }
 
@@ -46,15 +47,16 @@ namespace KittyFarm.CropSystem
             var stageIndex = 0;
             var cropData = crop.Data;
 
-            var growthDuration = TimeManager.GetTimeSpanFrom(crop.GrowthDetails.PlantedTime).TotalHours;
+            var growthDuration = TimeManager.GetTimeSpanFrom(crop.GrowthDetails.PlantedTime).TotalMinutes;
             // print($"{TimeManager.Instance.CurrentTime}, {growthDetails.PlantedTime}");
 
             foreach (var stage in cropData.Stages)
             {
-                if (growthDuration >= stage.GrowthDuration)
+                var stageMinutes = new TimeSpan(0, stage.GrowthHours, stage.GrowthMinutes).TotalMinutes;
+                if (growthDuration >= stageMinutes)
                 {
                     stageIndex++;
-                    growthDuration -= stage.GrowthDuration;
+                    growthDuration -= stageMinutes;
                 }
             }
 

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using KittyFarm.Data;
@@ -46,7 +45,7 @@ public class ShopEditor : EditorWindow
         numberField = root.Q<IntegerField>("NumberField");
         infiniteField = root.Q<Toggle>("InfiniteField");
         saveButton = root.Q<Button>("SaveButton");
-
+        
         LoadShopData();
 
         listView.makeItem = () => listEntry.Instantiate();
