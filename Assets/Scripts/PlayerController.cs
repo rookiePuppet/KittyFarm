@@ -16,12 +16,12 @@ namespace KittyFarm
         public SpeakBubble SpeakBubble { get; private set; }
         private Vector2 MovementInput { get; set; }
         
-        private new Rigidbody2D rigidbody;
+        private Rigidbody2D rbody;
 
         private void Awake()
         {
             Animation = GetComponentInChildren<PlayerAnimation>();
-            rigidbody = GetComponent<Rigidbody2D>();
+            rbody = GetComponent<Rigidbody2D>();
             SpeakBubble = GetComponent<SpeakBubble>();
         }
 
@@ -47,13 +47,13 @@ namespace KittyFarm
             if (context.performed)
             {
                 MovementInput = context.ReadValue<Vector2>();
-                rigidbody.velocity = MovementInput * Data.MovementVelocity;
+                rbody.velocity = MovementInput * Data.MovementVelocity;
 
                 Moving?.Invoke(MovementInput);
             }
             else if (context.canceled)
             {
-                rigidbody.velocity = Vector2.zero;
+                rbody.velocity = Vector2.zero;
 
                 MoveStopped?.Invoke();
             }

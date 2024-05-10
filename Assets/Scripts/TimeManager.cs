@@ -24,10 +24,10 @@ namespace KittyFarm.Time
         {
             lastTime = CurrentTime;
             InvokeRepeating(nameof(CheckTime), 0, 1);
-            InvokeRepeating(nameof(PlusOneMinute), 0, 1);
+            InvokeRepeating(nameof(PlusOneSecond), 0, 1);
         }
 
-        public void PlusOneMinute()
+        public void PlusOneSecond()
         {
             CurrentTime += TimeSpan.FromSeconds(1);
         }
@@ -59,9 +59,9 @@ namespace KittyFarm.Time
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
-                CurrentTime += TimeSpan.FromHours(1);
+                CurrentTime += TimeSpan.FromMinutes(1);
                 MinutePassed?.Invoke();
             }
         }

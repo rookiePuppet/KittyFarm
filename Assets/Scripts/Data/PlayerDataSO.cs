@@ -1,6 +1,5 @@
 using System;
 using KittyFarm.UI;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 namespace KittyFarm.Data
