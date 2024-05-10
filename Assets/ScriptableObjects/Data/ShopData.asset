@@ -17,44 +17,44 @@ MonoBehaviour:
     Quantity: 1
     Infinite: 0
   - ItemId: 16
-    Quantity: 1
-    Infinite: 0
+    Quantity: -5
+    Infinite: 1
   - ItemId: 17
-    Quantity: 1
-    Infinite: 0
+    Quantity: -1
+    Infinite: 1
   - ItemId: 18
     Quantity: 1
-    Infinite: 0
+    Infinite: 1
   - ItemId: 19
     Quantity: 1
-    Infinite: 0
+    Infinite: 1
   - ItemId: 20
     Quantity: 1
-    Infinite: 0
+    Infinite: 1
   - ItemId: 21
     Quantity: 1
-    Infinite: 0
+    Infinite: 1
   - ItemId: 22
     Quantity: 1
-    Infinite: 0
+    Infinite: 1
   - ItemId: 23
     Quantity: 1
-    Infinite: 0
+    Infinite: 1
   - ItemId: 24
     Quantity: 1
-    Infinite: 0
+    Infinite: 1
   - ItemId: 25
-    Quantity: 1
-    Infinite: 0
+    Quantity: 0
+    Infinite: 1
   - ItemId: 26
-    Quantity: 1
-    Infinite: 0
+    Quantity: 0
+    Infinite: 1
   - ItemId: 27
     Quantity: 1
-    Infinite: 0
+    Infinite: 1
   - ItemId: 28
     Quantity: 1
-    Infinite: 0
+    Infinite: 1
   - ItemId: 29
     Quantity: 1
-    Infinite: 0
+    Infinite: 1

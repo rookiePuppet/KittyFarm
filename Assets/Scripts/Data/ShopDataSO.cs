@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using KittyFarm.UI;
 using UnityEngine;
 
 namespace KittyFarm.Data
@@ -17,17 +16,6 @@ namespace KittyFarm.Data
         {
             get => commodityList;
             set => commodityList = value.ToList();
-        }
-
-        private void OnEnable()
-        {
-            ShopWindow.PurchasedCommodity += OnPurchasedCommodity;
-        }
-
-        private void OnPurchasedCommodity(ItemDataSO itemData, int amount)
-        {
-            var details = commodityList.Find(details => details.ItemId == itemData.Id);
-            details.Quantity -= amount;
         }
     }
 

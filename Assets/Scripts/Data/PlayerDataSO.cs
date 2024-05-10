@@ -1,5 +1,6 @@
 using System;
 using KittyFarm.UI;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 namespace KittyFarm.Data
@@ -36,29 +37,20 @@ namespace KittyFarm.Data
             inventory.Initialize();
         }
 
-        private void Awake()
-        {
-            ShopWindow.PurchasedCommodity += OnPurchasedCommodity;
-            ShopWindow.SoldItem += OnSoldItem;
-        }
-
-        private void OnDestroy()
-        {
-            ShopWindow.PurchasedCommodity -= OnPurchasedCommodity;
-            ShopWindow.SoldItem -= OnSoldItem;
-        }
-
-        private void OnPurchasedCommodity(ItemDataSO itemData, int amount)
+        public void OnPurchasedCommodity(ItemDataSO itemData, int amount)
         {
             var totalValue = itemData.Value * amount;
             coins -= totalValue;
 
             CoinsUpdated?.Invoke(coins);
+
+            inventory.AddItem(itemData, amount);
             
             UIManager.Instance.ShowMessage($"购买{itemData.ItemName}X{amount}，花费{totalValue}金币");
+            UIManager.Instance.ShowUI<GetItemView>().Initialize(itemData, amount);
         }
 
-        private void OnSoldItem(ItemDataSO itemData, int amount)
+        public void OnSoldItem(ItemDataSO itemData, int amount)
         {
             var income = Mathf.RoundToInt(itemData.Value * itemData.SoldDiscount * amount);
 

@@ -21,6 +21,7 @@ namespace KittyFarm
         protected override void Use()
         {
             itemSet.CropService.PlantCrop(((SeedDataSO)itemSet.ItemData).CropData, itemSet.CellPosition);
+            AudioManager.Instance.PlaySoundEffect(GameSoundEffect.PlantSeed);
             GameDataCenter.Instance.PlayerInventory.RemoveItem(itemSet.ItemData);
         }
     }

@@ -1,5 +1,6 @@
 using System;
 using KittyFarm.Data;
+using KittyFarm.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,7 @@ namespace KittyFarm
 
         private PlayerDataSO Data => GameDataCenter.Instance.PlayerData;
         public PlayerAnimation Animation { get; private set; }
+        public SpeakBubble SpeakBubble { get; private set; }
         private Vector2 MovementInput { get; set; }
         
         private new Rigidbody2D rigidbody;
@@ -20,6 +22,7 @@ namespace KittyFarm
         {
             Animation = GetComponentInChildren<PlayerAnimation>();
             rigidbody = GetComponent<Rigidbody2D>();
+            SpeakBubble = GetComponent<SpeakBubble>();
         }
 
         private void OnEnable()

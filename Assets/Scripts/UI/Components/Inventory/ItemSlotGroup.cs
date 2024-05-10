@@ -1,3 +1,4 @@
+using System;
 using KittyFarm.Data;
 using KittyFarm.InventorySystem;
 using UnityEngine;
@@ -6,9 +7,10 @@ namespace KittyFarm.UI
 {
     public class ItemSlotGroup : MonoBehaviour
     {
+        public event Action<ItemDataSO> OnItemSelected;
         public ItemSlot SelectedSlot { get; private set; }
         private PlayerInventory Inventory => GameDataCenter.Instance.PlayerInventory;
-        
+
         private ItemSlot[] slots;
 
         private void Awake()
@@ -59,9 +61,9 @@ namespace KittyFarm.UI
                 targetSlot.IsSelected = false;
             }
         }
-        
+
         private void UpdateItemSlotSelected(ItemSlot clickedSlot)
-        { 
+        {
             if (clickedSlot.IsEmpty) return;
 
             foreach (var slot in slots)
@@ -69,8 +71,12 @@ namespace KittyFarm.UI
                 if (slot == clickedSlot)
                 {
                     slot.IsSelected = !slot.IsSelected;
-
                     SelectedSlot = slot.IsSelected ? slot : null;
+
+                    if (slot.IsSelected)
+                    {
+                        OnItemSelected?.Invoke(slot.ItemData);
+                    }
                 }
                 else
                 {

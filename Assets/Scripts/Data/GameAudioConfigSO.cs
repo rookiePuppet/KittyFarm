@@ -13,11 +13,13 @@ namespace KittyFarm.Data
         public AudioClip commodityItemClickSound;
         public AudioClip switchSound;
         public AudioClip startGameSound;
+        public AudioClip coinSound;
         [Space]
         public AudioClip digSound;
         public AudioClip pickUpItemSound;
-        public AudioClip coinSound;
         public AudioClip treeShakeSound;
         public AudioClip doorSound;
+        public AudioClip plantSeedSound;
+        public AudioClip harvestCropSound;
     }
 }

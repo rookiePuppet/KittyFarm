@@ -18,21 +18,21 @@ MonoBehaviour:
   lastPosition: {x: 3.8414211, y: 1.2585784, z: 0}
   inventory:
     items:
-    - itemId: 23
-      count: 45
-    - itemId: 26
-      count: 22
-    - itemId: 30
-      count: 1
-    - itemId: 20
-      count: 2
-    - itemId: 16
-      count: 2
     - itemId: 0
       count: 0
     - itemId: 0
       count: 0
     - itemId: 0
       count: 0
-    - itemId: 30
-      count: 1
+    - itemId: 0
+      count: 0
+    - itemId: 0
+      count: 0
+    - itemId: 0
+      count: 0
+    - itemId: 0
+      count: 0
+    - itemId: 0
+      count: 0
+    - itemId: 0
+      count: 0

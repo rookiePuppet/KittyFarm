@@ -1980,6 +1980,7 @@ MonoBehaviour:
   homeButton: {fileID: 4962326802093065829}
   shopButton: {fileID: 5064585579209591806}
   settingsButton: {fileID: 7054299870304755847}
+  speakContentText: {fileID: 0}
 --- !u!1 &4543324747536980602
 GameObject:
   m_ObjectHideFlags: 0

@@ -2534,6 +2534,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: branch
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 736
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2d701347983b1549b62d8b7252cca19
+      internalID: -1701050676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bubble_frame_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 70
+        width: 108
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 26, z: 0, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d47efc70180b54592d50ac137715de
+      internalID: 827186664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2571,6 +2613,9 @@ TextureImporter:
       ALL UI ASSETS on one sheet_7: -1848642129
       ALL UI ASSETS on one sheet_8: -1332539857
       ALL UI ASSETS on one sheet_9: -1038618373
+      branch: -1701050676
+      bubble_frame_1: -403853016
+      bubble_frame_small: -1163016369
       button_exit_normal: 875199931
       button_exit_pressed: 1509827260
       button_home_normal: -1903164574

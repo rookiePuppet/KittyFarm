@@ -38,7 +38,7 @@ namespace KittyFarm.UI
             soundEffectSwitch.IsOn = AudioManager.Instance.IsSoundEffectOn;
             soundEffectSlider.Value = AudioManager.Instance.EffectVolume;
         }
-
+        
         private void OnSwitchMusic(bool isOn)
         {
             AudioManager.Instance.IsMusicOn = isOn;

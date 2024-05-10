@@ -100,6 +100,8 @@ namespace KittyFarm
                 GameSoundEffect.Coin => audioConfig.coinSound,
                 GameSoundEffect.TreeShake => audioConfig.treeShakeSound,
                 GameSoundEffect.Door => audioConfig.doorSound,
+                GameSoundEffect.PlantSeed => audioConfig.plantSeedSound,
+                GameSoundEffect.HarvestCrop => audioConfig.harvestCropSound,
                 _ => audioConfig.buttonClickSound
             };
 
@@ -116,7 +118,10 @@ namespace KittyFarm
         private async void OnGetAudioSource(AudioSource source)
         {
             source.gameObject.SetActive(true);
+            source.volume = EffectVolume;
+            source.mute = !IsSoundEffectOn;
             await Task.Delay(soundEffectLifeTime);
+            
             soundEffectPool.Release(source);
         }
 

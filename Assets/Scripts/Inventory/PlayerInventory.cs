@@ -17,16 +17,6 @@ namespace KittyFarm.Data
 
         private const int MaxSize = 9;
 
-        public PlayerInventory()
-        {
-            ShopWindow.PurchasedCommodity += OnPurchasedCommodity;
-        }
-
-        private void OnPurchasedCommodity(ItemDataSO itemData, int amount)
-        {
-            AddItem(itemData, amount);
-        }
-
         public bool AddItem(ItemDataSO itemData, int itemAmount)
         {
             var index = FindIndexToAddItem(itemData);
@@ -39,7 +29,6 @@ namespace KittyFarm.Data
             ItemChanged?.Invoke(index, inventoryItem);
 
             //SaveData();
-
             return true;
         }
 

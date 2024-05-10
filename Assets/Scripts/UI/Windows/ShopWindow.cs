@@ -1,4 +1,3 @@
-using System;
 using KittyFarm.Data;
 using KittyFarm.Service;
 using TMPro;
@@ -9,9 +8,6 @@ namespace KittyFarm.UI
 {
     public class ShopWindow : UIBase
     {
-        public static event Action<ItemDataSO, int> PurchasedCommodity;
-        public static event Action<ItemDataSO, int> SoldItem;
-
         [Header("商品格子预制体")]
         [SerializeField] private GameObject commodityItemPrefab;
         [Space]
@@ -71,6 +67,18 @@ namespace KittyFarm.UI
             }
         }
 
+        public override void Show()
+        {
+            base.Show();
+            InputReader.DisableInput();
+        }
+
+        public override void Hide()
+        {
+            base.Hide();
+            InputReader.EnableInput();
+        }
+
         private void OnPurchaseButtonClicked()
         {
             var purchaseAmount = counter.Value;
@@ -85,12 +93,11 @@ namespace KittyFarm.UI
             var totalValue = itemData.Value * purchaseAmount;
             if (GameDataCenter.Instance.PlayerData.Coins >= totalValue)
             {
-                PurchasedCommodity?.Invoke(itemData, purchaseAmount);
-
+                GameDataCenter.Instance.PlayerData.OnPurchasedCommodity(itemData, purchaseAmount);
                 SelectedCommodity.Quantity -= purchaseAmount;
                 SelectedCommodityItem.Initialize(SelectedCommodity);
             }
-            
+
             counter.Reset();
             AudioManager.Instance.PlaySoundEffect(GameSoundEffect.Coin);
         }
@@ -103,9 +110,9 @@ namespace KittyFarm.UI
             {
                 return;
             }
-            
-            SoldItem?.Invoke(DraggedInItem.itemData, sellAmount);
+
             counter.Reset();
+            GameDataCenter.Instance.PlayerData.OnSoldItem(DraggedInItem.itemData, sellAmount);
             AudioManager.Instance.PlaySoundEffect(GameSoundEffect.Coin);
         }
 

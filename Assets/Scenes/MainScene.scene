@@ -1807,6 +1807,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1449884014430575979, guid: 4f553b7a087dcbb46ad2b9a41848677f, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 2952046128873515309, guid: 4f553b7a087dcbb46ad2b9a41848677f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1850,6 +1854,10 @@ PrefabInstance:
     - target: {fileID: 2952046128873515309, guid: 4f553b7a087dcbb46ad2b9a41848677f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3573080339664462709, guid: 4f553b7a087dcbb46ad2b9a41848677f, type: 3}
+      propertyPath: remainDuration
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7294001650860626726, guid: 4f553b7a087dcbb46ad2b9a41848677f, type: 3}
       propertyPath: m_Name

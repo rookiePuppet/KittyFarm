@@ -18,8 +18,10 @@ MonoBehaviour:
   commodityItemClickSound: {fileID: 8300000, guid: 2a04d342d97de064183d7d0d076e23cc, type: 3}
   switchSound: {fileID: 8300000, guid: 74c006ec994f41545a4a6b32ee0c6771, type: 3}
   startGameSound: {fileID: 8300000, guid: 92475727c69621c4da2d26c9ccc5f64c, type: 3}
+  coinSound: {fileID: 8300000, guid: ac25074d2fcc3c34a9ea193484653788, type: 3}
   digSound: {fileID: 8300000, guid: 92367a7bf68d0fd4d815ff4ac5b3d1a1, type: 3}
   pickUpItemSound: {fileID: 8300000, guid: d88b60c27e02ee943b50890ba5063264, type: 3}
-  coinSound: {fileID: 8300000, guid: ac25074d2fcc3c34a9ea193484653788, type: 3}
   treeShakeSound: {fileID: 8300000, guid: 87b6b4191b9d2b74bbf850b18e071f8c, type: 3}
   doorSound: {fileID: 8300000, guid: 9ad928c0a7c8c77428bc01419ad0ab52, type: 3}
+  plantSeedSound: {fileID: 8300000, guid: 3f9d0aad20db58d4a9ae849216a8823b, type: 3}
+  harvestCropSound: {fileID: 8300000, guid: 56f9508d486192144a9e1d43415278f1, type: 3}

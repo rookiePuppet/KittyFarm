@@ -1,5 +1,6 @@
 using KittyFarm.Data;
 using KittyFarm.Service;
+using KittyFarm.UI;
 using UnityEngine;
 
 namespace KittyFarm.CropSystem
@@ -9,7 +10,7 @@ namespace KittyFarm.CropSystem
         public bool CanBeHarvested => ServiceCenter.Get<ICropService>().IsCropRipe(GrowthDetails);
         public CropGrowthDetails GrowthDetails { get; private set; }
         public CropDataSO Data => ServiceCenter.Get<ICropService>().CropDatabase.GetCropData(GrowthDetails.CropId);
-        
+
         private SpriteRenderer spriteRenderer;
 
         private void Awake()
@@ -22,10 +23,12 @@ namespace KittyFarm.CropSystem
             GrowthDetails = details;
             UpdateCropVisual();
         }
-        
+
         public void Harvest()
         {
-            ServiceCenter.Get<ICropService>().HarvestCrop(this);
+            var harvestCount = ServiceCenter.Get<ICropService>().HarvestCrop(this);
+            UIManager.Instance.ShowUI<GetItemView>().Initialize(Data.ProductData, harvestCount);
+            AudioManager.Instance.PlaySoundEffect(GameSoundEffect.HarvestCrop);
         }
 
         public void UpdateCurrentStage(int newStage)

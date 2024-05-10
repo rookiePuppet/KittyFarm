@@ -14,16 +14,16 @@ namespace KittyFarm.UI
     {
         [SerializeField] private ItemSlotGroup slotGroup;
         [SerializeField] private TextMeshProUGUI timeText;
-        [SerializeField] private MapPropertiesBoard propertiesBoard;
+        // [SerializeField] private MapPropertiesBoard propertiesBoard;
         [SerializeField] private CropInfoBoard cropInfoBoard;
         [SerializeField] private TextMeshProUGUI coinsText;
         [SerializeField] private Button homeButton;
         [SerializeField] private Button shopButton;
         [SerializeField] private Button settingsButton;
-
+        
         public ItemSlot SelectedItem => slotGroup.SelectedSlot;
 
-        private CancellationTokenSource propertiesBoardCTS;
+        // private CancellationTokenSource propertiesBoardCTS;
         private CancellationTokenSource cropInfoBoardCTS;
 
         private void OnEnable()
@@ -34,8 +34,9 @@ namespace KittyFarm.UI
 
             TimeManager.MinutePassed += RefreshTimeBoard;
             PlayerDataSO.CoinsUpdated += RefreshCoins;
+            slotGroup.OnItemSelected += OnItemSelected;
         }
-
+        
         private void OnDisable()
         {
             homeButton.onClick.RemoveListener(OnHomeButtonClicked);
@@ -44,6 +45,7 @@ namespace KittyFarm.UI
 
             TimeManager.MinutePassed -= RefreshTimeBoard;
             PlayerDataSO.CoinsUpdated -= RefreshCoins;
+            slotGroup.OnItemSelected -= OnItemSelected;
         }
 
         private void Start()
@@ -51,31 +53,7 @@ namespace KittyFarm.UI
             RefreshTimeBoard();
             RefreshCoins(GameDataCenter.Instance.PlayerData.Coins);
         }
-
-        private void RefreshTimeBoard()
-        {
-            var currentTime = TimeManager.CurrentTime;
-            timeText.text = currentTime.ToString("HH : mm");
-        }
-
-        public async void ShowPropertiesBoard(TilePropertiesInfo info)
-        {
-            propertiesBoardCTS?.Cancel();
-            propertiesBoardCTS = new CancellationTokenSource();
-
-            try
-            {
-                propertiesBoard.Show();
-                propertiesBoard.Refresh(info);
-
-                await Task.Delay(1500, propertiesBoardCTS.Token);
-                propertiesBoard.Hide();
-            }
-            catch (OperationCanceledException)
-            {
-            }
-        }
-
+        
         public async void ShowCropInfoBoard(CropInfo cropInfo)
         {
             cropInfoBoardCTS?.Cancel();
@@ -92,6 +70,12 @@ namespace KittyFarm.UI
             catch (OperationCanceledException)
             {
             }
+        }
+        
+        private void RefreshTimeBoard()
+        {
+            var currentTime = TimeManager.CurrentTime;
+            timeText.text = currentTime.ToString("HH : mm");
         }
 
         private void RefreshCoins(int coins)
@@ -113,5 +97,28 @@ namespace KittyFarm.UI
         {
             UIManager.Instance.ShowUI<SettingsWindow>();
         }
+        
+        private void OnItemSelected(ItemDataSO itemData)
+        {
+            GameManager.Player.SpeakBubble.Show($"这是{itemData.ItemName}");
+        }
+        
+        // public async void ShowPropertiesBoard(TilePropertiesInfo info)
+        // {
+        //     propertiesBoardCTS?.Cancel();
+        //     propertiesBoardCTS = new CancellationTokenSource();
+        //
+        //     try
+        //     {
+        //         propertiesBoard.Show();
+        //         propertiesBoard.Refresh(info);
+        //
+        //         await Task.Delay(1500, propertiesBoardCTS.Token);
+        //         propertiesBoard.Hide();
+        //     }
+        //     catch (OperationCanceledException)
+        //     {
+        //     }
+        // }
     }
 }
