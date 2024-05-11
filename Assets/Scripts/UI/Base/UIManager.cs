@@ -4,32 +4,40 @@ using UnityEngine;
 
 namespace KittyFarm.UI
 {
+    public enum UILayer
+    {
+        Top,
+        Middle,
+        Bottom
+    }
+
     public class UIManager : MonoSingleton<UIManager>
     {
-        [SerializeField] private string canvasTag = "MainCanvas";
+        // [SerializeField] private string canvasTag = "MainCanvas";
         [SerializeField] private string uiRootPath = "UI";
+        [Space]
+        [SerializeField] private Canvas topCanvas;
+        [SerializeField] private Canvas middleCanvas;
+        [SerializeField] private Canvas bottomCanvas;
 
         private readonly Dictionary<string, UIBase> uiDic = new();
-
-        private Canvas canvas;
         private GameMessagePool messagePool;
 
         protected override void Awake()
         {
             base.Awake();
-            
-            canvas = GameObject.FindWithTag(canvasTag).GetComponent<Canvas>();
+
             InitializeMessagePool();
         }
 
-        public TUI ShowUI<TUI>() where TUI : UIBase
+        public TUI ShowUI<TUI>(UILayer layer = UILayer.Bottom) where TUI : UIBase
         {
             var uiName = typeof(TUI).Name;
 
             if (!uiDic.TryGetValue(uiName, out var ui))
             {
                 var path = GetUIPath(uiName);
-                var uiObj = Instantiate(Resources.Load<GameObject>(path), canvas.transform);
+                var uiObj = Instantiate(Resources.Load<GameObject>(path), CanvasAt(layer).transform);
                 ui = uiObj.GetComponent<TUI>();
                 uiDic[uiName] = ui;
             }
@@ -63,7 +71,7 @@ namespace KittyFarm.UI
         {
             var uiName = typeof(TUI).Name;
             if (!uiDic.TryGetValue(uiName, out var ui)) return null;
-            
+
             return ui as TUI;
         }
 
@@ -73,11 +81,11 @@ namespace KittyFarm.UI
             {
                 Destroy(ui.gameObject);
             }
-            
+
             uiDic.Clear();
             messagePool.Clear();
         }
-        
+
         public void ShowMessage(string content)
         {
             var message = messagePool.Get();
@@ -90,16 +98,24 @@ namespace KittyFarm.UI
             var prefab = Resources.Load<GameObject>(path);
 
             var poolParent = new GameObject(nameof(GameMessagePool));
-            poolParent.transform.SetParent(canvas.transform);
+            poolParent.transform.SetParent(CanvasAt(UILayer.Top).transform);
             poolParent.transform.localPosition = Vector3.zero;
 
             messagePool = poolParent.AddComponent<GameMessagePool>();
-            messagePool.Initialize(prefab, canvas.transform);
+            messagePool.Initialize(prefab, CanvasAt(UILayer.Top).transform);
         }
 
         private string GetUIPath(string uiName)
         {
             return $"{uiRootPath}/{uiName}";
         }
+
+        private Canvas CanvasAt(UILayer layer) => layer switch
+        {
+            UILayer.Top => topCanvas,
+            UILayer.Middle => middleCanvas,
+            UILayer.Bottom => bottomCanvas,
+            _ => bottomCanvas
+        };
     }
 }

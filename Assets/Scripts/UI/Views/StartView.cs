@@ -78,7 +78,7 @@ namespace KittyFarm.UI
 
         private void OnSettingsButtonClicked()
         {
-            UIManager.Instance.ShowUI<SettingsWindow>();
+            UIManager.Instance.ShowUI<SettingsWindow>(UILayer.Middle);
         }
 
         private void OnExitButtonClicked()
