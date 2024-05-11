@@ -4,27 +4,24 @@ namespace KittyFarm.Service
 {
     public class CameraService : MonoBehaviour, ICameraService
     {
+        private Camera CurrentCamera
+        {
+            get
+            {
+                if (currentCamera == null)
+                {
+                    currentCamera = Camera.main;
+                }
+
+                return currentCamera;
+            }
+        }
         private Camera currentCamera;
-
-        private void OnEnable()
-        {
-            GameManager.MapChanged += Initialize;
-        }
-
-        private void OnDisable()
-        {
-            GameManager.MapChanged -= Initialize;
-        }
-
-        private void Initialize()
-        {
-            currentCamera = Camera.main;
-        }
-
+        
         public Vector3 ScreenToWorldPoint(Vector3 screenPosition) =>
-            currentCamera.ScreenToWorldPoint(screenPosition);
+            CurrentCamera.ScreenToWorldPoint(screenPosition);
 
         public Vector3 WorldToScreenPoint(Vector3 worldPosition) =>
-            currentCamera.WorldToScreenPoint(worldPosition);
+            CurrentCamera.WorldToScreenPoint(worldPosition);
     }
 }
