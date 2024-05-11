@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using KittyFarm.InventorySystem;
-using KittyFarm.UI;
 using UnityEngine;
 
 namespace KittyFarm.Data

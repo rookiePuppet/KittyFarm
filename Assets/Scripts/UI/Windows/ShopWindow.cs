@@ -83,20 +83,41 @@ namespace KittyFarm.UI
         {
             var purchaseAmount = counter.Value;
             var quantityNotEnough = !SelectedCommodity.Infinite && SelectedCommodity.Quantity < purchaseAmount;
-            if (purchaseAmount <= 0 || quantityNotEnough)
+            if (purchaseAmount <= 0)
             {
                 return;
             }
 
-            var itemData = ItemService.ItemDatabase.GetItemData(SelectedCommodity.ItemId);
-
-            var totalValue = itemData.Value * purchaseAmount;
-            if (GameDataCenter.Instance.PlayerData.Coins >= totalValue)
+            if (quantityNotEnough)
             {
-                GameDataCenter.Instance.PlayerData.OnPurchasedCommodity(itemData, purchaseAmount);
-                SelectedCommodity.Quantity -= purchaseAmount;
-                SelectedCommodityItem.Initialize(SelectedCommodity);
+                UIManager.Instance.ShowMessage("该商品库存不足");
+                return;
             }
+
+            var itemData = ItemService.ItemDatabase.GetItemData(SelectedCommodity.ItemId);
+            var totalValue = itemData.Value * purchaseAmount;
+            var coinsEnough = GameDataCenter.Instance.PlayerData.Coins >= totalValue;
+            if (!coinsEnough)
+            {
+                UIManager.Instance.ShowMessage("金币不足，先卖点东西吧");
+                return;
+            }
+
+            var playerData = GameDataCenter.Instance.PlayerData;
+            var addItemSuccess = playerData.Inventory.AddItem(itemData, purchaseAmount);
+            // 背包无剩余空间
+            if (!addItemSuccess)
+            {
+                UIManager.Instance.ShowMessage("背包没有空位了");
+                return;
+            }
+
+            // 背包有剩余空间
+            playerData.OnPurchasedCommodity(itemData, purchaseAmount);
+            SelectedCommodity.Quantity -= purchaseAmount;
+            SelectedCommodityItem.Initialize(SelectedCommodity);
+            UIManager.Instance.ShowMessage($"购买{itemData.ItemName}X{purchaseAmount}，花费{totalValue}金币");
+            UIManager.Instance.ShowUI<GetItemView>().Initialize(itemData, purchaseAmount);
 
             counter.Reset();
             AudioManager.Instance.PlaySoundEffect(GameSoundEffect.Coin);
@@ -111,8 +132,14 @@ namespace KittyFarm.UI
                 return;
             }
 
+            var itemData = DraggedInItem.itemData;
+            var playerData = GameDataCenter.Instance.PlayerData;
+            playerData.OnSoldItem(itemData, sellAmount);
+            playerData.Inventory.RemoveItem(itemData, sellAmount);
+            UIManager.Instance.ShowMessage(
+                $"卖出{itemData.ItemName}X{sellAmount}，收入{itemData.Value * itemData.SoldDiscount * sellAmount}金币");
+
             counter.Reset();
-            GameDataCenter.Instance.PlayerData.OnSoldItem(DraggedInItem.itemData, sellAmount);
             AudioManager.Instance.PlaySoundEffect(GameSoundEffect.Coin);
         }
 

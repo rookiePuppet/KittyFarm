@@ -42,11 +42,6 @@ namespace KittyFarm.Data
             coins -= totalValue;
 
             CoinsUpdated?.Invoke(coins);
-
-            inventory.AddItem(itemData, amount);
-            
-            UIManager.Instance.ShowMessage($"购买{itemData.ItemName}X{amount}，花费{totalValue}金币");
-            UIManager.Instance.ShowUI<GetItemView>().Initialize(itemData, amount);
         }
 
         public void OnSoldItem(ItemDataSO itemData, int amount)
@@ -55,10 +50,6 @@ namespace KittyFarm.Data
 
             coins += income;
             CoinsUpdated?.Invoke(coins);
-            
-            inventory.RemoveItem(itemData, amount);
-            
-            UIManager.Instance.ShowMessage($"卖出{itemData.ItemName}X{amount}，收入{income}金币");
         }
     }
 }
