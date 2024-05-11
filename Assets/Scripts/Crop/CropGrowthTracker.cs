@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using KittyFarm.Service;
 using KittyFarm.Time;
 using UnityEngine;
 
@@ -9,8 +8,6 @@ namespace KittyFarm.CropSystem
     public class CropGrowthTracker : MonoBehaviour
     {
         private List<Crop> crops { get; } = new();
-
-        private ITilemapService tilemapService;
 
         private void OnEnable()
         {
@@ -24,8 +21,6 @@ namespace KittyFarm.CropSystem
 
         private void Start()
         {
-            tilemapService = ServiceCenter.Get<ITilemapService>();
-
             UpdateAllCrops();
         }
 
@@ -46,13 +41,11 @@ namespace KittyFarm.CropSystem
         {
             var stageIndex = 0;
             var cropData = crop.Data;
-
             var growthDuration = TimeManager.GetTimeSpanFrom(crop.GrowthDetails.PlantedTime).TotalMinutes;
-            // print($"{TimeManager.Instance.CurrentTime}, {growthDetails.PlantedTime}");
-
+            
             foreach (var stage in cropData.Stages)
             {
-                var stageMinutes = new TimeSpan(0, stage.GrowthHours, stage.GrowthMinutes).TotalMinutes;
+                var stageMinutes = new TimeSpan(stage.GrowthHours, stage.GrowthMinutes, 0).TotalMinutes;
                 if (growthDuration >= stageMinutes)
                 {
                     stageIndex++;

@@ -57,14 +57,6 @@ namespace KittyFarm.Time
             lastTime = CurrentTime;
         }
 
-        private void Update()
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                AccelerateTime();
-            }
-        }
-
         public void AccelerateTime()
         {
             CurrentTime += TimeSpan.FromMinutes(1);
