@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using KittyFarm.CropSystem;
+using KittyFarm.Harvestable;
 
-namespace KittyFarm
+namespace KittyFarm.MapClick
 {
     public class HarvestTool : UsableItem
     {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using KittyFarm.Data;
 using KittyFarm.Service;
 
-namespace KittyFarm
+namespace KittyFarm.MapClick
 {
     public class FarmProduct : UsableItem
     {

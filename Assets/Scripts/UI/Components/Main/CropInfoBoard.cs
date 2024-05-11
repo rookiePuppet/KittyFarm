@@ -1,5 +1,5 @@
 using DG.Tweening;
-using KittyFarm.CropSystem;
+using KittyFarm.Harvestable;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

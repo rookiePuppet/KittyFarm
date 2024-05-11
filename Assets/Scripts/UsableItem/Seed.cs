@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using KittyFarm.Data;
 
-namespace KittyFarm
+namespace KittyFarm.MapClick
 {
     public class Seed : UsableItem
     {

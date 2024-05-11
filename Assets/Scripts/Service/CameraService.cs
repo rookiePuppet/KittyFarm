@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace KittyFarm.Service
@@ -10,6 +9,11 @@ namespace KittyFarm.Service
         private void OnEnable()
         {
             GameManager.MapChanged += Initialize;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.MapChanged -= Initialize;
         }
 
         private void Initialize()

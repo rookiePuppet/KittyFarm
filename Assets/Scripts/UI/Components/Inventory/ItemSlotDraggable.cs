@@ -1,5 +1,4 @@
 using KittyFarm.Data;
-using KittyFarm.Service;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace KittyFarm
+namespace KittyFarm.MapClick
 {
     public class UndefinedUsageItem : UsableItem
     {

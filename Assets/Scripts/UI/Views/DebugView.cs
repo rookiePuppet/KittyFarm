@@ -1,61 +1,63 @@
 using KittyFarm.Time;
-using KittyFarm.UI;
 using TMPro;
 using UnityEngine;
 
-public class DebugView : UIBase
+namespace KittyFarm.UI
 {
-    [SerializeField] private GameObject testLayout;
-    [SerializeField] private TextMeshProUGUI frameRateText;
-    
-    private int frameRate;
-    private bool showTestLayout;
-
-    private bool isAccelerateTimeButtonPressed;
-
-    private void Start()
+    public class DebugView : UIBase
     {
-        InvokeRepeating(nameof(UpdateFrameRate),0, 1f);
-    }
+        [SerializeField] private GameObject testLayout;
+        [SerializeField] private TextMeshProUGUI frameRateText;
     
-    private void Update()
-    {
-        frameRate = Mathf.RoundToInt(1f / Time.deltaTime);
+        private int frameRate;
+        private bool showTestLayout;
 
-        if (isAccelerateTimeButtonPressed)
+        private bool isAccelerateTimeButtonPressed;
+
+        private void Start()
         {
-            AccelerateTime();
+            InvokeRepeating(nameof(UpdateFrameRate),0, 1f);
         }
-    }
-
-    private void UpdateFrameRate()
-    {
-        frameRateText.text = $"FPS  {frameRate}";
-    }
-
-    public void InvertTestLayerVisible()
-    {
-        showTestLayout = !showTestLayout;
-        testLayout.SetActive(showTestLayout);
-    }
-
-    public void OnAccelerateTimeButtonDown()
-    {
-        isAccelerateTimeButtonPressed = true;
-    }
     
-    public void OnAccelerateTimeButtonUp()
-    {
-        isAccelerateTimeButtonPressed = false;
-    }
+        private void Update()
+        {
+            frameRate = Mathf.RoundToInt(1f / UnityEngine.Time.deltaTime);
 
-    private void AccelerateTime()
-    {
-        TimeManager.Instance.AccelerateTime();
-    }
+            if (isAccelerateTimeButtonPressed)
+            {
+                AccelerateTime();
+            }
+        }
 
-    public void ResetTime()
-    {
-        TimeManager.Instance.ResetTime();
+        private void UpdateFrameRate()
+        {
+            frameRateText.text = $"FPS  {frameRate}";
+        }
+
+        public void InvertTestLayerVisible()
+        {
+            showTestLayout = !showTestLayout;
+            testLayout.SetActive(showTestLayout);
+        }
+
+        public void OnAccelerateTimeButtonDown()
+        {
+            isAccelerateTimeButtonPressed = true;
+        }
+    
+        public void OnAccelerateTimeButtonUp()
+        {
+            isAccelerateTimeButtonPressed = false;
+        }
+
+        private void AccelerateTime()
+        {
+            TimeManager.Instance.AccelerateTime();
+        }
+
+        public void ResetTime()
+        {
+            TimeManager.Instance.ResetTime();
+        }
     }
 }

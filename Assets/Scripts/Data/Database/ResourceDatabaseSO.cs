@@ -1,4 +1,3 @@
-using KittyFarm.CropSystem;
 using UnityEngine;
 
 namespace KittyFarm.Data

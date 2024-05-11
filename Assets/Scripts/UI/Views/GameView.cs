@@ -1,8 +1,8 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using KittyFarm.CropSystem;
 using KittyFarm.Data;
+using KittyFarm.Harvestable;
 using KittyFarm.Time;
 using TMPro;
 using UnityEngine;
@@ -100,7 +100,7 @@ namespace KittyFarm.UI
         
         private void OnItemSelected(ItemDataSO itemData)
         {
-            GameManager.Player.SpeakBubble.Show($"这是{itemData.ItemName}");
+            GameManager.Player.TalkBubble.Show($"这是{itemData.ItemName}");
         }
         
         // public async void ShowPropertiesBoard(TilePropertiesInfo info)

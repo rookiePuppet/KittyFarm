@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using DG.Tweening;
-using KittyFarm.Service;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,7 +22,7 @@ namespace KittyFarm.UI
             await TypeTitleText();
             UpdateProgressAsync(30, 0.1f);
 
-            var startScene = await SceneLoader.LoadSceneAsync(SceneNameCollection.Start);
+            var startScene = await SceneLoader.LoadSceneAsync(SceneName.Start);
             setCurrentScene?.Invoke(startScene);
             await UpdateProgressAsync(85, 0.5f);
             
