@@ -150,7 +150,7 @@ TextureImporter:
         height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 19, y: 5, z: 27, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -171,7 +171,7 @@ TextureImporter:
         height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 9, y: 6, z: 6, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2597,6 +2597,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: coin_board_no_icon
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 389
+        width: 41
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 11, y: 9, z: 10, w: 8}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2074584c5d142be469c5bc744ea97f88
+      internalID: -1422748171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2678,6 +2699,7 @@ TextureImporter:
       cat_claw: 1676020499
       character_info_board: 2113284946
       coin: 1544273725
+      coin_board_no_icon: -1422748171
       cross_dark_large_normal: 531639493
       cross_dark_large_pressed: 730345789
       cross_dark_medium_normal: -1823699601

@@ -11,6 +11,7 @@ namespace KittyFarm.UI
 {
     public class StartupView : UIBase
     {
+        [SerializeField] private TextMeshProUGUI titleText;
         [SerializeField] private Image progressImage;
         [SerializeField] private TextMeshProUGUI progressText;
 
@@ -19,19 +20,18 @@ namespace KittyFarm.UI
 
         public async Task StartLoading(Action<Scene> setCurrentScene)
         {
-            await Task.Delay(200);
-            progress = 30;
-            progressImage.fillAmount = 0.3f;
+            await TypeTitleText();
+            UpdateProgressAsync(30, 0.1f);
 
             var startScene = await SceneLoader.LoadSceneAsync(SceneNameCollection.Start);
             setCurrentScene?.Invoke(startScene);
             await UpdateProgressAsync(85, 0.5f);
-            
+
             ServiceCenter.Get<ICameraService>().EnableFixedCamera();
             await UpdateProgressAsync(100, 0.2f);
 
             AudioManager.Instance.Initialize();
-            
+
             Hide();
             UIManager.Instance.ShowUI<StartView>(UILayer.Bottom);
         }
@@ -49,6 +49,18 @@ namespace KittyFarm.UI
             };
 
             return tcs.Task;
+        }
+
+        private Task TypeTitleText()
+        {
+            var source = new TaskCompletionSource<bool>();
+
+            var content = titleText.text;
+            titleText.text = string.Empty;
+            DOTween.To(() => titleText.text, value => titleText.text = value, content, 0.5f)
+                .onComplete += () => { source.SetResult(true); };
+
+            return source.Task;
         }
     }
 }
