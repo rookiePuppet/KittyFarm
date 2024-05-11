@@ -14,12 +14,12 @@ namespace KittyFarm
     {
         public static event Action MapChanged;
         public static event Action BeforeGameExit;
-        
-        [SerializeField] private GameObject playerPrefab;
+
+        [SerializeField] private Camera mainCamera; // Main场景中的摄像机
 
         public static PlayerController Player { get; private set; }
         
-        private static bool IsPlayerEnabled
+        public static bool IsPlayerEnabled
         {
             set => Player.gameObject.SetActive(value);
         }
@@ -33,8 +33,7 @@ namespace KittyFarm
             var startupView = UIManager.Instance.ShowUI<StartupView>();
             await startupView.StartLoading(startScene => currentScene = startScene);
 
-            InitializePlayer();
-            
+            mainCamera.enabled = false;
             AudioManager.Instance.PlayBackgroundMusic();
         }
 
@@ -47,17 +46,17 @@ namespace KittyFarm
         {
             var lastScene = currentScene;
             currentScene = await SceneLoader.LoadSceneAsync(SceneNameCollection.Plain);
+            
+            Player = FindObjectOfType<PlayerController>();
+            Player.transform.position = GameDataCenter.Instance.PlayerData.LastPosition;
+            
             await SceneLoader.UnityUnloadSceneAsync(lastScene);
             
             MapChanged?.Invoke();
+            
             UIManager.Instance.ClearCache();
+            UIManager.Instance.ShowUI<OnScreenControllerView>();
             UIManager.Instance.ShowUI<GameView>(UILayer.Bottom);
-            UIManager.Instance.ShowUI<OnScreenControllerView>(UILayer.Bottom);
-
-            Player.transform.position = GameDataCenter.Instance.PlayerData.LastPosition;
-            IsPlayerEnabled = true;
-
-            ServiceCenter.Get<ICameraService>().EnableKineticCamera();
         }
 
         public static async void BackToStartScene()
@@ -70,9 +69,6 @@ namespace KittyFarm
             
             UIManager.Instance.ClearCache();
             UIManager.Instance.ShowUI<StartView>(UILayer.Bottom);
-            ServiceCenter.Get<ICameraService>().EnableFixedCamera();
-
-            IsPlayerEnabled = false;
         }
 
         public static void ExitGame()
@@ -83,17 +79,6 @@ namespace KittyFarm
             EditorApplication.isPlaying = false;
 #endif
             Application.Quit();
-        }
-
-        private void InitializePlayer()
-        {
-            Player = FindObjectOfType<PlayerController>();
-            if (Player == null)
-            {
-                Player = Instantiate(playerPrefab).GetComponent<PlayerController>();
-            }
-
-            IsPlayerEnabled = false;
         }
     }
 }

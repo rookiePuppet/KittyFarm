@@ -34,7 +34,7 @@ namespace KittyFarm
         private void OnDisable()
         {
             InputReader.Move -= OnMove;
-            GameDataCenter.BeforeSaveData += DoBeforeSaveData;
+            GameDataCenter.BeforeSaveData -= DoBeforeSaveData;
         }
         
         private void Start()

@@ -1,30 +1,26 @@
+using System;
 using UnityEngine;
 
 namespace KittyFarm.Service
 {
     public class CameraService : MonoBehaviour, ICameraService
     {
-        [SerializeField] private CameraController cameraController;
+        private Camera currentCamera;
 
-        private void Awake()
+        private void OnEnable()
         {
-            cameraController = FindObjectOfType<CameraController>();
+            GameManager.MapChanged += Initialize;
         }
 
-        public void EnableKineticCamera()
+        private void Initialize()
         {
-            cameraController.EnableKineticCamera();
-        }
-
-        public void EnableFixedCamera()
-        {
-            cameraController.EnableFixedCamera();
+            currentCamera = Camera.main;
         }
 
         public Vector3 ScreenToWorldPoint(Vector3 screenPosition) =>
-            cameraController.ActiveCamera.ScreenToWorldPoint(screenPosition);
+            currentCamera.ScreenToWorldPoint(screenPosition);
 
         public Vector3 WorldToScreenPoint(Vector3 worldPosition) =>
-            cameraController.ActiveCamera.WorldToScreenPoint(worldPosition);
+            currentCamera.WorldToScreenPoint(worldPosition);
     }
 }

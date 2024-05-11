@@ -48,7 +48,7 @@ namespace KittyFarm.UI
             {
                 ui.transform.SetSiblingIndex(uiCountInCanvas - 1);
             }
-
+            
             ui.Show();
 
             return ui as TUI;
@@ -62,6 +62,13 @@ namespace KittyFarm.UI
             {
                 ui.Hide();
             }
+        }
+
+        public void SetAllCanvasVisible(bool visible)
+        {
+            topCanvas.gameObject.SetActive(visible);
+            middleCanvas.gameObject.SetActive(visible);
+            bottomCanvas.gameObject.SetActive(visible);
         }
 
         public void DestroyUI<TUI>() where TUI : UIBase
