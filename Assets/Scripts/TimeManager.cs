@@ -61,9 +61,19 @@ namespace KittyFarm.Time
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                CurrentTime += TimeSpan.FromMinutes(1);
-                MinutePassed?.Invoke();
+                AccelerateTime();
             }
+        }
+
+        public void AccelerateTime()
+        {
+            CurrentTime += TimeSpan.FromMinutes(1);
+            MinutePassed?.Invoke();
+        }
+
+        public void ResetTime()
+        {
+            CurrentTime = DateTime.Now;
         }
 
         public static TimeSpan GetTimeSpanBetween(DateTime start, DateTime end)
