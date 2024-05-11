@@ -21,7 +21,7 @@ namespace KittyFarm.UI
         {
             if (slot.IsEmpty) return;
 
-            dragItem = UIManager.Instance.ShowUI<DragItemWidget>();
+            dragItem = UIManager.Instance.ShowUI<DragItemWidget>(UILayer.Top);
 
             dragItem.ItemSprite = slot.ItemData.IconSprite;
         }

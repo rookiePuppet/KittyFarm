@@ -13,7 +13,6 @@ namespace KittyFarm.UI
 
     public class UIManager : MonoSingleton<UIManager>
     {
-        // [SerializeField] private string canvasTag = "MainCanvas";
         [SerializeField] private string uiRootPath = "UI";
         [Space]
         [SerializeField] private Canvas topCanvas;
@@ -30,16 +29,24 @@ namespace KittyFarm.UI
             InitializeMessagePool();
         }
 
-        public TUI ShowUI<TUI>(UILayer layer = UILayer.Bottom) where TUI : UIBase
+        public TUI ShowUI<TUI>(UILayer layer = UILayer.Middle) where TUI : UIBase
         {
             var uiName = typeof(TUI).Name;
+            var targetCanvas = CanvasAt(layer);
 
             if (!uiDic.TryGetValue(uiName, out var ui))
             {
                 var path = GetUIPath(uiName);
-                var uiObj = Instantiate(Resources.Load<GameObject>(path), CanvasAt(layer).transform);
+                var uiObj = Instantiate(Resources.Load<GameObject>(path), targetCanvas.transform);
                 ui = uiObj.GetComponent<TUI>();
                 uiDic[uiName] = ui;
+            }
+    
+            // 让UI显示在目标层级的最上面
+            var uiCountInCanvas = targetCanvas.transform.childCount;
+            if (uiCountInCanvas > 1 && ui.transform.GetSiblingIndex() < uiCountInCanvas - 1)
+            {
+                ui.transform.SetSiblingIndex(uiCountInCanvas - 1);
             }
 
             ui.Show();

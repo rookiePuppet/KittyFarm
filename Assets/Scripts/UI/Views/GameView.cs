@@ -85,7 +85,7 @@ namespace KittyFarm.UI
 
         private void OnShopButtonClicked()
         {
-            UIManager.Instance.ShowUI<ShopWindow>(UILayer.Middle);
+            UIManager.Instance.ShowUI<ShopWindow>();
         }
 
         private void OnHomeButtonClicked()
@@ -95,7 +95,7 @@ namespace KittyFarm.UI
 
         private void OnSettingsButtonClicked()
         {
-            UIManager.Instance.ShowUI<SettingsWindow>(UILayer.Middle);
+            UIManager.Instance.ShowUI<SettingsWindow>();
         }
         
         private void OnItemSelected(ItemDataSO itemData)

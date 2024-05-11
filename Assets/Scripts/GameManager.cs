@@ -51,8 +51,8 @@ namespace KittyFarm
             
             MapChanged?.Invoke();
             UIManager.Instance.ClearCache();
-            UIManager.Instance.ShowUI<GameView>();
-            UIManager.Instance.ShowUI<OnScreenControllerView>();
+            UIManager.Instance.ShowUI<GameView>(UILayer.Bottom);
+            UIManager.Instance.ShowUI<OnScreenControllerView>(UILayer.Bottom);
 
             Player.transform.position = GameDataCenter.Instance.PlayerData.LastPosition;
             IsPlayerEnabled = true;
@@ -69,7 +69,7 @@ namespace KittyFarm
             await SceneLoader.UnityUnloadSceneAsync(lastScene);
             
             UIManager.Instance.ClearCache();
-            UIManager.Instance.ShowUI<StartView>();
+            UIManager.Instance.ShowUI<StartView>(UILayer.Bottom);
             ServiceCenter.Get<ICameraService>().EnableFixedCamera();
 
             IsPlayerEnabled = false;

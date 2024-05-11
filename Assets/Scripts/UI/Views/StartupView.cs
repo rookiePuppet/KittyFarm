@@ -33,7 +33,7 @@ namespace KittyFarm.UI
             AudioManager.Instance.Initialize();
             
             Hide();
-            UIManager.Instance.ShowUI<StartView>();
+            UIManager.Instance.ShowUI<StartView>(UILayer.Bottom);
         }
 
         private Task<bool> UpdateProgressAsync(int endValue, float duration)
