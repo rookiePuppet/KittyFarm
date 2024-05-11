@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commodityList:
   - ItemId: 30
-    Quantity: 1
+    Quantity: 100
     Infinite: 0
   - ItemId: 16
     Quantity: -5

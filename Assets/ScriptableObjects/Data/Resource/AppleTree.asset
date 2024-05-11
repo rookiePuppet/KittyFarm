@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1
   ResourceName: "\u82F9\u679C\u6811"
-  RegenerationTime: 1
+  RegenerationTime: 4
   ProductData: {fileID: 11400000, guid: 1e8bad6f26c7dcd458f7c11014c0c7e4, type: 2}
   ProductPositions:
   - {x: 1, y: 0.2, z: 0}

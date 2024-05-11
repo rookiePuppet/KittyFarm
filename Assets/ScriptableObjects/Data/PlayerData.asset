@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementVelocity: 5
   defaultPosition: {x: 0, y: -1, z: 0}
-  coins: 200
+  coins: 0
   lastPosition: {x: 7.55477, y: -4.3991375, z: 0}
   inventory:
     items:
-    - itemId: 22
-      count: 4
+    - itemId: 0
+      count: 0
     - itemId: 0
       count: 0
     - itemId: 0
