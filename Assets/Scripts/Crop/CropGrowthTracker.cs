@@ -40,10 +40,9 @@ namespace KittyFarm.CropSystem
         private int GetCropCurrentStage(Crop crop)
         {
             var stageIndex = 0;
-            var cropData = crop.Data;
             var growthDuration = TimeManager.GetTimeSpanFrom(crop.GrowthDetails.PlantedTime).TotalMinutes;
             
-            foreach (var stage in cropData.Stages)
+            foreach (var stage in crop.Data.Stages)
             {
                 var stageMinutes = new TimeSpan(stage.GrowthHours, stage.GrowthMinutes, 0).TotalMinutes;
                 if (growthDuration >= stageMinutes)
@@ -53,7 +52,7 @@ namespace KittyFarm.CropSystem
                 }
             }
 
-            return Mathf.Min(stageIndex, cropData.Stages.Length - 1);
+            return Mathf.Min(stageIndex, crop.Data.Stages.Length - 1);
         }
 
         public void AddCrop(Crop crop)

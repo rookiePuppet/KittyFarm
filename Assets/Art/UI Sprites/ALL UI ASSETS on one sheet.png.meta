@@ -2576,6 +2576,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: exclamation_mark_white
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b34ed4db0375e34ab205241b169fc20
+      internalID: -2114200742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2663,6 +2684,7 @@ TextureImporter:
       cross_dark_medium_pressed: -1594487170
       cross_dark_small_normal: 861356937
       cross_dark_small_pressed: -360754148
+      exclamation_mark_white: -2114200742
       frame_large_dark: -1382351925
       frame_large_light: 960219433
       frame_small_dark_0: 475322875
