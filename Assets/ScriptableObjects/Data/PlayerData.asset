@@ -15,7 +15,7 @@ MonoBehaviour:
   movementVelocity: 5
   defaultPosition: {x: 0, y: -1, z: 0}
   coins: 0
-  lastPosition: {x: 7.55477, y: -4.3991375, z: 0}
+  lastPosition: {x: 6.764743, y: -3.8182945, z: 0}
   inventory:
     items:
     - itemId: 0

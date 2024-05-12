@@ -2618,6 +2618,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: dialog_board
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 2
+        width: 170
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 74, y: 30, z: 25, w: 24}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b50521c3cfa84f14b89d1b7083a5d2a7
+      internalID: 725735716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bubble_frame_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 22
+        width: 236
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 22, z: 0, w: 7}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d29d82ac0d9fc74983f705fcf5b72d7
+      internalID: 1995841629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2657,6 +2699,7 @@ TextureImporter:
       ALL UI ASSETS on one sheet_9: -1038618373
       branch: -1701050676
       bubble_frame_1: -403853016
+      bubble_frame_2: 1995841629
       bubble_frame_small: -1163016369
       button_exit_normal: 875199931
       button_exit_pressed: 1509827260
@@ -2706,6 +2749,7 @@ TextureImporter:
       cross_dark_medium_pressed: -1594487170
       cross_dark_small_normal: 861356937
       cross_dark_small_pressed: -360754148
+      dialog_board: 725735716
       exclamation_mark_white: -2114200742
       frame_large_dark: -1382351925
       frame_large_light: 960219433

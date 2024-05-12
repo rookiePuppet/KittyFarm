@@ -55,17 +55,17 @@ TagManager:
   - name: Dig
     uniqueID: 880381203
     locked: 0
-  - name: GrassLayerOne
-    uniqueID: 1591313825
-    locked: 0
-  - name: GrassLayerTwo
-    uniqueID: 3339795733
-    locked: 0
   - name: GroundLayerOne
     uniqueID: 3365883445
     locked: 0
   - name: GroundLayerTwo
     uniqueID: 2864184291
+    locked: 0
+  - name: GrassLayerOne
+    uniqueID: 1591313825
+    locked: 0
+  - name: GrassLayerTwo
+    uniqueID: 3339795733
     locked: 0
   - name: Hill
     uniqueID: 4129881087

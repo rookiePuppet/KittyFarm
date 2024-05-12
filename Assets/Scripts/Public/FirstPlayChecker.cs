@@ -8,6 +8,7 @@ namespace KittyFarm
     public class FirstPlayChecker : MonoBehaviour
     {
         [SerializeField] private PlayableDirector director;
+        [SerializeField] private DialogContentDataSO openingDialogData;
         
         private void Start()
         {
@@ -20,6 +21,10 @@ namespace KittyFarm
                    UIManager.Instance.SetAllCanvasVisible(true);
                    GameManager.IsPlayerEnabled = true;
                    Destroy(director.gameObject);
+                   
+                   var dialogBoard = UIManager.Instance.ShowUI<DialogBoard>();
+                   dialogBoard.ContentData = openingDialogData;
+                   dialogBoard.BeginDialog();
                 };
 
                 InputReader.DisableInput();
