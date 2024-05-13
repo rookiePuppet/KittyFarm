@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c61ede009d64a96bed8ad7ab22846e0, type: 3}
   m_Name: PumpkinSeed
   m_EditorClassIdentifier: 
-  Id: 25
+  Id: 27
   ItemName: "\u5357\u74DC\u79CD\u5B50"
   Description: 
   IconSprite: {fileID: 2028614792, guid: d3c4d58bacacea44789df3cc5dbb06c3, type: 3}

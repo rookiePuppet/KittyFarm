@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Orange
+  m_Controller: {fileID: 9100000, guid: 0ec4734713af04e45b88356e79f717aa, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c9b6152c6e1815844b7fd1f5a2786301, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1bf5145c1fbe38b4ab6989f4e96f167e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8ef78716b1c765a44b994f1b4a1947bb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: dc3a6b7bc10bb9546ace783fd762ba8d, type: 2}
