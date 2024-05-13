@@ -17,6 +17,6 @@ MonoBehaviour:
   RegenerationTime: 5
   ProductData: {fileID: 11400000, guid: 59bedf30d69480e4ebce507eda33182e, type: 2}
   ProductPositions:
-  - {x: 1, y: 0.2, z: 0}
-  - {x: 1.3, y: 0.6, z: 0}
-  - {x: -1.2, y: 0.4, z: 0}
+  - {x: -1.2, y: 0.45, z: 0}
+  - {x: -1.1, y: -0.15, z: 0}
+  - {x: 1.05, y: 0, z: 0}
