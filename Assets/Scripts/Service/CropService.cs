@@ -38,6 +38,7 @@ namespace KittyFarm.Service
             {
                 var crop = SpawnCrop(growthDetails.CellPosition);
                 crop.Initialize(growthDetails);
+                growthTracker.AddCrop(crop);
             }
         }
 
@@ -65,6 +66,7 @@ namespace KittyFarm.Service
             var crop = SpawnCrop(cellPosition);
             var growthDetails = new CropGrowthDetails(cellPosition, cropData.Id);
             crop.Initialize(growthDetails);
+            growthTracker.AddCrop(crop);
 
             cropsData.AddCrop(growthDetails);
         }
@@ -86,8 +88,6 @@ namespace KittyFarm.Service
             cropObj.transform.position = cellPosition + cropOnGridCellOffset;
 
             var crop = cropObj.GetComponent<Crop>();
-            growthTracker.AddCrop(crop);
-
             return crop;
         }
 

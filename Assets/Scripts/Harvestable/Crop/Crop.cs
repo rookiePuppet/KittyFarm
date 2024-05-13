@@ -1,3 +1,4 @@
+using System;
 using KittyFarm.Data;
 using KittyFarm.Service;
 using KittyFarm.UI;
@@ -8,7 +9,7 @@ namespace KittyFarm.Harvestable
     public class Crop : MonoBehaviour, IHarvestable
     {
         [SerializeField] private GameObject exclamationMark;
-        
+
         public bool CanBeHarvested => ServiceCenter.Get<ICropService>().IsCropRipe(GrowthDetails);
         public CropGrowthDetails GrowthDetails { get; private set; }
         public CropDataSO Data => data;
@@ -40,15 +41,14 @@ namespace KittyFarm.Harvestable
         public void UpdateCurrentStage(int newStage)
         {
             var lastStage = GrowthDetails.CurrentStage;
-
             GrowthDetails.CurrentStage = newStage;
 
             if (lastStage != newStage)
             {
                 UpdateCropVisual();
             }
-            
-            exclamationMark.SetActive(IsFinalStage && CanBeHarvested);
+
+            exclamationMark?.SetActive(IsFinalStage && CanBeHarvested);
         }
 
         private void UpdateCropVisual()

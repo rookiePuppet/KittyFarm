@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using KittyFarm.Data;
 using KittyFarm.Map;
 using KittyFarm.Time;
@@ -46,14 +47,14 @@ namespace KittyFarm.Service
 
             digTilemap = tilemapsOrganizer.GetTilemap(TilemapSortingLayer.Dig);
 
-            foreach (var item in tilesData.TilesDetailsList)
+            foreach (var details in tilesData.TilesDetailsList.Where(details => details.IsDug))
             {
-                SetDugTileAt(item.CellPosition);
+                SetDugTileAt(details.CellPosition);
             }
 
             // UpdateAllTileDetails();
         }
-        
+
         // private void UpdateAllTileDetails()
         // {
         //     foreach (var tileDetails in tilesData.TilesDetailsList)
@@ -85,11 +86,7 @@ namespace KittyFarm.Service
         {
             SetDugTileAt(cellPosition);
 
-            tilesData.AddTileDetails(new TileDetails
-            {
-                CellPosition = cellPosition,
-                IsDug = true
-            });
+            tilesData.SetDigAsTrue(cellPosition);
         }
 
         public void RemoveDigAt(Vector3Int cellPosition)

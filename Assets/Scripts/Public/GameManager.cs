@@ -1,4 +1,5 @@
 using System;
+using System.Data;
 using Framework;
 using KittyFarm.Data;
 using KittyFarm.UI;
@@ -24,6 +25,8 @@ namespace KittyFarm
         }
 
         private static Scene currentScene;
+
+        public static bool IsInMap { get; private set; }
 
         private async void Start()
         {
@@ -56,6 +59,8 @@ namespace KittyFarm
             UIManager.Instance.ClearCache();
             UIManager.Instance.ShowUI<OnScreenControllerView>();
             UIManager.Instance.ShowUI<GameView>(UILayer.Bottom);
+
+            IsInMap = true;
         }
 
         public static async void BackToStartScene()
@@ -68,6 +73,8 @@ namespace KittyFarm
             
             UIManager.Instance.ClearCache();
             UIManager.Instance.ShowUI<StartView>(UILayer.Bottom);
+
+            IsInMap = false;
         }
 
         public static void ExitGame()

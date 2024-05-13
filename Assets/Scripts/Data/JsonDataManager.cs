@@ -11,7 +11,7 @@ namespace FrameWork
             PlayerPrefs,
         }
 
-        private static readonly SaveType saveType = SaveType.PlayerPrefs;
+        private static readonly SaveType saveType = SaveType.JsonFile;
 
         public static void SaveData(string fileName, object data)
         {

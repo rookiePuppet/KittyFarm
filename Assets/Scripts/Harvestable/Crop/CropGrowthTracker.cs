@@ -11,21 +11,29 @@ namespace KittyFarm.Harvestable
 
         private void OnEnable()
         {
-            TimeManager.SecondPassed += UpdateAllCrops;
+            TimeManager.SecondPassed += OnSecondPassed;
         }
 
         private void OnDisable()
         {
-            TimeManager.SecondPassed += UpdateAllCrops;
+            TimeManager.SecondPassed -= OnSecondPassed;
         }
 
         private void Start()
         {
-            UpdateAllCrops();
+            foreach (var crop in crops)
+            {
+                UpdateSingleCrop(crop);
+            }
         }
 
-        private void UpdateAllCrops()
+        private void OnSecondPassed()
         {
+            if (!GameManager.IsInMap)
+            {
+                return;
+            }
+
             foreach (var crop in crops)
             {
                 UpdateSingleCrop(crop);
@@ -41,7 +49,7 @@ namespace KittyFarm.Harvestable
         {
             var stageIndex = 0;
             var growthDuration = TimeManager.GetTimeSpanFrom(crop.GrowthDetails.PlantedTime).TotalMinutes;
-            
+
             foreach (var stage in crop.Data.Stages)
             {
                 var stageMinutes = new TimeSpan(stage.GrowthHours, stage.GrowthMinutes, 0).TotalMinutes;
