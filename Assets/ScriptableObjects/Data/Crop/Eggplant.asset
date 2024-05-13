@@ -17,16 +17,16 @@ MonoBehaviour:
   ProductData: {fileID: 11400000, guid: ec6c90cb5f2adcc4eafc340d797cba56, type: 2}
   Stages:
   - GrowthHours: 0
-    GrowthMinutes: 40
+    GrowthMinutes: 30
     Sprite: {fileID: 1401613215, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
   - GrowthHours: 1
     GrowthMinutes: 0
     Sprite: {fileID: -1158354608, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
   - GrowthHours: 1
-    GrowthMinutes: 30
+    GrowthMinutes: 0
     Sprite: {fileID: -305539048, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
   - GrowthHours: 1
     GrowthMinutes: 30
     Sprite: {fileID: 1948062744, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
-  MinHarvestCount: 2
+  MinHarvestCount: 3
   MaxHarvestCount: 5

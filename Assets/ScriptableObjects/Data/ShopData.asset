@@ -38,10 +38,10 @@ MonoBehaviour:
     Quantity: 1
     Infinite: 1
   - ItemId: 25
-    Quantity: 0
+    Quantity: 1
     Infinite: 1
   - ItemId: 26
-    Quantity: 0
+    Quantity: 1
     Infinite: 1
   - ItemId: 27
     Quantity: 1
@@ -54,7 +54,7 @@ MonoBehaviour:
     Infinite: 1
   - ItemId: 30
     Quantity: 1
-    Infinite: 0
+    Infinite: 1
   - ItemId: 31
     Quantity: 1
-    Infinite: 0
+    Infinite: 1

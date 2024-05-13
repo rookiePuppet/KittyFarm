@@ -22,11 +22,11 @@ MonoBehaviour:
   - GrowthHours: 0
     GrowthMinutes: 30
     Sprite: {fileID: 1678986862, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
-  - GrowthHours: 0
+  - GrowthHours: 1
     GrowthMinutes: 30
     Sprite: {fileID: 977468170, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
-  - GrowthHours: 0
-    GrowthMinutes: 30
+  - GrowthHours: 1
+    GrowthMinutes: 0
     Sprite: {fileID: 1993444703, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
-  MinHarvestCount: 1
+  MinHarvestCount: 2
   MaxHarvestCount: 3

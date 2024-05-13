@@ -16,7 +16,7 @@ MonoBehaviour:
   ItemName: "\u5357\u74DC\u79CD\u5B50"
   Description: 
   IconSprite: {fileID: 2028614792, guid: d3c4d58bacacea44789df3cc5dbb06c3, type: 3}
-  Value: 100
+  Value: 35
   SoldDiscount: 0.8
   Type: 0
   CropData: {fileID: 11400000, guid: 0e0396f0b5556f94e88e60bb02dc0e43, type: 2}

@@ -16,6 +16,6 @@ MonoBehaviour:
   ItemName: "\u80E1\u841D\u535C"
   Description: 
   IconSprite: {fileID: 494684525, guid: d3c4d58bacacea44789df3cc5dbb06c3, type: 3}
-  Value: 100
+  Value: 40
   SoldDiscount: 1
   Type: 1

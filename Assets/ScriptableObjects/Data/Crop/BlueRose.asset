@@ -19,11 +19,11 @@ MonoBehaviour:
   - GrowthHours: 0
     GrowthMinutes: 30
     Sprite: {fileID: 351322191, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
-  - GrowthHours: 1
-    GrowthMinutes: 0
+  - GrowthHours: 0
+    GrowthMinutes: 30
     Sprite: {fileID: 393831421, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
   - GrowthHours: 1
-    GrowthMinutes: 30
+    GrowthMinutes: 0
     Sprite: {fileID: 465134718, guid: df7847324fefc7a41b80002b6bc3835b, type: 3}
   - GrowthHours: 1
     GrowthMinutes: 0

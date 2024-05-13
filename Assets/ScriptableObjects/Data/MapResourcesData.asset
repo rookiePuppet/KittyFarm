@@ -13,7 +13,55 @@ MonoBehaviour:
   m_Name: MapResourcesData
   m_EditorClassIdentifier: 
   resourcesDetailsList:
+  - Position: {x: 18.643616, y: 0.13395214, z: 0}
+    ResourceId: 3
+    LastCollectTimeTicks: 0
+  - Position: {x: 14.58, y: -8.13, z: 0}
+    ResourceId: 3
+    LastCollectTimeTicks: 0
+  - Position: {x: 17.728964, y: -10.955569, z: 0}
+    ResourceId: 2
+    LastCollectTimeTicks: 0
+  - Position: {x: 19.789991, y: -10.021667, z: 0}
+    ResourceId: 3
+    LastCollectTimeTicks: 0
+  - Position: {x: 27.80159, y: -3.7327433, z: 0}
+    ResourceId: 3
+    LastCollectTimeTicks: 0
+  - Position: {x: 5.2661705, y: -13.950515, z: 0}
+    ResourceId: 2
+    LastCollectTimeTicks: 0
   - Position: {x: 23.84764, y: -11.921677, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 8.147444, y: -5.927218, z: 0}
+    ResourceId: 2
+    LastCollectTimeTicks: 0
+  - Position: {x: 11.43, y: 0.71000004, z: 0}
+    ResourceId: 2
+    LastCollectTimeTicks: 0
+  - Position: {x: 25.643219, y: 0.6536274, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 0.9035969, y: 4.8054914, z: 0}
+    ResourceId: 2
+    LastCollectTimeTicks: 0
+  - Position: {x: 13.2204485, y: -12.597965, z: 0}
+    ResourceId: 2
+    LastCollectTimeTicks: 0
+  - Position: {x: 28.581562, y: -5.867408, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 0.78999996, y: -4.09, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 21.271355, y: -13.853889, z: 0}
+    ResourceId: 1
+    LastCollectTimeTicks: 0
+  - Position: {x: 11.61, y: -14.7234, z: 0}
+    ResourceId: 2
+    LastCollectTimeTicks: 0
+  - Position: {x: 2.7399998, y: -5.54, z: 0}
     ResourceId: 1
     LastCollectTimeTicks: 0
   - Position: {x: 8.68, y: -10.47, z: 0}
@@ -22,54 +70,6 @@ MonoBehaviour:
   - Position: {x: 26.627132, y: -13.70201, z: 0}
     ResourceId: 3
     LastCollectTimeTicks: 0
-  - Position: {x: 11.61, y: -14.7234, z: 0}
-    ResourceId: 2
-    LastCollectTimeTicks: 0
   - Position: {x: 4.2356567, y: -9.184388, z: 0}
     ResourceId: 3
-    LastCollectTimeTicks: 0
-  - Position: {x: 2.7399998, y: -5.54, z: 0}
-    ResourceId: 1
-    LastCollectTimeTicks: 0
-  - Position: {x: 25.643219, y: 0.6536274, z: 0}
-    ResourceId: 1
-    LastCollectTimeTicks: 0
-  - Position: {x: 18.643616, y: 0.13395214, z: 0}
-    ResourceId: 3
-    LastCollectTimeTicks: 0
-  - Position: {x: 27.80159, y: -3.7327433, z: 0}
-    ResourceId: 3
-    LastCollectTimeTicks: 0
-  - Position: {x: 28.581562, y: -5.867408, z: 0}
-    ResourceId: 1
-    LastCollectTimeTicks: 0
-  - Position: {x: 17.728964, y: -10.955569, z: 0}
-    ResourceId: 2
-    LastCollectTimeTicks: 0
-  - Position: {x: 5.2661705, y: -13.950515, z: 0}
-    ResourceId: 2
-    LastCollectTimeTicks: 0
-  - Position: {x: 13.2204485, y: -12.597965, z: 0}
-    ResourceId: 2
-    LastCollectTimeTicks: 0
-  - Position: {x: 19.789991, y: -10.021667, z: 0}
-    ResourceId: 3
-    LastCollectTimeTicks: 0
-  - Position: {x: 14.58, y: -8.13, z: 0}
-    ResourceId: 3
-    LastCollectTimeTicks: 0
-  - Position: {x: 0.78999996, y: -4.09, z: 0}
-    ResourceId: 1
-    LastCollectTimeTicks: 0
-  - Position: {x: 21.271355, y: -13.853889, z: 0}
-    ResourceId: 1
-    LastCollectTimeTicks: 0
-  - Position: {x: 0.9035969, y: 4.8054914, z: 0}
-    ResourceId: 2
-    LastCollectTimeTicks: 0
-  - Position: {x: 11.43, y: 0.71000004, z: 0}
-    ResourceId: 2
-    LastCollectTimeTicks: 0
-  - Position: {x: 8.147444, y: -5.927218, z: 0}
-    ResourceId: 2
     LastCollectTimeTicks: 0
