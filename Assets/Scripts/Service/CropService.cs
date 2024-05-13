@@ -2,6 +2,7 @@ using KittyFarm.Data;
 using KittyFarm.Harvestable;
 using KittyFarm.Time;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace KittyFarm.Service
 {
@@ -51,6 +52,8 @@ namespace KittyFarm.Service
             // 删除地图上该位置作物数据
             cropsData.RemoveCrop(growthDetails);
             growthTracker.RemoveCrop(crop);
+            // 恢复瓦片
+            ServiceCenter.Get<ITilemapService>().RemoveDigAt(growthDetails.CellPosition);
             
             Destroy(crop.gameObject);
             

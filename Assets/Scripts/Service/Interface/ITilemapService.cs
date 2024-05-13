@@ -13,6 +13,7 @@ namespace KittyFarm.Service
         public bool IsPlantableAt(Vector3Int cellPosition);
         public bool CheckWasDugAt(Vector3Int cellPosition);
         public void DigAt(Vector3Int cellPosition);
+        public void RemoveDigAt(Vector3Int cellPosition);
         // public void WaterAt(Vector3Int cellPosition);
         public bool TryGetTileDetailsOn(Vector3Int gridCoordinate, out TileDetails tileDetails);
         public Grid CurrentGrid { get; }

@@ -92,6 +92,12 @@ namespace KittyFarm.Service
             });
         }
 
+        public void RemoveDigAt(Vector3Int cellPosition)
+        {
+            digTilemap.SetTile(cellPosition, null);
+            tilesData.SetDigAsFalse(cellPosition);
+        }
+
         // public void WaterAt(Vector3Int cellPosition)
         // {
         //     if (TryGetTileDetailsOn(cellPosition, out var tileDetails))

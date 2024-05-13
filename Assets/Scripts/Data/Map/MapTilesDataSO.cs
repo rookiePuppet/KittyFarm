@@ -16,5 +16,11 @@ namespace KittyFarm.Data
         {
             TilesDetailsList.Add(details);
         }
+
+        public void SetDigAsFalse(Vector3Int cellPosition)
+        {
+            var details = tilesDetailsList.Find(item => item.CellPosition == cellPosition);
+            details.IsDug = false;
+        }
     }
 }
