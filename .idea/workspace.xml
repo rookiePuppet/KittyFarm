@@ -5,52 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e53f71b-fa64-4ce4-91b5-ca4b0fd576be" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/fusion-pixel-12px-monospaced-zh_hans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/fusion-pixel-12px-monospaced-zh_hans SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rendering/URP-2D.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rendering/URP-2D.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/BlueRose.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/BlueRose.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/BlueStar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/BlueStar.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Carrot.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Carrot.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Cauliflower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Cauliflower.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Cucumber.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Cucumber.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Eggplant.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Eggplant.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Lettuce.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Lettuce.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Pumpkin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Pumpkin.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/PurpleYam.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/PurpleYam.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Tomato.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Tomato.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Wheat.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Crop/Wheat.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/BlueRose.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/BlueRose.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/BlueStar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/BlueStar.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Carrot.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Carrot.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Cauliflower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Cauliflower.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Cucumber.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Cucumber.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Eggplant.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Eggplant.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Lettuce.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Lettuce.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Maize.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Maize.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Peony.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Peony.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Pumpkin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Pumpkin.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/PurpleYam.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/PurpleYam.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Radish.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Radish.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Tomato.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Tomato.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Wheat.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/FarmProduct/Wheat.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/BlueRoseSeed.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/BlueRoseSeed.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/BlueStarSeed.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/BlueStarSeed.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/CarrotSeed.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/CarrotSeed.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/CauliflowerSeed.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/CauliflowerSeed.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/CucumberSeed.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/CucumberSeed.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/EggplantSeed.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/EggplantSeed.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/LettuceSeed.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/LettuceSeed.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/MaizeSeed.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/MaizeSeed.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/PeonySeed.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/PeonySeed.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/PumpkinSeed.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/PumpkinSeed.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/PurpleYamSeed.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/PurpleYamSeed.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/RadishSeed.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/RadishSeed.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/TomatoSeed.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/Item/Seed/TomatoSeed.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/MapResourcesData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/MapResourcesData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/ShopData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/ShopData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/JsonDataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/JsonDataManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
