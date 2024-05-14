@@ -18,7 +18,7 @@ namespace KittyFarm
         [SerializeField] private Camera mainCamera; // Main场景中的摄像机
 
         public static PlayerController Player { get; private set; }
-        
+
         public static bool IsPlayerEnabled
         {
             set => Player.gameObject.SetActive(value);
@@ -31,7 +31,7 @@ namespace KittyFarm
         private async void Start()
         {
             Application.targetFrameRate = 60;
-            
+
             var startupView = UIManager.Instance.ShowUI<StartupView>();
             await startupView.StartLoading(startScene => currentScene = startScene);
 
@@ -48,16 +48,18 @@ namespace KittyFarm
         {
             var lastScene = currentScene;
             currentScene = await SceneLoader.LoadSceneAsync(SceneName.Plain);
-            
+
             Player = FindObjectOfType<PlayerController>();
             Player.transform.position = GameDataCenter.Instance.PlayerData.LastPosition;
-            
+
             await SceneLoader.UnityUnloadSceneAsync(lastScene);
-            
+
             MapChanged?.Invoke();
-            
+
             UIManager.Instance.ClearCache();
+#if UNITY_OPENHARMONY
             UIManager.Instance.ShowUI<OnScreenControllerView>();
+#endif
             UIManager.Instance.ShowUI<GameView>(UILayer.Bottom);
 
             IsInMap = true;
@@ -70,7 +72,7 @@ namespace KittyFarm
             var lastScene = currentScene;
             currentScene = await SceneLoader.LoadSceneAsync(SceneName.Start);
             await SceneLoader.UnityUnloadSceneAsync(lastScene);
-            
+
             UIManager.Instance.ClearCache();
             UIManager.Instance.ShowUI<StartView>(UILayer.Bottom);
 

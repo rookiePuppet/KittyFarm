@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c043c7243e784ee5a0306032e46f633b, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  movementVelocity: 5
+  movementVelocity: 4
   defaultPosition: {x: 0, y: -1, z: 0}
   coins: 0
-  lastPosition: {x: 6.764743, y: -3.8182945, z: 0}
+  lastPosition: {x: 19.37352, y: -13.216427, z: 0}
   inventory:
     items:
     - itemId: 0
