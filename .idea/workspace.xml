@@ -6,15 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e10f196c-6267-4b5a-a76a-f23445526b40" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/fusion-pixel-12px-monospaced-zh_hans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/fusion-pixel-12px-monospaced-zh_hans SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InputSystem/PlayerInputActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InputSystem/PlayerInputActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InputSystem/PlayerInputActions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InputSystem/PlayerInputActions.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AppleTree.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AppleTree.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/OrangeTree.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/OrangeTree.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PearTree.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PearTree.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/OnScreenControllerView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/OnScreenControllerView.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/PlayerData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Data/PlayerData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Public/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Public/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -102,6 +102,8 @@ OpenHarmony版本：4.0
 
 ## 应用安装包
 
+使用团结引擎导出的OpenHarmony安装包见根目录文件`kittyfarm.hap`。
+
 ## 游戏演示
 
-
+[演示视频传送门](https://www.bilibili.com/video/BV1dy411Y796/)
