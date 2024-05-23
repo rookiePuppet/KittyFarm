@@ -382,6 +382,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2031453929}
     m_Modifications:
+    - target: {fileID: 3588610370868805753, guid: 15728c4826acb5e468a8653165e593ce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4274969473670740499, guid: 15728c4826acb5e468a8653165e593ce, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -498,9 +502,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6726513721571944720, guid: 15728c4826acb5e468a8653165e593ce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8863876483909849205, guid: 15728c4826acb5e468a8653165e593ce, type: 3}
       propertyPath: m_Name
       value: DebugView
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863876483909849205, guid: 15728c4826acb5e468a8653165e593ce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9082709823000319729, guid: 15728c4826acb5e468a8653165e593ce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1014,7 +1030,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 1
