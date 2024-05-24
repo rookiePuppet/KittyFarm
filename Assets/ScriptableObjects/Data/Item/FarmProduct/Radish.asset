@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f362914f7e30465bbad655fd2519ecb3, type: 3}
   m_Name: Radish
   m_EditorClassIdentifier: 
-  Id: 15
+  Id: 84
   ItemName: "\u767D\u841D\u535C"
   Description: 
   IconSprite: {fileID: 1399945170, guid: d3c4d58bacacea44789df3cc5dbb06c3, type: 3}

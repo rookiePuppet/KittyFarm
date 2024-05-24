@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f362914f7e30465bbad655fd2519ecb3, type: 3}
   m_Name: Cucumber
   m_EditorClassIdentifier: 
-  Id: 6
+  Id: 75
   ItemName: "\u9EC4\u74DC"
   Description: 
   IconSprite: {fileID: -1518138295, guid: d3c4d58bacacea44789df3cc5dbb06c3, type: 3}

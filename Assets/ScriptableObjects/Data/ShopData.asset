@@ -13,48 +13,12 @@ MonoBehaviour:
   m_Name: ShopData
   m_EditorClassIdentifier: 
   commodityList:
-  - ItemId: 32
-    Quantity: 1
-    Infinite: 0
-  - ItemId: 18
+  - ItemId: 66
     Quantity: 1
     Infinite: 1
-  - ItemId: 19
+  - ItemId: 65
     Quantity: 1
     Infinite: 1
-  - ItemId: 20
-    Quantity: 1
-    Infinite: 1
-  - ItemId: 21
-    Quantity: 1
-    Infinite: 1
-  - ItemId: 22
-    Quantity: 1
-    Infinite: 1
-  - ItemId: 23
-    Quantity: 1
-    Infinite: 1
-  - ItemId: 24
-    Quantity: 1
-    Infinite: 1
-  - ItemId: 25
-    Quantity: 1
-    Infinite: 1
-  - ItemId: 26
-    Quantity: 1
-    Infinite: 1
-  - ItemId: 27
-    Quantity: 1
-    Infinite: 1
-  - ItemId: 28
-    Quantity: 1
-    Infinite: 1
-  - ItemId: 29
-    Quantity: 1
-    Infinite: 1
-  - ItemId: 30
-    Quantity: 1
-    Infinite: 1
-  - ItemId: 31
+  - ItemId: 67
     Quantity: 1
     Infinite: 1

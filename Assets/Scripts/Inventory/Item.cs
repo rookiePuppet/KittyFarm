@@ -8,12 +8,14 @@ namespace KittyFarm.InventorySystem
         [SerializeField] private ItemDataSO itemData;
         [SerializeField] private int count = 1;
 
+        [SerializeField] private float simulateGravity = 0.08f;
+
         public ItemDataSO ItemData => itemData;
         public int Count => count;
 
         private SpriteRenderer spriteRenderer;
-        public Vector3 InherentPosition { get; private set; }
-
+        public Vector3 InherentPosition { get; private set; } // original position
+        
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();

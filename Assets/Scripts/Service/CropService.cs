@@ -1,5 +1,5 @@
 using KittyFarm.Data;
-using KittyFarm.Harvestable;
+using KittyFarm.InteractiveObject;
 using KittyFarm.Time;
 using UnityEngine;
 using UnityEngine.Tilemaps;

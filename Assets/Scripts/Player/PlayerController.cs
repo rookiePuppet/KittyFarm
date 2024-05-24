@@ -1,6 +1,5 @@
 using System;
 using KittyFarm.Data;
-using KittyFarm.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,19 +9,20 @@ namespace KittyFarm
     {
         public event Action<Vector2> Moving;
         public event Action MoveStopped;
-
-        private PlayerDataSO Data => GameDataCenter.Instance.PlayerData;
+        
         public PlayerAnimation Animation { get; private set; }
-        public TalkBubble TalkBubble { get; private set; }
+        public HandItem HandItem { get; private set; }
+        
+        private PlayerDataSO Data => GameDataCenter.Instance.PlayerData;
         private Vector2 MovementInput { get; set; }
         
         private Rigidbody2D rbody;
-
+        
         private void Awake()
         {
             Animation = GetComponentInChildren<PlayerAnimation>();
             rbody = GetComponent<Rigidbody2D>();
-            TalkBubble = GetComponent<TalkBubble>();
+            HandItem = GetComponent<HandItem>();
         }
 
         private void OnEnable()

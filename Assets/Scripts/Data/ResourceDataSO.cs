@@ -8,7 +8,7 @@ namespace KittyFarm.Data
         public int Id;
         public string ResourceName;
         public int RegenerationTime;
-        public FarmProductDataSO ProductData;
+        public FarmProductDataSO[] Products;
         public Vector3[] ProductPositions;
     }
 }

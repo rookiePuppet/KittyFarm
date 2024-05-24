@@ -7,7 +7,7 @@ namespace KittyFarm.UI
 {
     public class ItemSlotGroup : MonoBehaviour
     {
-        public event Action<ItemDataSO> OnItemSelected;
+        public event Action<ItemDataSO> SelectedItemChanged;
         public ItemSlot SelectedSlot { get; private set; }
         private PlayerInventory Inventory => GameDataCenter.Instance.PlayerInventory;
 
@@ -72,11 +72,7 @@ namespace KittyFarm.UI
                 {
                     slot.IsSelected = !slot.IsSelected;
                     SelectedSlot = slot.IsSelected ? slot : null;
-
-                    if (slot.IsSelected)
-                    {
-                        OnItemSelected?.Invoke(slot.ItemData);
-                    }
+                    SelectedItemChanged?.Invoke(SelectedSlot != null ? SelectedSlot.ItemData : null);
                 }
                 else
                 {

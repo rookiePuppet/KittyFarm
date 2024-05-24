@@ -1,6 +1,4 @@
-
 using KittyFarm.Data;
-using KittyFarm.Harvestable;
 using KittyFarm.InventorySystem;
 using KittyFarm.MapClick;
 using UnityEngine;
@@ -96,13 +94,6 @@ namespace KittyFarm.Service
         public UsableItem TakeUsableItem(ItemDataSO itemData, Vector3 worldPosition, Vector3Int cellPosition)
         {
             return usableItemSet.TakeUsableItem(itemData, worldPosition, cellPosition);
-        }
-
-        public UsableItem TakeHarvestTool(IHarvestable harvestable, Vector3 worldPosition)
-        {
-            var tool = usableItemSet.TakeUsableItem(harvestTool, worldPosition, Vector3Int.zero) as HarvestTool;
-            tool!.HarvestTarget = harvestable;
-            return tool;
         }
     }
 }

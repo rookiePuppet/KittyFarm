@@ -5,19 +5,15 @@ namespace KittyFarm.InventorySystem
 {
     public class FloatingEffect : MonoBehaviour
     {
-        [SerializeField] private float floatingRange = 5f;
+        [SerializeField] private bool isEnabled = true;
+        [SerializeField] private float floatingRange = 2.5f;
         [SerializeField] private float durationForOneTrip = 1f;
 
-        private int direction; // 正向上，负向下
+        private int direction = 1; // 正向上，负向下
 
         private void Start()
         {
-            var endPosY = transform.position.y - floatingRange / 2;
-            transform.DOMoveY(endPosY, durationForOneTrip / 2).onComplete += () =>
-            {
-                Invoke(nameof(FloatingEase), 0f);
-                direction = 1;
-            };
+            FloatingEase();
         }
 
         private void FloatingEase()

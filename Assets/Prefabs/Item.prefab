@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: ad344526d2aff8c4daee1820be0a4ffb, type: 2}
   count: 1
+  simulateGravity: 1
 --- !u!114 &5467424386478694472
 MonoBehaviour:
   m_ObjectHideFlags: 0

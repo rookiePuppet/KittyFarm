@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f362914f7e30465bbad655fd2519ecb3, type: 3}
   m_Name: PurpleYam
   m_EditorClassIdentifier: 
-  Id: 14
+  Id: 83
   ItemName: "\u7D2B\u85AF"
   Description: 
   IconSprite: {fileID: -549745659, guid: d3c4d58bacacea44789df3cc5dbb06c3, type: 3}

@@ -45,6 +45,8 @@ namespace KittyFarm.MapClick
             ItemType.FarmProduct => 2f,
             ItemType.Hoe => 1f,
             ItemType.HarvestTool => 1f,
+            ItemType.Axe => 1.5f,
+            ItemType.Basket => 1.5f,
             _ => 100f
         };
         
@@ -53,7 +55,8 @@ namespace KittyFarm.MapClick
             ItemType.Seed => new Seed(this),
             ItemType.FarmProduct => new FarmProduct(this),
             ItemType.Hoe => new Hoe(this),
-            ItemType.HarvestTool => new HarvestTool(this),
+            ItemType.Axe => new Axe(this),
+            ItemType.Basket => new Basket(this),
             _ => new UndefinedUsageItem(this)
         };
     }

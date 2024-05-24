@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using KittyFarm.Data;
-using KittyFarm.Harvestable;
+using KittyFarm.InteractiveObject;
 using KittyFarm.Time;
 using TMPro;
 using UnityEngine;
@@ -12,6 +12,8 @@ namespace KittyFarm.UI
 {
     public class GameView : UIBase
     {
+        public static event Action<ItemDataSO> SelectedItemChanged;
+        
         [SerializeField] private ItemSlotGroup slotGroup;
         [SerializeField] private TextMeshProUGUI timeText;
         // [SerializeField] private MapPropertiesBoard propertiesBoard;
@@ -25,7 +27,7 @@ namespace KittyFarm.UI
 
         // private CancellationTokenSource propertiesBoardCTS;
         private CancellationTokenSource cropInfoBoardCTS;
-
+        
         private void OnEnable()
         {
             homeButton.onClick.AddListener(OnHomeButtonClicked);
@@ -34,7 +36,7 @@ namespace KittyFarm.UI
 
             TimeManager.MinutePassed += RefreshTimeBoard;
             PlayerDataSO.CoinsUpdated += RefreshCoins;
-            slotGroup.OnItemSelected += OnItemSelected;
+            slotGroup.SelectedItemChanged += SelectedChangedItemChanged;
         }
         
         private void OnDisable()
@@ -45,7 +47,7 @@ namespace KittyFarm.UI
 
             TimeManager.MinutePassed -= RefreshTimeBoard;
             PlayerDataSO.CoinsUpdated -= RefreshCoins;
-            slotGroup.OnItemSelected -= OnItemSelected;
+            slotGroup.SelectedItemChanged -= SelectedChangedItemChanged;
         }
 
         private void Start()
@@ -98,9 +100,9 @@ namespace KittyFarm.UI
             UIManager.Instance.ShowUI<SettingsWindow>();
         }
         
-        private void OnItemSelected(ItemDataSO itemData)
+        private void SelectedChangedItemChanged(ItemDataSO itemData)
         {
-            GameManager.Player.TalkBubble.Show($"这是{itemData.ItemName}");
+            SelectedItemChanged?.Invoke(itemData);
         }
         
         // public async void ShowPropertiesBoard(TilePropertiesInfo info)

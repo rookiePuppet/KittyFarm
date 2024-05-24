@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c61ede009d64a96bed8ad7ab22846e0, type: 3}
   m_Name: CauliflowerSeed
   m_EditorClassIdentifier: 
-  Id: 21
+  Id: 91
   ItemName: "\u6930\u83DC\u82B1\u79CD\u5B50"
   Description: 
   IconSprite: {fileID: 318465435, guid: d3c4d58bacacea44789df3cc5dbb06c3, type: 3}

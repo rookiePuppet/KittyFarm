@@ -1,5 +1,5 @@
 using KittyFarm.Data;
-using KittyFarm.Harvestable;
+using KittyFarm.InteractiveObject;
 using UnityEngine;
 
 namespace KittyFarm.Service

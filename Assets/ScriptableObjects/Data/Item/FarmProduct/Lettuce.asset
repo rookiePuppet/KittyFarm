@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f362914f7e30465bbad655fd2519ecb3, type: 3}
   m_Name: Lettuce
   m_EditorClassIdentifier: 
-  Id: 8
+  Id: 77
   ItemName: "\u751F\u83DC"
   Description: 
   IconSprite: {fileID: -962191501, guid: d3c4d58bacacea44789df3cc5dbb06c3, type: 3}
