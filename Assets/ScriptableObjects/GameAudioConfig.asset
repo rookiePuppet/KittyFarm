@@ -25,3 +25,4 @@ MonoBehaviour:
   doorSound: {fileID: 8300000, guid: 9ad928c0a7c8c77428bc01419ad0ab52, type: 3}
   plantSeedSound: {fileID: 8300000, guid: 3f9d0aad20db58d4a9ae849216a8823b, type: 3}
   harvestCropSound: {fileID: 8300000, guid: 56f9508d486192144a9e1d43415278f1, type: 3}
+  chopSound: {fileID: 8300000, guid: a45e0b14418dd9f45b1f9bdc6d6dac31, type: 3}

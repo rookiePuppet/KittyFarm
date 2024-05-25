@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: ShopData
   m_EditorClassIdentifier: 
   commodityList:
-  - ItemId: 66
-    Quantity: 1
+  - ItemId: 102
+    Quantity: 0
     Infinite: 1
-  - ItemId: 65
-    Quantity: 1
+  - ItemId: 104
+    Quantity: 0
     Infinite: 1
-  - ItemId: 67
+  - ItemId: 103
     Quantity: 1
     Infinite: 1

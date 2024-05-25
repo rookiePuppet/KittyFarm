@@ -1,43 +1,31 @@
 using System.Collections.Generic;
 using KittyFarm.Data;
-using KittyFarm.Service;
 using UnityEngine;
 
 namespace KittyFarm.MapClick
 {
-    public class UsableItemSet
+    public static  class UsableItemSet
     {
-        public ItemDataSO ItemData { get; private set; }
-        public Vector3 WorldPosition { get; private set; }
-        public Vector3Int CellPosition { get; private set; }
-        public Vector3 CellCenterPosition => TilemapService.GetCellCenterWorld(CellPosition);
+        private static readonly Dictionary<ItemType, UsableItem> itemDic = new();
 
-        public ITilemapService TilemapService => ServiceCenter.Get<ITilemapService>();
-        public ICropService CropService => ServiceCenter.Get<ICropService>();
-        public IItemService ItemService => ServiceCenter.Get<IItemService>();
-
-        private readonly Dictionary<ItemType, UsableItem> itemDic = new();
-
-        public UsableItem TakeUsableItem(ItemDataSO itemData, Vector3 worldPosition, Vector3Int cellPosition)
+        public static UsableItem TakeUsableItem(ItemDataSO itemData, Vector3 worldPosition, Vector3Int cellPosition)
         {
-            ItemData = itemData;
-            WorldPosition = worldPosition;
-            CellPosition = cellPosition;
-
-            var itemType = itemData.Type;
-            if (itemDic.TryGetValue(itemType, out var usableItem)) return usableItem;
+            var itemType = itemData != null ? itemData.Type: ItemType.None;
+            if (itemDic.TryGetValue(itemType, out var usableItem))
+            {
+                usableItem.Initialize(itemData, worldPosition, cellPosition);
+                return usableItem;
+            }
 
             usableItem = InstantiateUsableItem(itemType);
             itemDic[itemType] = usableItem;
-
+            usableItem.Initialize(itemData, worldPosition, cellPosition);
+            
             return usableItem;
         }
-
-        public bool MeetDistanceAtWorld =>
-            Vector2.Distance(GameManager.Player.transform.position, WorldPosition) <= GetOperationRange(ItemData.Type);
-
-        public bool MeetDistanceAtCellCenter =>
-            Vector2.Distance(GameManager.Player.transform.position, CellCenterPosition) <= GetOperationRange(ItemData.Type);
+        
+        public static bool MeetDistanceAt(Vector3 position, ItemType itemType) =>
+            Vector2.Distance(GameManager.Player.transform.position, position) <= GetOperationRange(itemType);
 
         private static  float GetOperationRange(ItemType itemType) => itemType switch
         {
@@ -47,17 +35,17 @@ namespace KittyFarm.MapClick
             ItemType.HarvestTool => 1f,
             ItemType.Axe => 1.5f,
             ItemType.Basket => 1.5f,
-            _ => 100f
+            _ => 1f
         };
         
-        private UsableItem InstantiateUsableItem(ItemType itemType) => itemType switch
+        private static UsableItem InstantiateUsableItem(ItemType itemType) => itemType switch
         {
-            ItemType.Seed => new Seed(this),
-            ItemType.FarmProduct => new FarmProduct(this),
-            ItemType.Hoe => new Hoe(this),
-            ItemType.Axe => new Axe(this),
-            ItemType.Basket => new Basket(this),
-            _ => new UndefinedUsageItem(this)
+            ItemType.Seed => new Seed(),
+            ItemType.FarmProduct => new FarmProduct(),
+            ItemType.Hoe => new Hoe(),
+            ItemType.Axe => new Axe(),
+            ItemType.Basket => new Basket(),
+            _ => new Hand()
         };
     }
 }

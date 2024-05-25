@@ -143,7 +143,7 @@ Transform:
   - {fileID: 373012088358294079}
   - {fileID: 95731768404996029}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &635373355461876283
 MonoBehaviour:
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treeData: {fileID: 11400000, guid: baa6fd40ea301bf4f984dc3646d5a44b, type: 2}
-  StageObjects:
+  stageObjects:
   - {fileID: 1737907245231569516}
   - {fileID: 5169339735443645540}
   - {fileID: 8298411938376804315}

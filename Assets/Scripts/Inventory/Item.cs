@@ -7,9 +7,7 @@ namespace KittyFarm.InventorySystem
     {
         [SerializeField] private ItemDataSO itemData;
         [SerializeField] private int count = 1;
-
-        [SerializeField] private float simulateGravity = 0.08f;
-
+        
         public ItemDataSO ItemData => itemData;
         public int Count => count;
 
@@ -20,6 +18,7 @@ namespace KittyFarm.InventorySystem
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             InherentPosition = transform.position;
+            print($"Item created {InherentPosition}");
         }
 
         public void Initialize(ItemDataSO data, int amount = 1)

@@ -102,6 +102,7 @@ namespace KittyFarm
                 GameSoundEffect.Door => audioConfig.doorSound,
                 GameSoundEffect.PlantSeed => audioConfig.plantSeedSound,
                 GameSoundEffect.HarvestCrop => audioConfig.harvestCropSound,
+                GameSoundEffect.Chop => audioConfig.chopSound,
                 _ => audioConfig.buttonClickSound
             };
 

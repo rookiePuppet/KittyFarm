@@ -1,7 +1,5 @@
 using KittyFarm.Data;
-using KittyFarm.InteractiveObject;
 using KittyFarm.InventorySystem;
-using KittyFarm.MapClick;
 using UnityEngine;
 
 namespace KittyFarm.Service
@@ -12,6 +10,5 @@ namespace KittyFarm.Service
         public Item SpawnItemAt(Vector3 position, ItemDataSO itemData, int amount = 1);
         public Item SpawnItemAt(Transform parent, Vector3 position, ItemDataSO itemData, int amount = 1);
         public void RemoveMapItem(Vector3 position);
-        public UsableItem TakeUsableItem(ItemDataSO itemData, Vector3 worldPosition, Vector3Int cellPosition);
     }
 }

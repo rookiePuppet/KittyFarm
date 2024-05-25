@@ -1,7 +1,5 @@
-using System.Linq;
 using KittyFarm.Data;
 using KittyFarm.MapClick;
-using KittyFarm.Service;
 using KittyFarm.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -23,10 +21,9 @@ namespace KittyFarm.InteractiveObject
         {
             if (HandItem.Is(ItemType.Basket))
             {
-                var basket = ServiceCenter.Get<IItemService>()
-                    .TakeUsableItem(HandItem.Current, transform.position, Vector3Int.zero) as Basket;
-                basket.CollectTarget = resource;
-                var canUse = basket.TryUse(out var explanation);
+                var usableItem = UsableItemSet.TakeUsableItem(HandItem.Current, transform.position, Vector3Int.zero);
+                Basket.CollectTarget = resource;
+                var canUse = usableItem.TryUse(out var explanation);
                 if (!canUse)
                 {
                     UIManager.Instance.ShowMessage(explanation);

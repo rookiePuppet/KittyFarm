@@ -21,5 +21,6 @@ namespace KittyFarm.Data
         public AudioClip doorSound;
         public AudioClip plantSeedSound;
         public AudioClip harvestCropSound;
+        public AudioClip chopSound;
     }
 }

@@ -1,28 +1,24 @@
 using System.Collections.Generic;
 using KittyFarm.Data;
+using KittyFarm.Service;
 
 namespace KittyFarm.MapClick
 {
     public class Seed : UsableItem
     {
-        protected override List<JudgeCondition> JudgeConditions { get; }
-
-        public Seed(UsableItemSet set) : base(set)
+        protected override List<JudgeCondition> JudgeConditions { get; }= new()
         {
-            JudgeConditions = new List<JudgeCondition>
-            {
-                new(() => itemSet.TilemapService.IsPlantableAt(itemSet.CellPosition), "这里不能种植哦"),
-                new(() => itemSet.TilemapService.CheckWasDugAt(itemSet.CellPosition), "还没有松土呢"),
-                new(() => !itemSet.CropService.IsCropExistentAt(itemSet.CellPosition), "这里已经没位置种了哦"),
-                new(() => itemSet.MeetDistanceAtCellCenter, "走近点试试吧")
-            };
-        }
-
+            new JudgeCondition(() => ServiceCenter.Get<ITilemapService>().IsPlantableAt(CellPosition), "这里不能种植哦"),
+            new JudgeCondition(() => ServiceCenter.Get<ITilemapService>().CheckWasDugAt(CellPosition), "还没有松土呢"),
+            new JudgeCondition(() => !ServiceCenter.Get<ICropService>().IsCropExistentAt(CellPosition), "这里已经没位置种了哦"),
+            new JudgeCondition(() => UsableItemSet.MeetDistanceAt(CellCenterPosition, ItemData.Type), "走近点试试吧")
+        };
+        
         protected override void Use()
         {
-            itemSet.CropService.PlantCrop(((SeedDataSO)itemSet.ItemData).CropData, itemSet.CellPosition);
+            ServiceCenter.Get<ICropService>().PlantCrop(((SeedDataSO)ItemData).CropData, CellPosition);
             AudioManager.Instance.PlaySoundEffect(GameSoundEffect.PlantSeed);
-            GameDataCenter.Instance.PlayerInventory.RemoveItem(itemSet.ItemData);
+            GameDataCenter.Instance.PlayerInventory.RemoveItem(ItemData);
         }
     }
 }

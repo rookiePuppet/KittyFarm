@@ -16,6 +16,7 @@ namespace KittyFarm.Data
         {
             var newItem = new MapItem(position, itemId, count);
             itemList.Add(newItem);
+            Debug.Log($"Add item at {newItem.Position}");
         }
 
         public void RemoveItem(MapItem item)

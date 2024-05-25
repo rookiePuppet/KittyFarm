@@ -25,10 +25,10 @@ namespace KittyFarm.InteractiveObject
 
             if (HandItem.Is(ItemType.Basket))
             {
-                var basket = ServiceCenter.Get<IItemService>().TakeUsableItem(HandItem.Current,
-                    transform.position, crop.GrowthDetails.CellPosition) as Basket;
-                basket.CollectTarget = crop;
-                var canUse = basket.TryUse(out var explanation);
+                var usableItem = UsableItemSet.TakeUsableItem(HandItem.Current,
+                    transform.position, crop.GrowthDetails.CellPosition);
+                Basket.CollectTarget = crop;
+                var canUse = usableItem.TryUse(out var explanation);
                 if (!canUse)
                 {
                     UIManager.Instance.ShowMessage(explanation);

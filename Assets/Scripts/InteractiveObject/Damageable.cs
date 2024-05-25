@@ -13,8 +13,6 @@ namespace KittyFarm.InteractiveObject
         public void Recover()
         {
             Health = MaxHealth;
-            
-            print("Recover");
         }
 
         public void TakeDamage(int damage)
@@ -25,7 +23,6 @@ namespace KittyFarm.InteractiveObject
             }
             
             Health -= damage;
-            print($"TakeDamage: {damage}, Health: {Health}");
             if (Health <= 0)
             {
                 Dead?.Invoke();

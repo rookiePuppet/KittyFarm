@@ -1,6 +1,5 @@
 using KittyFarm.Data;
 using KittyFarm.InventorySystem;
-using KittyFarm.MapClick;
 using UnityEngine;
 
 namespace KittyFarm.Service
@@ -11,10 +10,7 @@ namespace KittyFarm.Service
         [SerializeField] private GameObject itemPrefab;
 
         public ItemDatabaseSO ItemDatabase => itemDatabase;
-
-        private readonly UsableItemSet usableItemSet = new();
         private ItemDataSO harvestTool;
-
         private MapItemsDataSO mapItemsData;
 
         private void Awake()
@@ -67,10 +63,11 @@ namespace KittyFarm.Service
             itemObj.transform.localPosition = position;
             var item = itemObj.GetComponent<Item>();
             item.Initialize(itemData, amount);
-
-            if (GetMapItem(position) == null)
+            
+            var worldPosition = itemObj.transform.position;
+            if (GetMapItem(worldPosition) == null)
             {
-                AddMapItem(position, itemData.Id, amount);
+                AddMapItem(worldPosition, itemData.Id, amount);
             }
 
             return item;
@@ -83,17 +80,13 @@ namespace KittyFarm.Service
 
         public void RemoveMapItem(Vector3 position)
         {
+            print("Removing item at position: " + position);
             mapItemsData.RemoveItem(mapItemsData.GetItem(position));
         }
 
         public MapItem GetMapItem(Vector3 position)
         {
             return mapItemsData.GetItem(position);
-        }
-
-        public UsableItem TakeUsableItem(ItemDataSO itemData, Vector3 worldPosition, Vector3Int cellPosition)
-        {
-            return usableItemSet.TakeUsableItem(itemData, worldPosition, cellPosition);
         }
     }
 }

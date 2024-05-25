@@ -16,6 +16,7 @@ namespace KittyFarm
         TreeShake,
         PlantSeed,
         HarvestCrop,
-        Door
+        Door,
+        Chop
     }
 }

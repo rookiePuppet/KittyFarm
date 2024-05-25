@@ -21,6 +21,7 @@ namespace KittyFarm.Data
         Hoe,
         HarvestTool,
         Axe,
-        Basket
+        Basket,
+        None,
     }
 }

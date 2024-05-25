@@ -1,5 +1,6 @@
 using System;
 using KittyFarm.Data;
+using KittyFarm.MapClick;
 using KittyFarm.Service;
 using KittyFarm.UI;
 using UnityEngine;
@@ -16,13 +17,11 @@ namespace KittyFarm.Map
 
         private ITilemapService tilemapService;
         private ICameraService cameraService;
-        private IItemService itemService;
 
         private void Awake()
         {
             tilemapService = ServiceCenter.Get<ITilemapService>();
             cameraService = ServiceCenter.Get<ICameraService>();
-            itemService = ServiceCenter.Get<IItemService>();
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -43,7 +42,7 @@ namespace KittyFarm.Map
         {
             if (SelectedItem == null) return;
 
-            var usableItem = itemService.TakeUsableItem(SelectedItemData, worldPosition, cellPosition);
+            var usableItem = UsableItemSet.TakeUsableItem(SelectedItemData, worldPosition, cellPosition);
 
             var canUse = usableItem.TryUse(out var explanation);
             if (!canUse)

@@ -1,18 +1,27 @@
 using System;
 using System.Collections.Generic;
+using KittyFarm.Data;
+using KittyFarm.Service;
+using UnityEngine;
 
 namespace KittyFarm.MapClick
 {
     public abstract class UsableItem
     {
+        protected static ItemDataSO ItemData { get; private set; }
+        protected static Vector3 WorldPosition{ get; private set; }
+        protected static Vector3Int CellPosition{ get; private set; }
+        protected static Vector3 CellCenterPosition => ServiceCenter.Get<ITilemapService>().GetCellCenterWorld(CellPosition);
+        
         protected abstract List<JudgeCondition> JudgeConditions { get; }
-        protected readonly UsableItemSet itemSet;
 
-        protected UsableItem(UsableItemSet set)
+        public void Initialize(ItemDataSO itemData, Vector3 worldPosition, Vector3Int cellPosition)
         {
-            itemSet = set;
+            ItemData = itemData;
+            WorldPosition = worldPosition;
+            CellPosition = cellPosition;
         }
-
+        
         protected abstract void Use();
 
         public bool TryUse(out string explanation)

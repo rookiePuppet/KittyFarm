@@ -2,6 +2,7 @@ namespace KittyFarm.InteractiveObject
 {
     public interface IChopped
     {
-        void OnChopped();
+        public void OnChopped();
+        public bool CanBeChopped { get; }
     }
 }
