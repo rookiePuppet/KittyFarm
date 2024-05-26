@@ -58,7 +58,7 @@ namespace KittyFarm
             animator.SetBool(UseTool, true);
             animator.SetInteger(ToolType, (int)toolType);
 
-            await Task.Delay(450);
+            await Task.Delay(400);
             
             onActionFinished?.Invoke();
             

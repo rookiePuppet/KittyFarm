@@ -9,6 +9,7 @@ namespace KittyFarm.InteractiveObject
     {
         [SerializeField] private TreeDataSO treeData;
         [SerializeField] private GameObject[] StageObjects;
+        [SerializeField] private ParticleSystem leavesParticle;
 
         private IItemService ItemService => ServiceCenter.Get<IItemService>();
         private GameObject CurrentStageObject => StageObjects[growthDetails.CurrentStageIndex];
@@ -69,8 +70,9 @@ namespace KittyFarm.InteractiveObject
             }
             
             currentStageAnimator.SetTrigger(ANIMATOR_SHAKE);
-            isShaking = true;
             AudioManager.Instance.PlaySoundEffect(GameSoundEffect.TreeShake);
+            isShaking = true;
+            leavesParticle.Play();
             await Task.Delay(800);
             isShaking = false;
             ItemService.SpawnItemAt(transform.position + (Vector3)treeData.RandomProductPosition,
@@ -100,8 +102,7 @@ namespace KittyFarm.InteractiveObject
             
             var left = GameManager.Player.transform.position.x > transform.position.x;
             currentStageAnimator.SetTrigger(left ? ANIMATOR_SHOCK_LEFT : ANIMATOR_SHOCK_RIGHT);
-
-            await Task.Delay(100);
+            leavesParticle.Play();
             damageable.TakeDamage(34);
         }
 
