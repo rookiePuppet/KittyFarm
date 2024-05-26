@@ -333,13 +333,13 @@ SpriteAtlas:
     - 46dad3d24e832a441bfb736431407efe: 1996806658
     - 46dad3d24e832a441bfb736431407efe: -234883835
     - 46dad3d24e832a441bfb736431407efe: 881127507
+    - 2444c6f28e7c4104cb45fc627b7028f7: 1328946531
     - 2444c6f28e7c4104cb45fc627b7028f7: 265804194
     - 2444c6f28e7c4104cb45fc627b7028f7: 1778125353
     - 2444c6f28e7c4104cb45fc627b7028f7: -1370171513
     - 2444c6f28e7c4104cb45fc627b7028f7: 476089715
     - 2444c6f28e7c4104cb45fc627b7028f7: 370345674
     - 2444c6f28e7c4104cb45fc627b7028f7: 2952196
-    - 2444c6f28e7c4104cb45fc627b7028f7: 1328946531
     - bbba2de30d274674786746b3ef8969c1: -1011538026
     - bbba2de30d274674786746b3ef8969c1: -2051907990
     - bbba2de30d274674786746b3ef8969c1: 844639201
@@ -1950,13 +1950,13 @@ SpriteAtlas:
   - {fileID: 1996806658, guid: 46dad3d24e832a441bfb736431407efe, type: 3}
   - {fileID: -234883835, guid: 46dad3d24e832a441bfb736431407efe, type: 3}
   - {fileID: 881127507, guid: 46dad3d24e832a441bfb736431407efe, type: 3}
+  - {fileID: 1328946531, guid: 2444c6f28e7c4104cb45fc627b7028f7, type: 3}
   - {fileID: 265804194, guid: 2444c6f28e7c4104cb45fc627b7028f7, type: 3}
   - {fileID: 1778125353, guid: 2444c6f28e7c4104cb45fc627b7028f7, type: 3}
   - {fileID: -1370171513, guid: 2444c6f28e7c4104cb45fc627b7028f7, type: 3}
   - {fileID: 476089715, guid: 2444c6f28e7c4104cb45fc627b7028f7, type: 3}
   - {fileID: 370345674, guid: 2444c6f28e7c4104cb45fc627b7028f7, type: 3}
   - {fileID: 2952196, guid: 2444c6f28e7c4104cb45fc627b7028f7, type: 3}
-  - {fileID: 1328946531, guid: 2444c6f28e7c4104cb45fc627b7028f7, type: 3}
   - {fileID: -1011538026, guid: bbba2de30d274674786746b3ef8969c1, type: 3}
   - {fileID: -2051907990, guid: bbba2de30d274674786746b3ef8969c1, type: 3}
   - {fileID: 844639201, guid: bbba2de30d274674786746b3ef8969c1, type: 3}
@@ -3566,13 +3566,13 @@ SpriteAtlas:
   - StoneGround_10
   - StoneGround_13
   - StoneGround_12
+  - item_blue_berry
   - fruit and berries items_1
   - fruit and berries items_0
   - fruit and berries items_3
   - fruit and berries items_2
   - fruit and berries items_5
   - fruit and berries items_4
-  - fruit and berries items_6
   - Door_2
   - Door_3
   - Door_0

@@ -13,12 +13,9 @@ MonoBehaviour:
   m_Name: ShopData
   m_EditorClassIdentifier: 
   commodityList:
-  - ItemId: 102
-    Quantity: 0
+  - ItemId: 143
+    Quantity: 1
     Infinite: 1
-  - ItemId: 104
-    Quantity: 0
-    Infinite: 1
-  - ItemId: 103
+  - ItemId: 144
     Quantity: 1
     Infinite: 1

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f362914f7e30465bbad655fd2519ecb3, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  Id: 69
+  Id: 106
   ItemName: "\u82F9\u679C"
   Description: 
   IconSprite: {fileID: 1778125353, guid: 2444c6f28e7c4104cb45fc627b7028f7, type: 3}

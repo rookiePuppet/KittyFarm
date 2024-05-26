@@ -915,7 +915,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapData: {fileID: 11400000, guid: 4ce39c51ccc3d1446a3f1a4ffcecf013, type: 2}
-  mapResourcesData: {fileID: 11400000, guid: 7051d5af83f8d1844959c7ebdefbd5b9, type: 2}
   playerData: {fileID: 11400000, guid: 1182b1e1f8e09d3459a187569f2e46a1, type: 2}
   shopData: {fileID: 11400000, guid: 242e3cf701dd47141afe9323e5eecce5, type: 2}
 --- !u!4 &1029849653

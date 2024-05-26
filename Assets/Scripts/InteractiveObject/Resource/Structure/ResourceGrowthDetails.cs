@@ -6,10 +6,7 @@ namespace KittyFarm.InteractiveObject
     [Serializable]
     public class ResourceGrowthDetails
     {
-        public Vector3 Position;
-        public int ResourceId;
-        public int CurrentStage;
-        
+        public int CurrentStageIndex;
         public long LastCollectTimeTicks;
         public DateTime LastCollectTime
         {

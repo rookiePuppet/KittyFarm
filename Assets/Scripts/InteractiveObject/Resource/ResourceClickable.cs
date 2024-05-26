@@ -33,6 +33,8 @@ namespace KittyFarm.InteractiveObject
             {
                 UIManager.Instance.ShowMessage("需要使用篮子收获");
             }
+
+            Basket.CollectTarget = null;
         }
     }
 }

@@ -83,6 +83,8 @@ namespace KittyFarm.InteractiveObject
             if (growthDetails.CurrentStageIndex == fruitStageIndex)
             {
                 SpawnFruit();
+                growthDetails.ChangePlantedTime(treeData, fruitStageIndex - 1);
+                Refresh();
             }
         }
 
@@ -112,9 +114,6 @@ namespace KittyFarm.InteractiveObject
                 var worldPosition = transform.position + (Vector3)position;
                 ItemService.SpawnItemAt(worldPosition, treeData.FruitDetails.ProductData);
             }
-
-            growthDetails.ChangePlantedTime(treeData, fruitStageIndex - 1);
-            Refresh();
         }
 
         public async void OnChopped()

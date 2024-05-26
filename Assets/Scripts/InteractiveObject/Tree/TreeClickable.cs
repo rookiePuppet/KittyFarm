@@ -27,12 +27,12 @@ namespace KittyFarm.InteractiveObject
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            var currentHandItem = GameManager.Player.HandItem.Current;
-            if (currentHandItem != null && currentHandItem.Type == ItemType.Axe)
+            var handItem = GameManager.Player.HandItem;
+            if (handItem.Is(ItemType.Axe))
             {
-                var axe = (Axe)UsableItemSet.TakeUsableItem(currentHandItem, transform.position, Vector3Int.zero);
-                axe.Target = isFruitTree ? fruitTree : tree;
-                if (axe.TryUse(out var explanation))
+                var axe = UsableItemSet.TakeUsableItem(handItem.Current, transform.position, Vector3Int.zero);
+                Axe.Target = isFruitTree ? fruitTree : tree;
+                if (!axe.TryUse(out var explanation))
                 {
                     UIManager.Instance.ShowMessage(explanation);
                 }
@@ -56,6 +56,8 @@ namespace KittyFarm.InteractiveObject
                     UIManager.Instance.ShowMessage(handExplanation);
                 }
             }
+            
+            Axe.Target = null;
         }
     }
 }

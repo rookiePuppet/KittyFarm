@@ -10,7 +10,6 @@ namespace KittyFarm.Data
         public static event Action BeforeSaveData;
 
         [SerializeField] private MapDataSO mapData;
-        [SerializeField] private MapResourcesDataSO mapResourcesData;
         [SerializeField] private PlayerDataSO playerData;
         [SerializeField] private ShopDataSO shopData;
 
@@ -20,7 +19,6 @@ namespace KittyFarm.Data
         public ShopDataSO ShopData => shopData;
         public PlayerInventory PlayerInventory => PlayerData.Inventory;
         public MapDataSO MapData => mapData;
-        public MapResourcesDataSO MapResourcesData => mapResourcesData;
         public MapCropsDataSO MapCropsData => mapCropsData;
         public MapTilesDataSO MapTilesData => mapTilesData;
         public MapItemsDataSO MapItemsData => mapItemsData;
@@ -59,11 +57,6 @@ namespace KittyFarm.Data
                 playerData.Initialize();
             }
 
-            if (JsonDataManager.Exists<MapResourcesDataSO>(MapResourcesDataSO.PersistentDataName))
-            {
-                JsonDataManager.LoadData(MapResourcesDataSO.PersistentDataName, out mapResourcesData);
-            }
-
             JsonDataManager.LoadData(MapCropsDataSO.PersistentDataName, out mapCropsData);
             JsonDataManager.LoadData(MapTilesDataSO.PersistentDataName, out mapTilesData);
             JsonDataManager.LoadData(MapItemsDataSO.PersistentDataName, out mapItemsData);
@@ -83,7 +76,6 @@ namespace KittyFarm.Data
             JsonDataManager.SaveData(PlayerDataSO.PersistentDataName, playerData);
             JsonDataManager.SaveData(MapCropsDataSO.PersistentDataName, mapCropsData);
             JsonDataManager.SaveData(MapTilesDataSO.PersistentDataName, mapTilesData);
-            JsonDataManager.SaveData(MapResourcesDataSO.PersistentDataName, mapResourcesData);
             JsonDataManager.SaveData(MapItemsDataSO.PersistentDataName, mapItemsData);
             JsonDataManager.SaveData(ShopDataSO.PersistentDataName, shopData);
             JsonDataManager.SaveData(SettingsDataSO.PersistentDataName, settingsData);

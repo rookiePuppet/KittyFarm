@@ -21,6 +21,7 @@ namespace KittyFarm.UI
         [SerializeField] private CounterController counter;
         [SerializeField] private Button purchaseButton;
         [SerializeField] private Button sellButton;
+        [SerializeField] private Button sellAllButton;
 
         private ShopDataSO Data => GameDataCenter.Instance.ShopData;
 
@@ -35,6 +36,7 @@ namespace KittyFarm.UI
             set
             {
                 sellButton.gameObject.SetActive(value);
+                sellAllButton.gameObject.SetActive(value);
                 purchaseButton.gameObject.SetActive(!value);
             }
         }
@@ -44,6 +46,7 @@ namespace KittyFarm.UI
             purchaseButton.onClick.AddListener(OnPurchaseButtonClicked);
             sellButton.onClick.AddListener(OnSellButtonClicked);
             closeButton.onClick.AddListener(Hide);
+            sellAllButton.onClick.AddListener(OnSellAllButtonClicked);
         }
 
         private void OnEnable()
@@ -123,6 +126,22 @@ namespace KittyFarm.UI
             AudioManager.Instance.PlaySoundEffect(GameSoundEffect.Coin);
         }
 
+        private void OnSellAllButtonClicked()
+        {
+            var sellAmount = DraggedInItem.itemAmount;
+            var itemData = DraggedInItem.itemData;
+            var playerData = GameDataCenter.Instance.PlayerData;
+            playerData.OnSoldItem(itemData, sellAmount);
+            playerData.Inventory.RemoveItem(itemData, sellAmount);
+            
+            UIManager.Instance.ShowMessage(
+                $"卖出{itemData.ItemName}X{sellAmount}，收入{itemData.Value * itemData.SoldDiscount * sellAmount}金币");
+            AudioManager.Instance.PlaySoundEffect(GameSoundEffect.Coin);
+
+            rightPanel.SetActive(false);
+            IsSellMode = false;
+        }
+
         private void OnSellButtonClicked()
         {
             var sellAmount = counter.Value;
@@ -136,11 +155,14 @@ namespace KittyFarm.UI
             var playerData = GameDataCenter.Instance.PlayerData;
             playerData.OnSoldItem(itemData, sellAmount);
             playerData.Inventory.RemoveItem(itemData, sellAmount);
+            
             UIManager.Instance.ShowMessage(
                 $"卖出{itemData.ItemName}X{sellAmount}，收入{itemData.Value * itemData.SoldDiscount * sellAmount}金币");
-
-            counter.Reset();
             AudioManager.Instance.PlaySoundEffect(GameSoundEffect.Coin);
+            
+            counter.Reset();
+            rightPanel.SetActive(false);
+            IsSellMode = false;
         }
 
         private void OnCommodityItemClicked(CommodityItem commodityItem)

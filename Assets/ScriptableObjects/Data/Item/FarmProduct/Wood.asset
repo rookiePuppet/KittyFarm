@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f362914f7e30465bbad655fd2519ecb3, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
-  Id: 87
+  Id: 128
   ItemName: "\u6728\u5934"
   Description: 
   IconSprite: {fileID: -1556238926, guid: df15b75c04f1a3147a81fbc994509c06, type: 3}

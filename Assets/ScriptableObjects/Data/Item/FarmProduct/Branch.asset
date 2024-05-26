@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f362914f7e30465bbad655fd2519ecb3, type: 3}
   m_Name: Branch
   m_EditorClassIdentifier: 
-  Id: 72
+  Id: 110
   ItemName: "\u6811\u679D"
   Description: 
   IconSprite: {fileID: -939557080, guid: df15b75c04f1a3147a81fbc994509c06, type: 3}

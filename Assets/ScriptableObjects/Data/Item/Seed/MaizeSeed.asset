@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c61ede009d64a96bed8ad7ab22846e0, type: 3}
   m_Name: MaizeSeed
   m_EditorClassIdentifier: 
-  Id: 95
+  Id: 136
   ItemName: "\u7389\u7C73\u79CD\u5B50"
   Description: 
   IconSprite: {fileID: -1382152566, guid: d3c4d58bacacea44789df3cc5dbb06c3, type: 3}

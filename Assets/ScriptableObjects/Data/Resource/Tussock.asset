@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c1c4faa4aab4033895ccd6b6b185869, type: 3}
-  m_Name: OrangeTree
+  m_Name: Tussock
   m_EditorClassIdentifier: 
-  Id: 2
-  ResourceName: "\u6A59\u5B50\u6811"
-  RegenerationTime: 3
-  ProductData: {fileID: 11400000, guid: 061dc2a994e094744b32fe22b980f152, type: 2}
-  ProductPositions:
-  - {x: -1.2, y: 0.45, z: 0}
-  - {x: -1.1, y: -0.15, z: 0}
-  - {x: 1.05, y: 0, z: 0}
+  ResourceName: "\u8349\u4E1B"
+  RegenerationTime: 2
+  ProductDetails:
+    ProductData: {fileID: 11400000, guid: 23fbbed1ef8c7aa4a9d27de5c1f442b6, type: 2}
+    Quantity: 1
+  RandomRangeRadius: 0.5

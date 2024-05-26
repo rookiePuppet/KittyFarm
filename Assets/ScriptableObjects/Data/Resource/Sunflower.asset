@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c1c4faa4aab4033895ccd6b6b185869, type: 3}
-  m_Name: PearTree
+  m_Name: Sunflower
   m_EditorClassIdentifier: 
-  Id: 3
-  ResourceName: "\u68A8\u6811"
-  RegenerationTime: 5
-  ProductData: {fileID: 11400000, guid: 59bedf30d69480e4ebce507eda33182e, type: 2}
-  ProductPositions:
-  - {x: -1.2, y: 0.45, z: 0}
-  - {x: -1.1, y: -0.15, z: 0}
-  - {x: 1.05, y: 0, z: 0}
+  ResourceName: "\u5411\u65E5\u8475"
+  RegenerationTime: 4
+  ProductDetails:
+    ProductData: {fileID: 11400000, guid: d86408fd2f5be174686f28b3eca02929, type: 2}
+    Quantity: 1
+  RandomRangeRadius: 0.5

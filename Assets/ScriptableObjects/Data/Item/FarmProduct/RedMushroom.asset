@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f362914f7e30465bbad655fd2519ecb3, type: 3}
+  m_Name: RedMushroom
+  m_EditorClassIdentifier: 
+  Id: 124
+  ItemName: "\u7EA2\u8611\u83C7"
+  Description: 
+  IconSprite: {fileID: 1823916034, guid: ec3652e77b661c64cbb4ad5eeb3ced34, type: 3}
+  Value: 5
+  SoldDiscount: 1
+  Type: 1

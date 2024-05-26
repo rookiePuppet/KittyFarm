@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c7560f54a5415fb59af045399afb86, type: 3}
   m_Name: Basket
   m_EditorClassIdentifier: 
-  Id: 103
+  Id: 144
   ItemName: "\u7BEE\u5B50"
   Description: 
   IconSprite: {fileID: 21300000, guid: 481b22b9bd2b2144fa6d0251a20ef99c, type: 3}

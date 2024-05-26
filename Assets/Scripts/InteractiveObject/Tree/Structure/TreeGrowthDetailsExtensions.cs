@@ -41,7 +41,7 @@ namespace KittyFarm.InteractiveObject
             }
             
             // 因为TimeManager不会实时同步毫秒时间，在计算状态索引时会有误差，导致索引计算错误，所以这里加1分钟
-            growthDetails.PlantedTime = DateTime.Now - (growthDuration + TimeSpan.FromMinutes(1));
+            growthDetails.PlantedTime = TimeManager.CurrentTime - (growthDuration + TimeSpan.FromMinutes(1));
         }
     }
 }

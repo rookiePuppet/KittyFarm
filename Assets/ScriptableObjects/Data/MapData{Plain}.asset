@@ -21,10 +21,6 @@ MonoBehaviour:
     Properties:
     - Coordinate: {x: 20, y: -9, z: 0}
       Type: 0
-    - Coordinate: {x: 21, y: -9, z: 0}
-      Type: 0
-    - Coordinate: {x: 22, y: -9, z: 0}
-      Type: 0
     - Coordinate: {x: 23, y: -9, z: 0}
       Type: 0
     - Coordinate: {x: 24, y: -9, z: 0}
@@ -34,10 +30,6 @@ MonoBehaviour:
     - Coordinate: {x: 26, y: -9, z: 0}
       Type: 0
     - Coordinate: {x: 20, y: -8, z: 0}
-      Type: 0
-    - Coordinate: {x: 21, y: -8, z: 0}
-      Type: 0
-    - Coordinate: {x: 22, y: -8, z: 0}
       Type: 0
     - Coordinate: {x: 23, y: -8, z: 0}
       Type: 0
