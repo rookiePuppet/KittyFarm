@@ -20,7 +20,7 @@ MonoBehaviour:
     Quantity: 3
   RandomRangeRadius: 1.5
   Stages:
-  - GrowthHours: 4
-    GrowthMinutes: 0
+  - GrowthHours: 3
+    GrowthMinutes: 30
   - GrowthHours: 0
     GrowthMinutes: 30

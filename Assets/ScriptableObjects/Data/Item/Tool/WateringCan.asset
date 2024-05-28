@@ -18,4 +18,4 @@ MonoBehaviour:
   IconSprite: {fileID: -1927329545, guid: df15b75c04f1a3147a81fbc994509c06, type: 3}
   Value: 0
   SoldDiscount: 0
-  Type: 3
+  Type: 5

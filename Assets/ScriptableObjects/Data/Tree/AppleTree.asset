@@ -25,7 +25,7 @@ MonoBehaviour:
   - GrowthHours: 4
     GrowthMinutes: 0
   - GrowthHours: 0
-    GrowthMinutes: 0
+    GrowthMinutes: 30
   FruitDetails:
     ProductData: {fileID: 11400000, guid: 1e8bad6f26c7dcd458f7c11014c0c7e4, type: 2}
     Quantity: 3
