@@ -10,15 +10,8 @@ namespace KittyFarm.Service
         [SerializeField] private GameObject itemPrefab;
 
         public ItemDatabaseSO ItemDatabase => itemDatabase;
-        private ItemDataSO harvestTool;
         private MapItemsDataSO mapItemsData;
-
-        private void Awake()
-        {
-            harvestTool = ScriptableObject.CreateInstance<ItemDataSO>();
-            harvestTool.Type = ItemType.HarvestTool;
-        }
-
+        
         private void OnEnable()
         {
             GameManager.MapChanged += Initialize;

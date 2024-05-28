@@ -19,7 +19,6 @@ namespace KittyFarm.Data
         Seed,
         FarmProduct,
         Hoe,
-        HarvestTool,
         Axe,
         Basket,
         None,

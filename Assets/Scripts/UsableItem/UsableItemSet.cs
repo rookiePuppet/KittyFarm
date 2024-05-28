@@ -32,7 +32,6 @@ namespace KittyFarm.MapClick
             ItemType.Seed => 1f,
             ItemType.FarmProduct => 2f,
             ItemType.Hoe => 1f,
-            ItemType.HarvestTool => 1f,
             ItemType.Axe => 1.5f,
             ItemType.Basket => 1.5f,
             _ => 1f
