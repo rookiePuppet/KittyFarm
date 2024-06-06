@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commodityList:
   - ItemId: 143
-    Quantity: 1
+    Quantity: 0
     Infinite: 1
   - ItemId: 145
-    Quantity: 1
+    Quantity: 0
     Infinite: 1
   - ItemId: 144
-    Quantity: 1
+    Quantity: 0
     Infinite: 1
   - ItemId: 129
-    Quantity: 1
-    Infinite: 1
+    Quantity: 99
+    Infinite: 0
   - ItemId: 130
-    Quantity: 1
-    Infinite: 1
+    Quantity: 99
+    Infinite: 0
   - ItemId: 131
     Quantity: 1
     Infinite: 1
@@ -38,16 +38,16 @@ MonoBehaviour:
     Quantity: 1
     Infinite: 1
   - ItemId: 134
-    Quantity: 1
+    Quantity: -1
     Infinite: 1
   - ItemId: 135
     Quantity: 1
     Infinite: 1
   - ItemId: 136
-    Quantity: 1
+    Quantity: -1
     Infinite: 1
   - ItemId: 137
-    Quantity: 1
+    Quantity: 99
     Infinite: 1
   - ItemId: 138
     Quantity: 1

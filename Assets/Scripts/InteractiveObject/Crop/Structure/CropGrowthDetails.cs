@@ -1,4 +1,5 @@
 using System;
+using KittyFarm.Time;
 using UnityEngine;
 
 namespace KittyFarm.InteractiveObject
@@ -17,7 +18,7 @@ namespace KittyFarm.InteractiveObject
             CellPosition = cellPosition;
             CropId = cropId;
             CurrentStage = initialStage;
-            PlantedTimeTicks = DateTime.Now.Ticks;
+            PlantedTimeTicks = TimeManager.CurrentTime.Ticks;
         }
     }
 }

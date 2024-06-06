@@ -19,7 +19,7 @@ namespace KittyFarm.UI
 
         public async Task StartLoading(Action<Scene> setCurrentScene)
         {
-            await TypeTitleText();
+            _ = TypeTitleText();
             await UpdateProgressAsync(30, 0.1f);
 
             var startScene = await SceneLoader.LoadSceneAsync(SceneName.Start);
