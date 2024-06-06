@@ -1,0 +1,1 @@
+C:/Users/puppet/Desktop/KittyFarm/entry/.preview/cache/.default/widget/entry/src/main/ets/widget/pages/WidgetCard.ts;com.PuppetStudio.KittyFarm/entry/ets/widget/pages/WidgetCard;esm;entry/src/main/ets/widget/pages/WidgetCard.ets;entry

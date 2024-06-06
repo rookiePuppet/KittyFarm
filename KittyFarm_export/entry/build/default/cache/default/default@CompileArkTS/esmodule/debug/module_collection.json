@@ -1,0 +1,66 @@
+{
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\entryformability\\EntryFormAbility.ets": [
+    "ohos.app.form.formInfo",
+    "ohos.app.form.formBindingData",
+    "ohos.app.form.FormExtensionAbility",
+    "ohos.data.preferences",
+    "ohos.app.form.formProvider",
+    "ohos.hilog"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts": [
+    "ohos.worker",
+    "ohos.sensor",
+    "ohos.vibrator",
+    "ohos.display"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorkerHandler.ts": [
+    "ohos.worker",
+    "ohos.batteryInfo",
+    "ohos.deviceInfo",
+    "ohos.bundle.bundleManager"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\ability\\TuanjiePlayerAbility.ts": [
+    "ohos.app.ability.UIAbility",
+    "ohos.window"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\DebuggerDialog.ets": [
+    "ohos.promptAction"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjieWebview.ets": [
+    "ohos.web.webview"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts": [
+    "ohos.hilog"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\WindowUtils.ts": [
+    "ohos.window",
+    "ohos.pasteboard"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieLocation.ts": [
+    "ohos.geoLocationManager",
+    "ohos.sensor"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieOpenURL.ts": [
+    "ohos.uri"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieAAID.ts": [
+    "ohos.util",
+    "ohos.data.preferences"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjiePermissions.ts": [
+    "ohos.abilityAccessCtrl",
+    "ohos.bundle.bundleManager"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\PlayerPref.ts": [
+    "ohos.file.fs"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\SystemSettings.ts": [
+    "ohos.settings"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\DisplayInfoManager.ts": [
+    "ohos.display"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\OHData.ts": [
+    "ohos.data.preferences"
+  ]
+}

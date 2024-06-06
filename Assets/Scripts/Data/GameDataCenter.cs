@@ -79,6 +79,14 @@ namespace KittyFarm.Data
             JsonDataManager.SaveData(MapItemsDataSO.PersistentDataName, mapItemsData);
             JsonDataManager.SaveData(ShopDataSO.PersistentDataName, shopData);
             JsonDataManager.SaveData(SettingsDataSO.PersistentDataName, settingsData);
+            
+            HandleOpenHarmonyData();
+        }
+
+        private void HandleOpenHarmonyData()
+        {
+            var ohData = new OpenHarmonyJSObject("OHData");
+            ohData.Call("saveCoins", playerData.Coins);
         }
     }
 }

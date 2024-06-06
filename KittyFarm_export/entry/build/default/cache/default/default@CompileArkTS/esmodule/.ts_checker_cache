@@ -1,0 +1,761 @@
+{
+  "runtimeOS": "OpenHarmony",
+  "sdkInfo": "true:10:4.0.10.13:Release",
+  "fileList": {
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\widget\\pages\\WidgetCard.ets": {
+      "mtimeMs": 1717656968828.2754,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\ability\\TuanjiePlayerAbility.ts": {
+      "mtimeMs": 1705097822000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\DisplayInfoManager.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\GlobalThisUtil.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\WindowUtils.ts"
+      ],
+      "parent": [],
+      "error": true
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\entryformability\\EntryFormAbility.ets": {
+      "mtimeMs": 1717657213838.2266,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\OHData.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjiePlayerAbilityIndex.ets": {
+      "mtimeMs": 1708999742000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\SoftInputDialog.ets",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\VideoPlayer.ets",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\GlobalThisUtil.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjieWebview.ets",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\Constants.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\WindowUtils.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\DebuggerDialogInfo.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\DebuggerDialog.ets"
+      ],
+      "parent": [],
+      "error": true
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts": {
+      "mtimeMs": 1708999742000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\Constants.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjiePermissions.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieLocation.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\WindowUtils.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\VideoPlayerProxy.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieOpenURL.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieAAID.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\SystemSettings.ts"
+      ],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\ability\\TuanjiePlayerAbility.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\DisplayInfoManager.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjiePermissions.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieLocation.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjiePlayerAbilityIndex.ets",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\VideoPlayer.ets"
+      ],
+      "error": true
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorkerHandler.ts": {
+      "mtimeMs": 1708999742000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\PlayerPref.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieJSScriptRegister.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\GlobalThisUtil.ts"
+      ],
+      "parent": [],
+      "error": true
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\DisplayInfoManager.ts": {
+      "mtimeMs": 1708999742000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\Constants.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\WindowUtils.ts"
+      ],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\ability\\TuanjiePlayerAbility.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\WindowUtils.ts"
+      ],
+      "error": true
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts": {
+      "mtimeMs": 1704541492000,
+      "children": [],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\ability\\TuanjiePlayerAbility.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\DisplayInfoManager.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjiePermissions.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieLocation.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\WindowUtils.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieOpenURL.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieAAID.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\SystemSettings.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjiePlayerAbilityIndex.ets",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\VideoPlayer.ets",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\DebuggerDialog.ets",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorkerHandler.ts"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\GlobalThisUtil.ts": {
+      "mtimeMs": 1704541492000,
+      "children": [],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\ability\\TuanjiePlayerAbility.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\WindowUtils.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\DebuggerDialogInfo.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieAAID.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\SystemSettings.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjiePlayerAbilityIndex.ets",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\SoftInputDialog.ets",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\DebuggerDialog.ets",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorkerHandler.ts"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\WindowUtils.ts": {
+      "mtimeMs": 1706394004000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\GlobalThisUtil.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\DisplayInfoManager.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\DebuggerDialogInfo.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\Constants.ts"
+      ],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\ability\\TuanjiePlayerAbility.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\DisplayInfoManager.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjiePlayerAbilityIndex.ets"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.app.ability.UIAbility.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.app.ability.Ability.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.app.ability.Configuration.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\application\\UIAbilityContext.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\bundleManager\\AbilityInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\bundleManager\\ApplicationInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.bundle.bundleManager.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\bundleManager\\BundleInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\bundleManager\\HapModuleInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\bundleManager\\ExtensionAbilityInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\ability\\abilityResult.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\ability\\connectOptions.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.rpc.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\application\\Context.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.resourceManager.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.arkui.drawableDescriptor.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.multimedia.image.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\application\\ApplicationContext.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.app.ability.AbilityLifecycleCallback.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.window.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\component\\common.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.data.unifiedDataChannel.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.arkui.UIContext.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.mediaquery.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\component\\units.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.promptAction.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.router.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.app.ability.EnvironmentCallback.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\application\\ProcessInformation.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.app.ability.appManager.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.app.ability.dialogRequest.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\Constants.ts": {
+      "mtimeMs": 1705097822000,
+      "children": [],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\DisplayInfoManager.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\WindowUtils.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjiePlayerAbilityIndex.ets"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.display.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjiePermissions.ts": {
+      "mtimeMs": 1704541492000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\PromiseWithTimeout.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts"
+      ],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieLocation.ts": {
+      "mtimeMs": 1704541492000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\PromiseWithTimeout.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\SyncCallHelper.ts"
+      ],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\VideoPlayerProxy.ts": {
+      "mtimeMs": 1704541492000,
+      "children": [],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\VideoPlayer.ets"
+      ],
+      "error": true
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieOpenURL.ts": {
+      "mtimeMs": 1704541492000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts"
+      ],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieAAID.ts": {
+      "mtimeMs": 1709550408000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\GlobalThisUtil.ts"
+      ],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\SystemSettings.ts": {
+      "mtimeMs": 1708999742000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\GlobalThisUtil.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts"
+      ],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.sensor.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\PromiseWithTimeout.ts": {
+      "mtimeMs": 1704541492000,
+      "children": [],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjiePermissions.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieLocation.ts"
+      ],
+      "error": true
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.abilityAccessCtrl.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\SyncCallHelper.ts": {
+      "mtimeMs": 1704541492000,
+      "children": [],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\TuanjieLocation.ts"
+      ],
+      "error": true
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.geoLocationManager.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.wantAgent.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\wantAgent\\wantAgentInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\wantAgent\\triggerInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\DebuggerDialogInfo.ts": {
+      "mtimeMs": 1706394004000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\GlobalThisUtil.ts"
+      ],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\WindowUtils.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjiePlayerAbilityIndex.ets",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\DebuggerDialog.ets"
+      ],
+      "error": true
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.pasteboard.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.vibrator.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.app.ability.common.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\application\\UIExtensionContext.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\application\\ExtensionContext.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\application\\AbilityStageContext.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\application\\FormExtensionContext.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\ability\\dataAbilityHelper.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\ability\\dataAbilityOperation.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.ability.featureAbility.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\ability\\startAbilityParameter.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\app\\context.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\bundle\\applicationInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\bundle\\hapModuleInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\bundle\\abilityInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.bundle.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\bundle\\bundleInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.data.dataAbility.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.data.rdb.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.ability.ability.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.data.preferences.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.settings.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\OHData.ts": {
+      "mtimeMs": 1717653346650.5498,
+      "children": [],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\entryformability\\EntryFormAbility.ets",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieJSScriptRegister.ts"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.app.form.formInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.app.form.FormExtensionAbility.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.app.form.formProvider.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\SoftInputDialog.ets": {
+      "mtimeMs": 1708999742000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\GlobalThisUtil.ts"
+      ],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjiePlayerAbilityIndex.ets"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\VideoPlayer.ets": {
+      "mtimeMs": 1704541492000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\VideoPlayerProxy.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorker.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\VideoPlayerProxy.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts"
+      ],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjiePlayerAbilityIndex.ets"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjieWebview.ets": {
+      "mtimeMs": 1704541492000,
+      "children": [],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjiePlayerAbilityIndex.ets"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\DebuggerDialog.ets": {
+      "mtimeMs": 1706394004000,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieLog.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\utils\\DebuggerDialogInfo.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\GlobalThisUtil.ts"
+      ],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjiePlayerAbilityIndex.ets"
+      ],
+      "error": true
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.web.webview.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.security.cert.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.security.cryptoFramework.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\PlayerPref.ts": {
+      "mtimeMs": 1704541492000,
+      "children": [],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorkerHandler.ts"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieJSScriptRegister.ts": {
+      "mtimeMs": 1717652885743.186,
+      "children": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\OHData.ts",
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\TestClass.ts"
+      ],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\workers\\TuanjieMainWorkerHandler.ts"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\api\\@ohos.file.fs.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\TestClass.ts": {
+      "mtimeMs": 1717652885743.186,
+      "children": [],
+      "parent": [
+        "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\common\\TuanjieJSScriptRegister.ts"
+      ],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\build-tools\\ets-loader\\declarations\\common.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\build-tools\\ets-loader\\declarations\\image.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\build-tools\\ets-loader\\declarations\\units.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "C:\\Users\\puppet\\AppData\\Local\\OpenHarmony\\Sdk\\10\\ets\\build-tools\\ets-loader\\declarations\\web.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    }
+  }
+}

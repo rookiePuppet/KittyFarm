@@ -1,0 +1,98 @@
+{
+	"app": {
+		"bundleName": "com.PuppetStudio.KittyFarm",
+		"vendor": "Puppet Studio",
+		"versionCode": 1,
+		"versionName": "1.0",
+		"icon": "$media:app_icon",
+		"label": "$string:app_name",
+		"distributedNotificationEnabled": true,
+		"apiReleaseType": "Release",
+		"compileSdkVersion": "4.0.10.13",
+		"targetAPIVersion": 10,
+		"minAPIVersion": 10,
+		"compileSdkType": "OpenHarmony",
+		"debug": true
+	},
+	"module": {
+		"name": "entry",
+		"type": "entry",
+		"description": "$string:module_desc",
+		"mainElement": "TuanjiePlayerAbility",
+		"deviceTypes": [
+			"default",
+			"tablet"
+		],
+		"metadata": [
+			{
+				"name": "ArkTSPartialUpdate",
+				"value": "true"
+			},
+			{
+				"name": "partialUpdateStrictCheck",
+				"value": "warn"
+			}
+		],
+		"deliveryWithInstall": true,
+		"installationFree": false,
+		"pages": "$profile:main_pages",
+		"abilities": [
+			{
+				"name": "TuanjiePlayerAbility",
+				"srcEntrance": "./ets/ability/TuanjiePlayerAbility.ts",
+				"description": "$string:EntryAbility_desc",
+				"icon": "$media:icon",
+				"label": "$string:EntryAbility_label",
+				"startWindowIcon": "$media:icon",
+				"startWindowBackground": "$color:start_window_background",
+				"orientation": "auto_rotation",
+				"visible": true,
+				"skills": [
+					{
+						"entities": [
+							"entity.system.home"
+						],
+						"actions": [
+							"action.system.home"
+						]
+					}
+				]
+			}
+		],
+		"requestPermissions": [
+			{
+				"name": "ohos.permission.INTERNET",
+				"usedScene": {
+					"abilities": [
+						"TuanjiePlayerAbility"
+					],
+					"when": "always"
+				}
+			},
+			{
+				"name": "ohos.permission.ACCELEROMETER",
+				"usedScene": {
+					"abilities": [
+						"TuanjiePlayerAbility"
+					],
+					"when": "always"
+				}
+			}
+		],
+		"extensionAbilities": [
+			{
+				"name": "EntryFormAbility",
+				"srcEntry": "./ets/entryformability/EntryFormAbility.ets",
+				"label": "$string:EntryFormAbility_label",
+				"description": "$string:EntryFormAbility_desc",
+				"type": "form",
+				"metadata": [
+					{
+						"name": "ohos.extension.form",
+						"resource": "$profile:form_config"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,39 @@
+{
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\widget\\pages\\WidgetCard.ets": [
+    "Stack",
+    "Flex",
+    "Column",
+    "Row",
+    "Image",
+    "Text",
+    "ImageAnimator"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjiePlayerAbilityIndex.ets": [
+    "CustomDialogController",
+    "Row",
+    "Column",
+    "XComponent",
+    "Stack",
+    "Image",
+    "If"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\SoftInputDialog.ets": [
+    "CustomDialogController",
+    "Column",
+    "Row",
+    "TextInput",
+    "Blank",
+    "Button",
+    "If"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\VideoPlayer.ets": [
+    "VideoController",
+    "Stack",
+    "Video",
+    "If"
+  ],
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\pages\\TuanjieWebview.ets": [
+    "Web",
+    "If"
+  ]
+}

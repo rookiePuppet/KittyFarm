@@ -1,0 +1,40 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "material": {
+          "certpath": "C:\\Users\\puppet\\.ohos\\config\\openharmony\\auto_ohos_default_KittyFarm_com.PuppetStudio.KittyFarm.cer",
+          "storePassword": "0000001BAAD0071B31ECE1EF1C82DB2131928D2AA93901C2AED2F16BE5FC390EF873C0D3AE26577E06EA69",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BF71485F2F1A9A7673A6A3FA82DAE708C5EA1D32F5B6AD0DFA432192948B5932EBDD8E100BE09CB",
+          "profile": "C:\\Users\\puppet\\.ohos\\config\\openharmony\\auto_ohos_default_KittyFarm_com.PuppetStudio.KittyFarm.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\puppet\\.ohos\\config\\openharmony\\auto_ohos_default_KittyFarm_com.PuppetStudio.KittyFarm.p12"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compileSdkVersion": 10,
+        "compatibleSdkVersion": 10
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

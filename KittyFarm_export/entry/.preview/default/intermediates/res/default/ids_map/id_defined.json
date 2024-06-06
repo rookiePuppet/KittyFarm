@@ -1,0 +1,185 @@
+{
+    "record" : 
+    [
+        {
+            "id" : "0x01000000",
+            "name" : "app_name",
+            "type" : "string"
+        },
+        {
+            "id" : "0x01000001",
+            "name" : "app_icon",
+            "type" : "media"
+        },
+        {
+            "id" : "0x01000002",
+            "name" : "app_splash",
+            "type" : "media"
+        },
+        {
+            "id" : "0x01000003",
+            "name" : "image_info_background",
+            "type" : "color"
+        },
+        {
+            "id" : "0x01000004",
+            "name" : "information_title_font",
+            "type" : "color"
+        },
+        {
+            "id" : "0x01000005",
+            "name" : "item_text_font",
+            "type" : "color"
+        },
+        {
+            "id" : "0x01000006",
+            "name" : "start_window_background",
+            "type" : "color"
+        },
+        {
+            "id" : "0x01000007",
+            "name" : "title_font",
+            "type" : "color"
+        },
+        {
+            "id" : "0x01000008",
+            "name" : "main_pages",
+            "type" : "profile"
+        },
+        {
+            "id" : "0x01000009",
+            "name" : "ShowStaticSplashScreen",
+            "type" : "integer"
+        },
+        {
+            "id" : "0x0100000A",
+            "name" : "StaticSplashScreenFit",
+            "type" : "integer"
+        },
+        {
+            "id" : "0x0100000B",
+            "name" : "form_config",
+            "type" : "profile"
+        },
+        {
+            "id" : "0x0100000C",
+            "name" : "icon",
+            "type" : "media"
+        },
+        {
+            "id" : "0x0100000D",
+            "name" : "EntryAbility_desc",
+            "type" : "string"
+        },
+        {
+            "id" : "0x0100000E",
+            "name" : "EntryAbility_label",
+            "type" : "string"
+        },
+        {
+            "id" : "0x0100000F",
+            "name" : "EntryFormAbility_desc",
+            "type" : "string"
+        },
+        {
+            "id" : "0x01000010",
+            "name" : "EntryFormAbility_label",
+            "type" : "string"
+        },
+        {
+            "id" : "0x01000011",
+            "name" : "card_title",
+            "type" : "string"
+        },
+        {
+            "id" : "0x01000012",
+            "name" : "introduction",
+            "type" : "string"
+        },
+        {
+            "id" : "0x01000013",
+            "name" : "module_desc",
+            "type" : "string"
+        },
+        {
+            "id" : "0x01000014",
+            "name" : "ic_widget",
+            "type" : "media"
+        },
+        {
+            "id" : "0x01000015",
+            "name" : "card_title_font_size",
+            "type" : "float"
+        },
+        {
+            "id" : "0x01000016",
+            "name" : "image_border_radius",
+            "type" : "float"
+        },
+        {
+            "id" : "0x01000017",
+            "name" : "image_margin_bottom",
+            "type" : "float"
+        },
+        {
+            "id" : "0x01000018",
+            "name" : "info_column_height",
+            "type" : "float"
+        },
+        {
+            "id" : "0x01000019",
+            "name" : "info_column_padding",
+            "type" : "float"
+        },
+        {
+            "id" : "0x0100001A",
+            "name" : "info_column_width",
+            "type" : "float"
+        },
+        {
+            "id" : "0x0100001B",
+            "name" : "item_font_size",
+            "type" : "float"
+        },
+        {
+            "id" : "0x0100001C",
+            "name" : "item_margin_top",
+            "type" : "float"
+        },
+        {
+            "id" : "0x0100001D",
+            "name" : "maximum_padding",
+            "type" : "float"
+        },
+        {
+            "id" : "0x0100001E",
+            "name" : "coin",
+            "type" : "media"
+        },
+        {
+            "id" : "0x0100001F",
+            "name" : "4",
+            "type" : "media"
+        },
+        {
+            "id" : "0x01000020",
+            "name" : "3",
+            "type" : "media"
+        },
+        {
+            "id" : "0x01000021",
+            "name" : "1",
+            "type" : "media"
+        },
+        {
+            "id" : "0x01000022",
+            "name" : "2",
+            "type" : "media"
+        },
+        {
+            "id" : "0x01000023",
+            "name" : "5",
+            "type" : "media"
+        }
+    ]
+}

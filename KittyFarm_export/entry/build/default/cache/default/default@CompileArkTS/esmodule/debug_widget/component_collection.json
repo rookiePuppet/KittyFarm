@@ -1,0 +1,11 @@
+{
+  "C:\\Users\\puppet\\Desktop\\KittyFarm\\entry\\src\\main\\ets\\widget\\pages\\WidgetCard.ets": [
+    "Stack",
+    "Flex",
+    "Column",
+    "Row",
+    "Image",
+    "Text",
+    "ImageAnimator"
+  ]
+}

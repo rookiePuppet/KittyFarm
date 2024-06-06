@@ -1,0 +1,127 @@
+{
+    "app" : 
+    {
+        "apiReleaseType" : "Release",
+        "bundleName" : "com.PuppetStudio.KittyFarm",
+        "compileSdkType" : "OpenHarmony",
+        "compileSdkVersion" : "4.0.10.13",
+        "debug" : true,
+        "distributedNotificationEnabled" : true,
+        "icon" : "$media:app_icon",
+        "iconId" : 16777217,
+        "label" : "$string:app_name",
+        "labelId" : 16777216,
+        "minAPIVersion" : 10,
+        "targetAPIVersion" : 10,
+        "vendor" : "Puppet Studio",
+        "versionCode" : 1,
+        "versionName" : "1.0"
+    },
+    "module" : 
+    {
+        "abilities" : 
+        [
+            {
+                "description" : "$string:EntryAbility_desc",
+                "descriptionId" : 16777229,
+                "icon" : "$media:icon",
+                "iconId" : 16777228,
+                "label" : "$string:EntryAbility_label",
+                "labelId" : 16777230,
+                "name" : "TuanjiePlayerAbility",
+                "orientation" : "auto_rotation",
+                "skills" : 
+                [
+                    {
+                        "actions" : 
+                        [
+                            "action.system.home"
+                        ],
+                        "entities" : 
+                        [
+                            "entity.system.home"
+                        ]
+                    }
+                ],
+                "srcEntrance" : "./ets/ability/TuanjiePlayerAbility.ts",
+                "startWindowBackground" : "$color:start_window_background",
+                "startWindowBackgroundId" : 16777222,
+                "startWindowIcon" : "$media:icon",
+                "startWindowIconId" : 16777228,
+                "visible" : true
+            }
+        ],
+        "compileMode" : "esmodule",
+        "deliveryWithInstall" : true,
+        "dependencies" : [],
+        "description" : "$string:module_desc",
+        "descriptionId" : 16777235,
+        "deviceTypes" : 
+        [
+            "default",
+            "tablet"
+        ],
+        "extensionAbilities" : 
+        [
+            {
+                "description" : "$string:EntryFormAbility_desc",
+                "descriptionId" : 16777231,
+                "label" : "$string:EntryFormAbility_label",
+                "labelId" : 16777232,
+                "metadata" : 
+                [
+                    {
+                        "name" : "ohos.extension.form",
+                        "resource" : "$profile:form_config",
+                        "resourceId" : 16777227
+                    }
+                ],
+                "name" : "EntryFormAbility",
+                "srcEntry" : "./ets/entryformability/EntryFormAbility.ets",
+                "type" : "form"
+            }
+        ],
+        "installationFree" : false,
+        "mainElement" : "TuanjiePlayerAbility",
+        "metadata" : 
+        [
+            {
+                "name" : "ArkTSPartialUpdate",
+                "value" : "true"
+            },
+            {
+                "name" : "partialUpdateStrictCheck",
+                "value" : "warn"
+            }
+        ],
+        "name" : "entry",
+        "pages" : "$profile:main_pages",
+        "requestPermissions" : 
+        [
+            {
+                "name" : "ohos.permission.INTERNET",
+                "usedScene" : 
+                {
+                    "abilities" : 
+                    [
+                        "TuanjiePlayerAbility"
+                    ],
+                    "when" : "always"
+                }
+            },
+            {
+                "name" : "ohos.permission.ACCELEROMETER",
+                "usedScene" : 
+                {
+                    "abilities" : 
+                    [
+                        "TuanjiePlayerAbility"
+                    ],
+                    "when" : "always"
+                }
+            }
+        ],
+        "type" : "entry",
+        "virtualMachine" : "ark9.0.0.0"
+    }
+}

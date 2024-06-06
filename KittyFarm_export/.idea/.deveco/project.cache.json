@@ -1,0 +1,16 @@
+{
+	"BuildOptions":{
+		"BUNDLE_NAME":"com.PuppetStudio.KittyFarm",
+		"SELECT_BUILD_MODE":"",
+		"BUILD_PATH":{
+			"OUTPUT_PATH":"C:\\Users\\puppet\\Desktop\\KittyFarm\\build\\outputs\\default"
+		},
+		"SELECT_BUILD_PRODUCT":"default"
+	},
+	"CommonInfo":{
+		"crossplatform.projectType":"",
+		"project.ide.version":"4.0.0.600",
+		"current.select.product":"default",
+		"current.select.buildMode":""
+	}
+}

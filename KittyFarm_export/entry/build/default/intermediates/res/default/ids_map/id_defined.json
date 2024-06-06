@@ -1,0 +1,185 @@
+{
+    "record" : 
+    [
+        {
+            "id" : "0x01000000",
+            "name" : "app_name",
+            "type" : "string"
+        },
+        {
+            "id" : "0x01000001",
+            "name" : "app_icon",
+            "type" : "media"
+        },
+        {
+            "id" : "0x01000002",
+            "name" : "ShowStaticSplashScreen",
+            "type" : "integer"
+        },
+        {
+            "id" : "0x01000003",
+            "name" : "StaticSplashScreenFit",
+            "type" : "integer"
+        },
+        {
+            "id" : "0x01000004",
+            "name" : "EntryAbility_desc",
+            "type" : "string"
+        },
+        {
+            "id" : "0x01000005",
+            "name" : "EntryAbility_label",
+            "type" : "string"
+        },
+        {
+            "id" : "0x01000006",
+            "name" : "EntryFormAbility_desc",
+            "type" : "string"
+        },
+        {
+            "id" : "0x01000007",
+            "name" : "EntryFormAbility_label",
+            "type" : "string"
+        },
+        {
+            "id" : "0x01000008",
+            "name" : "card_title",
+            "type" : "string"
+        },
+        {
+            "id" : "0x01000009",
+            "name" : "introduction",
+            "type" : "string"
+        },
+        {
+            "id" : "0x0100000A",
+            "name" : "module_desc",
+            "type" : "string"
+        },
+        {
+            "id" : "0x0100000B",
+            "name" : "image_info_background",
+            "type" : "color"
+        },
+        {
+            "id" : "0x0100000C",
+            "name" : "information_title_font",
+            "type" : "color"
+        },
+        {
+            "id" : "0x0100000D",
+            "name" : "item_text_font",
+            "type" : "color"
+        },
+        {
+            "id" : "0x0100000E",
+            "name" : "start_window_background",
+            "type" : "color"
+        },
+        {
+            "id" : "0x0100000F",
+            "name" : "title_font",
+            "type" : "color"
+        },
+        {
+            "id" : "0x01000010",
+            "name" : "card_title_font_size",
+            "type" : "float"
+        },
+        {
+            "id" : "0x01000011",
+            "name" : "image_border_radius",
+            "type" : "float"
+        },
+        {
+            "id" : "0x01000012",
+            "name" : "image_margin_bottom",
+            "type" : "float"
+        },
+        {
+            "id" : "0x01000013",
+            "name" : "info_column_height",
+            "type" : "float"
+        },
+        {
+            "id" : "0x01000014",
+            "name" : "info_column_padding",
+            "type" : "float"
+        },
+        {
+            "id" : "0x01000015",
+            "name" : "info_column_width",
+            "type" : "float"
+        },
+        {
+            "id" : "0x01000016",
+            "name" : "item_font_size",
+            "type" : "float"
+        },
+        {
+            "id" : "0x01000017",
+            "name" : "item_margin_top",
+            "type" : "float"
+        },
+        {
+            "id" : "0x01000018",
+            "name" : "maximum_padding",
+            "type" : "float"
+        },
+        {
+            "id" : "0x01000019",
+            "name" : "1",
+            "type" : "media"
+        },
+        {
+            "id" : "0x0100001A",
+            "name" : "2",
+            "type" : "media"
+        },
+        {
+            "id" : "0x0100001B",
+            "name" : "3",
+            "type" : "media"
+        },
+        {
+            "id" : "0x0100001C",
+            "name" : "4",
+            "type" : "media"
+        },
+        {
+            "id" : "0x0100001D",
+            "name" : "5",
+            "type" : "media"
+        },
+        {
+            "id" : "0x0100001E",
+            "name" : "app_splash",
+            "type" : "media"
+        },
+        {
+            "id" : "0x0100001F",
+            "name" : "coin",
+            "type" : "media"
+        },
+        {
+            "id" : "0x01000020",
+            "name" : "ic_widget",
+            "type" : "media"
+        },
+        {
+            "id" : "0x01000021",
+            "name" : "icon",
+            "type" : "media"
+        },
+        {
+            "id" : "0x01000022",
+            "name" : "form_config",
+            "type" : "profile"
+        },
+        {
+            "id" : "0x01000023",
+            "name" : "main_pages",
+            "type" : "profile"
+        }
+    ]
+}
