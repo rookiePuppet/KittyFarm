@@ -85,8 +85,8 @@ namespace KittyFarm.Data
 
         private void HandleOpenHarmonyData()
         {
-            var ohData = new OpenHarmonyJSObject("OHData");
-            ohData.Call("saveCoins", playerData.Coins);
+            // var ohData = new OpenHarmonyJSObject("OHData");
+            // ohData.Call("saveCoins", playerData.Coins);
         }
     }
 }
